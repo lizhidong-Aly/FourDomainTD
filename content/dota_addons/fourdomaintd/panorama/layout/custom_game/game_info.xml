@@ -1,0 +1,63 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/dotastyles.css" />
+		<include src="file://{resources}/styles/custom_game/game_info.css"	/>
+		<include src="file://{resources}/styles/custom_game/BUI.css"	/>
+	</styles>
+	
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/game_info.js" />
+	</scripts>
+        <Panel hittest="false">
+        	<Button  class="ButtonStyle" id="InfoButton" onactivate="ShowInfoPanel()">
+				<Label class="defaultstyle" id="InfoButtonLabel" text="#help"/>
+			</Button>
+        	<Panel id="Main">
+        		<Button class="ButtonStyle" id="InfoMainButton" onactivate="ShowContextPanel('InfoMain')">
+					<Label class="defaultstyle Focus" text="#info_main"/>
+				</Button>
+				<Button class="ButtonStyle" id="InfoMergeButton"  onactivate="ShowContextPanel('InfoMerge')">
+					<Label class="defaultstyle" text="#info_merge"/>
+				</Button>
+				<Button class="ButtonStyle Hidden" id="InfoRestButton"  onactivate="ShowContextPanel('InfoRest')">
+					<Label class="defaultstyle" text="#info_rest"/>
+				</Button>
+
+        		<Panel class="ContextPanel Show" id="InfoMain">
+        			<Label  class="TextStyle" html="true" id="InfoMainContext"/>
+	        	</Panel>
+
+	        	<Panel class="ContextPanel" id="InfoMerge">
+	        		<Label  class="TextStyle" html="true" id="MergeListLabel" text=""/>
+	        		<Button	class="subbutton" id="ST01L21" onmouseover="ShowToolTip('ST01L21')"	onmouseout="HideTowerDes()">
+						<DOTAHeroImage heroname="npc_dota_hero_sniper" heroimagestyle="landscape" />
+						<Label class="disable enable" />
+					</Button>
+					<Button	class="subbutton" id="ST01L11" onmouseover="ShowToolTip('ST01L11')"	onmouseout="HideTowerDes()">
+						<DOTAHeroImage heroname="npc_dota_hero_sniper" heroimagestyle="landscape" />
+						<Label class="disable enable" />
+					</Button>
+	        		<Button	class="subbutton" id="ET12L11" onmouseover="ShowToolTip('ET12L11')"	onmouseout="HideTowerDes()">
+						<DOTAHeroImage heroname="npc_dota_hero_sand_king" heroimagestyle="landscape" />
+						<Label class="disable enable" />
+					</Button>
+					<Button	class="subbutton" id="WT03L11" onmouseover="ShowToolTip('WT03L11')"	onmouseout="HideTowerDes()">
+						<DOTAHeroImage heroname="npc_dota_hero_medusa" heroimagestyle="landscape" />
+						<Label class="disable enable" />
+					</Button>
+					<Button	class="subbutton" id="FT03L11" onmouseover="ShowToolTip('FT03L11')"	onmouseout="HideTowerDes()">
+						<DOTAHeroImage heroname="npc_dota_hero_warlock" heroimagestyle="landscape" />
+						<Label class="disable enable" />
+					</Button>
+					<Button	class="subbutton" id="AT12L11" onmouseover="ShowToolTip('AT12L11')"	onmouseout="HideTowerDes()">
+						<DOTAHeroImage heroname="npc_dota_hero_storm_spirit" heroimagestyle="landscape" />
+						<Label class="disable enable" />
+					</Button>
+	        	</Panel>
+
+	        	<Panel class="ContextPanel" id="InfoRest">
+	        		<Label  text="#info_rest"/>
+	        	</Panel>
+	        </Panel>
+        </Panel>
+</root>

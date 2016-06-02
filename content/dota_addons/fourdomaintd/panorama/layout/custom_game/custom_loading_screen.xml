@@ -1,0 +1,9 @@
+<root>
+	<!-- Builtin DOTA loading background -->
+	<styles>
+		<include src="file://{resources}/styles/custom_game/custom_loading_screen.css" />
+	</styles>
+	<Panel>
+		<Image id="ix" class="imageSize" src="file://{resources}/images/custom_game/loadingscreen.jpg"/>
+	</Panel>
+</root>

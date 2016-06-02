@@ -1,0 +1,40 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/dotastyles.css" />
+		<include src="file://{resources}/styles/custom_game/difficulty.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/difficulty.js" />
+	</scripts>
+	<Panel hittest="false" class="DifficultySelect">
+		<Panel hittest="false" id="DifficultySelectContainer" selectionpos="auto">`
+			<!--Empty space to let the loading screen and chat be visible-->
+			<Panel hittest="false" id="DifficultySelectEmptySpace" />
+			<Panel class="DiffDesPanel Hidden" id="DesContent">
+						<Label class="defultStyle" id="DiffDes" text="" />
+			</Panel>
+			<!--Teams List, left hand panel-->
+			<Panel id="DifficultyList" >
+				<Panel id="DifficultyListGroup" >
+					<Panel id="Description">
+						<Label class="defultStyle" id="DescriptionLabel" text="#votedesc" />
+					</Panel>
+					<Panel id="DifficultyListHeader">
+						<Label class="defultStyle" id="DifficultyListHeaderLabel" text="#diffchoise" />
+					</Panel>
+					<Panel id="Difficulty">
+					<RadioButton class="defultStyle" checked="true" group="Dif" id="Normal" text="#normal" onactivate="SelectDiff(0)" onmouseover="ShowToolTip(0)" onmouseout="HideToolTip()"/>
+					<RadioButton class="defultStyle" group="Dif" id="Hard" text="#hard" onactivate="SelectDiff(1)" onmouseover="ShowToolTip(1)" onmouseout="HideToolTip()"/>
+					<RadioButton class="defultStyle" group="Dif" id="Hell" text="#vhard" onactivate="SelectDiff(2)" onmouseover="ShowToolTip(2)" onmouseout="HideToolTip()"/>
+					</Panel>
+					<Panel id="CurrentDifficultyPanel">
+						<Label class="defultStyle" id="CurrentDifficultyLabel" text="#currdiff" />
+						<Label class="defultStyle" id="CurrentDifficulty" text="#normal" />
+					</Panel>
+				</Panel>
+			</Panel>
+		</Panel>
+	</Panel>
+</root>
+
+	

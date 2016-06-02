@@ -1,0 +1,39 @@
+<root>
+
+	<styles>
+		<include src="file://{resources}/styles/dotastyles.css" />
+		<include src="file://{resources}/styles/custom_game/DomainSelection.css"	/>
+	</styles>
+	
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/DomainSelection.js" />
+	</scripts>
+	
+		<Panel hittest="false">
+			<Panel id="Main">
+				<Label id="DSdes" text="#SelectionDes" html="true"/>
+				<Panel id="ButtonPanel">
+					<Button	class="button" id="Earth"  onactivate="SelectionDomain('Earth')" onmouseover="ShowToolTip('Earth')" onmouseout="HideToolTip()">
+						<DOTAAbilityImage abilityname="earth_spirit_boulder_smash"/>
+						<Label class="disable enable" />
+					</Button>
+					<Button	class="button" id="Water" onactivate="SelectionDomain('Water')" onmouseover="ShowToolTip('Water')" onmouseout="HideToolTip()">
+						<DOTAAbilityImage abilityname="invoker_quas"/>
+						<Label class="disable enable" />
+					</Button>
+					
+					<Button	class="button" id="Fire"  onactivate="SelectionDomain('Fire')" onmouseover="ShowToolTip('Fire')" onmouseout="HideToolTip()">
+						<DOTAAbilityImage abilityname="invoker_exort"/>
+						<Label class="disable enable" />
+					</Button>
+					<Button	class="button" id="Air" onactivate="SelectionDomain('Air')" onmouseover="ShowToolTip('Air')" onmouseout="HideToolTip()">
+						<DOTAAbilityImage abilityname="skywrath_mage_concussive_shot"/>
+						<Label class="disable enable" />
+					</Button>
+				</Panel>
+					<Button	class="button Hidden hover" id="Close" onactivate="CloseSelectionPanel()">
+						<Label id="closeLabel" text="#close" html="true"/>
+					</Button>
+			</Panel>
+		</Panel>
+</root>

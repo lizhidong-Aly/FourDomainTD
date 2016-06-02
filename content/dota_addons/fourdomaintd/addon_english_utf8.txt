@@ -1,0 +1,826 @@
+﻿"lang"
+{
+"Language"		"English"
+"Tokens"
+{
+"addon_game_name"	"FourDomainTD"
+
+
+"votedesc"			"Voting for Difficulty.\nIf its 2-2, then the difficulty will be the easier one.\nThe default difficulty is Normal"
+"diffchoise"		"Difficulty:"
+"normal"			"Normal"
+"hard"				"Hard"
+"vhard"				"Hell"
+"currdiff"			"Current Difficulty:"
+"normaldesc"		"No extra attribute bonus for creeps.\nSell Tower refund 100% of total build cost."
+"harddesc"			"Creeps get extra attribute：\nExtra 30% HP.\nSell Tower refund 90% of total build cost."
+"vharddesc"			"Creeps get extra attribute：\nExtra 30% HP.\nEarth-Buttom Left：Reduce all damage taken by 15%\nWater-Top Right：10% of max hp regen per sec\nFire-Buttom Right：30% of extra move speed\nAir-Top Left：15% chance of evasion\nSell Tower refund 60% of total build cost."
+
+"help"				"Help"
+"info_main"			"MapInfo"
+"info_merge"		"MergeList"
+"info_rest"			"Rest"
+
+"author"			"Creater:TriPolar"
+"version"			"Version: v0.665"
+"intro"				"Four Domain TD is a traditional tower defence gmae. You need to build different type of tower to defend the enemy incoming. You will get 1 Element Essence at the end of each level. Use Element Essence to upgrade the tech to make your tower more powerful or unlock new typer of tower. Now there are totally 40 level you need to defend"
+"comm"				""
+
+"merge_intro"		"Merge System:<br>Some tower can merge with other tower to form a new tower that more powerful after ther reach the max level. The below is the list of tower than can merge currently:<br>"
+"MergeElement"		"<font color='#ADFF2F'>Merge From:</font>"
+
+"dmg"				"<br>Damage:"
+"attspe"			"<br>AttSpeed:"
+"range"				"<br>Range:"
+"dps"				"<br>DPS:"
+
+"BuildingMenu"									"Building Menu"
+"submenue" 										"Earth"
+"submenuw" 										"Water"
+"submenuf" 										"Fire"
+"submenua" 										"Air"
+
+"levelA"				  "Level 1"
+"levelB"				  "Level 2"
+"levelC"				  "Level 3"
+"levelS"				  "Special"
+
+"wrongposition"									"Can not Build On This Location"
+"notower"										"No Tower Built"
+"nogold"										"Not Enough Gold"	
+"maxlevel"										"Reached Max Lvl"
+"needunlock"									"Need to Unlock"
+"wrongspellpos"									"Can Not Cast On The Target Position"
+"notp"											"Not Enough Element Essence"
+"techpoint"										"Element Essence:"
+"goldgain"										"Proceed to next Level. You get<font color='#FFD700'>"
+"tpgain"										"Gold</font> and <font color='#ADFF2F'> 1 Element Essence</font>" 
+
+"Summon"	  "Summon "
+"TowerLocked" "<font color='#FF0000'>Need Unlock</font>"
+"TowerDesA"   "<font color='#ADFF2F'>Attribute:			</font>"
+"E"			  "<font color='#D2B48C'>Earth</font>"
+"W"			  "<font color='#87CEFA'>Water</font>"
+"F"			  "<font color='#EE4000'>Fire</font>"
+"A"			  "<font color='#E0FFFF'>Air</font>"
+"I"			  "<font color='#1E90FF'>Ice</font>"
+"L"			  "<font color='#9F79EE'>Thunder</font>"
+"S"			  "<font color='#DBDBDB'>Space</font>"
+"N"			  "<font color='#CDCDC1'>None</font>"
+
+"TowerDesB"   "<br><font color='#ADFF2F'>BuildCost:			</font>"
+"TowerDesC"   "<br><font color='#ADFF2F'>Damage:				</font>"
+"TowerDesD"   "<br><font color='#ADFF2F'>AttackSpeed:		</font>"
+"TowerDesE"   "<br><font color='#ADFF2F'>Range:				</font>"
+"TowerDesF"   "<br><font color='#ADFF2F'>Ability:			</font>"
+"TowerDesG"   "<br><font color='#ADFF2F'>Effect:			</font>"
+
+"MergeList"		"<br>Can merge with the towers below:"
+"Merge"			"Merge"
+"MergeTo"		"Merge to "
+"MergeDes"		"Merge with another tower to form a new tower."
+"MergeWarning"	"<br><font color='#FF0000'>Warning:Tower merged can not be sold	</font>"
+"MergeDesA"		"<br><font color='#ADFF2F'>Merge Cost:					</font>"
+"CanNotMerge"	"Can not merge with this unit"
+
+"magicresi"   "%MagicalResistance"
+"magicimue"	  "MagicalImmune"
+"movespe"	  "MoveMentSpeed"
+"amount"	  "Amount:"
+"UnitEscaped" "The fountain has been contaminated by : "
+
+"ST01L01"	  "Sniper LV1"
+"ST01L02"	  "Sniper LV2"
+"ST01L03"	  "Sniper LV3"
+"ST01L11"	  "Dragon Fire Shooter"
+"ST01L21"	  "Hill Lurker"
+"ST02L01"     "Grave Robber LV1"
+"ST02L02"     "Grave Robber LV2"
+"ST02L03"     "Grave Robber LV3"
+"ST11L01"	  "Element Core-Earth LV1"
+"ST11L02"	  "Element Core-Earth LV2"
+"ST11L03"	  "Element Core-Earth LV3"
+"ST12L01"	  "Element Core-Ice LV1"
+"ST12L02"	  "Element Core-Ice LV2"
+"ST12L03"	  "Element Core-Ice LV3"
+"ST13L01"	  "Element Core-Flame LV1"
+"ST13L02"	  "Element Core-Flame LV2"
+"ST13L03"	  "Element Core-Flame LV3"
+"ST14L01"	  "Element Core-Ligntning LV1"
+"ST14L02"	  "Element Core-Ligntning LV2"
+"ST14L03"	  "Element Core-Ligntning LV3"
+
+
+
+
+"ET01L01"     "Earth God LV1"
+"ET01L02"     "Earth God LV2"
+"ET01L03"     "Earth God LV3"
+"ET02L01"     "Elder Titan LV1"
+"ET02L02"     "Elder Titan LV2"
+"ET03L03"     "Elder Titan LV3"
+"ET03L01"     "Ogre Magi LV1"
+"ET03L02"     "Ogre Magi LV2"
+"ET03L03"     "Ogre Magi LV3"
+"ET11L01"     "Earth Protector LV1"
+"ET11L02"     "Earth Protector LV2"
+"ET11L03"     "Earth Protector LV3"
+"ET12L01"	  "Sand King LV1"
+"ET12L02"	  "Sand King LV2"
+"ET12L03"	  "Sand King LV3"
+"ET12L11"	  "Lord of the Forbidden Sands"
+"ET13L01"	  "Beast Master LV1"
+"ET13L02"	  "Beast Master LV2"
+"ET13L03"	  "Beast Master LV3"
+"ET21L01"     "Enigma LV1"
+"ET21L02"     "Enigma LV2"
+"ET21L03"     "Enigma LV3" 
+
+
+"WT01L01"     "Bone Chiller LV1"
+"WT01L02"     "Bone Chiller LV2"
+"WT01L03"     "Bone Chiller LV3"
+"WT02L01"     "Aquatic Beast LV1"
+"WT02L02"     "Aquatic Beast LV2"
+"WT02L03"     "Aquatic Beast LV3"
+"WT03L01"     "Medusa LV1"
+"WT03L02"     "Medusa LV2"
+"WT03L03"     "Medusa LV3"
+"WT03L11"	  "Medusa with Forest Eye"
+"WT11L01"     "Pain God LV1"
+"WT11L02"     "Pain God LV2"
+"WT11L03"     "Pain God LV3"
+"WT13L01"     "Tusk LV1"
+"WT13L02"     "Tusk LV2"
+"WT13L03"     "Tusk LV3"
+
+"WT21L01"     "Lich LV1"
+"WT21L02"     "Lich LV2"
+"WT21L03"     "Lich LV3"
+
+"FT01L01"     "Burning Swordsman LV1"
+"FT01L02"     "Burning Swordsman LV2"
+"FT01L03"     "Burning Swordsman LV3"
+"FT02L01"     "Solar Inferno LV1"
+"FT02L02"     "Solar Inferno LV2"
+"FT02L03"     "Solar Inferno Lv3"
+"FT03L01"     "WarLock LV1"
+"FT03L02"     "WarLock LV2"
+"FT03L03"     "WarLock LV3"
+"FT03L11"     "WarLock of Sun Fire"
+"fire_dummy_1"	"Fire Dummy LV1"
+"fire_dummy_2"	"Fire Dummy  LV2"
+"fire_dummy_3"	"Fire Dummy  LV3"
+"fire_dummy_4"	"Phoenix Spirit"
+"FT11L01"     "Flaming Assistant LV1"
+"FT11L02"     "Flaming Assistant LV2"
+"FT11L03"     "Flaming Assistant LV3"
+"FT12L01"     "Huskar LV1"
+"FT12L02"     "Huskar LV2"
+"FT12L03"     "Huskar LV3"
+"FT13L01"     "Juggernaut LV1"
+"FT13L02"     "Juggernaut LV2"
+"FT13L03"     "Juggernaut LV3"
+
+
+"AT01L01"     "Demon of the Air LV1"
+"AT01L02"     "Demon of the Air LV2"
+"AT01L03"     "Demon of the Air LV3"
+"AT02L01"     "Queen Of Sound LV1"
+"AT02L02"     "Queen Of Sound LV2"
+"AT02L03"     "Queen Of Sound LV3"
+"AT03L01"     "Razor LV1"
+"AT03L02"     "Razor LV2"
+"AT03L03"     "Razor LV3"
+"AT11L01"     "Air Angel LV1"
+"AT11L02"     "Air Angel LV2"
+"AT11L03"     "Air Angel LV3"
+"AT12L01"     "Storm Spirit LV1"
+"AT12L02"     "Storm Spirit LV2"
+"AT12L03"     "Storm Spirit LV3"
+"AT12L11"     "Crimson Storm Spirit"
+"AT13L01"     "Zuus LV1"
+"AT13L02"     "Zuus LV2"
+"AT13L03"     "Zuus LV3"
+
+
+"DOTA_Tooltip_ability_none_a"														"Four Domain TD"
+"DOTA_Tooltip_ability_none_a_Description"											""
+"DOTA_Tooltip_ability_none_a_Lore"													""
+"DOTA_Tooltip_ability_none_b"														"Four Domain TD"
+"DOTA_Tooltip_ability_none_b_Description"											""
+"DOTA_Tooltip_ability_none_b_Lore"													""
+"DOTA_Tooltip_ability_none_c"														"Four Domain TD"
+"DOTA_Tooltip_ability_none_c_Description"											""
+"DOTA_Tooltip_ability_none_c_Lore"													""
+"DOTA_Tooltip_ability_none_d"														"Four Domain TD"
+"DOTA_Tooltip_ability_none_d_Description"											""
+"DOTA_Tooltip_ability_none_d_Lore"													""
+"DOTA_Tooltip_ability_none_e"														"四域TD"
+"DOTA_Tooltip_ability_none_f"														"四域TD"
+
+
+"DOTA_Tooltip_ability_OpenBuildingMenu"									"Open Building Menu"
+"DOTA_Tooltip_ability_OpenBuildingMenu_Description"						""
+"DOTA_Tooltip_ability_OpenBuildingMenu_Lore"							"All start from this"
+
+"DOTA_Tooltip_ability_OpenTechMenu"										"Open Tech Menu"
+"DOTA_Tooltip_ability_OpenTechMenu_Description"							""
+"DOTA_Tooltip_ability_OpenTechMenu_Lore"								""
+
+
+"DOTA_Tooltip_ability_SelectPosition"									"Rebuild"
+"DOTA_Tooltip_ability_SelectPosition_Description"						"Rebuild the last building built"
+"DOTA_Tooltip_ability_SelectPosition_Lore"								""
+	
+"DOTA_Tooltip_ability_Upgrade"											"Upgrade"
+"DOTA_Tooltip_ability_Upgrade_Description"								"Spend Gold to Upgrade"
+"DOTA_Tooltip_ability_Upgrade_Lore"										""
+
+"DOTA_Tooltip_ability_BuildTower"															"Summoning"
+"DOTA_Tooltip_ability_BuildTower_Description"												"Press S to cannel the summoning"
+"DOTA_Tooltip_ability_BuildTower_Lore"														""
+
+
+
+"DOTA_Tooltip_ability_SellTower"										"Sell Tower"
+"DOTA_Tooltip_ability_SellTower_Description"							"Sell Tower after 1 sec, refund based on the difficulty.\nNormal:100%%\nHard:90%%\nHell:60%%"
+"DOTA_Tooltip_ability_SellTower_Lore"									""
+
+
+
+"DOTA_Tooltip_ability_absolute_zero"														"Frozen"
+"DOTA_Tooltip_ability_absolute_zero_Description"											"Freeze all enemy in radius,make them unable to move"
+"DOTA_Tooltip_ability_absolute_zero_Lore"													""
+"DOTA_Tooltip_ability_absolute_zero_radius"       											"Radius:"
+"DOTA_Tooltip_ability_absolute_zero_duration"                								"Duration:"
+
+"DOTA_Tooltip_modifier_absolute_zero_buff"  												"Frozen"
+"DOTA_Tooltip_modifier_absolute_zero_buff_Description"  									"Unable to move"
+
+
+"DOTA_Tooltip_ability_burnning_blood"														"Burnning Blood"
+"DOTA_Tooltip_ability_burnning_blood_Description"											"Increase attack speed of all allies in area"
+"DOTA_Tooltip_ability_burnning_blood_Lore"													""
+"DOTA_Tooltip_ability_burnning_blood_attspe"       											"Attack Speed Bouns:"
+"DOTA_Tooltip_ability_burnning_blood_duration"                								"Duration:"
+
+"DOTA_Tooltip_modifier_burnning_blood_buff"  												"Burning"
+"DOTA_Tooltip_modifier_burnning_blood_buff_Description"  									"Increase attack speed"
+
+"DOTA_Tooltip_ability_time_stop"														"Time Stop"
+"DOTA_Tooltip_ability_time_stop_Description"											"Pacuse the wave"
+"DOTA_Tooltip_ability_time_stop_Lore"													""
+"DOTA_Tooltip_ability_time_stop_duration"                								"Duration:"
+
+"DOTA_Tooltip_modifier_time_stop_tooltip"  												"Time Stop"
+"DOTA_Tooltip_modifier_time_stop_tooltip_Description"  									"Time Stop"
+
+
+
+"DOTA_Tooltip_ability_recovery"														"Recovery"
+"DOTA_Tooltip_ability_recovery_Description"											"Heal the Fountain.Resotre its HP"
+"DOTA_Tooltip_ability_recovery_Lore"													""
+"DOTA_Tooltip_ability_recovery_hpreg"                								"HP Heal:"
+
+"DOTA_Tooltip_ability_invulnerable"														"Mist Shield"
+"DOTA_Tooltip_ability_invulnerable_Description"											"Summon Shield to protech the Fountain.Make it invulnerable and unable to be contaminated"
+"DOTA_Tooltip_ability_invulnerable_Lore"													""
+"DOTA_Tooltip_ability_invulnerable_duration"                								"Duration:"
+
+
+
+"DOTA_Tooltip_ability_head_shoot"														"Head Shoot"
+"DOTA_Tooltip_ability_head_shoot_Description"											"Normal Attack have chance to deal damage and stun the target"
+"DOTA_Tooltip_ability_head_shoot_Lore"													""
+"DOTA_Tooltip_ability_head_shoot_chance"       											"%Chance:"
+"DOTA_Tooltip_ability_head_shoot_duration"                								"Stun:"
+
+"DOTA_Tooltip_ability_dragon_breath"														"Dragon Breath"
+"DOTA_Tooltip_ability_dragon_breath_Description"											"Increase the attack speed to maximum"
+"DOTA_Tooltip_ability_dragon_breath_Lore"													""
+
+"DOTA_Tooltip_ability_earth_shot"														"Earth Shoot"
+"DOTA_Tooltip_ability_earth_shot_Description"											"Normal Attack will deal damage and stun to the target and all enemy around"
+"DOTA_Tooltip_ability_earth_shot_Lore"													""
+"DOTA_Tooltip_ability_earth_shot_radius"       											"Radius:"
+"DOTA_Tooltip_ability_earth_shot_stun"                									"Stun:"
+
+
+"DOTA_Tooltip_ability_earth_core_aura"														"Element Core-Earth"
+"DOTA_Tooltip_ability_earth_core_aura_Description"											"Increase the attack damage of allies around"
+"DOTA_Tooltip_ability_earth_core_aura_Lore"													"Turn off/on the aura to refresh the aura effect"
+"DOTA_Tooltip_ability_earth_core_aura_dmginc"       										"%Damage Bouns:"
+"DOTA_Tooltip_ability_earth_core_aura_radius"                								"Radius:"
+
+"DOTA_Tooltip_modifier_earth_core_aura_buff"  												"Element Core-Earth"
+"DOTA_Tooltip_modifier_earth_core_aura_buff_Description"  									"Increase %dMODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE%%% Damage"
+
+"DOTA_Tooltip_ability_earth_core_overload"														"Core Overload-Earth"
+"DOTA_Tooltip_ability_earth_core_overload_Description"											"Make the core overload to release a great power.Increase the attack damage of allies around significantly.\nWarning:This will destory the core completely!!!!"
+"DOTA_Tooltip_ability_earth_core_overload_Lore"													""
+"DOTA_Tooltip_ability_earth_core_overload_dmginc"       										"%Damage Bouns:"
+"DOTA_Tooltip_ability_earth_core_overload_duration"       										"Duration:"
+"DOTA_Tooltip_ability_earth_core_overload_radius"                								"Radius:"
+
+"DOTA_Tooltip_modifier_earth_core_overload_buff"  												"Core Overload-Earth"
+"DOTA_Tooltip_modifier_earth_core_overload_buff_Description"  									"提高%dMODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE%%%的攻击力"
+
+
+"DOTA_Tooltip_ability_water_core_aura"														"Element Core-Ice"
+"DOTA_Tooltip_ability_water_core_aura_Description"											"Decrease the movement speed of enemy around. Ignore Magic Immunity"
+"DOTA_Tooltip_ability_water_core_aura_Lore"													"Turn off/on the aura to refresh the aura effect"
+"DOTA_Tooltip_ability_water_core_aura_slowdown"       										"%Slowdown:"
+"DOTA_Tooltip_ability_water_core_aura_radius"                								"Radius:"
+
+"DOTA_Tooltip_modifier_water_core_aura_debuff"  											"Element Core-Ice"
+"DOTA_Tooltip_modifier_water_core_aura_debuff_Description"  								"Decrease %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% movement speed"
+
+"DOTA_Tooltip_ability_water_core_overload"														"Core Overload-Ice"
+"DOTA_Tooltip_ability_water_core_overload_Description"											"Make the core overload to release a great power.Make all enemy around freeze and unable to move.\nWarning:This will destory the core completely!!!!"
+"DOTA_Tooltip_ability_water_core_overload_Lore"													""
+"DOTA_Tooltip_ability_water_core_overload_duration"       										"Duration:"
+"DOTA_Tooltip_ability_water_core_overload_radius"                								"Radius:"
+
+"DOTA_Tooltip_modifier_water_core_overload_buff"  												"Core Overload-Ice"
+"DOTA_Tooltip_modifier_water_core_overload_buff_Description"  									"Unable to move"
+
+
+
+
+"DOTA_Tooltip_ability_fire_core_aura"														"Element Core-Flame"
+"DOTA_Tooltip_ability_fire_core_aura_Description"											"Increase the attack speed of allies around"
+"DOTA_Tooltip_ability_fire_core_aura_Lore"													"Turn off/on the aura to refresh the aura effect"
+"DOTA_Tooltip_ability_fire_core_aura_attspe"       											"Attack Speed Bouns:"
+"DOTA_Tooltip_ability_fire_core_aura_radius"                								"Radius:"
+
+"DOTA_Tooltip_modifier_fire_core_aura_buff"  												"Element Core-Flame"
+"DOTA_Tooltip_modifier_fire_core_aura_buff_Description"  									"Increase %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed"
+
+"DOTA_Tooltip_ability_fire_core_overload"														"Core Overload-Flame"
+"DOTA_Tooltip_ability_fire_core_overload_Description"											"Make the core overload to release a great power.Increase the attack speed of allies around significantly.\nWarning:This will destory the core completely!!!!"
+"DOTA_Tooltip_ability_fire_core_overload_Lore"													""
+"DOTA_Tooltip_ability_fire_core_overload_attspe"       											"Attack Speed Bouns:"
+"DOTA_Tooltip_ability_fire_core_overload_duration"       										"Duration:"
+"DOTA_Tooltip_ability_fire_core_overload_radius"                								"Radius:"
+
+"DOTA_Tooltip_modifier_fire_core_overload_buff"  												"Core Overload-Flame"
+"DOTA_Tooltip_modifier_fire_core_overload_buff_Description"  									"Increase %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed"
+
+
+
+
+"DOTA_Tooltip_ability_lightning_core_aura"													"Element Core-Lightning"
+"DOTA_Tooltip_ability_lightning_core_aura_Description"										"Randomly deal max-health-based damage to enemr around. PURE damage. Ignore Magic Immunity"
+"DOTA_Tooltip_ability_lightning_core_aura_Lore"												"Turn off/on the aura to refresh the aura effect"
+"DOTA_Tooltip_ability_lightning_core_aura_dmg"       										"%Damage:"
+"DOTA_Tooltip_ability_lightning_core_aura_radius"                							"Radius:"
+
+"DOTA_Tooltip_modifier_lightning_core_aura_debuff"  										"Element Core-Lightning"
+"DOTA_Tooltip_modifier_lightning_core_aura_debuff_Description"  							"Careful, Ligntning!!!"
+
+"DOTA_Tooltip_ability_lightning_core_overload"														"Core Overload-Lightning"
+"DOTA_Tooltip_ability_lightning_core_overload_Description"											"Make the core overload to release a great power.Create certain amount of Lightning that hit enemy around randomly and deal max-health-based damage.PURE damage. Ignore Magic Immunity.\nWarning:This will destory the core completely!!!!"
+"DOTA_Tooltip_ability_lightning_core_overload_Lore"													""
+"DOTA_Tooltip_ability_lightning_core_overload_dmg"       											"%Damage per Ligntning:"
+"DOTA_Tooltip_ability_lightning_core_overload_amount"       										"Amound:"
+"DOTA_Tooltip_ability_lightning_core_overload_radius"                								"Radius:"
+
+
+
+"DOTA_Tooltip_ability_splash_attack"									"Splash Attack"
+"DOTA_Tooltip_ability_splash_attack_Description"						"Deal cleave damage to the units around target."
+"DOTA_Tooltip_ability_splash_attack_Lore"								""
+"DOTA_Tooltip_ability_splash_attack_radius"       						"Radius:"
+
+
+"DOTA_Tooltip_ability_stun_hit"																"Stun Hit"
+"DOTA_Tooltip_ability_stun_hit_Description"													"Normal attack have chance to stun the target\n"
+"DOTA_Tooltip_ability_stun_hit_Lore"														""
+"DOTA_Tooltip_ability_stun_hit_chance"       												"%Change:"
+"DOTA_Tooltip_ability_stun_hit_duration"                									"Stun Duration："
+
+"DOTA_Tooltip_ability_earth_blessing"														"Power of Mountain"
+"DOTA_Tooltip_ability_earth_blessing_Description"											"Increase the attack damage\n"
+"DOTA_Tooltip_ability_earth_blessing_Lore"													""
+"DOTA_Tooltip_ability_earth_blessing_dmginc"       											"Damage Increase:"
+"DOTA_Tooltip_ability_earth_blessing_duration"                								"Duration："
+
+"DOTA_Tooltip_modifier_earth_blessing_buff"  												"Power of Mountain"
+"DOTA_Tooltip_modifier_earth_blessing_buff_Description"  									"Increase %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% attack damage"
+
+
+
+
+"DOTA_Tooltip_ability_brilliance_aura"									"Earth Energy"
+"DOTA_Tooltip_ability_brilliance_aura_Description"						"Increase the mana regeneration of allies.\n"
+"DOTA_Tooltip_ability_brilliance_aura_Lore"								"Turn on/off the aura to refresh the effect after upgrading"
+"DOTA_Tooltip_ability_brilliance_aura_radius"       					"Radius："
+"DOTA_Tooltip_ability_brilliance_aura_manaregen"                		"Manaregen increase："
+
+"DOTA_Tooltip_modifier_brilliance_aura_passive_buff"  					"Earth Energy"
+"DOTA_Tooltip_modifier_brilliance_aura_passive_buff_Description"  		"Increase mana regeneration speed %dMODIFIER_PROPERTY_MANA_REGENERATION_CONSTANT% per sec"
+
+"DOTA_Tooltip_ability_sandstorm"															"Sand Strom"
+"DOTA_Tooltip_ability_sandstorm_Description"												"Each hit have chance to deal damage and slowdown to the enemy around target in 400 radius.Slowdown effect last 5 sec.Ignore Magic Immunity\n"
+"DOTA_Tooltip_ability_sandstorm_Lore"														"Can be enhancd through -Sandlands of Infinity-"
+"DOTA_Tooltip_ability_sandstorm_chance"       												"%Chance:"
+"DOTA_Tooltip_ability_sandstorm_movdown"       												"%SlowDown："
+"DOTA_Tooltip_ability_sandstorm_dmg"                										"Damage："
+"DOTA_Tooltip_modifier_sandstorm_movdown"  													"Sand Strom"
+"DOTA_Tooltip_modifier_sandstorm_movdown_Description"  										"SlowDown by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%"
+
+"DOTA_Tooltip_ability_sandstorm_e"															"Sandlands of Infinity"
+"DOTA_Tooltip_ability_sandstorm_e_Description"												"Each hit hace chance to deal damage and slowdown to the enemy around target in 400 radius.Slowdown effect last 5 sec.Ignore Magic Immunity"
+"DOTA_Tooltip_ability_sandstorm_e_Lore"														"Enhancd, now the slowdown effect can stack"
+"DOTA_Tooltip_ability_sandstorm_e_chance"       												"%Chance:"
+"DOTA_Tooltip_ability_sandstorm_e_movdown"       											"%SlowDown："
+"DOTA_Tooltip_ability_sandstorm_e_dmg"                										"Damage："
+"DOTA_Tooltip_modifier_sandstorm_e_movdown"  												"Sand Strom"
+"DOTA_Tooltip_modifier_sandstorm_e_movdown_Description"  									"SlowDown by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%"
+
+
+
+"DOTA_Tooltip_ability_battle_cry"															"Battle Cry"
+"DOTA_Tooltip_ability_battle_cry_Description"												"Normal attack have chance to increase the attack damage of allies around.Can stack"
+"DOTA_Tooltip_ability_battle_cry_Lore"														""
+"DOTA_Tooltip_ability_battle_cry_dmginc"       												"%Damage Increase:"
+"DOTA_Tooltip_ability_battle_cry_radius"                									"Radius:"
+"DOTA_Tooltip_ability_battle_cry_chance"                									"%Chance:"
+"DOTA_Tooltip_ability_battle_cry_duration"                									"Duration:"
+"DOTA_Tooltip_ability_battle_cry_limit"                										"Stack Limit:"
+"DOTA_Tooltip_modifier_battle_cry_buff"  													"Battle Cry"
+"DOTA_Tooltip_modifier_battle_cry_buff_Description"  										"Increase %dMODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE%%% attack damage"
+
+
+
+
+"DOTA_Tooltip_ability_griavty_control"														"Gravity Control"
+"DOTA_Tooltip_ability_griavty_control_Description"											"Slowdown all enemy around Enigma。\n"
+"DOTA_Tooltip_ability_griavty_control_Lore"													"Can be enhancd through -Black Hole-"
+"DOTA_Tooltip_ability_griavty_control_slowdown"       										"%SlowDown："
+"DOTA_Tooltip_ability_griavty_control_radius"                								"Radius:"
+"DOTA_Tooltip_modifier_griavty_control_passive_buff"  										"Gravity"
+"DOTA_Tooltip_modifier_griavty_control_passive_buff_Description"  							"Slowdown %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%% "
+
+"DOTA_Tooltip_ability_griavty_control_e"													"Black Hole"
+"DOTA_Tooltip_ability_griavty_control_e_Description"										"Passive-Slowdown all enemy around Enigma.\nActive-Create a black hole at target position."
+"DOTA_Tooltip_ability_griavty_control_e_Lore"												"Enhancd"
+"DOTA_Tooltip_ability_griavty_control_e_slowdown"       									"%Slowdown："
+"DOTA_Tooltip_ability_griavty_control_e_radius"                								"Radius："
+"DOTA_Tooltip_ability_griavty_control_e_duration"       									"BlachHoleDuration："
+"DOTA_Tooltip_ability_griavty_control_e_blackholeradius"                					"BlachHoleRadius："
+"DOTA_Tooltip_modifier_griavty_control_e_passive_buff"  									"Gravity"
+"DOTA_Tooltip_modifier_griavty_control_e_passive_buff_Description"  						"Slowdown %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%"
+
+"DOTA_Tooltip_ability_booty_gold"										"Bounty"
+"DOTA_Tooltip_ability_booty_gold_Description"							"Every enermy killed will give you exrta gold bouns"
+"DOTA_Tooltip_ability_booty_gold_Lore"									""
+"DOTA_Tooltip_ability_booty_gold_bouns"       							"Gold Bunus:"
+
+"DOTA_Tooltip_modifier_extra_gold_count"  												"Extra Gold"
+"DOTA_Tooltip_modifier_extra_gold_count_Description"  									"Gained %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% extra gold"
+
+
+"DOTA_Tooltip_ability_luck_gold"										"Luck Hit"
+"DOTA_Tooltip_ability_luck_gold_Description"							"Every hit on enemy has a chance to get (CurrentLevel) extra gold"
+"DOTA_Tooltip_ability_luck_gold_Lore"									""
+"DOTA_Tooltip_ability_luck_gold_chance"       							"%Chance:"
+
+
+"DOTA_Tooltip_ability_frost_attack"															"Frost Attack"
+"DOTA_Tooltip_ability_frost_attack_Description"												"Normal Attack can slow down enemy."
+"DOTA_Tooltip_ability_frost_attack_duration"       											"Duration:"
+"DOTA_Tooltip_ability_frost_attack_slowdown"       											"%SlowDown:"
+"DOTA_Tooltip_ability_frost_attack_Lore"													""
+
+"DOTA_Tooltip_ability_erosion"											"Erosion"
+"DOTA_Tooltip_ability_erosion_Description"								"Reduce the armor of target，Can stack."
+"DOTA_Tooltip_ability_erosion_Lore"										" "
+"DOTA_Tooltip_ability_erosion_duration"       							"Duration:"
+"DOTA_Tooltip_ability_erosion_amordown"           						"Armor Down:"
+"DOTA_Tooltip_ability_erosion_limit"           							"Stack Limit:"
+
+
+
+"DOTA_Tooltip_ability_water_mark"															"Mark of Water"
+"DOTA_Tooltip_ability_water_mark_Description"												"Add a buff to the target. All (Attribute-Water) Tower's attack will increase the stack count of the buff.refresht its duration and deal (Stack Count x Damage coefficient) damage."
+"DOTA_Tooltip_ability_water_mark_dmg"       												"Damage coefficient:"
+"DOTA_Tooltip_ability_water_mark_duration"       											"Duration:"
+"DOTA_Tooltip_ability_water_mark_Lore"														"Upgrade or Sell this tower will remove the buff.\nCan be enhancd through -Mark of Ocean-"
+
+"DOTA_Tooltip_ability_water_mark_e"															"Mark of Ocean"
+"DOTA_Tooltip_ability_water_mark_e_Description"												"Add a buff to the target. All (Attribute-Water) Tower's attack will increase the stack count of the buff, refresht its duration and deal (Stack Count x Damage coefficient) damage."
+"DOTA_Tooltip_ability_water_mark_e_dmg"       												"Damage coefficient:"
+"DOTA_Tooltip_ability_water_mark_e_duration"       											"Duration:"
+"DOTA_Tooltip_ability_water_mark_e_Lore"													"Upgrade or Sell this tower will remove the buff.\nEnhanced"
+
+"DOTA_Tooltip_modifier_water_mark_buff"  													"Mark of Water"
+"DOTA_Tooltip_modifier_water_mark_buff_Description"  										"All (Attribute-Water) Tower's attack can deal extra damage to this unit."
+
+
+"DOTA_Tooltip_ability_ice_mark"																"Mark of Forest"
+"DOTA_Tooltip_ability_ice_mark_Description"													"Add a buff to the target. All (Attribute-Ice) Tower's attack will increase the stack count of the buff and refresht its duration. The buff will slowdown the unit by (Stack Count x Slowdown coefficient)%."
+"DOTA_Tooltip_ability_ice_mark_movdown"       												"Slowdown coefficient:"
+"DOTA_Tooltip_ability_ice_mark_duration"       												"Duration:"
+"DOTA_Tooltip_ability_ice_mark_Lore"														"Can be enhancd through -Soul Forest-"
+
+
+"DOTA_Tooltip_ability_ice_mark_e"															"Mark of Forest"
+"DOTA_Tooltip_ability_ice_mark_e_Description"												"Add a buff to the target. All (Attribute-Ice) Tower's attack will increase the stack count of the buff and refresht its duration. The buff will slowdown the unit by (Stack Count x Slowdown coefficient)%."
+"DOTA_Tooltip_ability_ice_mark_e_movdown"       											"Slowdown coefficient:"
+"DOTA_Tooltip_ability_ice_mark_e_duration"       											"Duration:"
+"DOTA_Tooltip_ability_ice_mark_e_Lore"														"Enhancd"
+
+"DOTA_Tooltip_modifier_ice_mark_buff"  														"Mark of Forest"
+"DOTA_Tooltip_modifier_ice_mark_buff_Description"  											"All (Attribute-Ice) Tower's attack can slowdown this unit."
+
+"DOTA_Tooltip_ability_ice_nova"																"Forest Nova"
+"DOTA_Tooltip_ability_ice_nova_Description"													"Deal damage and slowdown the target and enemy around it."
+"DOTA_Tooltip_ability_ice_nova_radius"       												"Radius:"
+"DOTA_Tooltip_ability_ice_nova_slow_movement_speed"       									"%SlowDown:"
+"DOTA_Tooltip_ability_ice_nova_Lore"														""
+
+"DOTA_Tooltip_ability_frost_curse_field"													"Frost Curse Field"
+"DOTA_Tooltip_ability_frost_curse_field_Description"										"Increase the damage taken by enemy units."
+"DOTA_Tooltip_ability_frost_curse_field_radius"       										"Radius:"
+"DOTA_Tooltip_ability_frost_curse_field_dmginc"       										"%Damage Increase:"
+"DOTA_Tooltip_ability_frost_curse_fieldLore"												""
+
+"DOTA_Tooltip_modifier_frost_curse_field_passive_buff"  				"Frost Curse Field"
+"DOTA_Tooltip_modifier_frost_curse_field_passive_buff_Description"  	"Increase %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% damage"
+
+"DOTA_Tooltip_ability_split_shot"																"Split Shot"
+"DOTA_Tooltip_ability_split_shot_Description"													"Attack all enemy around self"
+"DOTA_Tooltip_ability_split_shot_Lore"															""
+
+"DOTA_Tooltip_ability_frost_nova_attack_passive"																"Forest Nova"
+"DOTA_Tooltip_ability_frost_nova_attack_passive_Description"													"Normal attack have chance to deal damage to and slowdown the target and enemy arount it"
+"DOTA_Tooltip_ability_frost_nova_attack_passive_radius"       												"Radius:"
+"DOTA_Tooltip_ability_frost_nova_attack_passive_chance"       												"%Chance:"
+"DOTA_Tooltip_ability_frost_nova_attack_passive_slow_movement_speed"       									"%Slowdown:"
+"DOTA_Tooltip_ability_frost_nova_attack_passive_Lore"														""
+
+
+"DOTA_Tooltip_ability_life_ritual"																"Death Ritual"
+"DOTA_Tooltip_ability_life_ritual_Description"													"Deal max-health-based PRUE damage and stun to the target. Ignore MagicalImmune. Also have chance to get 1 Element Essence"
+"DOTA_Tooltip_ability_life_ritual_dmg"       												"%Damage:"
+"DOTA_Tooltip_ability_life_ritual_chance"       												"%Chance:"
+"DOTA_Tooltip_ability_life_ritual_mini_stun"       									"Stun:"
+"DOTA_Tooltip_ability_life_ritual_Lore"														""
+
+
+
+
+"DOTA_Tooltip_ability_critical_hit"										"Flame Hit"
+"DOTA_Tooltip_ability_critical_hit_Description"							"Has a chance to deal extra damage to enemy unit."
+"DOTA_Tooltip_ability_critical_hit_Lore"								" "
+"DOTA_Tooltip_ability_critical_hit_dc"       							"%Mutip:"
+"DOTA_Tooltip_ability_critical_hit_chance"           					"%Chance:"
+
+"DOTA_Tooltip_ability_sunfire"											"Sun Fire"
+"DOTA_Tooltip_ability_sunfire_Description"								"Deals damage to all enemies around 900 radius."
+"DOTA_Tooltip_ability_sunfire_Lore"										" "
+"DOTA_Tooltip_ability_sunfire_dmgps"       								"Damage Per Sec:"
+
+"DOTA_Tooltip_ability_sunfire_e"															"Sun Fire"
+"DOTA_Tooltip_ability_sunfire_e_Description"												"Deals PURE damage to all enemies around 900 radius"
+"DOTA_Tooltip_ability_sunfire_e_Lore"														""
+"DOTA_Tooltip_ability_sunfire_e_dmgps"       												"Damage Per Sec:"
+
+
+
+
+"DOTA_Tooltip_ability_flame_blood"										"Flame Blood"
+"DOTA_Tooltip_ability_flame_blood_Description"							"Increase the attack speed last 25 sec."
+"DOTA_Tooltip_ability_flame_blood_Lore"									" "
+"DOTA_Tooltip_ability_flame_blood_bonus_attack_speed"       			"Increase:"
+
+
+"DOTA_Tooltip_ability_burning_soul"															"Buring Spear"
+"DOTA_Tooltip_ability_burning_soul_Description"												"Ragular attack can deal damage over time."
+"DOTA_Tooltip_ability_burning_soul_Lore"													"Can be enhancd through-Berserker's Blood-"
+"DOTA_Tooltip_ability_burning_soul_dmgps"       											"Damage Per Sec:"
+"DOTA_Tooltip_ability_burning_soul_duration"       											"Duration:"
+"DOTA_Tooltip_modifier_burning_dmg_buff"  													"Buring Spear"
+"DOTA_Tooltip_modifier_burning_dmg_buff_Description"  										"Deal damage over time"
+
+
+"DOTA_Tooltip_ability_burning_soul_e"														"Berserker's Blood"
+"DOTA_Tooltip_ability_burning_soul_e_Description"											"Passive-Ragular attack can deal damage over time. \nActive-Gain 600 extra attack speed."
+"DOTA_Tooltip_ability_burning_soul_e_Lore"													"Enhancd"
+"DOTA_Tooltip_ability_burning_soul_e_dmgps"       											"Damage Per Sec:"
+"DOTA_Tooltip_ability_burning_soul_e_durationA"       										"Passive Duration:"
+"DOTA_Tooltip_ability_burning_soul_e_durationB"       										"Active Duration:"
+"DOTA_Tooltip_modifier_burning_dmg_e_buff"  												"Buring Spear"
+"DOTA_Tooltip_modifier_burning_dmg_e_buff_Description"  									"Deal damage over time"
+
+
+"DOTA_Tooltip_ability_fire_ritual"															"Fire Ritual"
+"DOTA_Tooltip_ability_fire_ritual_Description"												"Deal a lot of PURE damage to the target. If the target is killed by this damage then summon a fire dummy."
+"DOTA_Tooltip_ability_fire_ritual_Lore"														""
+"DOTA_Tooltip_ability_fire_ritual_duration"       											"Fire Dummy Duration:"
+
+"DOTA_Tooltip_ability_fire_ritual_e"															"Sun Fire Ritual"
+"DOTA_Tooltip_ability_fire_ritual_e_Description"												"Deal a lot of PURE damage to the target. If the target is killed by this damage then summon a Phoenix Spirit."
+"DOTA_Tooltip_ability_fire_ritual_e_Lore"														""
+"DOTA_Tooltip_ability_fire_ritual_e_duration"       											"Duration:"
+
+
+
+"DOTA_Tooltip_ability_thousand_faces_katana"												"Thousand Faces Katana"
+"DOTA_Tooltip_ability_thousand_faces_katana_Description"									"A legend weapon. Each enemy killed around it will increase its power. Give extra attack damage to its owner "
+"DOTA_Tooltip_ability_thousand_faces_katana_Lore"											""
+"DOTA_Tooltip_ability_thousand_faces_katana_dmginc"       									"Damage increased per enemy killed:"
+"DOTA_Tooltip_ability_thousand_faces_katana_radius"       									"Radius:"
+"DOTA_Tooltip_ability_thousand_faces_katana_limit"       									"Limit:"
+"DOTA_Tooltip_modifier_thousand_faces_katana_buff"  										"Force of Thousand Faces Katana"
+"DOTA_Tooltip_modifier_thousand_faces_katana_buff_Description"  							"Attack damage increase %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%"
+
+
+"DOTA_Tooltip_ability_moon_glaive"										"Wind blade"
+"DOTA_Tooltip_ability_moon_glaive_Description"							"Attack can bounce between enemies."
+"DOTA_Tooltip_ability_moon_glaive_Lore"									" "
+"DOTA_Tooltip_ability_moon_glaive_bounces"       						"Bounces:"
+"DOTA_Tooltip_ability_moon_glaive_damage_reduction_percent"             "%Reduction each time:"
+
+
+"DOTA_Tooltip_ability_resonance"										"Resonance"
+"DOTA_Tooltip_ability_resonance_Description"							"Every attack has a chance to deal damage to all enemies in 900 radius."
+"DOTA_Tooltip_ability_resonance_Lore"									" "
+"DOTA_Tooltip_ability_resonance_dmg"       								"Damage:"
+"DOTA_Tooltip_ability_resonance_chance"           						"%Chance:"
+
+
+"DOTA_Tooltip_ability_ultra_voltage"														"Ultra Voltage"
+"DOTA_Tooltip_ability_ultra_voltage_Description"											"Every hit have chance to deal extra PURE damage on target. Ignore Magic Immunity"
+"DOTA_Tooltip_ability_ultra_voltage_Lore"													""
+"DOTA_Tooltip_ability_ultra_voltage_dmg"       												"Damage:"
+"DOTA_Tooltip_ability_ultra_voltage_chance"           										"%Chance:"
+
+
+"DOTA_Tooltip_ability_wind_bleesing"									"Wind's blessing"
+"DOTA_Tooltip_ability_wind_bleesing_Description"						"Increase the attack range."
+"DOTA_Tooltip_ability_wind_bleesing_range"								"Radius:"
+"DOTA_Tooltip_ability_wind_bleesing_rangeadded"       					"Range increase:"
+"DOTA_Tooltip_ability_wind_bleesing_Lore"								" "
+"DOTA_Tooltip_modifier_wind_bleesing"  									"Wind's blessing"
+"DOTA_Tooltip_modifier_wind_bleesing_Description"  						"Increase %dMODIFIER_PROPERTY_ATTACK_RANGE_BONUS% attack range."
+
+"DOTA_Tooltip_ability_storm_form"															"Storm Form"
+"DOTA_Tooltip_ability_storm_form_Description"												"Move to the target position."
+"DOTA_Tooltip_ability_storm_form_Lore"														""
+
+"DOTA_Tooltip_ability_storm_form_e"															"Crimson Storm"
+"DOTA_Tooltip_ability_storm_form_e_Description"												"Move to the target position.Give extra attack speed and attack range bouns to all allies arount the path"
+"DOTA_Tooltip_ability_storm_form_e_Lore"													""
+"DOTA_Tooltip_ability_storm_form_e_radius"       											"Radius:"	
+"DOTA_Tooltip_ability_storm_form_e_duration"       											"Dutation:"
+"DOTA_Tooltip_ability_storm_form_e_rangebouns"       										"Range Bouns:"	
+"DOTA_Tooltip_ability_storm_form_e_asbouns"       											"Attack Speed Bouns:"
+
+"DOTA_Tooltip_modifier_storm_form_e_buff"  													"Crimson Storm"
+"DOTA_Tooltip_modifier_storm_form_e_buff_Description"  										"Increase %dMODIFIER_PROPERTY_ATTACK_RANGE_BONUS% attack range and %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed."
+
+
+"DOTA_Tooltip_ability_storm_form_dummy"														"Storm Form - Creater"
+"DOTA_Tooltip_ability_storm_form_dummy_Description"											"Move to the target position."
+"DOTA_Tooltip_ability_storm_form_dummy_Lore"												""
+
+
+"DOTA_Tooltip_ability_chain_lightling"														"Chain Lightling"
+"DOTA_Tooltip_ability_chain_lightling_Description"											"Have a chance on attack to release Chain Lightling."
+"DOTA_Tooltip_ability_chain_lightling_chance"												"%Chance:"
+"DOTA_Tooltip_ability_chain_lightling_dmg"       											"Damage:"
+"DOTA_Tooltip_ability_chain_lightling_jumplimit"       										"Chain Target:"
+"DOTA_Tooltip_ability_chain_lightling_Lore"													""
+
+
+
+"DOTA_Tooltip_modifier_attribute_bouns_e"  													"Earth Force"
+"DOTA_Tooltip_modifier_attribute_bouns_e_Description"  										"Increase %dMODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE%%% attack damage. %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed. %dMODIFIER_PROPERTY_ATTACK_RANGE_BONUS% attack range"
+"DOTA_Tooltip_modifier_attribute_bouns_w"  													"Ocean Force"
+"DOTA_Tooltip_modifier_attribute_bouns_w_Description"  										"Increase %dMODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE%%% attack damage. %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed. %dMODIFIER_PROPERTY_ATTACK_RANGE_BONUS% attack range"
+"DOTA_Tooltip_modifier_attribute_bouns_f"  													"Flame Force"
+"DOTA_Tooltip_modifier_attribute_bouns_f_Description"  										"Increase %dMODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE%%% attack damage. %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed. %dMODIFIER_PROPERTY_ATTACK_RANGE_BONUS% attack range"
+"DOTA_Tooltip_modifier_attribute_bouns_a"  													"Stome Force"
+"DOTA_Tooltip_modifier_attribute_bouns_a_Description"  										"Increase %dMODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE%%% attack damage. %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed. %dMODIFIER_PROPERTY_ATTACK_RANGE_BONUS% attack range"
+
+
+
+
+
+"DOTA_Tooltip_modifier_earth_buff"  					"Earth"
+"DOTA_Tooltip_modifier_earth_buff_Description"  		"All damage taken reduce by%dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%."
+"DOTA_Tooltip_modifier_water_buff"  					"Water"
+"DOTA_Tooltip_modifier_water_buff_Description"  		"Extra %dMODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE%%% of max hp regen per sec."
+"DOTA_Tooltip_modifier_fire_buff"  						"Fire"
+"DOTA_Tooltip_modifier_fire_buff_Description"  			"Extra %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% of move speed."
+"DOTA_Tooltip_modifier_air_buff"  						"Air"
+"DOTA_Tooltip_modifier_air_buff_Description"  			"%dMODIFIER_PROPERTY_EVASION_CONSTANT%%% chance of evasions."
+
+
+"techtree"		"Tech"
+
+"studycost"		"Cost: "
+"studyreq"		"Requirement:"
+"techlv"		"Max Level"
+
+
+"ET01"			"Power of Earth Lv1"
+"ET01DES"		"\n Unlock All Level One Earth Tower. \n All (Attribute-Earth) Tower Get : \n Damage +20% \n Attack Speed +10%"
+
+"ET02"			"Element Study-Earth"
+"ET02DES"		"Study the element and deepen the understanding about it. \n\n Unlock Element Core-Earth"
+
+
+"ET11"			"Power of Earth Lv2"
+"ET11DES"		"\n Unlock All Level Two Earth Tower. \n All (Attribute-Earth) Tower Get : \n Damage +40% \n Attack Speed +20%"
+
+"ET12"			"Sandlands of Infinity"
+"ET12DES"		"No one can across the territory of Sand King \n\n Enhance-Sand King-Sand Storm：\nChange the damage type to PURE。\n Now the slowdown effect of Sand Strom can stack"
+
+
+"ET21"			"Power of Earth Lv3"
+"ET21DES"		"\n Unlock All Level Three Earth Tower. \n All (Attribute-Earth) Tower Get : \n Damage +70% \n Attack Speed +40%"
+
+"ET22"			"Blach Hole"
+"ET22DES"		"The Utlimate Power - Black Hole。 \n\n Enhance-Enigma LV3-Grivaty Control:\n Now Enigma LV3 can use Blach Hole"
+
+
+"ET31"			"Power of Earth Lv4"
+"ET31DES"		"\n All (Attribute-Earth) Tower Get : \n Damage +150% \n Attack Speed +100% \n Attack Range +400"
+
+
+
+"WT01"			"Power of Water Lv1"
+"WT01DES"		"\n Unlock All Level One Water Tower. \n All (Attribute-Water) Tower Get : \n Damage +20% \n Attack Speed +10%"
+
+"WT02"			"Mark of Ocean"
+"WT02DES"		"\n Enhanc-Morphling-Mark of Water:\n Allow cast on Magic Immune"
+
+"WT03"			"Element Study-Ice"
+"WT03DES"		"Study the element and deepen the understanding about it. \n\n Unlock Element Core-Ice"
+
+
+"WT11"			"Power of Water Lv2"
+"WT11DES"		"\n Unlock All Level Two Water Tower. \n All (Attribute-Water) Tower Get : \n Damage +40% \n Attack Speed +20%"
+
+"WT12"			"Soul Forest"
+"WT12DES"		"\n Enhanc-Tusk-Mark of Forest:\n Allow cast on Magic Immune"
+
+
+"WT21"			"Power of Water Lv3"
+"WT21DES"		"\n Unlock All Level Three Water Tower. \n All (Attribute-Water) Tower Get : \n Damage +70% \n Attack Speed +40%"
+
+"WT31"			"Power of Water Lv4"
+"WT31DES"		"\n All (Attribute-Water) Tower Get : \n Damage +150% \n Attack Speed +100% \n Attack Range +400"
+
+
+
+"FT01"			"Power of Fire Lv1"
+"FT01DES"		" \n Unlock All Level One Fire Tower. \n All (Attribute-Fire) Tower Get : \n Damage +20% \n Attack Speed +10%"
+
+"FT02"			"Element Communication"
+"FT02DES"		"Communicate with the fire element \n\nEnhance - Warlock - Fire/Sun Fire Ritual: \nNow the ritual can summon two element creature at once"
+
+"FT03"			"Element Study-Flame"
+"FT03DES"		"Study the element and deepen the understanding about it. \n\n Unlock Element Core-Flame"
+
+
+"FT11"			"Power of Fire Lv2"
+"FT11DES"		"\n Unlock All Level Two Fire Tower. \n All (Attribute-Fire) Tower Get : \n Damage +40% \n Attack Speed +20%"
+
+"FT12"			"Berserker's Blood"
+"FT12DES"		"Pain give you strength. \n\n Enhance-Huskar-Buring Spear: \n Now Huskar can use Berserker's Blood"
+
+
+"FT21"			"Power of Fire Lv3"
+"FT21DES"		"\n Unlock All Level Three Fire Tower. \n All (Attribute-Fire) Tower Get : \n Damage +70% \n Attack Speed +40%"
+
+"FT31"			"Power of Fire Lv4"
+"FT31DES"		"\n All (Attribute-Fire) Tower Get : \n Damage +150% \n Attack Speed +100% \n Attack Range +400"
+
+
+"AT01"			"Power of Air Lv1"
+"AT01DES"		" \n Unlock All Level One Air Tower. \n All (Attribute-Air) Tower Get : \n Damage +20% \n Attack Speed +10%"
+
+"AT02"			"High Voltage Form"
+"AT02DES"		"No one is faster than thunder。 \n\n Enhance-Razor: \n Base Attack Time changed from 1.0 to 0.7"
+
+"AT03"			"Element Study-Lightning"
+"AT03DES"		"Study the element and deepen the understanding about it. \n\n Unlock Element Core-Lightning"
+
+"AT11"			"Power of Air Lv2"
+"AT11DES"		"\n Unlock All Level Two Air Tower. \n All (Attribute-Air) Tower Get : \n Damage +40% \n Attack Speed +20%"
+
+"AT21"			"Power of Air Lv3"
+"AT21DES"		"\n Unlock All Level Three Air Tower. \n All (Attribute-Air) Tower Get : \n Damage +70% \n Attack Speed +40%"
+
+"AT31"			"Power of Air Lv4"
+"AT31DES"		"\n All (Attribute-Air) Tower Get : \n Damage +150% \n Attack Speed +100% \n Attack Range +400"
+
+
+
+}
+}

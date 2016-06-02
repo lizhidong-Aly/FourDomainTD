@@ -1,0 +1,29 @@
+<root>
+
+	<styles>
+		<include src="file://{resources}/styles/dotastyles.css" />
+		<include src="file://{resources}/styles/custom_game/Transform.css"	/>
+	</styles>
+	
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/Transform.js" />
+	</scripts>
+	
+		<Panel hittest="false">
+			<Panel  class="Hidden" id="Main">
+					<Button	class="button" id="earth">
+						<DOTAAbilityImage abilityname="dragon_knight_elder_dragon_form" onactivate="Transform('ST01FE')"/>
+					</Button>
+					<Button	class="button" id="ice">
+						<DOTAAbilityImage abilityname="dragon_knight_elder_dragon_form" />
+					</Button>
+					
+					<Button	class="button" id="fire" >
+						<DOTAAbilityImage abilityname="dragon_knight_elder_dragon_form" />
+					</Button>
+					<Button	class="button" id="air" >
+						<DOTAAbilityImage abilityname="dragon_knight_elder_dragon_form" />
+					</Button>
+			</Panel>
+		</Panel>
+</root>

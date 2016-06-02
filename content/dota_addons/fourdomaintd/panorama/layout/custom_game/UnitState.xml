@@ -1,0 +1,39 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/UnitState.css"	/>
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/UnitState.js" />
+	</scripts>
+		<Panel hittest="false">
+			<Panel class="StatePanel Hidden" id="StatePanel"	hittest="false">
+				<Panel	 id="state" hittest="false">
+					<Label class="defultStyle" id="dmgdata"		text="#dmg"/>
+					<Label class="defultStyle" id="attspedata"	text="#attspe"/>
+					<Label class="defultStyle" id="rangedata"	text="#range"/>
+					<Label class="defultStyle" id="dpsdata"		text="#dps"/>
+				</Panel>
+				<Panel id="datapanel" hittest="false">
+					<Label class="defultStyle" id="dmg"		text="4"/>
+					<Label class="defultStyle" id="attspe"		text="3 "/>
+					<Label class="defultStyle" id="range"		text="1"/>
+					<Label class="defultStyle" id="dps"	text="2"/>
+				</Panel>
+			</Panel>
+			<Panel hittest="false">
+				<Button	id="statebutton" onmouseover="ShowState()" onmouseout="HideState()"/>
+			</Panel>
+			<Panel class="CostPanel Hidden" id="CostPanel" hittest="false">
+				<Label id="upcost" hittest="false" text=""/>
+			</Panel>
+
+			<Panel hittest="false">
+				<Button class="Hidden" id="MergeButton" onactivate="EnterMergeMode()" onmouseover="ShowMergeDes()" onmouseout="HideMergeDes()">
+					<DOTAAbilityImage abilityname="puck_dream_coil" />
+				</Button>
+				<Label class="defultStyle Hidden" id="MergeDes" hittest="false" text="1234"/>
+			</Panel>
+
+		</Panel>
+		
+</root>

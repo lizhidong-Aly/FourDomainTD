@@ -1,0 +1,117 @@
+.StatePanel{
+margin-top: 800px;
+margin-left: 675px;
+width: 300px;
+height: 120px;
+background-color: gradient( linear, 100% 0%, 100% 100%, from( #111111 ), color-stop( 0.01, #202327 ), color-stop( 0.2, #141619ff ), to( #000000dd ) );
+box-shadow: black -4px -4px 8px 8px;
+}
+.StatePanel.Hidden{
+	visibility:collapse;
+}
+.defultStyle{
+    font-size: 17px;
+	letter-spacing: 1px;
+    color: #eeeeee;
+	margin-top:4px;
+	margin-left: 10px;
+}
+
+#state{
+margin-top: 15px;
+margin-left: 5px;
+flow-children:down;
+horizontal-align:center;
+vertical-align:center;
+width: 500px;
+height: 740px;
+}
+.state.Hidden{
+visibility:collapse;
+}
+.datapanel.Hidden{
+visibility:collapse;
+}
+
+#datapanel{
+
+margin-top: 15px;
+margin-left: 170px;
+flow-children:down;
+horizontal-align:center;
+vertical-align:center;
+width: 150px;
+height: 200px;
+}
+
+.data{
+margin-top: 16px;
+margin-left: 5px;
+color: #7FFF00;
+font-size: 18px;
+}
+
+
+.state{
+margin-top: 8px;
+margin-left: 0px;
+color: #ffffff;
+font-size: 18px;
+}
+
+
+#statebutton{
+	width: 90px;
+	height: 100px;
+	margin-top: 965px;
+	margin-left: 680px;
+}
+
+#upcost{
+margin-top: 0px;
+margin-left: 0px;
+color: gold;
+font-size: 12px;
+}
+.CostPanel{
+margin-top: 1030px;
+margin-left: 1250px;
+
+height: 11px;
+background-color: gradient( linear, 100% 0%, 100% 100%, from( #111111 ), color-stop( 0.01, #202327 ), color-stop( 0.2, #141619ff ), to( #000000dd ) );
+box-shadow: black -4px -4px 8px 8px;
+}
+.CostPanel.Hidden{
+	visibility:collapse;
+}
+
+#MergeButton{
+	width: 60px;
+	height: 60px;
+	margin-top: 960px;
+	margin-left: 1380px;
+	border: 1px solid #707070;
+	border-radius:2px;
+}
+
+#MergeButton:hover{
+	color: #ffffff;
+	border: 2px solid #7cfc00;
+}
+#MergeButton.Hidden{
+	visibility:collapse;
+}
+#MergeDes{
+	margin-top: 760px;
+	margin-left: 1320px;
+	width: 240px;
+	height: 140px;
+	border: 2px solid #707070;
+	border-radius:2px;
+	background-color: gradient( linear, 100% 0%, 100% 100%, from( #111111 ), color-stop( 0.01, #202327 ), color-stop( 0.2, #141619ff ), to( #000000dd ) );
+	box-shadow: black -4px -4px 8px 8px;
+}
+
+#MergeDes.Hidden{
+	visibility:collapse;
+}
