@@ -1,0 +1,40 @@
+"WT13L01"
+{
+"Model"											"models/heroes/tuskarr/tuskarr.vmdl"	// Model.
+"SoundSet"										"Hero_Tusk"
+"GameSoundsFile"								"soundevents/game_sounds_heroes/game_sounds_tusk.vsndevts"
+"Level"											"1"
+"ModelScale" 									"1.0"
+
+"AttackAnimationPoint"							"0.3"
+"AttackAcquisitionRange"						"1000"
+"AttackRange"									"900"
+"ProjectileModel"								"particles/units/heroes/hero_troll_warlord/troll_warlord_base_attack.vpcf"
+"ProjectileSpeed"								"1500"
+"BountyXP"  				 					"300"			//Build Cost
+"VisionDaytimeRange"             				"900"			//Next Level Cost
+"UnitLabel"										"WI"				//Next Level Index
+
+"BaseClass"										"npc_dota_creature"
+"ArmorPhysical"									"0"
+"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
+"MovementSpeed"									"0"
+"StatusHealth"									"100"
+"StatusHealthRegen"								"0.0"
+"StatusMana"									"100"
+"StatusManaRegen"								"2"
+"AttackCapabilities"							"DOTA_UNIT_CAP_RANGED_ATTACK"
+"vscripts"										"Buff_Autocast_AI"
+"Creature"
+{
+"AttachWearables"
+{
+"Wearable1" { "ItemDef" "413" }
+"Wearable1" { "ItemDef" "414" }
+"Wearable1" { "ItemDef" "415" }
+"Wearable1" { "ItemDef" "416" }
+"Wearable1" { "ItemDef" "417" }
+"Wearable1" { "ItemDef" "418" }
+}
+}
+}

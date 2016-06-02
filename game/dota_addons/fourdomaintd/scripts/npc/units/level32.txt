@@ -1,0 +1,22 @@
+"level32"
+{	
+"Model"									"models/items/furion/treant_stump.vmdl"
+"SoundSet"								"n_creep_Ranged"
+"GameSoundsFile"						"soundevents/game_sounds_creeps.vsndevts"
+"Level"									"3"
+"ModelScale" 							"1.2"
+
+"AttackRange"           				"20"   	//Unit Per Line
+"AttackAnimationPoint"  				"0.8"	//Swapn Dealy
+
+"StatusHealth"							"42000"
+"StatusHealthRegen"						"500"
+"ArmorPhysical"							"220"
+"MagicalResistance"						"0"
+"MovementSpeed"							"400"
+"UnitLabel"                				"0"		//1-Ä§·¨ÃâÒß 0-²»ÃâÒß
+
+"AttackCapabilities"					"DOTA_UNIT_CAP_NO_ATTACK"
+"BaseClass"								"npc_dota_creature"
+"MovementCapabilities"					"DOTA_UNIT_CAP_MOVE_GROUND"
+}

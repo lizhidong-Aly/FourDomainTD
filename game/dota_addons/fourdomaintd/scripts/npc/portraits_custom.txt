@@ -1,0 +1,39 @@
+"Portraits"
+{
+	"models/base_center.vmdl"
+	{
+		"cameras"
+		{
+			"Default"
+			{
+				"PortraitPosition"		"-377.390381 -264.645721 348.053192"
+				"PortraitAngles"		"32.688133 34.338932 0.000000"
+				"PortraitFOV"		"30.000000"
+				"PortraitFar"		"1000.000000"
+			}
+		}
+		"PortraitLightPosition"		"482.637512 864.213196 995.816711"
+		"PortraitLightAngles"		"43.533951 -118.475098 -1.919838"
+		"PortraitLightFOV"		"20.000000"
+		"PortraitLightDistance"		"2000.000000"
+		"PortraitLightColor"		"234 205 155"
+		"PortraitLightScale"		"1.000000"
+		"PortraitShadowColor"		"89 89 89"
+		"PortraitShadowScale"		"0.300000"
+		"PortraitGroundShadowScale"		"0.300000"
+		"PortraitAmbientDirection"		"-0.759 -0.583 0.292"
+		"PortraitAmbientColor"		"211 249 195"
+		"PortraitAmbientScale"		"0.500000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitSpecularDirection"		"0.000000 0.000000 -1.000000"
+		"PortraitSpecularPower"		"16.000000"
+		"PortraitBackgroundColor1"		"0.000000 0.000000 0.000000"
+		"PortraitBackgroundColor2"		"1.000000 1.000000 1.000000"
+		"PortraitBackgroundColor3"		"1.000000 1.000000 1.000000"
+		"PortraitBackgroundColor4"		"0.000000 0.000000 0.000000"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_desert.vmat"
+		"PortraitAnimationCycle"		"0.000000"
+		"PortraitAnimationRate"		"1.000000"
+		"PortraitHideHero"		"0"
+	}
+}

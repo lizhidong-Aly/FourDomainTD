@@ -1,0 +1,121 @@
+"battle_cry"
+{
+"AbilityBehavior"							"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+"BaseClass"									"ability_datadriven"
+"AbilityTextureName"    					"beastmaster_primal_roar"
+"AbilityCastRange"							"%radius"
+"MaxLevel"               					"3"
+"precache"
+{
+"particle"  		"particles/units/heroes/hero_axe/axe_beserkers_call_owner.vpcf"
+"soundfile" 		"soundevents/game_sounds_heroes/game_sounds_lone_druid.vsndevts"
+}
+
+"Modifiers"
+{
+"modifier_battle_cry"
+{
+"IsHidden"       				 			"1"
+"Passive"                					"1"
+"OnAttack"
+{
+"Random"
+{
+"Chance"		"%chance"
+"OnSuccess"
+{
+
+"AttachEffect"
+{
+"EffectName"               					"particles/units/heroes/hero_axe/axe_beserkers_call_owner.vpcf"
+"EffectAttachType"  						"follow_origin"
+"Target"									"CASTER"
+}
+
+"FireSound"
+{
+"EffectName"							"Hero_LoneDruid.BattleCry"
+"Target" 								"CASTER"
+}
+
+"RunScript"
+{
+"ScriptFile"    "scripts/vscripts/SkillScript.lua"
+"Function"    	"BattleCry"
+"Target"
+{
+"Types"     								"DOTA_UNIT_TARGET_BASIC"
+"teams"     								"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+"flags"      								"DOTA_UNIT_TARGET_FLAG_NONE"
+"Radius"     								"%radius"
+"Center"      								"CASTER"
+}
+"limit"										"%limit"
+}
+
+
+"ApplyModifier"
+{
+"ModifierName"       						"modifier_battle_cry_buff"
+"Target"
+{
+"Types"     								"DOTA_UNIT_TARGET_BASIC"
+"teams"     								"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+"flags"      								"DOTA_UNIT_TARGET_FLAG_NONE"
+"Radius"     								"%radius"
+"Center"      								"CASTER"
+}
+}
+
+}
+}
+
+
+}
+}
+
+"modifier_battle_cry_buff"
+{
+"Duration"								"%duration"
+"IsDebuff"								"0"
+"IsHidden"								"0"
+"OnCreated"
+{
+"AttachEffect"
+{
+"EffectName"               					"particles/units/heroes/hero_lone_druid/lone_druid_battle_cry_overhead.vpcf"
+"EffectAttachType"  						"follow_overhead"
+"Target"									"TARGET"
+}
+}
+"Properties"
+{
+"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"		"%dmginc"
+}
+}
+
+
+}
+"AbilitySpecial"{
+"01"{
+"var_type"                				"FIELD_FLOAT"
+"chance"								"20"
+}
+"02"{
+"var_type"                				"FIELD_FLOAT"
+"radius"								"600"
+}
+"03"{
+"var_type"                				"FIELD_FLOAT"
+"duration"								"6"
+}
+"04"{
+"var_type"                				"FIELD_FLOAT"
+"dmginc"								"10 20 30"
+}
+"05"{
+"var_type"                				"FIELD_FLOAT"
+"limit"									"5"
+}
+}
+}

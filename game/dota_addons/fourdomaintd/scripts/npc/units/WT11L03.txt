@@ -1,0 +1,27 @@
+"WT11L03"
+{
+"Model"											"models/heroes/ancient_apparition/ancient_apparition.vmdl"	// Model.
+"SoundSet"										"Hero_Morphling"
+"GameSoundsFile"								"soundevents/game_sounds_heroes/game_sounds_morphling.vsndevts"
+"Level"											"3"
+"ModelScale" 									"1.05"
+
+
+"AttackAnimationPoint"							"0.4"
+"AttackAcquisitionRange"						"1000"
+"AttackRange"									"700"
+"ProjectileModel"								"particles/neutral_fx/ghost_base_attack.vpcf"
+"ProjectileSpeed"								"1500"
+"BountyXP"  				 					"300"			//Build Cost
+"VisionDaytimeRange"             				"0"			//Next Level Cost
+"UnitLabel"										"WI"				//Next Level Index
+
+"BaseClass"										"npc_dota_creature"
+"ArmorPhysical"									"0"
+"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
+"MovementSpeed"									"0"
+"StatusHealth"									"100"
+"StatusHealthRegen"								"0.0"
+"AttackCapabilities"							"DOTA_UNIT_CAP_RANGED_ATTACK"
+
+}

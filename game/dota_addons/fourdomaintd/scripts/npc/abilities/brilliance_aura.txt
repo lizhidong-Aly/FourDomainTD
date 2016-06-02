@@ -1,0 +1,56 @@
+"brilliance_aura"
+{
+"AbilityBehavior"                             		   	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_TOGGLE"
+"BaseClass"                                       		"ability_datadriven"
+"AbilityTextureName"                        			"jakiro_liquid_fire"
+"AbilityCastRange"                               	 	"%radius"
+"MaxLevel"												"3"
+
+"OnToggleOff"{
+"ApplyModifier"
+{
+"ModifierName"      		"modifier_brilliance_aura_passive"    //�൱��Ҫ���õĺ���
+"Target"      				"CASTER"         //�൱�ڴ��ݵ�λ�������Ǹ�����
+}
+}
+"OnToggleOn"{
+"RemoveModifier"
+{		
+"ModifierName"      		"modifier_brilliance_aura_passive"    //�൱��Ҫ���õĺ���
+"Target"      				"CASTER"         //�൱�ڴ��ݵ�λ�������Ǹ�����
+}
+}
+
+"Modifiers"
+{
+"modifier_brilliance_aura_passive"
+{
+"Passive"        	"1"
+"IsHidden"        	"1"
+
+"Aura"                        	"modifier_brilliance_aura_passive_buff"
+"Aura_Radius"                	"%radius"
+"Aura_Types"                 	"DOTA_UNIT_TARGET_BASIC"
+"Aura_Teams"                	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+"Aura_Flags"                	"DOTA_UNIT_TARGET_FLAG_NONE"
+}
+
+"modifier_brilliance_aura_passive_buff"
+{
+"Properties"
+{
+"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"        "%manaregen"       //ħ���ָ��ٶ�
+}
+}
+}
+"AbilitySpecial"{
+"01"{
+"var_type"                				"FIELD_FLOAT"
+"manaregen"								"3.0 6.0 12.0"
+}
+"02"{
+"var_type"                				"FIELD_FLOAT"
+"radius"								"500 700 900"
+}
+}
+}

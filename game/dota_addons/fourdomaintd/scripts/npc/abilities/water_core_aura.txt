@@ -1,0 +1,86 @@
+"water_core_aura"
+{
+"AbilityBehavior"                                		"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_TOGGLE"
+"BaseClass"                                       		"ability_datadriven"
+"AbilityTextureName"                        			"lich_chain_frost"
+"AbilityCastRange"                                 		"%radius"
+"MaxLevel"												"3"
+"precache"
+{
+"particle"  "particles\custom_effect\dimian_fuwen_water.vpcf"
+"particle"  "particles/econ/courier/courier_wyvern_hatchling/courier_wyvern_hatchling_ice.vpcf"
+"particle"  "particles/custom_effect/ancient_apparition_ice_blast_marker.vpcf"
+
+}
+
+"OnToggleOff"{
+"ApplyModifier"
+{
+"ModifierName"      		"modifier_water_core_aura"    //�൱��Ҫ���õĺ���
+"Target"      				"CASTER"         //�൱�ڴ��ݵ�λ�������Ǹ�����
+}
+}
+"OnToggleOn"{
+"RemoveModifier"
+{
+"ModifierName"      		"modifier_water_core_aura"    //�൱��Ҫ���õĺ���
+"Target"      				"CASTER"         //�൱�ڴ��ݵ�λ�������Ǹ�����
+}
+}
+
+"Modifiers"
+{
+"modifier_water_core_aura"
+{
+"Passive"        			"1"
+"IsHidden"        			"1"
+
+"Aura"                      "modifier_water_core_aura_debuff"
+"Aura_Radius"              	"%radius"
+"Aura_Types"                "DOTA_UNIT_TARGET_BASIC"
+"Aura_Teams"                "DOTA_UNIT_TARGET_TEAM_ENEMY"
+"Aura_Flags"                "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+"OnCreated"
+{
+"AttachEffect"
+{
+	"EffectName"        "particles\custom_effect\dimian_fuwen_water.vpcf"
+	"EffectAttachType"  "follow_origin"
+	"Target"            "CASTER"
+}
+"AttachEffect"
+{
+	"EffectName"        "particles/econ/courier/courier_wyvern_hatchling/courier_wyvern_hatchling_ice.vpcf"
+	"EffectAttachType"  "follow_origin"
+	"Target"            "CASTER"
+}
+"AttachEffect"
+{
+	"EffectName"        "particles/custom_effect/ancient_apparition_ice_blast_marker.vpcf"
+	"EffectAttachType"  "follow_overhead"
+	"Target"            "CASTER"
+}
+}
+}
+
+"modifier_water_core_aura_debuff"
+{
+"IsDebuff"				"1"
+"Properties"
+{
+"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"        "%slowdown"       //ħ���ָ��ٶ�
+}
+}
+}
+"AbilitySpecial"{
+"01"{
+"var_type"                					"FIELD_INTEGER"
+"slowdown"									"-10 -15 -20"
+}
+"02"{
+"var_type"                					"FIELD_INTEGER"
+"radius"									"1000 1200 1400"
+}
+}
+
+}

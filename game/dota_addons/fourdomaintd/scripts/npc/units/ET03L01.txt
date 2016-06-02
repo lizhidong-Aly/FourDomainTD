@@ -1,0 +1,42 @@
+"ET03L01"
+{
+"Model"											"models/heroes/ogre_magi/ogre_magi.vmdl"
+"SoundSet"										"Hero_ogremagi"
+"GameSoundsFile"								"soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts"
+"Level"											"1"
+"ModelScale" 									"0.95"
+
+
+"AttackAnimationPoint"							"0.4"
+"AttackAcquisitionRange"						"1400"
+"AttackRange"									"1200"
+"ProjectileModel"								"particles/units/heroes/hero_visage/visage_base_attack_core_rocks.vpcf"
+"ProjectileSpeed"								"1500"
+"BountyXP"  				 					"100"			//Build Cost
+"VisionDaytimeRange"             				"400"			//Next Level Cost
+"UnitLabel"										"E"				//Next Level Index
+
+"BaseClass"										"npc_dota_creature"
+"ArmorPhysical"									"0"
+"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
+"MovementSpeed"									"0"
+"StatusHealth"									"100"
+"StatusHealthRegen"								"0.0"
+"StatusMana"									"100"
+"StatusManaRegen"								"2"
+"AttackCapabilities"							"DOTA_UNIT_CAP_RANGED_ATTACK"
+"vscripts"										"Buff_Autocast_AI"
+"Creature"
+{
+"AttachWearables"
+{
+"Wearable1" { "ItemDef" "534" }
+"Wearable2" { "ItemDef" "133" }
+"Wearable3" { "ItemDef" "134" }
+"Wearable4" { "ItemDef" "135" }
+"Wearable5" { "ItemDef" "136" }
+"Wearable6" { "ItemDef" "105" }
+
+}
+}
+}

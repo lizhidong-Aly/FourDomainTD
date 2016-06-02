@@ -1,0 +1,40 @@
+"AT02L02"
+{
+"Model"												"models/heroes/queenofpain/queenofpain.vmdl"	// Model.
+"SoundSet"											"Hero_QueenOfPain"
+"GameSoundsFile"									"soundevents/game_sounds_heroes/game_sounds_queenofpain.vsndevts"
+"Level"												"2"
+"ModelScale" 										"1.15"
+ 
+"AttackAnimationPoint"								"0.6"
+"AttackAcquisitionRange"							"1400"
+"AttackRange"										"1200"
+"ProjectileModel"									"particles/units/heroes/hero_queenofpain/queen_base_attack.vpcf"
+"ProjectileSpeed"									"1200"
+"VisionDaytimeRange"             					"1400"			//Next Level Cost
+"UnitLabel"											"A"				//Next Level Index
+
+"BaseClass"											"npc_dota_creature"
+"ArmorPhysical"										"0"
+"MovementCapabilities"								"DOTA_UNIT_CAP_MOVE_NONE"
+"MovementSpeed"										"0"
+"StatusHealth"										"100"
+"StatusHealthRegen"									"0.0"
+"StatusMana"                						"100"
+"StatusManaRegen"           						"1.5" 
+"AttackCapabilities"								"DOTA_UNIT_CAP_RANGED_ATTACK"
+
+
+"Creature"
+{
+"AttachWearables"
+{
+"Wearable1" { "ItemDef" "26" }
+"Wearable1" { "ItemDef" "82" }
+"Wearable1" { "ItemDef" "83" }
+"Wearable1" { "ItemDef" "84" }
+
+}
+
+}
+}

@@ -1,0 +1,55 @@
+"frost_nova_attack_passive"
+{
+"AbilityBehavior"								"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+"BaseClass"										"ability_datadriven"
+"AbilityTextureName"    						"lich_frost_nova"
+"AbilityUnitDamageType"							"DAMAGE_TYPE_MAGICAL"
+"AbilityDamage"									"4000 10000 20000"
+"MaxLevel"               						"3"
+
+"Modifiers"
+{
+"modifier_frost_nova_attack_passive"
+{
+"IsHidden"       				 				"1"
+"Passive"                						"1"
+"OnAttackLanded"
+{
+"Random"
+{
+"Chance"										"%chance"
+"OnSuccess"
+{
+
+"RunScript"
+{
+"ScriptFile"	"scripts/vscripts/SkillScript.lua"
+"Function"		"FrostNovaAttack"
+"Target"		"TARGET"
+}
+}
+}
+
+
+}
+}
+
+
+}
+"AbilitySpecial"{
+"01"{
+"var_type"                				"FIELD_FLOAT"
+"chance"								"15"
+}
+"02"
+{
+"var_type"				"FIELD_INTEGER"
+"radius"				"400"
+}
+"03"
+{
+"var_type"				"FIELD_INTEGER"
+"slow_movement_speed"	"-40 -45 -50"
+}
+}
+}

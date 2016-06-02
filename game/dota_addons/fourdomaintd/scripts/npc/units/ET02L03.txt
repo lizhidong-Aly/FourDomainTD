@@ -1,0 +1,37 @@
+"ET02L03"
+{
+"Model"											"models/heroes/elder_titan/elder_titan.vmdl"
+"SoundSet"										"Hero_ElderTitan"
+"GameSoundsFile"								"soundevents/game_sounds_heroes/game_sounds_elder_titan.vsndevts"
+"Level"											"3"
+"ModelScale" 									"0.65"
+
+
+"AttackAnimationPoint"							"0.4"
+"AttackAcquisitionRange"						"1400"
+"AttackRange"									"1000"
+"ProjectileModel"								"particles/econ/items/elder_titan/elder_titan_shapers_relics_ambient/elder_titan_shapers_relics_ambient.vpcf"
+"ProjectileSpeed"								"6000"
+"VisionDaytimeRange"             				"0"			//Next Level Cost
+"UnitLabel"										"E"				//Next Level Index
+
+"BaseClass"										"npc_dota_creature"
+"ArmorPhysical"									"0"
+"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
+"MovementSpeed"									"0"
+"StatusHealth"									"100"
+"StatusHealthRegen"								"0.0"
+"AttackCapabilities"							"DOTA_UNIT_CAP_RANGED_ATTACK"
+
+"Creature"
+{
+"AttachWearables"
+{
+"Wearable1" { "ItemDef" "426" }
+"Wearable2" { "ItemDef" "427" }
+"Wearable3" { "ItemDef" "428" }
+"Wearable4" { "ItemDef" "429" }
+"Wearable5" { "ItemDef" "430" }
+}
+}
+}

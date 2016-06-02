@@ -1,0 +1,22 @@
+"level39"
+{	
+"Model"									"models/items/lycan/ultimate/thegreatcalamityti4/thegreatcalamityti4.vmdl"
+"SoundSet"								"n_creep_Ranged"
+"GameSoundsFile"						"soundevents/game_sounds_creeps.vsndevts"
+"Level"									"9"
+"ModelScale" 							"1.2"
+
+"AttackRange"           				"5"   	//Unit Per Line
+"AttackAnimationPoint"  				"3.0"	//Swapn Dealy
+
+"StatusHealth"							"125000"
+"StatusHealthRegen"						"2000"
+"ArmorPhysical"							"250"
+"MagicalResistance"						"0"
+"MovementSpeed"							"522"
+"UnitLabel"                				"1"		//1-Ä§·¨ÃâÒß 0-²»ÃâÒß
+
+"AttackCapabilities"					"DOTA_UNIT_CAP_NO_ATTACK"
+"BaseClass"								"npc_dota_creature"
+"MovementCapabilities"					"DOTA_UNIT_CAP_MOVE_GROUND"
+}

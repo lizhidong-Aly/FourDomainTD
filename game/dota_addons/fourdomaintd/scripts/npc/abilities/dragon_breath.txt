@@ -1,0 +1,41 @@
+"dragon_breath"
+{
+// General
+//-------------------------------------------------------------------------------------------------------------
+"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+"BaseClass"						"ability_datadriven"
+"AbilityTextureName"			"dragon_knight_breathe_fire"
+"MaxLevel"						"1"
+"precache"
+{
+
+"soundfile" "soundevents/game_sounds_heroes/game_sounds_ember_spirit.vsndevts"
+}
+// Modifiers
+//-------------------------------------------------------------------------------------------------------------
+"Modifiers"
+{
+"modifier_dragon_breath_passive"
+{
+"IsHidden"				"1"
+"Passive"				"1"
+
+"Properties"
+{
+"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%speinc"
+}
+}
+}
+
+// Special
+//-------------------------------------------------------------------------------------------------------------
+"AbilitySpecial"
+{
+"01"
+{
+"var_type"					"FIELD_INTEGER"
+"speinc"					"1000"
+}
+
+}
+}

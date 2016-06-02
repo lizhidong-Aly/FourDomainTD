@@ -1,0 +1,43 @@
+"ST02L03"
+{
+"Model"											"models/heroes/alchemist/alchemist.vmdl"
+"SoundSet"										"Hero_Alchemist"
+"GameSoundsFile"								"soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts"
+"Level"											"3"
+"ModelScale" 									"0.95"
+
+ 
+"AttackDamageMin"								"1200"
+"AttackDamageMax"								"1500"
+"AttackRate"									"0.75"
+"AttackAnimationPoint"							"0.2"
+"AttackAcquisitionRange"						"1500"
+"AttackRange"									"1000"
+"ProjectileModel"								"particles/units/heroes/hero_oracle/oracle_base_attack.vpcf"
+"ProjectileSpeed"								"1500"
+"VisionDaytimeRange"             				"0"			//Next Level Cost
+"UnitLabel"										"N"				//Next Level Index
+
+"BaseClass"										"npc_dota_creature"
+"ArmorPhysical"									"0"
+"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
+"MovementSpeed"									"0"
+"StatusHealth"									"100"
+"StatusHealthRegen"								"0.0"
+"AttackCapabilities"							"DOTA_UNIT_CAP_RANGED_ATTACK"
+
+"Creature"
+{
+"AttachWearables"
+{
+"Wearable1" { "ItemDef" "117" }
+"Wearable2" { "ItemDef" "118" }
+"Wearable3" { "ItemDef" "119" }
+"Wearable4" { "ItemDef" "120" }
+"Wearable5" { "ItemDef" "121" }
+"Wearable6" { "ItemDef" "123" }
+"Wearable7" { "ItemDef" "124" }
+"Wearable8" { "ItemDef" "125" }
+}
+}
+}

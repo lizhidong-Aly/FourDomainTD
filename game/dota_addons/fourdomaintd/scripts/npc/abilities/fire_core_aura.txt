@@ -1,0 +1,77 @@
+"fire_core_aura"
+{
+"AbilityBehavior"                                		"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_TOGGLE"
+"BaseClass"                                       		"ability_datadriven"
+"AbilityTextureName"                        			"phoenix_supernova"
+"AbilityCastRange"                                 		"%radius"
+"MaxLevel"												"3"
+"precache"
+{
+"particle"  "particles\custom_effect\dimian_fuwen_fire.vpcf"
+"particle"  "particles/econ/courier/courier_wyvern_hatchling/courier_wyvern_hatchling_fire.vpcf"
+}
+
+"OnToggleOff"{
+"ApplyModifier"
+{
+"ModifierName"      		"modifier_fire_core_aura"    //�൱��Ҫ���õĺ���
+"Target"      				"CASTER"         //�൱�ڴ��ݵ�λ�������Ǹ�����
+}
+}
+"OnToggleOn"{
+"RemoveModifier"
+{
+"ModifierName"      		"modifier_fire_core_aura"    //�൱��Ҫ���õĺ���
+"Target"      				"CASTER"         //�൱�ڴ��ݵ�λ�������Ǹ�����
+}
+}
+
+"Modifiers"
+{
+"modifier_fire_core_aura"
+{
+"Passive"        			"1"
+"IsHidden"        			"1"
+
+"Aura"                      "modifier_fire_core_aura_buff"
+"Aura_Radius"              	"%radius"
+"Aura_Types"                "DOTA_UNIT_TARGET_BASIC"
+"Aura_Teams"                "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+"Aura_Flags"                "DOTA_UNIT_TARGET_FLAG_NONE"
+"OnCreated"
+{
+"AttachEffect"
+{
+	"EffectName"        "particles\custom_effect\dimian_fuwen_fire.vpcf"
+	"EffectAttachType"  "follow_origin"
+	"Target"            "CASTER"
+}
+"AttachEffect"
+{
+	"EffectName"        "particles/econ/courier/courier_wyvern_hatchling/courier_wyvern_hatchling_fire.vpcf"
+	"EffectAttachType"  "follow_origin"
+	"Target"            "CASTER"
+}
+}
+}
+
+"modifier_fire_core_aura_buff"
+{
+"Properties"
+{
+"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"        "%attspe"       //ħ���ָ��ٶ�
+}
+}
+}
+"AbilitySpecial"{
+"01"{
+"var_type"                					"FIELD_INTEGER"
+"attspe"									"10 20 30"
+}
+"02"{
+"var_type"                					"FIELD_INTEGER"
+"radius"									"1200"
+}
+}
+
+}

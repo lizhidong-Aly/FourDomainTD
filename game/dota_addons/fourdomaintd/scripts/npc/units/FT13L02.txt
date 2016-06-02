@@ -1,0 +1,35 @@
+"FT13L02"
+{
+"Model"											"models/heroes/juggernaut/juggernaut.vmdl"	// Model.
+"SoundSet"										"Hero_Juggernaut"
+"GameSoundsFile"								"soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts"
+"Level"											"2"
+"ModelScale" 									"1.0"
+
+"AttackAnimationPoint"							"0.4"
+"AttackAcquisitionRange"						"1600"
+"AttackRange"									"1000"
+"ProjectileSpeed"								"2000"
+"VisionDaytimeRange"             				"2400"			//Next Level Cost
+"UnitLabel"										"F"				//Next Level Index
+"ProjectileModel"	                            "particles/units/heroes/hero_lina/lina_base_attack.vpcf"
+"ShouldDoFlyHeightVisual"   					"0"
+"BaseClass"										"npc_dota_creature"
+"ArmorPhysical"									"0"
+"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
+"MovementSpeed"									"0"
+"StatusHealth"									"100"
+"StatusHealthRegen"								"0.0"
+"AttackCapabilities"							"DOTA_UNIT_CAP_RANGED_ATTACK"
+"Creature"
+{
+"AttachWearables"
+{
+"Wearable1" { "ItemDef" "6" }
+"Wearable1" { "ItemDef" "4904" }
+"Wearable1" { "ItemDef" "8" }
+"Wearable1" { "ItemDef" "9" }
+"Wearable1" { "ItemDef" "62" }
+}
+}
+}

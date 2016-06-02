@@ -1,0 +1,46 @@
+"ice_mark"
+{
+"AbilityBehavior"									"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+"AbilityUnitTargetTeam"								"DOTA_UNIT_TARGET_TEAM_ENEMY"
+"AbilityUnitTargetType"								"DOTA_UNIT_TARGET_BASIC"
+"BaseClass"											"ability_datadriven"
+"AbilityTextureName"    							"tusk_frozen_sigil"
+"AbilityCastRange"									"1000"
+"AbilityCooldown"									"3"
+"AbilityManaCost"									"20"
+"MaxLevel"               							"3"
+"OnSpellStart"
+{
+"ApplyModifier"
+{
+"ModifierName"										"modifier_ice_mark_buff"
+"Target"											"TARGET"
+}
+}
+
+
+"Modifiers"
+{
+"modifier_ice_mark_buff"
+{
+"IsDebuff"				"1"
+"IsHidden"				"0"
+"Duration"				"%duration"
+"Properties"
+{
+"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%movdown"
+}
+}
+}
+
+"AbilitySpecial"{
+"01"{
+"var_type"                "FIELD_INTEGER"
+"movdown"									"-3 -6 -9"
+}
+"02"{
+"var_type"                "FIELD_INTEGER"
+"duration"								"5"
+}
+}
+}

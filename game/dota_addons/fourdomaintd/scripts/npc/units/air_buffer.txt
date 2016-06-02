@@ -1,0 +1,20 @@
+"air_buffer"
+{
+"Model"									"models/creeps/neutral_creeps/n_creep_gnoll/n_creep_gnoll.vmdl"
+"Ability1"							""			// Ability 1
+"StatusHealth"					"5000000"
+"StatusHealthRegen"			"0.5"
+"ArmorPhysical"					"100000"
+"MovementSpeed"					"400"
+"BountyGoldMin"					"5"	// Gold earned 
+"Ability1"							"airbuff"
+"Ability2"							"invi"
+
+"ModelScale" 						"1.0"
+"SoundSet"							"n_creep_Ranged"
+"GameSoundsFile"				"soundevents/game_sounds_creeps.vsndevts"
+"Level"									"1"
+"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+"BaseClass"							"npc_dota_creature"
+"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_GROUND"
+}

@@ -1,0 +1,11 @@
+"AddonInfo"
+{
+	"TeamCount" 	"1"
+	"maps"		"fourdomaintd"
+	"IsPlayable"	"1"
+	"fourdomaintd"
+	{
+		"MaxPlayers"	"4"
+	}
+
+}

@@ -1,0 +1,57 @@
+"wind_bleesing"
+{
+"AbilityBehavior"                                		"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_TOGGLE"
+"BaseClass"                                       		"ability_datadriven"
+"AbilityTextureName"                        			"furion_teleportation"
+"AbilityCastRange"                                 		"%radius"
+"MaxLevel"												"3"
+
+"OnToggleOff"{
+"ApplyModifier"
+{
+"ModifierName"      		"modifier_wind_bleesing_passive"    //�൱��Ҫ���õĺ���
+"Target"      				"CASTER"         //�൱�ڴ��ݵ�λ�������Ǹ�����
+}
+}
+"OnToggleOn"{
+"RemoveModifier"
+{
+"ModifierName"      		"modifier_wind_bleesing_passive"    //�൱��Ҫ���õĺ���
+"Target"      				"CASTER"         //�൱�ڴ��ݵ�λ�������Ǹ�����
+}
+}
+
+"Modifiers"
+{
+"modifier_wind_bleesing_passive"
+{
+"Passive"        			"1"
+"IsHidden"        			"1"
+
+"Aura"                      "modifier_wind_bleesing_passive_buff"
+"Aura_Radius"              	"%radius"
+"Aura_Types"                "DOTA_UNIT_TARGET_BASIC"
+"Aura_Teams"                "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+"Aura_Flags"                "DOTA_UNIT_TARGET_FLAG_NONE"
+}
+
+"modifier_wind_bleesing_passive_buff"
+{
+"Properties"
+{
+"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"        "%rangeadded"       //ħ���ָ��ٶ�
+}
+}
+}
+"AbilitySpecial"{
+"01"{
+"var_type"                					"FIELD_INTEGER"
+"rangeadded"								"400 600 800"
+}
+"02"{
+"var_type"                					"FIELD_INTEGER"
+"radius"									"300 350 400"
+}
+}
+
+}

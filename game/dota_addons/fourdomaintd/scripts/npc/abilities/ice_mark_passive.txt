@@ -1,0 +1,29 @@
+"ice_mark_passive"
+{
+"AbilityBehavior"									"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+"BaseClass"											"ability_datadriven"
+"AbilityTextureName"    							"tusk_frozen_sigil"
+"MaxLevel"               							"1"
+
+"Modifiers"
+{
+"modifier_ice_mark"
+{
+"IsHidden"       				 				"1"
+"Passive"                						"1"
+"OnDealDamage"
+{
+
+"RunScript"
+{
+"ScriptFile"    "scripts/vscripts/SkillScript.lua"
+"Function"    	"IceMark"
+"Target"       	"UNIT"
+"duration"		"5"
+}
+}
+}
+
+}
+
+}

@@ -1,0 +1,37 @@
+"FT01L02"
+{
+"Model"											"models/heroes/ember_spirit/ember_spirit.vmdl"	// Model.
+"SoundSet"										"Hero_Lina"
+"GameSoundsFile"								"soundevents/game_sounds_heroes/game_sounds_Lina.vsndevts"
+"Level"											"2"
+"ModelScale" 									"1.15"
+
+"AttackAnimationPoint"							"0.3"
+"AttackAcquisitionRange"						"800"
+"AttackRange"									"600"
+"ProjectileModel"								"particles/units/heroes/hero_lina/lina_base_attack.vpcf"
+"ProjectileSpeed"								"2500"
+"VisionDaytimeRange"             				"750"			//Next Level Cost
+"UnitLabel"										"F"				//Next Level Index
+
+"BaseClass"										"npc_dota_creature"
+"ArmorPhysical"									"0"
+"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
+"MovementSpeed"									"0"
+"StatusHealth"									"100"
+"StatusHealthRegen"								"0.0"
+"AttackCapabilities"							"DOTA_UNIT_CAP_RANGED_ATTACK"
+"Creature"
+{
+"AttachWearables"
+{
+"Wearable1" { "ItemDef" "462" }
+"Wearable1" { "ItemDef" "469" }
+"Wearable1" { "ItemDef" "471" }
+"Wearable1" { "ItemDef" "472" }
+"Wearable1" { "ItemDef" "473" }
+"Wearable1" { "ItemDef" "474" }
+
+}
+}
+}

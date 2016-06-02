@@ -1,0 +1,64 @@
+"burnning_blood"
+{
+"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+"BaseClass"                     "ability_datadriven"
+"AbilityTextureName"            "ogre_magi_bloodlust"
+"AbilityCooldown"               "360"
+"AbilityManaCost"               "0"
+"AbilityCastRange"       		"1000"
+"AbilityCastPoint"         		"0.7"
+"AoERadius"               		"350"
+"MaxLevel"               		"1"
+
+"OnSpellStart"
+{
+"ApplyModifier"
+{
+	"ModifierName"	"modifier_burnning_blood_buff"
+	"Duration"		"%duration"
+	"Target"
+	{
+		"Center"  	"POINT"
+		"Radius" 	"350"
+		"Teams" 	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"Types" 	"DOTA_UNIT_TARGET_BASIC"
+	}
+}
+"FireSound"
+{
+	"EffectName"	"Hero_OgreMagi.Bloodlust.Target"
+	"Target" 		"CASTER"
+}
+}
+"Modifiers"
+{
+"modifier_burnning_blood_buff"
+{
+	"Passive"			"0"
+	"IsHidden"			"0"
+	"IsDebuff"			"0"
+
+	"EffectName"		"particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_buff.vpcf"
+	"EffectAttachType"	"follow_origin"
+	"Properties"
+	{
+		"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attspe"
+	}
+}
+}
+"AbilitySpecial"
+{
+"01"
+{
+	"var_type"			"FIELD_INTEGER"
+	"attspe"			"300"
+}
+"02"
+{
+	"var_type"			"FIELD_FLOAT"
+	"duration"			"10"
+}
+}
+
+}

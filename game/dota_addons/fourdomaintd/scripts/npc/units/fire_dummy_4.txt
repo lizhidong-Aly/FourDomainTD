@@ -1,0 +1,29 @@
+"fire_dummy_4"
+{
+"Model"											"models/heroes/phoenix/phoenix_bird.vmdl"	// Model.
+"SoundSet"										"Hero_Phoenix"
+"GameSoundsFile"								"soundevents/game_sounds_heroes/game_sounds_phoenix.vsndevts"
+"Level"											"3"
+"ModelScale" 									"0.8"
+
+"Ability1"										"sunfire_e"
+
+"AttackDamageMin"								"6200"
+"AttackDamageMax"								"7500"
+"AttackRate"									"0.6"
+"AttackAnimationPoint"							"0.3"
+"AttackAcquisitionRange"						"1400"
+"AttackRange"									"1200"
+"ProjectileModel"								"particles/units/heroes/hero_batrider/batrider_base_attack.vpcf"
+"ProjectileSpeed"								"1200"
+"UnitLabel"										"F"
+"DisableClumpingBehavior"   					"1"
+"BaseClass"										"npc_dota_creature"
+"ArmorPhysical"									"0"
+"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_FLY"
+"MovementSpeed"									"500"
+"StatusHealth"									"100"
+"StatusHealthRegen"								"0.0"
+"AttackCapabilities"							"DOTA_UNIT_CAP_RANGED_ATTACK"
+
+}

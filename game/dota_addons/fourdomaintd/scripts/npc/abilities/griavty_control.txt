@@ -1,0 +1,42 @@
+"griavty_control"
+{
+"AbilityBehavior"                                	"DOTA_ABILITY_BEHAVIOR_PASSIVE |DOTA_ABILITY_BEHAVIOR_AURA"
+"BaseClass"                                         "ability_datadriven"
+"AbilityTextureName"                        		"enigma_midnight_pulse"
+"AbilityCastRange"                                 	"%radius"
+"MaxLevel"											"3"
+
+"Modifiers"
+{
+"modifier_griavty_control_passive"
+{
+"Passive"       			"1"
+"IsHidden"        			"1"
+"Aura"                      "modifier_griavty_control_passive_buff"
+"Aura_Radius"               "%radius"
+"Aura_Types"                "DOTA_UNIT_TARGET_BASIC"
+"Aura_Teams"                "DOTA_UNIT_TARGET_TEAM_ENEMY"
+"Aura_Flags"                "DOTA_UNIT_TARGET_FLAG_NONE"
+}
+
+"modifier_griavty_control_passive_buff"
+{
+"IsDebuff"                "1"
+"Properties"
+{
+"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"        "%slowdown"
+}
+}
+}
+"AbilitySpecial"{
+"01"{
+"var_type"                				"FIELD_FLOAT"
+"slowdown"								"-20 -30 -40"
+}
+"02"{
+"var_type"                				"FIELD_FLOAT"
+"radius"								"800"
+}
+
+}
+}

@@ -1,0 +1,32 @@
+"SelectPosition"
+{
+"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+"BaseClass"                     "ability_datadriven"
+"AbilityTextureName"            "BTNArcaniteArchitecture"
+"AbilityCooldown"               "0.0"
+"AbilityManaCost"               "0"
+"AbilityCastRange"       				"200"
+"AbilityCastPoint"         		 "0.01"
+"AoERadius"               			"80"
+"MaxLevel"               				"1"
+
+"OnAbilityPhaseStart"
+{
+"RunScript"
+{
+"ScriptFile"    "scripts/vscripts/BuildUI.lua"
+"Function"    	"BuildTest"
+"Target"       	"POINT"
+}
+}
+"OnSpellStart"
+{
+"RunScript"
+{
+"ScriptFile"	"scripts/vscripts/BuildUI.lua"
+"Function"		"CreateBase"
+"Target"       	"POINT"
+}
+}
+
+}

@@ -1,0 +1,41 @@
+"Upgrade"
+{
+"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+"BaseClass"                     "ability_datadriven"
+"AbilityTextureName"            "rattletrap_power_cogs"
+"AbilityCooldown"               "0.0"
+"AbilityManaCost"               "0"
+"AbilityCastPoint"         		  "0.01"
+"AbilityChannelTime"      			"1.0"
+"MaxLevel"               				"1"
+
+"OnAbilityPhaseStart"
+{
+"RunScript"
+{
+"ScriptFile"    "scripts/vscripts/BuildUI.lua"
+"Function"    	"UpgradeTest"
+"Target"       	"CASTER"
+}
+}
+
+"OnChannelInterrupted"
+{
+"RunScript"
+{
+"ScriptFile"    "scripts/vscripts/BuildUI.lua"
+"Function"    	"ReturnUpgradeCost"
+"Target"       	"CASTER"
+}
+}
+
+"OnChannelSucceeded"
+{
+"RunScript"
+{
+"ScriptFile"    "scripts/vscripts/BuildUI.lua"
+"Function"    	"Upgrade"
+"Target"       	"CASTER"
+}
+}
+}

@@ -1,0 +1,81 @@
+"absolute_zero"
+{
+"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+"BaseClass"                     "ability_datadriven"
+"AbilityTextureName"            "crystal_maiden_freezing_field"
+"AbilityCooldown"               "360"
+"AbilityManaCost"               "0"
+"AbilityCastRange"       		"%radius"
+"AbilityCastPoint"         		"0.7"
+"MaxLevel"               		"1"
+"precache"
+{
+"particle"  "particles/econ/items/ancient_apparition/aa_blast_ti_5/ancient_apparition_ice_blast_explode_ti5.vpcf"
+}
+
+"OnSpellStart"
+{
+"ApplyModifier"
+{
+	"ModifierName"	"modifier_absolute_zero_buff"
+	"Duration"		"%duration"
+	"Target"
+	{
+		"Center"  	"CASTER"
+		"Radius" 	"%radius"
+		"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"Types" 	"DOTA_UNIT_TARGET_BASIC"
+		"Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+	}
+}
+"FireSound"
+{
+	"EffectName"	"Hero_Crystal.CrystalNova"
+	"Target" 		"CASTER"
+}
+"AttachEffect"
+{
+	"EffectName"        "particles/econ/items/ancient_apparition/aa_blast_ti_5/ancient_apparition_ice_blast_explode_ti5.vpcf"
+	"EffectAttachType"  "follow_origin"
+	"Target"            "CASTER"
+	"ControlPointEntities"
+	{
+		"CASTER"	"follow_origin"
+		"CASTER"	"follow_origin"
+		"CASTER"	"follow_origin"
+		"CASTER"	"follow_origin"
+	}
+}
+}
+"Modifiers"
+{
+"modifier_absolute_zero_buff"
+{
+	"Passive"			"0"
+	"IsHidden"			"0"
+	"IsDebuff"			"1"
+
+	"EffectName"		"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
+	"EffectAttachType"	"follow_origin"
+	"States"
+	{
+		"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+	}
+}
+}
+"AbilitySpecial"
+{
+"01"
+{
+	"var_type"			"FIELD_FLOAT"
+	"duration"			"10"
+}
+"02"
+{
+	"var_type"			"FIELD_FLOAT"
+	"radius"			"2000"
+}
+}
+
+}

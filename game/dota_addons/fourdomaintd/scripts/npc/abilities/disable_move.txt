@@ -1,0 +1,19 @@
+"disable_move"
+{
+"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+"BaseClass"                     "ability_datadriven"
+
+"Modifiers"
+{
+"modifier_disable_move"
+{   
+"Passive" "1"
+"IsHidden"				"1"
+"States"
+{
+"MODIFIER_STATE_ROOTED" "MODIFIER_STATE_VALUE_ENABLED"
+}
+}
+}
+
+}

@@ -1,0 +1,118 @@
+"fire_core_overload"
+{
+"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+"BaseClass"                     "ability_datadriven"
+"AbilityTextureName"            "invoker_sun_strike"
+"AbilityCooldown"               "3.0"
+"AbilityManaCost"               "0"
+"AbilityCastPoint"         		"0.01"
+"AbilityCastRange"				"%radius"
+"AbilityChannelTime"      		"1.5"
+"MaxLevel"               		"3"
+"precache"
+{
+"particle"  "particles/units/heroes/hero_invoker/invoker_sun_strike.vpcf"
+"particle"	"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
+"soundfile"	"soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
+}
+
+"OnChannelSucceeded"
+{
+"FireSound"
+{
+"EffectName"	"Hero_Invoker.SunStrike.Ignite"
+"Target" 		"CASTER"
+}
+"AttachEffect"
+{
+"EffectName"        "particles/units/heroes/hero_invoker/invoker_sun_strike.vpcf"
+"EffectAttachType"  "follow_origin"
+"Target"            "CASTER"
+}
+"ApplyModifier"
+{
+"ModifierName"	"modifier_fire_core_overload_buff"
+"Duration"		"%duration"
+"Target"
+{
+"Types"     								"DOTA_UNIT_TARGET_BASIC"
+"teams"     								"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+"flags"      								"DOTA_UNIT_TARGET_FLAG_NONE"
+"Center"      								"CASTER"
+"Radius"									"%radius"
+}
+}
+"ApplyModifier"
+{
+"ModifierName"	"modifier_kill_self"
+"Target" 		"CASTER"
+}
+
+"RemoveModifier"
+{
+"ModifierName"	"modifier_fire_core_aura"
+"Target" 		"CASTER"
+}
+
+}
+"Modifiers"
+{
+
+"modifier_kill_self"
+{
+"IsHidden"		"1"
+"ThinkInterval"  "0.2"
+"OnIntervalThink"
+{
+"Damage"
+{
+"Target"		"CASTER"
+"Type"			"DAMAGE_TYPE_PURE"
+"Damage"		"25"
+}
+}
+"States"
+{
+"MODIFIER_STATE_UNSELECTABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+}
+}
+
+"modifier_fire_core_overload_buff"
+{
+"IsHidden"			"0"
+"IsDebuff"			"0"
+"OnCreated"
+{
+"AttachEffect"
+{
+	"EffectName"        "particles/econ/courier/courier_wyvern_hatchling/courier_wyvern_hatchling_fire.vpcf"
+	"EffectAttachType"  "follow_origin"
+	"Target"            "TARGET"
+}
+}
+"Properties"
+{
+"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attspe"
+}
+}
+}
+"AbilitySpecial"
+{
+"01"
+{
+"var_type"			"FIELD_INTEGER"
+"radius"			"300 400 500"
+}
+"02"
+{
+"var_type"			"FIELD_FLOAT"
+"duration"			"4 7 10"
+}
+"03"
+{
+"var_type"			"FIELD_FLOAT"
+"attspe"			"100 300 500"
+}
+}
+
+}

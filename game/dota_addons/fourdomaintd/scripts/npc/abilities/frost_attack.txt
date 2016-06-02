@@ -1,0 +1,57 @@
+"frost_attack"
+{
+"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+"BaseClass"								"ability_datadriven"
+"AbilityTextureName"    				"crystal_maiden_frostbite"
+"MaxLevel"               				"1"
+"precache"
+{
+"particle"  "particles/units/heroes/hero_invoker/invoker_ice_wall_debuff.vpcf"
+}
+"Modifiers"
+{
+"modifier_frost_attack"
+{
+"IsHidden"       				 				"1"
+"Passive"                						"1"
+"OndealDamage"
+{
+"ApplyModifier"
+{
+"ModifierName"	"modifier_frost_attack_debuff"
+"Target" 		"UNIT"
+"Duration"		"%duration"
+}
+}
+}
+"modifier_frost_attack_debuff"
+{
+"IsHidden"								"0"
+"IsDebuff"								"1"
+"OnCreated"
+{
+"AttachEffect"
+{
+	"EffectName"        "particles/units/heroes/hero_invoker/invoker_ice_wall_debuff.vpcf"
+	"EffectAttachType"  "follow_origin"
+	"Target"            "TARGET"
+}
+}
+"Properties"
+{
+    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slowdown" 
+}
+}
+}
+
+"AbilitySpecial"{
+"01"{
+"var_type"                "FIELD_INTEGER"
+"duration"									"4"
+}
+"02"{
+"var_type"                "FIELD_INTEGER"
+"slowdown"								"-30"
+}
+}
+}

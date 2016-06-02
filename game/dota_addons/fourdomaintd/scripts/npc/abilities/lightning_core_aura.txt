@@ -1,0 +1,129 @@
+"lightning_core_aura"
+{
+"AbilityBehavior"                                		"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_TOGGLE"
+"BaseClass"                                       		"ability_datadriven"
+"AbilityTextureName"                        			"disruptor_thunder_strike"
+"AbilityCastRange"                                 		"%radius"
+"MaxLevel"												"3"
+"precache"
+{
+"particle"  "particles\custom_effect\dimian_fuwen_lightning.vpcf"
+"particle"  "particles/units/heroes/hero_stormspirit/stormspirit_ball_lightning_sphere.vpcf"
+"particle"	"particles/custom_effect/lightning_solo.vpcf"	
+
+}
+
+"OnToggleOff"{
+"ApplyModifier"
+{
+"ModifierName"      		"modifier_lightning_core_aura"    //�൱��Ҫ���õĺ���
+"Target"      				"CASTER"         //�൱�ڴ��ݵ�λ�������Ǹ�����
+}
+}
+"OnToggleOn"{
+"RemoveModifier"
+{
+"ModifierName"      		"modifier_lightning_core_aura"    //�൱��Ҫ���õĺ���
+"Target"      				"CASTER"         //�൱�ڴ��ݵ�λ�������Ǹ�����
+}
+}
+
+"Modifiers"
+{
+"modifier_lightning_core_aura"
+{
+"Passive"        			"1"
+"IsHidden"        			"1"
+
+"Aura"                      "modifier_lightning_core_aura_debuff"
+"Aura_Radius"              	"%radius"
+"Aura_Types"                "DOTA_UNIT_TARGET_BASIC"
+"Aura_Teams"                "DOTA_UNIT_TARGET_TEAM_ENEMY"
+"Aura_Flags"                "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+"OnCreated"
+{
+"AttachEffect"
+{
+"EffectName"        "particles\custom_effect\dimian_fuwen_lightning.vpcf"
+"EffectAttachType"  "attach_hitloc"
+"Target"            "CASTER"
+}
+"AttachEffect"
+{
+"EffectName"        "particles/units/heroes/hero_stormspirit/stormspirit_ball_lightning_sphere.vpcf"
+"EffectAttachType"  "attach_hitloc"
+"Target"            "CASTER"
+}
+}
+
+}
+
+"modifier_lightning_core_aura_debuff"
+{
+"IsHidden"					"0"
+"IsDebuff"					"1"
+"ThinkInterval"  			"0.5"
+"OnIntervalThink"
+{
+"Random"
+{
+"Chance"			"%chance"
+"OnSuccess"
+{
+"FireSound"
+{
+"EffectName"	"Hero_Zuus.ArcLightning.Cast"
+"Target" 		"TARGET"
+}
+"FireEffect"
+{
+"EffectName"        "particles/custom_effect/lightning_solo.vpcf"
+"EffectAttachType"	"attach_hitloc"
+"Target"
+{
+"Types"     								"DOTA_UNIT_TARGET_BASIC"
+"teams"     								"DOTA_UNIT_TARGET_TEAM_ENEMY"
+"flags"      								"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+"Center"      								"TARGET"
+}
+"ControlPointEntities"
+{
+"TARGET"	"attach_hitloc"
+"TARGET"	"attach_hitloc"
+}
+}
+"Damage"
+{
+"Type"			"DAMAGE_TYPE_PURE"
+"Damage"		"%dmg"
+"MaxHealthPercentBasedDamage"	"1"
+"Target"
+{
+"Types"     								"DOTA_UNIT_TARGET_BASIC"
+"teams"     								"DOTA_UNIT_TARGET_TEAM_ENEMY"
+"flags"      								"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+"Center"      								"TARGET"
+}
+}
+}
+
+}
+}
+}
+}
+"AbilitySpecial"{
+"01"{
+"var_type"                					"FIELD_FLOAT"
+"dmg"										"1 2 3"
+}
+"02"{
+"var_type"                					"FIELD_INTEGER"
+"radius"									"1200"
+}
+"03"{
+"var_type"                					"FIELD_INTEGER"
+"chance"									"30"
+}
+}
+
+}

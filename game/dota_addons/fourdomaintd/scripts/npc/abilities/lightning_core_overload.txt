@@ -1,0 +1,152 @@
+"lightning_core_overload"
+{
+"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+"BaseClass"                     "ability_datadriven"
+"AbilityTextureName"            "invoker_emp"
+"AbilityCooldown"               "3.0"
+"AbilityManaCost"               "0"
+"AbilityCastPoint"         		"0.01"
+"AbilityCastRange"				"%radius"
+"AbilityChannelTime"      		"1.5"
+"MaxLevel"               		"3"
+"precache"
+{
+"particle"  "particles/units/heroes/hero_invoker/invoker_emp_explode.vpcf"
+}
+
+"OnChannelSucceeded"
+{
+"FireSound"
+{
+"EffectName"	"Hero_Invoker.EMP.Discharge"
+"Target" 		"CASTER"
+}
+"AttachEffect"
+{
+"EffectName"        "particles/units/heroes/hero_invoker/invoker_emp_explode.vpcf"
+"EffectAttachType"  "follow_origin"
+"Target"            "CASTER"
+}
+"ApplyModifier"
+{
+"ModifierName"	"modifier_lightning_core_overload_passive"
+"Target" 		"CASTER"
+"Duration"		"%amount * 0.1"
+}
+"ApplyModifier"
+{
+"ModifierName"	"modifier_kill_self"
+"Target" 		"CASTER"
+}
+
+"RemoveModifier"
+{
+"ModifierName"	"modifier_lightning_core_aura"
+"Target" 		"CASTER"
+}
+}
+"Modifiers"
+{
+
+"modifier_kill_self"
+{
+"IsHidden"		"1"
+"ThinkInterval"  "0.3"
+"OnIntervalThink"
+{
+"Damage"
+{
+"Target"		"CASTER"
+"Type"			"DAMAGE_TYPE_PURE"
+"Damage"		"10"
+}
+}
+"States"
+{
+"MODIFIER_STATE_UNSELECTABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+}
+}
+
+"modifier_lightning_core_overload_passive"
+{
+"IsHidden"			"1"
+"ThinkInterval"  "0.1"
+"OnIntervalThink"
+{
+"ActOnTargets"
+{
+"Target"
+{
+"Center"  	"CASTER"
+"Radius" 	"%radius"
+"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+"Types" 	"DOTA_UNIT_TARGET_BASIC"
+"Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+"MaxTargets" "1"
+"Random"     "1"
+}
+
+"Action"    
+{
+"FireSound"
+{
+"EffectName"	"Hero_Zuus.ArcLightning.Cast"
+"Target" 		"TARGET"
+}
+"FireEffect"
+{
+"EffectName"        "particles/custom_effect/lightning_solo.vpcf"
+"EffectAttachType"	"attach_hitloc"
+"Target"
+{
+"Types"     								"DOTA_UNIT_TARGET_BASIC"
+"teams"     								"DOTA_UNIT_TARGET_TEAM_ENEMY"
+"flags"      								"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+"Center"      								"TARGET"
+}
+"ControlPointEntities"
+{
+"TARGET"	"attach_hitloc"
+"TARGET"	"attach_hitloc"
+}
+}
+"Damage"
+{
+"Type"			"DAMAGE_TYPE_PURE"
+"Damage"		"%dmg"
+"MaxHealthPercentBasedDamage"	"1"
+"Target"
+{
+"Types"     								"DOTA_UNIT_TARGET_BASIC"
+"teams"     								"DOTA_UNIT_TARGET_TEAM_ENEMY"
+"flags"      								"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+"Center"      								"TARGET"
+}
+}
+}
+}
+}
+}
+
+
+}
+"AbilitySpecial"
+{
+"01"
+{
+"var_type"			"FIELD_INTEGER"
+"radius"			"800"
+}
+"02"
+{
+"var_type"			"FIELD_FLOAT"
+"amount"			"10 15 20"
+}
+"03"
+{
+"var_type"			"FIELD_FLOAT"
+"dmg"				"4 9 20"
+}
+}
+
+}

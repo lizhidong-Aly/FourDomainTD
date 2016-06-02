@@ -1,0 +1,22 @@
+"level20"
+{	
+"Model"									"models/items/terrorblade/marauders_demon/marauders_demon.vmdl"
+"SoundSet"								"n_creep_Ranged"
+"GameSoundsFile"						"soundevents/game_sounds_creeps.vsndevts"
+"Level"									"15"
+"ModelScale" 							"1.5"
+
+"AttackRange"           				"1"   	//Unit Per Line
+"AttackAnimationPoint"  				"12"	//Swapn Dealy
+
+"StatusHealth"							"40000"
+"StatusHealthRegen"						"0"
+"ArmorPhysical"							"180"
+"MagicalResistance"						"0"
+"MovementSpeed"							"400"
+"UnitLabel"                				"1"		//1-Ä§·¨ÃâÒß 0-²»ÃâÒß
+
+"AttackCapabilities"					"DOTA_UNIT_CAP_NO_ATTACK"
+"BaseClass"								"npc_dota_creature"
+"MovementCapabilities"					"DOTA_UNIT_CAP_MOVE_GROUND"
+}

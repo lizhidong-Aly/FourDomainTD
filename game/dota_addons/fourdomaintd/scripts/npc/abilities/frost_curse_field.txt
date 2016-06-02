@@ -1,0 +1,42 @@
+"frost_curse_field"
+{
+"AbilityBehavior"                                		"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+"BaseClass"                                         	"ability_datadriven"
+"AbilityTextureName"                        			"wisp_spirits"
+"AbilityCastRange"                                 		"%radius"
+"MaxLevel"																				"3"
+
+"Modifiers"
+{
+"modifier_frost_curse_field_passive"
+{
+"Passive"        				"1"
+"IsHidden"        				"1"
+"Aura"                        	"modifier_frost_curse_field_passive_buff"
+"Aura_Radius"               	"%radius"
+"Aura_Types"                	"DOTA_UNIT_TARGET_BASIC"
+"Aura_Teams"               		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+"Aura_Flags"                	"DOTA_UNIT_TARGET_FLAG_NONE"
+}
+
+"modifier_frost_curse_field_passive_buff"
+{
+"IsDebuff"                								"1"
+"Properties"
+{
+"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"        	"%dmginc"
+
+}
+}
+}
+"AbilitySpecial"{
+"01"{
+"var_type"                				"FIELD_FLOAT"
+"dmginc"								"20 40 60"
+}
+"02"{
+"var_type"                				"FIELD_FLOAT"
+"radius"								"700 800 1000"
+}
+}
+}

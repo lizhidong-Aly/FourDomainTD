@@ -1,0 +1,19 @@
+"OpenTechMenu"
+{
+"AbilityBehavior"               		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+"BaseClass"                     		"ability_datadriven"
+"AbilityTextureName"            		"BTNManual3"
+"AbilityCooldown"               		"0.0"
+"AbilityManaCost"               		"0"
+"MaxLevel"               				"1"
+
+"OnSpellStart"
+{
+"RunScript"
+{
+"ScriptFile"    "scripts/vscripts/TechUI.lua"
+"Function"    	"OpenTechMenu"
+"Target"       	"CASTER"
+}
+}
+}

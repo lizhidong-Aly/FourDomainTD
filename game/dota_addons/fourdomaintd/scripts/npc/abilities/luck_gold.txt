@@ -1,0 +1,43 @@
+"luck_gold"
+{
+"AbilityBehavior"								"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+"BaseClass"											"ability_datadriven"
+"AbilityTextureName"    					"bloodseeker_bloodrage"
+"MaxLevel"               					"1"
+
+"Modifiers"
+{
+"modifier_luck_gold"
+{
+"IsHidden"       				 				"1"
+"Passive"                				"1"
+"OnAttack"
+{
+"Random"
+{
+"Chance"		"%chance"
+"OnSuccess"
+{
+"RunScript"
+{
+"ScriptFile"    "scripts/vscripts/SkillScript.lua"
+"Function"    	"LuckGold"
+"Target"       	"TARGET"
+}
+}
+}
+
+
+}
+}
+
+
+}
+"AbilitySpecial"{
+"01"{
+"var_type"                "FIELD_FLOAT"
+"chance"								"10"
+}
+
+}
+}

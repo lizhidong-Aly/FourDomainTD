@@ -1,0 +1,22 @@
+"level14"
+{	
+"Model"									"models/creeps/neutral_creeps/n_creep_thunder_lizard/n_creep_thunder_lizard_small.vmdl"
+"SoundSet"								"n_creep_Ranged"
+"GameSoundsFile"						"soundevents/game_sounds_creeps.vsndevts"
+"Level"									"5"
+"ModelScale" 							"1.2"
+
+"AttackRange"           				"15"   	//Unit Per Line
+"AttackAnimationPoint"  				"1"	//Swapn Dealy
+
+"StatusHealth"							"3500"
+"StatusHealthRegen"						"200"
+"ArmorPhysical"							"65"
+"MagicalResistance"						"50"
+"MovementSpeed"							"400"
+"UnitLabel"                				"0"		//1-Ä§·¨ÃâÒß 0-²»ÃâÒß
+
+"AttackCapabilities"					"DOTA_UNIT_CAP_NO_ATTACK"
+"BaseClass"								"npc_dota_creature"
+"MovementCapabilities"					"DOTA_UNIT_CAP_MOVE_GROUND"
+}

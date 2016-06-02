@@ -1,0 +1,38 @@
+"AT11L03"
+{
+"Model"											"models/heroes/windrunner/windrunner.vmdl"	// Model.
+"SoundSet"										"Hero_SkywrathMage"
+"GameSoundsFile"								"soundevents/game_sounds_heroes/game_sounds_skywrath_mage.vsndevts"
+"Level"											"3"
+"ModelScale" 									"1.1"
+ 
+"AttackAnimationPoint"							"0.4"
+"AttackAcquisitionRange"						"1800"
+"AttackRange"									"1600"
+"ProjectileModel"								"particles/units/heroes/hero_stormspirit/stormspirit_base_attack.vpcf"
+"ProjectileSpeed"								"1800"
+"VisionDaytimeRange"             				"0"			//Next Level Cost
+"UnitLabel"										"A"				//Next Level Index
+
+"BaseClass"										"npc_dota_creature"
+"ArmorPhysical"									"0"
+"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
+"MovementSpeed"									"0"
+"StatusHealth"									"100"
+"StatusHealthRegen"								"0.0"
+"StatusMana"                					"100"
+"StatusManaRegen"           					"1.5" 
+"AttackCapabilities"							"DOTA_UNIT_CAP_RANGED_ATTACK"
+"Creature"
+{
+"AttachWearables"
+{
+"Wearable1" { "ItemDef" "21" }
+"Wearable1" { "ItemDef" "22" }
+"Wearable1" { "ItemDef" "23" }
+"Wearable1" { "ItemDef" "24" }
+"Wearable1" { "ItemDef" "25" }
+
+}
+}
+}

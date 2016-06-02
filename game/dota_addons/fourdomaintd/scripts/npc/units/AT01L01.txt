@@ -1,0 +1,41 @@
+//ÆøÔªËØ
+
+"AT01L01"
+{
+"Model"											"models/heroes/skywrath_mage/skywrath_mage.vmdl"	// Model.
+"SoundSet"										"Hero_SkywrathMage"
+"GameSoundsFile"								"soundevents/game_sounds_heroes/game_sounds_skywrath_mage.vsndevts"
+"Level"											"1"
+"ModelScale" 									"0.7"
+
+"AttackAnimationPoint"							"0.4"
+"AttackAcquisitionRange"						"1600"
+"AttackRange"									"1100"
+"ProjectileModel"								"particles/units/heroes/hero_stormspirit/stormspirit_base_attack.vpcf"
+"ProjectileSpeed"								"1800"
+"BountyXP"  				 					"50"			//Build Cost
+"VisionDaytimeRange"             				"200"			//Next Level Cost
+"UnitLabel"										"A"				//Next Level Index
+
+"ShouldDoFlyHeightVisual"   					"0"
+"BaseClass"										"npc_dota_creature"
+"ArmorPhysical"									"0"
+"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
+"MovementSpeed"									"0"
+"StatusHealth"									"100"
+"StatusHealthRegen"								"0.0"
+"AttackCapabilities"							"DOTA_UNIT_CAP_RANGED_ATTACK"
+"Creature"
+{
+"AttachWearables"
+{
+"Wearable1" { "ItemDef" "420" }
+"Wearable1" { "ItemDef" "421" }
+"Wearable1" { "ItemDef" "422" }
+"Wearable1" { "ItemDef" "423" }
+"Wearable1" { "ItemDef" "424" }
+"Wearable1" { "ItemDef" "425" }
+
+}
+}
+}

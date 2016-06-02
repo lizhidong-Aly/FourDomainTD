@@ -1,0 +1,25 @@
+//´ÓÕâÀï¿ªÊ¼ 7ÔÂ21ºÅ 21£º15·Ö 
+
+
+"level06"
+{	
+"Model"									"models/creeps/neutral_creeps/n_creep_centaur_med/n_creep_centaur_med.vmdl"
+"SoundSet"								"n_creep_Ranged"
+"GameSoundsFile"						"soundevents/game_sounds_creeps.vsndevts"
+"Level"									"2"
+"ModelScale" 							"1.2"
+
+"AttackRange"           				"30"   	//Unit Per Line
+"AttackAnimationPoint"  				"0.5"	//Swapn Dealy
+
+"StatusHealth"							"1200"
+"StatusHealthRegen"						"0.5"
+"ArmorPhysical"							"20"
+"MagicalResistance"						"0"
+"MovementSpeed"							"440"
+"UnitLabel"                				"0"		//1-Ä§·¨ÃâÒß 0-²»ÃâÒß
+
+"AttackCapabilities"					"DOTA_UNIT_CAP_NO_ATTACK"
+"BaseClass"								"npc_dota_creature"
+"MovementCapabilities"					"DOTA_UNIT_CAP_MOVE_GROUND"
+}

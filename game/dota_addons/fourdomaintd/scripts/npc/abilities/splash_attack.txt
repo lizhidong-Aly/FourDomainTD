@@ -1,0 +1,39 @@
+"splash_attack"
+{
+"AbilityBehavior"								"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+"BaseClass"										"ability_datadriven"
+"AbilityTextureName"    						"black_dragon_splash_attack"
+"MaxLevel"               						"3"
+
+"Modifiers"
+{
+"modifier_splash_attack"
+{
+"Passive"			"1"
+"IsHidden"			"1"
+"IsDebuff"			"0"
+"OnAttackLanded"
+// "%attack_damage" is set to the damage value before mitigation
+{
+"RunScript"
+{
+"ScriptFile"	"scripts/vscripts/SkillScript.lua"
+"Function"		"SplashAttack"
+"Target"
+{
+	"Center"  	"TARGET"
+	"Radius" 	"%radius"
+	"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+	"Types" 	"DOTA_UNIT_TARGET_BASIC"
+}
+}
+}
+}
+}
+"AbilitySpecial"{
+"01"{
+"var_type"                				"FIELD_FLOAT"
+"radius"					"400 500 600"
+}
+}
+}

@@ -1,0 +1,31 @@
+"Earth_Hell"
+{
+"AbilityBehavior"                                "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+"BaseClass"                                         "ability_datadriven"
+"AbilityTextureName"                        			"wisp_spirits"
+"AbilityCastRange"                                 "300"
+"MaxLevel"																				"2"
+
+"Modifiers"
+{
+
+"modifier_earth_buff"
+{
+"IsDebuff"                "0"
+"Passive"        "1"
+"Properties"
+{
+"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"			"%dmgdec"
+}
+}
+
+}
+
+
+"AbilitySpecial"{
+"01"{
+"var_type"                "FIELD_INTEGER"
+"dmgdec"								"-15 -30"
+}
+}
+}

@@ -1,0 +1,65 @@
+"BuildTower"
+{
+"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+"BaseClass"                     "ability_datadriven"
+"AbilityTextureName"            "BTNArcaniteArchitecture"
+"AbilityCooldown"               "0.0"
+"AbilityManaCost"               "0"
+"AbilityCastPoint"         		"0.01"
+"AbilityChannelTime"      		"5.0"
+"MaxLevel"               		"1"
+
+"precache" 
+{
+"particle"              "particles/custom_effect/tower_build_effect.vpcf"
+}
+
+"OnChannelInterrupted"
+{
+"RunScript"
+{
+"ScriptFile"	"scripts/vscripts/BuildUI.lua"
+"Function"		"RefundBuildCost"
+"Target"       	"CASTER"
+}
+
+}
+"OnChannelSucceeded"
+{
+"RunScript"
+{
+"ScriptFile"    "scripts/vscripts/BuildUI.lua"
+"Function"    	"Build"
+"Target"       	"CASTER"
+}
+}
+
+"Modifiers"
+{
+"modifier_build_visul_effect"
+{
+"IsHidden"			"1"
+"Passive"			"1"
+"OnCreated"
+{
+"AttachEffect"
+{
+"EffectName"        "particles/custom_effect/tower_build_effect.vpcf"
+"EffectAttachType"  "follow_origin"
+"Dutation"			"8"
+"Target"            "CASTER"
+"ControlPointEntities"
+{
+"CASTER"	"follow_origin"
+"CASTER"	"follow_origin"
+"CASTER"	"follow_origin"
+"CASTER"	"follow_origin"
+"CASTER"	"follow_origin"
+"CASTER"	"follow_origin"
+}
+}
+}
+}
+}
+
+}

@@ -1,0 +1,65 @@
+"head_shoot"
+{
+"AbilityBehavior"								"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+"BaseClass"										"ability_datadriven"
+"AbilityTextureName"    						"sniper_headshot"
+"MaxLevel"               						"3"
+"AbilityDamage"									"200 400 1000"
+
+"Modifiers"
+{
+"modifier_head_shoot_passive"
+{
+"IsHidden"       				 				"1"
+"Passive"                						"1"
+"OnAttack"
+{
+"Random"
+{
+"Chance"										"%chance"
+"OnSuccess"
+{
+"Stun"
+{
+"Duration"  								 "%duration"
+"Target"
+{
+"Types"     								"DOTA_UNIT_TARGET_BASIC"
+"teams"     								"DOTA_UNIT_TARGET_TEAM_ENEMY"
+"flags"      								"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+"Center"      								"TARGET"
+}
+}
+"Damage"
+{
+"Target"
+{
+"Types"     								"DOTA_UNIT_TARGET_BASIC"
+"teams"     								"DOTA_UNIT_TARGET_TEAM_ENEMY"
+"flags"      								"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+"Center"      								"TARGET"
+}
+"Type"			"DAMAGE_TYPE_PHYSICAL"
+"Damage"		"%AbilityDamage"
+}
+
+}
+}
+
+
+}
+}
+
+
+}
+"AbilitySpecial"{
+"01"{
+"var_type"                				"FIELD_FLOAT"
+"chance"								"20 40 60"
+}
+"02"{
+"var_type"                				"FIELD_FLOAT"
+"duration"								"0.01 0.1 0.2"
+}
+}
+}

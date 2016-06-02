@@ -1,0 +1,22 @@
+"level30"
+{	
+"Model"									"models/items/terrorblade/dotapit_s3_fallen_light_metamorphosis/dotapit_s3_fallen_light_metamorphosis.vmdl"
+"SoundSet"								"n_creep_Ranged"
+"GameSoundsFile"						"soundevents/game_sounds_creeps.vsndevts"
+"Level"									"15"
+"ModelScale" 							"1.5"
+
+"AttackRange"           				"1"   	//Unit Per Line
+"AttackAnimationPoint"  				"12"	//Swapn Dealy
+
+"StatusHealth"							"100000"
+"StatusHealthRegen"						"1000"
+"ArmorPhysical"							"400"
+"MagicalResistance"						"0"
+"MovementSpeed"							"522"
+"UnitLabel"                				"0"		//1-Ä§·¨ÃâÒß 0-²»ÃâÒß
+
+"AttackCapabilities"					"DOTA_UNIT_CAP_NO_ATTACK"
+"BaseClass"								"npc_dota_creature"
+"MovementCapabilities"					"DOTA_UNIT_CAP_MOVE_GROUND"
+}

@@ -1,0 +1,22 @@
+"fountain_passive"
+{
+"BaseClass"          			    "ability_datadriven"
+"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+
+"Modifiers"
+{
+"modifier_dota_ability_fountain_passive"
+{
+"IsHidden"				"1"
+"Passive"				"1"
+"Properties"
+{
+"MODIFIER_PROPERTY_DISABLE_HEALING" "1"
+}
+"States"
+{
+"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+}
+}
+}
+}

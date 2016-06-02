@@ -1,0 +1,35 @@
+"WT01L02"
+{
+"Model"											"models/heroes/morphling/morphling.vmdl"	// Model.
+"SoundSet"										"Hero_Morphling"
+"GameSoundsFile"								"soundevents/game_sounds_heroes/game_sounds_morphling.vsndevts"
+"Level"											"2"
+"ModelScale" 									"0.95"
+
+
+"AttackAnimationPoint"							"0.4"
+"AttackAcquisitionRange"						"1500"
+"AttackRange"									"1200"
+"ProjectileModel"								"particles/neutral_fx/ghost_base_attack.vpcf"
+"ProjectileSpeed"								"1500"
+"VisionDaytimeRange"             				"500"			//Next Level Cost
+"UnitLabel"										"W"				//Next Level Index
+
+"BaseClass"										"npc_dota_creature"
+"ArmorPhysical"									"0"
+"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
+"MovementSpeed"									"0"
+"StatusHealth"									"100"
+"StatusHealthRegen"								"0.0"
+"StatusMana"									"100"
+"StatusManaRegen"								"2"
+"AttackCapabilities"							"DOTA_UNIT_CAP_RANGED_ATTACK"
+"vscripts"										"Buff_Autocast_AI"
+"Creature"
+{
+"AttachWearables"
+{
+"Wearable1" { "ItemDef" "507" }
+}
+}
+}

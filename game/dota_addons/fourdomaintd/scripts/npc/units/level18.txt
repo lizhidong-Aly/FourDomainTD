@@ -1,0 +1,22 @@
+"level18"
+{	
+"Model"									"models/creeps/item_creeps/i_creep_necro_archer/necro_archer.vmdl"
+"SoundSet"								"n_creep_Ranged"
+"GameSoundsFile"						"soundevents/game_sounds_creeps.vsndevts"
+"Level"									"3"
+"ModelScale" 							"1.1"
+
+"AttackRange"           				"20"   	//Unit Per Line
+"AttackAnimationPoint"  				"0.6"	//Swapn Dealy
+
+"StatusHealth"							"6000"
+"StatusHealthRegen"						"1000"
+"ArmorPhysical"							"40"
+"MagicalResistance"						"10"
+"MovementSpeed"							"522"
+"UnitLabel"                				"0"		//1-Ä§·¨ÃâÒß 0-²»ÃâÒß
+
+"AttackCapabilities"					"DOTA_UNIT_CAP_NO_ATTACK"
+"BaseClass"								"npc_dota_creature"
+"MovementCapabilities"					"DOTA_UNIT_CAP_MOVE_GROUND"
+}

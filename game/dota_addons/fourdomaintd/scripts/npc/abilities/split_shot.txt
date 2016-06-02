@@ -1,0 +1,26 @@
+"split_shot"
+{
+"AbilityBehavior"									"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+"BaseClass"											"ability_datadriven"
+"AbilityTextureName"    							"medusa_split_shot"
+"MaxLevel"               							"1"
+"Modifiers"
+{
+"modifier_split_shot"
+{
+"IsHidden"       				 				"1"
+"Passive"                						"1"
+"OnAttack"
+{
+
+"RunScript"
+{
+"ScriptFile"    "scripts/vscripts/SkillScript.lua"
+"Function"    	"StartSplitShot"
+"Target"		"CASTER"
+
+}
+}
+}
+}
+}

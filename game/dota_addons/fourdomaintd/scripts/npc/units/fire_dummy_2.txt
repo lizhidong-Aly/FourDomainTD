@@ -1,0 +1,26 @@
+"fire_dummy_2"
+{
+"Model"											"models/items/invoker/forge_spirit/esl_relics_forge_spirit/esl_relics_forge_spirit.vmdl"	// Model.
+"SoundSet"										"n_creep_Ranged"
+"GameSoundsFile"								"soundevents/game_sounds_creeps.vsndevts"
+"Level"											"1"
+"ModelScale" 									"1.1"
+
+"AttackDamageMin"								"800"
+"AttackDamageMax"								"1050"
+"AttackRate"									"0.9"
+"AttackAnimationPoint"							"0.3"
+"AttackAcquisitionRange"						"1200"
+"AttackRange"									"1000"
+"ProjectileModel"								"particles/units/heroes/hero_batrider/batrider_base_attack.vpcf"
+"ProjectileSpeed"								"1200"
+"UnitLabel"										"F"
+
+"BaseClass"										"npc_dota_creature"
+"ArmorPhysical"									"0"
+"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_GROUND"
+"MovementSpeed"									"450"
+"StatusHealth"									"100"
+"StatusHealthRegen"								"0.0"
+"AttackCapabilities"							"DOTA_UNIT_CAP_RANGED_ATTACK"
+}

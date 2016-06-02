@@ -1,0 +1,9 @@
+"CustomHeroList"
+{
+	"npc_dota_hero_lina"    "1"
+	"npc_dota_hero_abaddon" "1"
+	"npc_dota_hero_juggernaut"    "0"
+	"npc_dota_hero_crystal_maiden" "1"
+	"npc_dota_hero_faceless_void" "1"
+	"npc_dota_hero_omniknight"		"1"
+}

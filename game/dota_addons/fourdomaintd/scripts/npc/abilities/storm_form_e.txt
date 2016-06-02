@@ -1,0 +1,98 @@
+"storm_form_e"
+{
+"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+"BaseClass"                     "ability_datadriven"
+"AbilityTextureName"            "storm_spirit_ball_lightning_orchid"
+"AbilityCooldown"               "30"
+"AbilityManaCost"               "0"
+"AbilityCastRange"       		"0"
+"AbilityCastPoint"         		"0"
+"MaxLevel"               		"1"
+"precache"
+{
+"particle"  "particles/custom_effect/sven_spell_warcry_ti_5.vpcf"
+"particle"		"particles/custom_effect/sven_warcry_buff_ti_5.vpcf"
+}
+"OnSpellStart"
+{
+"RunScript"
+{
+"ScriptFile"    "scripts/vscripts/SkillScript.lua"
+"Function"    	"StormForm"
+"Target"       	"POINT"
+}
+}
+"OnOwnerSpawned"
+{
+"ApplyModifier"
+{
+"ModifierName"	"modifier_storm_form_e_aura"
+"Target" 		"CASTER"
+"Duration"		"1"
+}
+
+}
+"Modifiers"
+{
+"modifier_storm_form_e_aura"
+{
+"Passive"        	"0"
+"IsHidden"        	"1"
+"Aura"                      "modifier_storm_form_e_buff"
+"Aura_Radius"               "%radius"
+"Aura_Types"                "DOTA_UNIT_TARGET_BASIC"
+"Aura_Teams"                "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+"Aura_Flags"                "DOTA_UNIT_TARGET_FLAG_NONE"
+}
+"modifier_storm_form_e_buff"
+{
+"IsHidden"			"0"
+"IsBuff"			"1"
+"Duration"			"%duration"
+"OnCreated"
+{
+"AttachEffect"
+{
+"EffectName"        "particles/custom_effect/sven_spell_warcry_ti_5.vpcf"
+"EffectAttachType"  "follow_origin"
+"Target"			"TARGET"
+}
+"AttachEffect"
+{
+"EffectName"        "particles/custom_effect/sven_warcry_buff_ti_5.vpcf"
+"EffectAttachType"  "follow_origin"
+"Target"			"TARGET"
+}
+}
+"Properties"
+{
+"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"		"%rangebouns"
+"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%asbouns"
+}
+}
+}
+"AbilitySpecial"
+{
+"01"
+{
+"var_type"			"FIELD_FLOAT"
+"radius"			"400"
+}
+"02"
+{
+"var_type"			"FIELD_FLOAT"
+"rangebouns"		"400"
+}
+"03"
+{
+"var_type"			"FIELD_FLOAT"
+"asbouns"			"600"
+}
+
+"04"
+{
+"var_type"			"FIELD_INTEGER"
+"duration"			"10"
+}
+}
+}

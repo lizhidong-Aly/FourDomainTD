@@ -1,0 +1,42 @@
+"dragon_knight_not_used"
+{
+"Model"											"models/heroes/dragon_knight/dragon_knight.vmdl"
+"SoundSet"										"Hero_DragonKnight"
+"GameSoundsFile"								"soundevents/game_sounds_heroes/game_sounds_dragon_knight.vsndevts"
+"Level"											"1"
+"ModelScale" 									"1.05"
+
+"Ability1"										"SellTower"
+"Ability4"										"Upgrade"
+"Ability3"										"TransformMenu"
+
+"AttackAnimationPoint"							"0.2"
+"AttackAcquisitionRange"						"1500"
+"AttackRange"									"1000"
+"ProjectileModel"								"particles/units/heroes/hero_oracle/oracle_base_attack.vpcf"
+"ProjectileSpeed"								"1500"
+"BountyXP"  				 					"50"			//Build Cost
+"VisionDaytimeRange"             				"100"			//Next Level Cost
+"UnitLabel"										"N"				//Next Level Index
+
+"BaseClass"										"npc_dota_creature"
+"ArmorPhysical"									"0"
+"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
+"MovementSpeed"									"0"
+"StatusHealth"									"100"
+"StatusHealthRegen"								"0.0"
+"AttackCapabilities"							"DOTA_UNIT_CAP_RANGED_ATTACK"
+
+"Creature"
+{
+"AttachWearables"
+{
+"Wearable1" { "ItemDef" "63" }
+"Wearable2" { "ItemDef" "64" }
+"Wearable3" { "ItemDef" "65" }
+"Wearable4" { "ItemDef" "66" }
+"Wearable5" { "ItemDef" "67" }
+"Wearable6" { "ItemDef" "68" }
+}
+}
+}

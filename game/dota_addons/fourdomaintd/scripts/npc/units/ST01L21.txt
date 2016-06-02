@@ -1,0 +1,36 @@
+"ST01L21"
+{
+"Model"											"models/heroes/sniper/sniper.vmdl"
+"Level"											"1"
+"ModelScale" 									"1.05"
+"SoundSet"										"Hero_Sniper"
+"GameSoundsFile"								"soundevents/game_sounds_heroes/game_sounds_sniper.vsndevts"
+"AttackAnimationPoint"							"0.2"
+"AttackAcquisitionRange"						"1500"
+"AttackRange"									"2500"
+"ProjectileModel"								"particles/custom_effect/rock_base_attack_effect.vpcf"
+"ProjectileSpeed"								"5000"
+"BountyXP"  				 					"3300"			//Build Cost
+"VisionDaytimeRange"             				"0"			//Next Level Cost
+"UnitLabel"										"E"				//Next Level Index
+
+"BaseClass"										"npc_dota_creature"
+"ArmorPhysical"									"0"
+"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
+"MovementSpeed"									"0"
+"StatusHealth"									"100"
+"StatusHealthRegen"								"0.0"
+"AttackCapabilities"							"DOTA_UNIT_CAP_RANGED_ATTACK"
+
+"Creature"
+{
+"AttachWearables"
+{
+"Wearable1" { "ItemDef" "8244" }
+"Wearable2" { "ItemDef" "8237" }
+"Wearable3" { "ItemDef" "8239" }
+"Wearable4" { "ItemDef" "8241" }
+"Wearable5" { "ItemDef" "8243" }
+}
+}
+}

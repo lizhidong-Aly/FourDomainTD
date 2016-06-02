@@ -1,0 +1,22 @@
+"level25"
+{	
+"Model"									"models/items/warlock/golem/doom_of_ithogoaki/doom_of_ithogoaki.vmdl"
+"SoundSet"								"n_creep_Ranged"
+"GameSoundsFile"						"soundevents/game_sounds_creeps.vsndevts"
+"Level"									"9"
+"ModelScale" 							"1.3"
+
+"AttackRange"           				"5"   	//Unit Per Line
+"AttackAnimationPoint"  				"1.2"	//Swapn Dealy
+
+"StatusHealth"							"30000"
+"StatusHealthRegen"						"0"
+"ArmorPhysical"							"250"
+"MagicalResistance"						"40"
+"MovementSpeed"							"300"
+"UnitLabel"                				"0"		//1-Ä§·¨ÃâÒß 0-²»ÃâÒß
+
+"AttackCapabilities"					"DOTA_UNIT_CAP_NO_ATTACK"
+"BaseClass"								"npc_dota_creature"
+"MovementCapabilities"					"DOTA_UNIT_CAP_MOVE_GROUND"
+}

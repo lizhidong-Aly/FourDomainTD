@@ -1,0 +1,28 @@
+"AT13L01"
+{
+"Model"											"models/heroes/zuus/zuus.vmdl"	// Model.
+"SoundSet"										"Hero_Zuus"
+"GameSoundsFile"								"soundevents/game_sounds_heroes/game_sounds_zuus.vsndevts"
+"Level"											"1"
+"ModelScale" 									"1.0"
+ 
+"AttackAnimationPoint"							"0.4"
+"AttackAcquisitionRange"						"1000"
+"AttackRange"									"1000"
+"ProjectileModel"								"particles/units/heroes/hero_zuus/zuus_base_attack.vpcf"
+"ProjectileSpeed"								"1800"
+"BountyXP"  				 					"400"			//Build Cost
+"VisionDaytimeRange"             				"1000"			//Next Level Cost
+"UnitLabel"										"AL"				//Next Level Index
+
+"BaseClass"										"npc_dota_creature"
+"ArmorPhysical"									"0"
+"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
+"MovementSpeed"									"0"
+"StatusHealth"									"100"
+"StatusHealthRegen"								"0.0"
+"StatusMana"                					"100"
+"StatusManaRegen"           					"1.5" 
+"AttackCapabilities"							"DOTA_UNIT_CAP_RANGED_ATTACK"
+
+}

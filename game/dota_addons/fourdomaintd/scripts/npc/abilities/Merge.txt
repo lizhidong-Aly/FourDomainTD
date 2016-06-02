@@ -1,0 +1,89 @@
+"Merge"
+{
+"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+"BaseClass"                     "ability_datadriven"
+"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC"
+"AbilityTextureName"            "puck_dream_coil"
+"AbilityCooldown"               "0.0"
+"AbilityManaCost"               "0"
+"AbilityCastRange"       		"999999"
+"AbilityCastPoint"         		"0.01"
+"AbilityChannelTime"      		"2.4"
+"MaxLevel"               		"1"
+
+"precache"
+{
+"particle"  "particles/units/heroes/hero_wisp/wisp_tether.vpcf"
+}
+"OnAbilityPhaseStart"
+{
+"RunScript"
+{
+"ScriptFile"    "scripts/vscripts/MergeUI.lua"
+"Function"    	"MergeCheck"
+"Target"       	"TARGET"
+}
+}
+"OnSpellStart"
+{
+"ApplyModifier"
+{
+"ModifierName"	"modifier_be_merged"
+"Target" 		"TARGET"
+}
+}
+"OnChannelInterrupted"
+{
+"RunScript"
+{
+"ScriptFile"    "scripts/vscripts/MergeUI.lua"
+"Function"    	"ReturnMergeCost"
+"Target"       	"TARGET"
+}
+"RemoveModifier"
+{
+"ModifierName"	"modifier_be_merged"
+"Target" 		"TARGET"
+}
+}
+
+"OnChannelSucceeded"
+{
+"RunScript"
+{
+"ScriptFile"    "scripts/vscripts/MergeUI.lua"
+"Function"    	"Merge"
+"Target"       	"TARGET"
+}
+}
+"Modifiers"
+{
+"modifier_be_merged"
+{
+"Passive"			"0"
+"IsHidden"			"1"
+"IsDebuff"			"0"
+"OnCreated"
+{
+"AttachEffect"
+{
+"EffectName"		"particles/units/heroes/hero_wisp/wisp_tether.vpcf"
+"EffectAttachType"	"attach_hitloc"
+"Target"			"TARGET"
+
+"ControlPointEntities"
+{
+"CASTER"	"attach_hitloc"
+"TARGET"	"attach_hitloc"
+}
+}
+}
+"States"
+{
+"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
+}
+}
+}
+
+}
