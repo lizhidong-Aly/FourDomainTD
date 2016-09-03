@@ -1,21 +1,20 @@
-"ST02L03"
+"CS02L02"
 {
 "Model"											"models/heroes/alchemist/alchemist.vmdl"
 "SoundSet"										"Hero_Alchemist"
 "GameSoundsFile"								"soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts"
-"Level"											"3"
+"Level"											"2"
 "ModelScale" 									"0.95"
-
  
-"AttackDamageMin"								"1200"
-"AttackDamageMax"								"1500"
-"AttackRate"									"0.75"
+"AttackDamageMin"								"320"
+"AttackDamageMax"								"400"
+"AttackRate"									"0.85"
 "AttackAnimationPoint"							"0.2"
 "AttackAcquisitionRange"						"1500"
 "AttackRange"									"1000"
 "ProjectileModel"								"particles/units/heroes/hero_oracle/oracle_base_attack.vpcf"
 "ProjectileSpeed"								"1500"
-"VisionDaytimeRange"             				"0"			//Next Level Cost
+"VisionDaytimeRange"             				"800"			//Next Level Cost
 "UnitLabel"										"N"				//Next Level Index
 
 "BaseClass"										"npc_dota_creature"

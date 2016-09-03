@@ -1,55 +1,10 @@
-GameEvents.Subscribe( "UpdateState", UpdateState);
 GameEvents.Subscribe( "MergeTargetInfoSent", SetTowerInfo);
 
 ShowUpgradeCost();
 ShowMergeButton();
-
 var desPanelList=[];
 var ctarget="";
-function UpdateState(data){
-	var u = Players.GetLocalPlayerPortraitUnit();
-	if (Entities.IsHero(u)){
-		HideState();
-	}
-		var extradmg=Entities.GetDamageBonus(u);
-		var dmgmin = Entities.GetDamageMin(u)+extradmg;
-		var dmgmax = Entities.GetDamageMax(u)+extradmg;
-		var attspe = Entities.GetAttackSpeed(u);
-		var aps = data.aps;
-		var totalcost=data.cost;
-		var attri="";
-		var label=Entities.GetUnitLabel(u)
-		for(var i=0;i<label.length;i++){
-			attri=attri+$.Localize( "#"+label[i] );
-			if(i<label.length-1){
-				attri=attri+"-";
-			}
-			
-		}
-		var dps = Math.round(((dmgmin+dmgmax)/2)*aps);
-		var des="";
-		des=des + $.Localize("#TowerDesA")+attri;
-		des=des + $.Localize("#TowerDesB")+"<font color='gold'>"+totalcost+"</font>";
-		des=des + "<font color='#ADFF2F'>" + $.Localize("#dmg") + "</font>" +dmgmin+"-"+dmgmax;
-		des=des + "<font color='#ADFF2F'>" + $.Localize("#attspe") + "</font>" +(Math.round((1/aps)*1000)/1000);
-		des=des + "<font color='#ADFF2F'>" + $.Localize("#range") + "</font>" +Entities.GetAttackRange(u);
-		des=des + "<font color='#ADFF2F'>" + $.Localize("#dps") + "</font>" +dps;
-		var desPanel = $.CreatePanel( "Panel", $.GetContextPanel(), "" );
-		desPanelList.push(desPanel);
-		desPanel.BLoadLayout( "file://{resources}/layout/custom_game/towerdes.xml", false, false );
-	 	desPanel.GetChild(0).GetChild(0).RemoveAndDeleteChildren();
-		desPanel.style.x=660+"px";
-		desPanel.style.y=780+"px";
-		desPanel.style.z="10px";
-		desPanel.GetChild(0).GetChild(1).text=des;
-}
-function ShowState(){
 
-	var u = Players.GetLocalPlayerPortraitUnit();
-	if (Entities.IsControllableByAnyPlayer(u) && !Entities.IsHero(u)){
-		GameEvents.SendCustomGameEventToServer( "RequestAps", {name:u} );
-	}
-}
 
 function HideState(){
 	HideTowerDes();
@@ -64,7 +19,21 @@ function ShowUpgradeCost(){
 	else {
 		$("#CostPanel").SetHasClass("Hidden", true);
 	}
+
+
 	$.Schedule(1/30,ShowUpgradeCost);
+}
+
+function ShowRefund(){
+	var u = Players.GetLocalPlayerPortraitUnit();
+	if ((Entities.GetAbilityByName(u,"SellTower")!=-1)){
+		$("#RefundPanel").SetHasClass("Hidden", false);
+		$( "#refund" ).text = Entities.GetDayTimeVisionRange(u);
+	}
+	else {
+		$("#RefundPanel").SetHasClass("Hidden", true);
+	}
+	$.Schedule(1/30,ShowRefund);
 }
 
 function ShowMergeDes(){
@@ -210,9 +179,9 @@ function SetTowerInfo(data){
 	var desPanel = $.CreatePanel( "Panel", $.GetContextPanel(), "" );
 	desPanelList.push(desPanel);
 	desPanel.BLoadLayout( "file://{resources}/layout/custom_game/towerdes.xml", false, false );
- 	var cursor = GameUI.GetCursorPosition();
-	desPanel.style.x=cursor[0]+90+"px";
-	desPanel.style.y=cursor[1]+0+"px";
+ 	var cursor = GetPercPos();
+	desPanel.style.x=cursor[0];
+	desPanel.style.y=cursor[1];
 	desPanel.style.z="10px";
 	if (!data.none){
 		var type =data.name;
@@ -262,15 +231,19 @@ function SetTowerInfo(data){
 		desPanel.GetChild(0).GetChild(0).text=tittle;
 		desPanel.GetChild(0).GetChild(1).RemoveAndDeleteChildren();
 	}
-	//$.DispatchEvent( "DOTAShowTitleTextTooltipStyled", button, tittle , des,'test');
-	//$.Msg(button.selectionpos_x);
-	//$.Msg(button.selectionpos_y);
 }
-
 
 function HideTowerDes(){
 	for(var i=desPanelList.length;i>0;i--){
 		desPanelList[i-1].RemoveAndDeleteChildren();
 		desPanelList.pop();
 	}
+}
+
+
+function GetPercPos(posa,posb){
+	var cPos=GameUI.GetCursorPosition();
+	cPos[0]=((cPos[0])/Game.GetScreenWidth())*100+2.5+"%";
+	cPos[1]=((cPos[1])/(Game.GetScreenHeight()/0.808))*100+3+"%";
+	return cPos;
 }

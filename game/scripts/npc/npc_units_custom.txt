@@ -20,6 +20,69 @@
 	"BaseClass"							"npc_dota_creature"
 	"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_GROUND"
 	}
+	"AS01L01"
+	{
+	"Model"											"models/props_structures/tower_good4.vmdl"
+	
+	"Level"											"1"
+	"ModelScale" 									"0.45"
+	"AttackRange"									"1000"
+	"BountyXP"  				 					"300"			//Build Cost
+	"VisionDaytimeRange"             				"600"			//Next Level Cost
+	"UnitLabel"										"AL"				//Next Level Index
+	
+	"BaseClass"										"npc_dota_creature"
+	"ArmorPhysical"									"0"
+	"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
+	"MovementSpeed"									"0"
+	"StatusHealth"									"100"
+	"StatusHealthRegen"								"0.0"
+	"AttackCapabilities"							"DOTA_UNIT_CAP_NO_ATTACK"
+	
+	
+	}
+	"AS01L02"
+	{
+	"Model"											"models/props_structures/tower_good4.vmdl"
+	
+	"Level"											"2"
+	"ModelScale" 									"0.45"
+	"AttackRange"									"1000"
+	"VisionDaytimeRange"             				"1200"			//Next Level Cost
+	"UnitLabel"										"AL"				//Next Level Index
+	
+	"BaseClass"										"npc_dota_creature"
+	"ArmorPhysical"									"0"
+	"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
+	"MovementSpeed"									"0"
+	"StatusHealth"									"100"
+	"StatusHealthRegen"								"0.0"
+	"AttackCapabilities"							"DOTA_UNIT_CAP_NO_ATTACK"
+	
+	
+	}
+	"AS01L03"
+	{
+	"Model"											"models/props_structures/tower_good4.vmdl"
+	
+	"Level"											"3"
+	"ModelScale" 									"0.45"
+	"AttackRange"									"1000"
+	"VisionDaytimeRange"             				"0"			//Next Level Cost
+	"UnitLabel"										"AL"				//Next Level Index
+	
+	"BaseClass"										"npc_dota_creature"
+	"ArmorPhysical"									"0"
+	"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
+	"MovementSpeed"									"0"
+	"StatusHealth"									"100"
+	"StatusHealthRegen"								"0.0"
+	"AttackCapabilities"							"DOTA_UNIT_CAP_NO_ATTACK"
+	
+	
+	}
+	
+	
 	//ÆøÔªËØ
 	
 	"AT01L01"
@@ -731,6 +794,316 @@
 	"StatusHealth"									"100"
 	
 	}
+	"CS01L01"
+	{
+	"Model"											"models/heroes/sniper/sniper.vmdl"
+	"SoundSet"										"Hero_Sniper"
+	"GameSoundsFile"								"soundevents/game_sounds_heroes/game_sounds_sniper.vsndevts"
+	"Level"											"1"
+	"ModelScale" 									"1.05"
+	
+	 
+	"AttackAnimationPoint"							"0.2"
+	"AttackAcquisitionRange"						"1500"
+	"AttackRange"									"1200"
+	"ProjectileModel"								"particles/units/heroes/hero_sniper/sniper_base_attack.vpcf"
+	"ProjectileSpeed"								"6000"
+	"BountyXP"  				 					"50"			//Build Cost
+	"VisionDaytimeRange"             				"200"			//Next Level Cost
+	"UnitLabel"										"N"				//Next Level Index
+	
+	"BaseClass"										"npc_dota_creature"
+	"ArmorPhysical"									"0"
+	"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
+	"MovementSpeed"									"0"
+	"StatusHealth"									"100"
+	"StatusHealthRegen"								"0.0"
+	"AttackCapabilities"							"DOTA_UNIT_CAP_RANGED_ATTACK"
+	
+	"Creature"
+	{
+	"AttachWearables"
+	{
+	"Wearable1" { "ItemDef" "281" }
+	"Wearable2" { "ItemDef" "282" }
+	"Wearable3" { "ItemDef" "283" }
+	"Wearable4" { "ItemDef" "284" }
+	"Wearable5" { "ItemDef" "285" }
+	}
+	}
+	}
+	"CS01L02"
+	{
+	"Model"											"models/heroes/sniper/sniper.vmdl"
+	"SoundSet"										"Hero_Sniper"
+	"GameSoundsFile"								"soundevents/game_sounds_heroes/game_sounds_sniper.vsndevts"
+	"Level"											"2"
+	"ModelScale" 									"1.05"
+	
+	 
+	"AttackAnimationPoint"							"0.2"
+	"AttackAcquisitionRange"						"1500"
+	"AttackRange"									"1200"
+	"ProjectileModel"								"particles/units/heroes/hero_sniper/sniper_base_attack.vpcf"
+	"ProjectileSpeed"								"6000"
+	"VisionDaytimeRange"             				"800"			//Next Level Cost
+	"UnitLabel"										"N"				//Next Level Index
+	
+	"BaseClass"										"npc_dota_creature"
+	"ArmorPhysical"									"0"
+	"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
+	"MovementSpeed"									"0"
+	"StatusHealth"									"100"
+	"StatusHealthRegen"								"0.0"
+	"AttackCapabilities"							"DOTA_UNIT_CAP_RANGED_ATTACK"
+	
+	"Creature"
+	{
+	"AttachWearables"
+	{
+	"Wearable1" { "ItemDef" "281" }
+	"Wearable2" { "ItemDef" "282" }
+	"Wearable3" { "ItemDef" "283" }
+	"Wearable4" { "ItemDef" "284" }
+	"Wearable5" { "ItemDef" "285" }
+	}
+	}
+	}
+	"CS01L03"
+	{
+	"Model"											"models/heroes/sniper/sniper.vmdl"
+	"SoundSet"										"Hero_Sniper"
+	"GameSoundsFile"								"soundevents/game_sounds_heroes/game_sounds_sniper.vsndevts"
+	"Level"											"3"
+	"ModelScale" 									"1.05"
+	
+	 
+	"AttackAnimationPoint"							"0.2"
+	"AttackAcquisitionRange"						"1500"
+	"AttackRange"									"1200"
+	"ProjectileModel"								"particles/units/heroes/hero_sniper/sniper_base_attack.vpcf"
+	"ProjectileSpeed"								"6000"
+	"VisionDaytimeRange"             				"0"			//Next Level Cost
+	"UnitLabel"										"N"				//Next Level Index
+	
+	"BaseClass"										"npc_dota_creature"
+	"ArmorPhysical"									"0"
+	"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
+	"MovementSpeed"									"0"
+	"StatusHealth"									"100"
+	"StatusHealthRegen"								"0.0"
+	"AttackCapabilities"							"DOTA_UNIT_CAP_RANGED_ATTACK"
+	
+	"Creature"
+	{
+	"AttachWearables"
+	{
+	"Wearable1" { "ItemDef" "281" }
+	"Wearable2" { "ItemDef" "282" }
+	"Wearable3" { "ItemDef" "283" }
+	"Wearable4" { "ItemDef" "284" }
+	"Wearable5" { "ItemDef" "285" }
+	}
+	}
+	}
+	"CS01L11"
+	{
+	"Model"											"models/heroes/sniper/sniper.vmdl"
+	"Level"											"1"
+	"ModelScale" 									"1.05"
+	
+	
+	"AttackAnimationPoint"							"0.2"
+	"AttackAcquisitionRange"						"1500"
+	"AttackRange"									"800"
+	"ProjectileModel"								"particles/custom_effect/fire_breath_base_attack.vpcf"
+	"ProjectileSpeed"								"2000"
+	"BountyXP"  				 					"3050"			//Build Cost
+	"VisionDaytimeRange"             				"0"			//Next Level Cost
+	"UnitLabel"										"F"				//Next Level Index
+	
+	"BaseClass"										"npc_dota_creature"
+	"ArmorPhysical"									"0"
+	"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
+	"MovementSpeed"									"0"
+	"StatusHealth"									"100"
+	"StatusHealthRegen"								"0.0"
+	"AttackCapabilities"							"DOTA_UNIT_CAP_RANGED_ATTACK"
+	
+	"Creature"
+	{
+	"AttachWearables"
+	{
+	"Wearable1" { "ItemDef" "5977" }
+	"Wearable2" { "ItemDef" "7157" }
+	"Wearable3" { "ItemDef" "7158" }
+	"Wearable4" { "ItemDef" "7160" }
+	"Wearable5" { "ItemDef" "7163" }
+	}
+	}
+	}
+	"CS01L21"
+	{
+	"Model"											"models/heroes/sniper/sniper.vmdl"
+	"Level"											"1"
+	"ModelScale" 									"1.05"
+	"SoundSet"										"Hero_Sniper"
+	"GameSoundsFile"								"soundevents/game_sounds_heroes/game_sounds_sniper.vsndevts"
+	"AttackAnimationPoint"							"0.2"
+	"AttackAcquisitionRange"						"1500"
+	"AttackRange"									"2500"
+	"ProjectileModel"								"particles/custom_effect/rock_base_attack_effect.vpcf"
+	"ProjectileSpeed"								"5000"
+	"BountyXP"  				 					"3300"			//Build Cost
+	"VisionDaytimeRange"             				"0"			//Next Level Cost
+	"UnitLabel"										"E"				//Next Level Index
+	
+	"BaseClass"										"npc_dota_creature"
+	"ArmorPhysical"									"0"
+	"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
+	"MovementSpeed"									"0"
+	"StatusHealth"									"100"
+	"StatusHealthRegen"								"0.0"
+	"AttackCapabilities"							"DOTA_UNIT_CAP_RANGED_ATTACK"
+	
+	"Creature"
+	{
+	"AttachWearables"
+	{
+	"Wearable1" { "ItemDef" "8244" }
+	"Wearable2" { "ItemDef" "8237" }
+	"Wearable3" { "ItemDef" "8239" }
+	"Wearable4" { "ItemDef" "8241" }
+	"Wearable5" { "ItemDef" "8243" }
+	}
+	}
+	}
+	"CS02L01"
+	{
+	"Model"											"models/heroes/alchemist/alchemist.vmdl"
+	"SoundSet"										"Hero_Alchemist"
+	"GameSoundsFile"								"soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts"
+	"Level"											"1"
+	"ModelScale" 									"0.95"
+	
+	 
+	"AttackAnimationPoint"							"0.2"
+	"AttackAcquisitionRange"						"1500"
+	"AttackRange"									"1000"
+	"ProjectileModel"								"particles/units/heroes/hero_oracle/oracle_base_attack.vpcf"
+	"ProjectileSpeed"								"1500"
+	"BountyXP"  				 					"50"			//Build Cost
+	"VisionDaytimeRange"             				"200"			//Next Level Cost
+	"UnitLabel"										"N"				//Next Level Index
+	
+	"BaseClass"										"npc_dota_creature"
+	"ArmorPhysical"									"0"
+	"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
+	"MovementSpeed"									"0"
+	"StatusHealth"									"100"
+	"StatusHealthRegen"								"0.0"
+	"AttackCapabilities"							"DOTA_UNIT_CAP_RANGED_ATTACK"
+	
+	"Creature"
+	{
+	"AttachWearables"
+	{
+	"Wearable1" { "ItemDef" "117" }
+	"Wearable2" { "ItemDef" "118" }
+	"Wearable3" { "ItemDef" "119" }
+	"Wearable4" { "ItemDef" "120" }
+	"Wearable5" { "ItemDef" "121" }
+	"Wearable6" { "ItemDef" "123" }
+	"Wearable7" { "ItemDef" "124" }
+	"Wearable8" { "ItemDef" "125" }
+	}
+	}
+	}
+	"CS02L02"
+	{
+	"Model"											"models/heroes/alchemist/alchemist.vmdl"
+	"SoundSet"										"Hero_Alchemist"
+	"GameSoundsFile"								"soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts"
+	"Level"											"2"
+	"ModelScale" 									"0.95"
+	 
+	"AttackDamageMin"								"320"
+	"AttackDamageMax"								"400"
+	"AttackRate"									"0.85"
+	"AttackAnimationPoint"							"0.2"
+	"AttackAcquisitionRange"						"1500"
+	"AttackRange"									"1000"
+	"ProjectileModel"								"particles/units/heroes/hero_oracle/oracle_base_attack.vpcf"
+	"ProjectileSpeed"								"1500"
+	"VisionDaytimeRange"             				"800"			//Next Level Cost
+	"UnitLabel"										"N"				//Next Level Index
+	
+	"BaseClass"										"npc_dota_creature"
+	"ArmorPhysical"									"0"
+	"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
+	"MovementSpeed"									"0"
+	"StatusHealth"									"100"
+	"StatusHealthRegen"								"0.0"
+	"AttackCapabilities"							"DOTA_UNIT_CAP_RANGED_ATTACK"
+	
+	"Creature"
+	{
+	"AttachWearables"
+	{
+	"Wearable1" { "ItemDef" "117" }
+	"Wearable2" { "ItemDef" "118" }
+	"Wearable3" { "ItemDef" "119" }
+	"Wearable4" { "ItemDef" "120" }
+	"Wearable5" { "ItemDef" "121" }
+	"Wearable6" { "ItemDef" "123" }
+	"Wearable7" { "ItemDef" "124" }
+	"Wearable8" { "ItemDef" "125" }
+	}
+	}
+	}
+	"CS02L03"
+	{
+	"Model"											"models/heroes/alchemist/alchemist.vmdl"
+	"SoundSet"										"Hero_Alchemist"
+	"GameSoundsFile"								"soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts"
+	"Level"											"3"
+	"ModelScale" 									"0.95"
+	
+	 
+	"AttackDamageMin"								"1200"
+	"AttackDamageMax"								"1500"
+	"AttackRate"									"0.75"
+	"AttackAnimationPoint"							"0.2"
+	"AttackAcquisitionRange"						"1500"
+	"AttackRange"									"1000"
+	"ProjectileModel"								"particles/units/heroes/hero_oracle/oracle_base_attack.vpcf"
+	"ProjectileSpeed"								"1500"
+	"VisionDaytimeRange"             				"0"			//Next Level Cost
+	"UnitLabel"										"N"				//Next Level Index
+	
+	"BaseClass"										"npc_dota_creature"
+	"ArmorPhysical"									"0"
+	"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
+	"MovementSpeed"									"0"
+	"StatusHealth"									"100"
+	"StatusHealthRegen"								"0.0"
+	"AttackCapabilities"							"DOTA_UNIT_CAP_RANGED_ATTACK"
+	
+	"Creature"
+	{
+	"AttachWearables"
+	{
+	"Wearable1" { "ItemDef" "117" }
+	"Wearable2" { "ItemDef" "118" }
+	"Wearable3" { "ItemDef" "119" }
+	"Wearable4" { "ItemDef" "120" }
+	"Wearable5" { "ItemDef" "121" }
+	"Wearable6" { "ItemDef" "123" }
+	"Wearable7" { "ItemDef" "124" }
+	"Wearable8" { "ItemDef" "125" }
+	}
+	}
+	}
 	"dragon_knight_not_used"
 	{
 	"Model"											"models/heroes/dragon_knight/dragon_knight.vmdl"
@@ -792,6 +1165,67 @@
 	"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
 	"BaseClass"							"npc_dota_creature"
 	"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_GROUND"
+	}
+	"ES01L01"
+	{
+	"Model"											"models/props_structures/tower_good4.vmdl"
+	
+	"Level"											"1"
+	"ModelScale" 									"0.45"
+	"AttackRange"									"1000"
+	"BountyXP"  				 					"300"			//Build Cost
+	"VisionDaytimeRange"             				"600"			//Next Level Cost
+	"UnitLabel"										"E"				//Next Level Index
+	
+	"BaseClass"										"npc_dota_creature"
+	"ArmorPhysical"									"0"
+	"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
+	"MovementSpeed"									"0"
+	"StatusHealth"									"100"
+	"StatusHealthRegen"								"0.0"
+	"AttackCapabilities"							"DOTA_UNIT_CAP_NO_ATTACK"
+	
+	
+	}
+	"ES01L02"
+	{
+	"Model"											"models/props_structures/tower_good4.vmdl"
+	
+	"Level"											"2"
+	"ModelScale" 									"0.45"
+	"AttackRange"									"1000"
+	"VisionDaytimeRange"             				"1200"			//Next Level Cost
+	"UnitLabel"										"E"				//Next Level Index
+	
+	"BaseClass"										"npc_dota_creature"
+	"ArmorPhysical"									"0"
+	"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
+	"MovementSpeed"									"0"
+	"StatusHealth"									"100"
+	"StatusHealthRegen"								"0.0"
+	"AttackCapabilities"							"DOTA_UNIT_CAP_NO_ATTACK"
+	
+	
+	}
+	"ES01L03"
+	{
+	"Model"											"models/props_structures/tower_good4.vmdl"
+	
+	"Level"											"3"
+	"ModelScale" 									"0.45"
+	"AttackRange"									"1000"
+	"VisionDaytimeRange"             				"0"			//Next Level Cost
+	"UnitLabel"										"E"				//Next Level Index
+	
+	"BaseClass"										"npc_dota_creature"
+	"ArmorPhysical"									"0"
+	"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
+	"MovementSpeed"									"0"
+	"StatusHealth"									"100"
+	"StatusHealthRegen"								"0.0"
+	"AttackCapabilities"							"DOTA_UNIT_CAP_NO_ATTACK"
+	
+	
 	}
 	"ET01L01"
 	{
@@ -1753,6 +2187,67 @@
 	    "AttackCapabilities"                            "DOTA_UNIT_CAP_NO_ATTACK"
 	    "MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
 	    "BaseClass"                                     "npc_dota_creature"
+	}
+	"FS01L01"
+	{
+	"Model"											"models/props_structures/tower_good4.vmdl"
+	
+	"Level"											"1"
+	"ModelScale" 									"0.45"
+	"AttackRange"									"1000"
+	"BountyXP"  				 					"300"			//Build Cost
+	"VisionDaytimeRange"             				"600"			//Next Level Cost
+	"UnitLabel"										"F"				//Next Level Index
+	
+	"BaseClass"										"npc_dota_creature"
+	"ArmorPhysical"									"0"
+	"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
+	"MovementSpeed"									"0"
+	"StatusHealth"									"100"
+	"StatusHealthRegen"								"0.0"
+	"AttackCapabilities"							"DOTA_UNIT_CAP_NO_ATTACK"
+	
+	
+	}
+	"FS01L02"
+	{
+	"Model"											"models/props_structures/tower_good4.vmdl"
+	
+	"Level"											"2"
+	"ModelScale" 									"0.45"
+	"AttackRange"									"1000"
+	"VisionDaytimeRange"             				"1200"			//Next Level Cost
+	"UnitLabel"										"F"				//Next Level Index
+	
+	"BaseClass"										"npc_dota_creature"
+	"ArmorPhysical"									"0"
+	"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
+	"MovementSpeed"									"0"
+	"StatusHealth"									"100"
+	"StatusHealthRegen"								"0.0"
+	"AttackCapabilities"							"DOTA_UNIT_CAP_NO_ATTACK"
+	
+	
+	}
+	"FS01L03"
+	{
+	"Model"											"models/props_structures/tower_good4.vmdl"
+	
+	"Level"											"3"
+	"ModelScale" 									"0.45"
+	"AttackRange"									"1000"
+	"VisionDaytimeRange"             				"0"			//Next Level Cost
+	"UnitLabel"										"F"				//Next Level Index
+	
+	"BaseClass"										"npc_dota_creature"
+	"ArmorPhysical"									"0"
+	"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
+	"MovementSpeed"									"0"
+	"StatusHealth"									"100"
+	"StatusHealthRegen"								"0.0"
+	"AttackCapabilities"							"DOTA_UNIT_CAP_NO_ATTACK"
+	
+	
 	}
 	//»ðÔªËØ
 	
@@ -3349,419 +3844,7 @@
 	"BaseClass"								"npc_dota_creature"
 	"MovementCapabilities"					"DOTA_UNIT_CAP_MOVE_GROUND"
 	}
-	"ST01L01"
-	{
-	"Model"											"models/heroes/sniper/sniper.vmdl"
-	"SoundSet"										"Hero_Sniper"
-	"GameSoundsFile"								"soundevents/game_sounds_heroes/game_sounds_sniper.vsndevts"
-	"Level"											"1"
-	"ModelScale" 									"1.05"
-	
-	 
-	"AttackAnimationPoint"							"0.2"
-	"AttackAcquisitionRange"						"1500"
-	"AttackRange"									"1200"
-	"ProjectileModel"								"particles/units/heroes/hero_sniper/sniper_base_attack.vpcf"
-	"ProjectileSpeed"								"6000"
-	"BountyXP"  				 					"50"			//Build Cost
-	"VisionDaytimeRange"             				"200"			//Next Level Cost
-	"UnitLabel"										"N"				//Next Level Index
-	
-	"BaseClass"										"npc_dota_creature"
-	"ArmorPhysical"									"0"
-	"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
-	"MovementSpeed"									"0"
-	"StatusHealth"									"100"
-	"StatusHealthRegen"								"0.0"
-	"AttackCapabilities"							"DOTA_UNIT_CAP_RANGED_ATTACK"
-	
-	"Creature"
-	{
-	"AttachWearables"
-	{
-	"Wearable1" { "ItemDef" "281" }
-	"Wearable2" { "ItemDef" "282" }
-	"Wearable3" { "ItemDef" "283" }
-	"Wearable4" { "ItemDef" "284" }
-	"Wearable5" { "ItemDef" "285" }
-	}
-	}
-	}
-	"ST01L02"
-	{
-	"Model"											"models/heroes/sniper/sniper.vmdl"
-	"SoundSet"										"Hero_Sniper"
-	"GameSoundsFile"								"soundevents/game_sounds_heroes/game_sounds_sniper.vsndevts"
-	"Level"											"2"
-	"ModelScale" 									"1.05"
-	
-	 
-	"AttackAnimationPoint"							"0.2"
-	"AttackAcquisitionRange"						"1500"
-	"AttackRange"									"1200"
-	"ProjectileModel"								"particles/units/heroes/hero_sniper/sniper_base_attack.vpcf"
-	"ProjectileSpeed"								"6000"
-	"VisionDaytimeRange"             				"800"			//Next Level Cost
-	"UnitLabel"										"N"				//Next Level Index
-	
-	"BaseClass"										"npc_dota_creature"
-	"ArmorPhysical"									"0"
-	"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
-	"MovementSpeed"									"0"
-	"StatusHealth"									"100"
-	"StatusHealthRegen"								"0.0"
-	"AttackCapabilities"							"DOTA_UNIT_CAP_RANGED_ATTACK"
-	
-	"Creature"
-	{
-	"AttachWearables"
-	{
-	"Wearable1" { "ItemDef" "281" }
-	"Wearable2" { "ItemDef" "282" }
-	"Wearable3" { "ItemDef" "283" }
-	"Wearable4" { "ItemDef" "284" }
-	"Wearable5" { "ItemDef" "285" }
-	}
-	}
-	}
-	"ST01L03"
-	{
-	"Model"											"models/heroes/sniper/sniper.vmdl"
-	"SoundSet"										"Hero_Sniper"
-	"GameSoundsFile"								"soundevents/game_sounds_heroes/game_sounds_sniper.vsndevts"
-	"Level"											"3"
-	"ModelScale" 									"1.05"
-	
-	 
-	"AttackAnimationPoint"							"0.2"
-	"AttackAcquisitionRange"						"1500"
-	"AttackRange"									"1200"
-	"ProjectileModel"								"particles/units/heroes/hero_sniper/sniper_base_attack.vpcf"
-	"ProjectileSpeed"								"6000"
-	"VisionDaytimeRange"             				"0"			//Next Level Cost
-	"UnitLabel"										"N"				//Next Level Index
-	
-	"BaseClass"										"npc_dota_creature"
-	"ArmorPhysical"									"0"
-	"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
-	"MovementSpeed"									"0"
-	"StatusHealth"									"100"
-	"StatusHealthRegen"								"0.0"
-	"AttackCapabilities"							"DOTA_UNIT_CAP_RANGED_ATTACK"
-	
-	"Creature"
-	{
-	"AttachWearables"
-	{
-	"Wearable1" { "ItemDef" "281" }
-	"Wearable2" { "ItemDef" "282" }
-	"Wearable3" { "ItemDef" "283" }
-	"Wearable4" { "ItemDef" "284" }
-	"Wearable5" { "ItemDef" "285" }
-	}
-	}
-	}
-	"ST01L11"
-	{
-	"Model"											"models/heroes/sniper/sniper.vmdl"
-	"Level"											"1"
-	"ModelScale" 									"1.05"
-	
-	
-	"AttackAnimationPoint"							"0.2"
-	"AttackAcquisitionRange"						"1500"
-	"AttackRange"									"800"
-	"ProjectileModel"								"particles/custom_effect/fire_breath_base_attack.vpcf"
-	"ProjectileSpeed"								"2000"
-	"BountyXP"  				 					"3050"			//Build Cost
-	"VisionDaytimeRange"             				"0"			//Next Level Cost
-	"UnitLabel"										"F"				//Next Level Index
-	
-	"BaseClass"										"npc_dota_creature"
-	"ArmorPhysical"									"0"
-	"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
-	"MovementSpeed"									"0"
-	"StatusHealth"									"100"
-	"StatusHealthRegen"								"0.0"
-	"AttackCapabilities"							"DOTA_UNIT_CAP_RANGED_ATTACK"
-	
-	"Creature"
-	{
-	"AttachWearables"
-	{
-	"Wearable1" { "ItemDef" "5977" }
-	"Wearable2" { "ItemDef" "7157" }
-	"Wearable3" { "ItemDef" "7158" }
-	"Wearable4" { "ItemDef" "7160" }
-	"Wearable5" { "ItemDef" "7163" }
-	}
-	}
-	}
-	"ST01L21"
-	{
-	"Model"											"models/heroes/sniper/sniper.vmdl"
-	"Level"											"1"
-	"ModelScale" 									"1.05"
-	"SoundSet"										"Hero_Sniper"
-	"GameSoundsFile"								"soundevents/game_sounds_heroes/game_sounds_sniper.vsndevts"
-	"AttackAnimationPoint"							"0.2"
-	"AttackAcquisitionRange"						"1500"
-	"AttackRange"									"2500"
-	"ProjectileModel"								"particles/custom_effect/rock_base_attack_effect.vpcf"
-	"ProjectileSpeed"								"5000"
-	"BountyXP"  				 					"3300"			//Build Cost
-	"VisionDaytimeRange"             				"0"			//Next Level Cost
-	"UnitLabel"										"E"				//Next Level Index
-	
-	"BaseClass"										"npc_dota_creature"
-	"ArmorPhysical"									"0"
-	"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
-	"MovementSpeed"									"0"
-	"StatusHealth"									"100"
-	"StatusHealthRegen"								"0.0"
-	"AttackCapabilities"							"DOTA_UNIT_CAP_RANGED_ATTACK"
-	
-	"Creature"
-	{
-	"AttachWearables"
-	{
-	"Wearable1" { "ItemDef" "8244" }
-	"Wearable2" { "ItemDef" "8237" }
-	"Wearable3" { "ItemDef" "8239" }
-	"Wearable4" { "ItemDef" "8241" }
-	"Wearable5" { "ItemDef" "8243" }
-	}
-	}
-	}
-	"ST02L01"
-	{
-	"Model"											"models/heroes/alchemist/alchemist.vmdl"
-	"SoundSet"										"Hero_Alchemist"
-	"GameSoundsFile"								"soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts"
-	"Level"											"1"
-	"ModelScale" 									"0.95"
-	
-	 
-	"AttackAnimationPoint"							"0.2"
-	"AttackAcquisitionRange"						"1500"
-	"AttackRange"									"1000"
-	"ProjectileModel"								"particles/units/heroes/hero_oracle/oracle_base_attack.vpcf"
-	"ProjectileSpeed"								"1500"
-	"BountyXP"  				 					"50"			//Build Cost
-	"VisionDaytimeRange"             				"200"			//Next Level Cost
-	"UnitLabel"										"N"				//Next Level Index
-	
-	"BaseClass"										"npc_dota_creature"
-	"ArmorPhysical"									"0"
-	"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
-	"MovementSpeed"									"0"
-	"StatusHealth"									"100"
-	"StatusHealthRegen"								"0.0"
-	"AttackCapabilities"							"DOTA_UNIT_CAP_RANGED_ATTACK"
-	
-	"Creature"
-	{
-	"AttachWearables"
-	{
-	"Wearable1" { "ItemDef" "117" }
-	"Wearable2" { "ItemDef" "118" }
-	"Wearable3" { "ItemDef" "119" }
-	"Wearable4" { "ItemDef" "120" }
-	"Wearable5" { "ItemDef" "121" }
-	"Wearable6" { "ItemDef" "123" }
-	"Wearable7" { "ItemDef" "124" }
-	"Wearable8" { "ItemDef" "125" }
-	}
-	}
-	}
-	"ST02L02"
-	{
-	"Model"											"models/heroes/alchemist/alchemist.vmdl"
-	"SoundSet"										"Hero_Alchemist"
-	"GameSoundsFile"								"soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts"
-	"Level"											"2"
-	"ModelScale" 									"0.95"
-	 
-	"AttackDamageMin"								"320"
-	"AttackDamageMax"								"400"
-	"AttackRate"									"0.85"
-	"AttackAnimationPoint"							"0.2"
-	"AttackAcquisitionRange"						"1500"
-	"AttackRange"									"1000"
-	"ProjectileModel"								"particles/units/heroes/hero_oracle/oracle_base_attack.vpcf"
-	"ProjectileSpeed"								"1500"
-	"VisionDaytimeRange"             				"800"			//Next Level Cost
-	"UnitLabel"										"N"				//Next Level Index
-	
-	"BaseClass"										"npc_dota_creature"
-	"ArmorPhysical"									"0"
-	"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
-	"MovementSpeed"									"0"
-	"StatusHealth"									"100"
-	"StatusHealthRegen"								"0.0"
-	"AttackCapabilities"							"DOTA_UNIT_CAP_RANGED_ATTACK"
-	
-	"Creature"
-	{
-	"AttachWearables"
-	{
-	"Wearable1" { "ItemDef" "117" }
-	"Wearable2" { "ItemDef" "118" }
-	"Wearable3" { "ItemDef" "119" }
-	"Wearable4" { "ItemDef" "120" }
-	"Wearable5" { "ItemDef" "121" }
-	"Wearable6" { "ItemDef" "123" }
-	"Wearable7" { "ItemDef" "124" }
-	"Wearable8" { "ItemDef" "125" }
-	}
-	}
-	}
-	"ST02L03"
-	{
-	"Model"											"models/heroes/alchemist/alchemist.vmdl"
-	"SoundSet"										"Hero_Alchemist"
-	"GameSoundsFile"								"soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts"
-	"Level"											"3"
-	"ModelScale" 									"0.95"
-	
-	 
-	"AttackDamageMin"								"1200"
-	"AttackDamageMax"								"1500"
-	"AttackRate"									"0.75"
-	"AttackAnimationPoint"							"0.2"
-	"AttackAcquisitionRange"						"1500"
-	"AttackRange"									"1000"
-	"ProjectileModel"								"particles/units/heroes/hero_oracle/oracle_base_attack.vpcf"
-	"ProjectileSpeed"								"1500"
-	"VisionDaytimeRange"             				"0"			//Next Level Cost
-	"UnitLabel"										"N"				//Next Level Index
-	
-	"BaseClass"										"npc_dota_creature"
-	"ArmorPhysical"									"0"
-	"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
-	"MovementSpeed"									"0"
-	"StatusHealth"									"100"
-	"StatusHealthRegen"								"0.0"
-	"AttackCapabilities"							"DOTA_UNIT_CAP_RANGED_ATTACK"
-	
-	"Creature"
-	{
-	"AttachWearables"
-	{
-	"Wearable1" { "ItemDef" "117" }
-	"Wearable2" { "ItemDef" "118" }
-	"Wearable3" { "ItemDef" "119" }
-	"Wearable4" { "ItemDef" "120" }
-	"Wearable5" { "ItemDef" "121" }
-	"Wearable6" { "ItemDef" "123" }
-	"Wearable7" { "ItemDef" "124" }
-	"Wearable8" { "ItemDef" "125" }
-	}
-	}
-	}
-	"ST11L01"
-	{
-	"Model"											"models/props_structures/tower_good4.vmdl"
-	
-	"Level"											"1"
-	"ModelScale" 									"0.45"
-	"AttackRange"									"1000"
-	"BountyXP"  				 					"300"			//Build Cost
-	"VisionDaytimeRange"             				"600"			//Next Level Cost
-	"UnitLabel"										"E"				//Next Level Index
-	
-	"BaseClass"										"npc_dota_creature"
-	"ArmorPhysical"									"0"
-	"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
-	"MovementSpeed"									"0"
-	"StatusHealth"									"100"
-	"StatusHealthRegen"								"0.0"
-	"AttackCapabilities"							"DOTA_UNIT_CAP_NO_ATTACK"
-	
-	
-	}
-	"ST11L02"
-	{
-	"Model"											"models/props_structures/tower_good4.vmdl"
-	
-	"Level"											"2"
-	"ModelScale" 									"0.45"
-	"AttackRange"									"1000"
-	"VisionDaytimeRange"             				"1200"			//Next Level Cost
-	"UnitLabel"										"E"				//Next Level Index
-	
-	"BaseClass"										"npc_dota_creature"
-	"ArmorPhysical"									"0"
-	"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
-	"MovementSpeed"									"0"
-	"StatusHealth"									"100"
-	"StatusHealthRegen"								"0.0"
-	"AttackCapabilities"							"DOTA_UNIT_CAP_NO_ATTACK"
-	
-	
-	}
-	"ST11L03"
-	{
-	"Model"											"models/props_structures/tower_good4.vmdl"
-	
-	"Level"											"3"
-	"ModelScale" 									"0.45"
-	"AttackRange"									"1000"
-	"VisionDaytimeRange"             				"0"			//Next Level Cost
-	"UnitLabel"										"E"				//Next Level Index
-	
-	"BaseClass"										"npc_dota_creature"
-	"ArmorPhysical"									"0"
-	"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
-	"MovementSpeed"									"0"
-	"StatusHealth"									"100"
-	"StatusHealthRegen"								"0.0"
-	"AttackCapabilities"							"DOTA_UNIT_CAP_NO_ATTACK"
-	
-	
-	}
-	"ST12L01"
-	{
-	"Model"											"models/props_structures/tower_good4.vmdl"
-	
-	"Level"											"1"
-	"ModelScale" 									"0.45"
-	"AttackRange"									"1000"
-	"BountyXP"  				 					"300"			//Build Cost
-	"VisionDaytimeRange"             				"600"			//Next Level Cost
-	"UnitLabel"										"WI"				//Next Level Index
-	
-	"BaseClass"										"npc_dota_creature"
-	"ArmorPhysical"									"0"
-	"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
-	"MovementSpeed"									"0"
-	"StatusHealth"									"100"
-	"StatusHealthRegen"								"0.0"
-	"AttackCapabilities"							"DOTA_UNIT_CAP_NO_ATTACK"
-	
-	
-	}
-	"ST12L02"
-	{
-	"Model"											"models/props_structures/tower_good4.vmdl"
-	
-	"Level"											"2"
-	"ModelScale" 									"0.45"
-	"AttackRange"									"1000"
-	"VisionDaytimeRange"             				"1200"			//Next Level Cost
-	"UnitLabel"										"WI"				//Next Level Index
-	
-	"BaseClass"										"npc_dota_creature"
-	"ArmorPhysical"									"0"
-	"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
-	"MovementSpeed"									"0"
-	"StatusHealth"									"100"
-	"StatusHealthRegen"								"0.0"
-	"AttackCapabilities"							"DOTA_UNIT_CAP_NO_ATTACK"
-	
-	
-	}
-	"ST12L03"
+	"CS12L03"
 	{
 	"Model"											"models/props_structures/tower_good4.vmdl"
 	
@@ -3781,130 +3864,6 @@
 	
 	
 	}
-	"ST13L01"
-	{
-	"Model"											"models/props_structures/tower_good4.vmdl"
-	
-	"Level"											"1"
-	"ModelScale" 									"0.45"
-	"AttackRange"									"1000"
-	"BountyXP"  				 					"300"			//Build Cost
-	"VisionDaytimeRange"             				"600"			//Next Level Cost
-	"UnitLabel"										"F"				//Next Level Index
-	
-	"BaseClass"										"npc_dota_creature"
-	"ArmorPhysical"									"0"
-	"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
-	"MovementSpeed"									"0"
-	"StatusHealth"									"100"
-	"StatusHealthRegen"								"0.0"
-	"AttackCapabilities"							"DOTA_UNIT_CAP_NO_ATTACK"
-	
-	
-	}
-	"ST13L02"
-	{
-	"Model"											"models/props_structures/tower_good4.vmdl"
-	
-	"Level"											"2"
-	"ModelScale" 									"0.45"
-	"AttackRange"									"1000"
-	"VisionDaytimeRange"             				"1200"			//Next Level Cost
-	"UnitLabel"										"F"				//Next Level Index
-	
-	"BaseClass"										"npc_dota_creature"
-	"ArmorPhysical"									"0"
-	"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
-	"MovementSpeed"									"0"
-	"StatusHealth"									"100"
-	"StatusHealthRegen"								"0.0"
-	"AttackCapabilities"							"DOTA_UNIT_CAP_NO_ATTACK"
-	
-	
-	}
-	"ST13L03"
-	{
-	"Model"											"models/props_structures/tower_good4.vmdl"
-	
-	"Level"											"3"
-	"ModelScale" 									"0.45"
-	"AttackRange"									"1000"
-	"VisionDaytimeRange"             				"0"			//Next Level Cost
-	"UnitLabel"										"F"				//Next Level Index
-	
-	"BaseClass"										"npc_dota_creature"
-	"ArmorPhysical"									"0"
-	"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
-	"MovementSpeed"									"0"
-	"StatusHealth"									"100"
-	"StatusHealthRegen"								"0.0"
-	"AttackCapabilities"							"DOTA_UNIT_CAP_NO_ATTACK"
-	
-	
-	}
-	"ST14L01"
-	{
-	"Model"											"models/props_structures/tower_good4.vmdl"
-	
-	"Level"											"1"
-	"ModelScale" 									"0.45"
-	"AttackRange"									"1000"
-	"BountyXP"  				 					"300"			//Build Cost
-	"VisionDaytimeRange"             				"600"			//Next Level Cost
-	"UnitLabel"										"AL"				//Next Level Index
-	
-	"BaseClass"										"npc_dota_creature"
-	"ArmorPhysical"									"0"
-	"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
-	"MovementSpeed"									"0"
-	"StatusHealth"									"100"
-	"StatusHealthRegen"								"0.0"
-	"AttackCapabilities"							"DOTA_UNIT_CAP_NO_ATTACK"
-	
-	
-	}
-	"ST14L02"
-	{
-	"Model"											"models/props_structures/tower_good4.vmdl"
-	
-	"Level"											"2"
-	"ModelScale" 									"0.45"
-	"AttackRange"									"1000"
-	"VisionDaytimeRange"             				"1200"			//Next Level Cost
-	"UnitLabel"										"AL"				//Next Level Index
-	
-	"BaseClass"										"npc_dota_creature"
-	"ArmorPhysical"									"0"
-	"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
-	"MovementSpeed"									"0"
-	"StatusHealth"									"100"
-	"StatusHealthRegen"								"0.0"
-	"AttackCapabilities"							"DOTA_UNIT_CAP_NO_ATTACK"
-	
-	
-	}
-	"ST14L03"
-	{
-	"Model"											"models/props_structures/tower_good4.vmdl"
-	
-	"Level"											"3"
-	"ModelScale" 									"0.45"
-	"AttackRange"									"1000"
-	"VisionDaytimeRange"             				"0"			//Next Level Cost
-	"UnitLabel"										"AL"				//Next Level Index
-	
-	"BaseClass"										"npc_dota_creature"
-	"ArmorPhysical"									"0"
-	"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
-	"MovementSpeed"									"0"
-	"StatusHealth"									"100"
-	"StatusHealthRegen"								"0.0"
-	"AttackCapabilities"							"DOTA_UNIT_CAP_NO_ATTACK"
-	
-	
-	}
-	
-	
 	"TestOnly"
 	{
 	"Model"									"models/creeps/neutral_creeps/n_creep_gnoll/n_creep_gnoll.vmdl"
@@ -3958,6 +3917,67 @@
 	"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
 	"BaseClass"							"npc_dota_creature"
 	"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_GROUND"
+	}
+	"WS01L01"
+	{
+	"Model"											"models/props_structures/tower_good4.vmdl"
+	
+	"Level"											"1"
+	"ModelScale" 									"0.45"
+	"AttackRange"									"1000"
+	"BountyXP"  				 					"300"			//Build Cost
+	"VisionDaytimeRange"             				"600"			//Next Level Cost
+	"UnitLabel"										"WI"				//Next Level Index
+	
+	"BaseClass"										"npc_dota_creature"
+	"ArmorPhysical"									"0"
+	"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
+	"MovementSpeed"									"0"
+	"StatusHealth"									"100"
+	"StatusHealthRegen"								"0.0"
+	"AttackCapabilities"							"DOTA_UNIT_CAP_NO_ATTACK"
+	
+	
+	}
+	"WS01L02"
+	{
+	"Model"											"models/props_structures/tower_good4.vmdl"
+	
+	"Level"											"2"
+	"ModelScale" 									"0.45"
+	"AttackRange"									"1000"
+	"VisionDaytimeRange"             				"1200"			//Next Level Cost
+	"UnitLabel"										"WI"				//Next Level Index
+	
+	"BaseClass"										"npc_dota_creature"
+	"ArmorPhysical"									"0"
+	"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
+	"MovementSpeed"									"0"
+	"StatusHealth"									"100"
+	"StatusHealthRegen"								"0.0"
+	"AttackCapabilities"							"DOTA_UNIT_CAP_NO_ATTACK"
+	
+	
+	}
+	"WS01L03"
+	{
+	"Model"											"models/props_structures/tower_good4.vmdl"
+	
+	"Level"											"3"
+	"ModelScale" 									"0.45"
+	"AttackRange"									"1000"
+	"VisionDaytimeRange"             				"0"			//Next Level Cost
+	"UnitLabel"										"WI"				//Next Level Index
+	
+	"BaseClass"										"npc_dota_creature"
+	"ArmorPhysical"									"0"
+	"MovementCapabilities"							"DOTA_UNIT_CAP_MOVE_NONE"
+	"MovementSpeed"									"0"
+	"StatusHealth"									"100"
+	"StatusHealthRegen"								"0.0"
+	"AttackCapabilities"							"DOTA_UNIT_CAP_NO_ATTACK"
+	
+	
 	}
 	//Ë®ÔªËØ
 	

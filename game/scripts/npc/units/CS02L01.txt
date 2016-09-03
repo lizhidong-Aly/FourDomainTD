@@ -1,4 +1,4 @@
-"ST02L01"
+"CS02L01"
 {
 "Model"											"models/heroes/alchemist/alchemist.vmdl"
 "SoundSet"										"Hero_Alchemist"

@@ -1,4 +1,4 @@
-"ST13L02"
+"FS01L02"
 {
 "Model"											"models/props_structures/tower_good4.vmdl"
 

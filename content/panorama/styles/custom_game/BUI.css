@@ -1,4 +1,10 @@
+.Background{
+	width: 100%;
+	height: 100%;
+}
+
 #Bmenu{
+
 margin-top: 60px;
 margin-left: 00px;
 visibility: visible;
@@ -11,6 +17,12 @@ transform: translatex(-500px);
 #Bmenu.Show{
 opacity: 1;
 transform: translatex(0px);
+}
+
+#ToolTipPanel{
+	background-color: green;
+	width: 99%;
+	height: 99%;
 }
 
 .test{
@@ -130,16 +142,16 @@ border: 1px solid #707070;
 border-radius:20px;
 }
 
-#EarthTower{
+#ET0{
 	margin-left:-130px;
 }
-#WaterTower{
+#WT0{
 	margin-left:-130px;
 }
-#FireTower{
+#FT0{
 	margin-left:-130px;
 }
-#AirTower{
+#AT0{
 	margin-left:-130px;
 }
 .TowerLevel{

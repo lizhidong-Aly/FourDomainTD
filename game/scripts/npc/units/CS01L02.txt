@@ -1,4 +1,4 @@
-"ST01L02"
+"CS01L02"
 {
 "Model"											"models/heroes/sniper/sniper.vmdl"
 "SoundSet"										"Hero_Sniper"

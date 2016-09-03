@@ -9,7 +9,7 @@
 		<include src="file://{resources}/scripts/custom_game/BUI.js" />
 	</scripts>
 	
-		<Panel hittest="false">
+		<Panel class="Background" hittest="false">
 			<Panel id="Bmenu"	hittest="false">
 				<Panel	class="content Hidden"	id="content">
 				
@@ -41,62 +41,20 @@
 						
 						<Label id="subtittle"	text="#submenue"/>
 						
-						<Panel class="TowerPanel" id="EarthTower"	hittest="false">
-							
+						<Panel class="TowerPanel" id="ET0"	hittest="false">
 							<Label class="TowerLevel"	text="#levelA"/>
-							<Button	class="subbutton" id="ET01L01"	onactivate="BuildTower('ET01L01')"	onmouseover="ShowToolTip('ET01L01')"	onmouseout="HideTowerDes()">
-								<DOTAHeroImage heroname="npc_dota_hero_earth_spirit" heroimagestyle="landscape" />
-								<Label class="disable" />
-							</Button>
-							<Button	class="subbutton" id="ET02L01"	onactivate="BuildTower('ET02L01')"	onmouseover="ShowToolTip('ET02L01')"	onmouseout="HideTowerDes()">
-								<DOTAHeroImage heroname="npc_dota_hero_elder_titan" heroimagestyle="landscape" />
-								<Label class="disable" />
-							</Button>
-							<Button	class="subbutton" id="ET03L01"	onactivate="BuildTower('ET03L01')"	onmouseover="ShowToolTip('ET03L01')"	onmouseout="HideTowerDes()">
-								<DOTAHeroImage heroname="npc_dota_hero_ogre_magi" heroimagestyle="landscape" />
-								<Label class="disable" />
-							</Button>
 						</Panel>
 						
-						<Panel class="TowerPanel" 	hittest="false">
-							<Label class="TowerLevel"	text="#levelB"/>
-							<Button	class="subbutton" id="ET11L01"	onactivate="BuildTower('ET11L01')"	onmouseover="ShowToolTip('ET11L01')"	onmouseout="HideTowerDes()">
-								<DOTAHeroImage heroname="npc_dota_hero_earthshaker" heroimagestyle="landscape" />
-								<Label class="disable" />
-							</Button>
-							<Button	class="subbutton" id="ET12L01"	onactivate="BuildTower('ET12L01')"	onmouseover="ShowToolTip('ET12L01')"	onmouseout="HideTowerDes()">
-								<DOTAHeroImage heroname="npc_dota_hero_sand_king" heroimagestyle="landscape" />
-								<Label class="disable" />
-							</Button>
-							<Button	class="subbutton" id="ET13L01"	onactivate="BuildTower('ET13L01')"	onmouseover="ShowToolTip('ET13L01')"	onmouseout="HideTowerDes()">
-								<DOTAHeroImage heroname="npc_dota_hero_beastmaster" heroimagestyle="landscape" />
-								<Label class="disable" />
-							</Button>
-							
+						<Panel class="TowerPanel" id="ET1"	hittest="false">
+							<Label class="TowerLevel"	text="#levelB"/>	
 						</Panel>
 						
-						<Panel class="TowerPanel" 	hittest="false">
+						<Panel class="TowerPanel" id="ET2"	hittest="false">
 							<Label class="TowerLevel"	text="#levelC"/>
-							<Button	class="subbutton" id="ET21L01"	onactivate="BuildTower('ET21L01')"	onmouseover="ShowToolTip('ET21L01')"	onmouseout="HideTowerDes()">
-								<DOTAHeroImage heroname="npc_dota_hero_enigma" heroimagestyle="landscape" />
-								<Label class="disable" />
-							</Button>
 						</Panel>
 						
-						<Panel class="TowerPanel" id="Lv2TowerPanel"	hittest="false">
+						<Panel class="TowerPanel" id="ES0"	hittest="false">
 							<Label class="TowerLevel"	text="#levelS"/>
-							<Button	class="subbutton" id="ST01L01"	onactivate="BuildTower('ST01L01')"	onmouseover="ShowToolTip('ST01L01')"	onmouseout="HideTowerDes()">
-								<DOTAHeroImage heroname="npc_dota_hero_sniper" heroimagestyle="landscape" />
-								<Label class="disable enable" />
-							</Button>
-							<Button	class="subbutton" id="ST02L01"	onactivate="BuildTower('ST02L01')"	onmouseover="ShowToolTip('ST02L01')"	onmouseout="HideTowerDes()">
-								<DOTAHeroImage heroname="npc_dota_hero_alchemist" heroimagestyle="landscape" />
-								<Label class="disable enable" />
-							</Button>
-							<Button	class="subbutton" id="ST11L01"	onactivate="BuildTower('ST11L01')"	onmouseover="ShowToolTip('ST11L01')"	onmouseout="HideTowerDes()">
-								<DOTAAbilityImage abilityname="tiny_avalanche" style="width:100%;height:100%;"/>
-								<Label class="disable" />
-							</Button>
 						</Panel>
 						
 					</Panel>
@@ -106,57 +64,20 @@
 						
 						<Label id="subtittle"	text="#submenuw"/>
 						
-						<Panel class="TowerPanel" id="WaterTower"	hittest="false">
-							
+						<Panel class="TowerPanel" id="WT0"	hittest="false">
 							<Label class="TowerLevel"	text="#levelA"/>
-							<Button	class="subbutton" id="WT01L01"	onactivate="BuildTower('WT01L01')"	onmouseover="ShowToolTip('WT01L01')"	onmouseout="HideTowerDes()">
-								<DOTAHeroImage heroname="npc_dota_hero_morphling" heroimagestyle="landscape" />
-								<Label class="disable" />
-							</Button>
-							<Button	class="subbutton" id="WT02L01"	onactivate="BuildTower('WT02L01')"	onmouseover="ShowToolTip('WT02L01')"	onmouseout="HideTowerDes()">
-								<DOTAHeroImage heroname="npc_dota_hero_venomancer" heroimagestyle="landscape" />
-								<Label class="disable" />
-							</Button>
-							<Button	class="subbutton" id="WT03L01"	onactivate="BuildTower('WT03L01')"	onmouseover="ShowToolTip('WT03L01')"	onmouseout="HideTowerDes()">
-								<DOTAHeroImage heroname="npc_dota_hero_medusa" heroimagestyle="landscape" />
-								<Label class="disable" />
-							</Button>
 						</Panel>
 						
-						<Panel class="TowerPanel" 	hittest="false">
-							<Label class="TowerLevel"	text="#levelB"/>
-							<Button	class="subbutton" id="WT11L01"	onactivate="BuildTower('WT11L01')"	onmouseover="ShowToolTip('WT11L01')"	onmouseout="HideTowerDes()">
-								<DOTAHeroImage heroname="npc_dota_hero_ancient_apparition" heroimagestyle="landscape" />
-								<Label class="disable" />
-							</Button>
-							<Button	class="subbutton" id="WT13L01"	onactivate="BuildTower('WT13L01')"	onmouseover="ShowToolTip('WT13L01')"	onmouseout="HideTowerDes()">
-								<DOTAHeroImage heroname="npc_dota_hero_tusk" heroimagestyle="landscape" />
-								<Label class="disable" />
-							</Button>
+						<Panel class="TowerPanel" id="WT1"	hittest="false">
+							<Label class="TowerLevel" id="WT1"	text="#levelB"/>
 						</Panel>
 						
-						<Panel class="TowerPanel" 	hittest="false">
+						<Panel class="TowerPanel" id="WT2"	hittest="false">
 							<Label class="TowerLevel"	text="#levelC"/>
-							<Button	class="subbutton" id="WT21L01"	onactivate="BuildTower('WT21L01')"	onmouseover="ShowToolTip('WT21L01')"	onmouseout="HideTowerDes()">
-								<DOTAHeroImage heroname="npc_dota_hero_lich" heroimagestyle="landscape" />
-								<Label class="disable" />
-							</Button>
 						</Panel>
 						
-						<Panel class="TowerPanel" id="Lv2TowerPanel"	hittest="false">
+						<Panel class="TowerPanel" id="WS0"	hittest="false">
 							<Label class="TowerLevel"	text="#levelS"/>
-							<Button	class="subbutton" id="ST01L01"	onactivate="BuildTower('ST01L01')"	onmouseover="ShowToolTip('ST01L01')"	onmouseout="HideTowerDes()">
-								<DOTAHeroImage heroname="npc_dota_hero_sniper" heroimagestyle="landscape" />
-								<Label class="disable enable" />
-							</Button>
-							<Button	class="subbutton" id="ST02L01"	onactivate="BuildTower('ST02L01')"	onmouseover="ShowToolTip('ST02L01')"	onmouseout="HideTowerDes()">
-								<DOTAHeroImage heroname="npc_dota_hero_alchemist" heroimagestyle="landscape" />
-								<Label class="disable enable" />
-							</Button>
-							<Button	class="subbutton" id="ST12L01"	onactivate="BuildTower('ST12L01')"	onmouseover="ShowToolTip('ST12L01')"	onmouseout="HideTowerDes()">
-								<DOTAAbilityImage abilityname="lich_chain_frost" style="width:100%;height:100%;"/>
-								<Label class="disable" />
-							</Button>
 						</Panel>
 						
 					</Panel>
@@ -165,58 +86,21 @@
 						
 						<Label id="subtittle"	text="#submenuf"/>
 						
-						<Panel class="TowerPanel" id="FireTower"	hittest="false">
-							
+						<Panel class="TowerPanel" id="FT0"	hittest="false">
 							<Label class="TowerLevel"	text="#levelA"/>
-							<Button	class="subbutton" id="FT01L01"	onactivate="BuildTower('FT01L01')"	onmouseover="ShowToolTip('FT01L01')"	onmouseout="HideTowerDes()">
-								<DOTAHeroImage heroname="npc_dota_hero_ember_spirit" heroimagestyle="landscape" />
-								<Label class="disable" />
-							</Button>
-							<Button	class="subbutton" id="FT02L01"	onactivate="BuildTower('FT02L01')"	onmouseover="ShowToolTip('FT02L01')"	onmouseout="HideTowerDes()">
-								<DOTAHeroImage heroname="npc_dota_hero_phoenix" heroimagestyle="landscape" />
-								<Label class="disable" />
-							</Button>
-							<Button	class="subbutton" id="FT03L01"	onactivate="BuildTower('FT03L01')"	onmouseover="ShowToolTip('FT03L01')"	onmouseout="HideTowerDes()">
-								<DOTAHeroImage heroname="npc_dota_hero_warlock" heroimagestyle="landscape" />
-								<Label class="disable" />
-							</Button>
-						
 						</Panel>
 						
-						<Panel class="TowerPanel" 	hittest="false">
+						<Panel class="TowerPanel" id="FT1"	hittest="false">
 							<Label class="TowerLevel"	text="#levelB"/>
-							<Button	class="subbutton" id="FT11L01"	onactivate="BuildTower('FT11L01')"	onmouseover="ShowToolTip('FT11L01')"	onmouseout="HideTowerDes()">
-								<DOTAHeroImage heroname="npc_dota_hero_lina" heroimagestyle="landscape" />
-								<Label class="disable" />
-							</Button>
-							<Button	class="subbutton" id="FT12L01"	onactivate="BuildTower('FT12L01')"	onmouseover="ShowToolTip('FT12L01')"	onmouseout="HideTowerDes()">
-								<DOTAHeroImage heroname="npc_dota_hero_huskar" heroimagestyle="landscape" />
-								<Label class="disable" />
-							</Button>
-							<Button	class="subbutton" id="FT13L01"	onactivate="BuildTower('FT13L01')"	onmouseover="ShowToolTip('FT13L01')"	onmouseout="HideTowerDes()">
-								<DOTAHeroImage heroname="npc_dota_hero_juggernaut" heroimagestyle="landscape" />
-								<Label class="disable" />
-							</Button>
 						</Panel>
 						
-						<Panel class="TowerPanel" 	hittest="false">
+						<Panel class="TowerPanel" id="FT2"	hittest="false">
 							<Label class="TowerLevel"	text="#levelC"/>
 						</Panel>
 						
-						<Panel class="TowerPanel" id="Lv2TowerPanel"	hittest="false">
+						<Panel class="TowerPanel" id="FS0"	hittest="false">
 							<Label class="TowerLevel"	text="#levelS"/>
-							<Button	class="subbutton" id="ST01L01"	onactivate="BuildTower('ST01L01')"	onmouseover="ShowToolTip('ST01L01')"	onmouseout="HideTowerDes()">
-								<DOTAHeroImage heroname="npc_dota_hero_sniper" heroimagestyle="landscape" />
-								<Label class="disable enable" />
-							</Button>
-							<Button	class="subbutton" id="ST02L01"	onactivate="BuildTower('ST02L01')"	onmouseover="ShowToolTip('ST02L01')"	onmouseout="HideTowerDes()">
-								<DOTAHeroImage heroname="npc_dota_hero_alchemist" heroimagestyle="landscape" />
-								<Label class="disable enable" />
-							</Button>
-							<Button	class="subbutton" id="ST13L01"	onactivate="BuildTower('ST13L01')"	onmouseover="ShowToolTip('ST13L01')"	onmouseout="HideTowerDes()">
-								<DOTAAbilityImage abilityname="phoenix_supernova" style="width:100%;height:100%;"/>
-								<Label class="disable" />
-							</Button>
+				
 						</Panel>
 						
 					</Panel>
@@ -225,58 +109,24 @@
 						
 						<Label id="subtittle"	text="#submenua"/>
 						
-						<Panel class="TowerPanel" id="AirTower"	hittest="false">
+						<Panel class="TowerPanel" id="AT0"	hittest="false">
 							
 							<Label class="TowerLevel"	text="#levelA"/>
-							<Button	class="subbutton" id="AT01L01"	onactivate="BuildTower('AT01L01')"	onmouseover="ShowToolTip('AT01L01')"	onmouseout="HideTowerDes()">
-								<DOTAHeroImage heroname="npc_dota_hero_skywrath_mage" heroimagestyle="landscape" />
-								<Label class="disable" />
-							</Button>
-							<Button	class="subbutton" id="AT02L01"	onactivate="BuildTower('AT02L01')"	onmouseover="ShowToolTip('AT02L01')"	onmouseout="HideTowerDes()">
-								<DOTAHeroImage heroname="npc_dota_hero_queenofpain" heroimagestyle="landscape" />
-								<Label class="disable" />
-							</Button>
-						
-							<Button	class="subbutton" id="AT03L01"	onactivate="BuildTower('AT03L01')"	onmouseover="ShowToolTip('AT03L01')"	onmouseout="HideTowerDes()">
-								<DOTAHeroImage heroname="npc_dota_hero_razor" heroimagestyle="landscape" />
-								<Label class="disable" />
-							</Button>
+							
 						</Panel>
 						
-						<Panel class="TowerPanel" 	hittest="false">
+						<Panel class="TowerPanel" id="AT1"	hittest="false">
 							<Label class="TowerLevel"	text="#levelB"/>
-							<Button	class="subbutton" id="AT11L01"	onactivate="BuildTower('AT11L01')"	onmouseover="ShowToolTip('AT11L01')"	onmouseout="HideTowerDes()">
-								<DOTAHeroImage heroname="npc_dota_hero_windrunner" heroimagestyle="landscape" />
-								<Label class="disable" />
-							</Button>
-							<Button	class="subbutton" id="AT12L01"	onactivate="BuildTower('AT12L01')"	onmouseover="ShowToolTip('AT12L01')"	onmouseout="HideTowerDes()">
-								<DOTAHeroImage heroname="npc_dota_hero_storm_spirit" heroimagestyle="landscape" />
-								<Label class="disable" />
-							</Button>
-							<Button	class="subbutton" id="AT13L01"	onactivate="BuildTower('AT13L01')"	onmouseover="ShowToolTip('AT13L01')"	onmouseout="HideTowerDes()">
-								<DOTAHeroImage heroname="npc_dota_hero_zuus" heroimagestyle="landscape" />
-								<Label class="disable" />
-							</Button>
+						
 						</Panel>
 						
-						<Panel class="TowerPanel" 	hittest="false">
+						<Panel class="TowerPanel" id="AT2"	hittest="false">
 							<Label class="TowerLevel"	text="#levelC"/>
 						</Panel>
 						
-						<Panel class="TowerPanel" id="Lv2TowerPanel"	hittest="false">
+						<Panel class="TowerPanel" id="AS0"	hittest="false">
 							<Label class="TowerLevel"	text="#levelS"/>
-							<Button	class="subbutton" id="ST01L01"	onactivate="BuildTower('ST01L01')"	onmouseover="ShowToolTip('ST01L01')"	onmouseout="HideTowerDes()">
-								<DOTAHeroImage heroname="npc_dota_hero_sniper" heroimagestyle="landscape" />
-								<Label class="disable enable" />
-							</Button>
-							<Button	class="subbutton" id="ST02L01"	onactivate="BuildTower('ST02L01')"	onmouseover="ShowToolTip('ST02L01')"	onmouseout="HideTowerDes()">
-								<DOTAHeroImage heroname="npc_dota_hero_alchemist" heroimagestyle="landscape" />
-								<Label class="disable enable" />
-							</Button>
-							<Button	class="subbutton" id="ST14L01"	onactivate="BuildTower('ST14L01')"	onmouseover="ShowToolTip('ST14L01')"	onmouseout="HideTowerDes()">
-								<DOTAAbilityImage abilityname="disruptor_thunder_strike" style="width:100%;height:100%;"/>
-								<Label class="disable" />
-							</Button>
+						
 						</Panel>
 						
 					</Panel>					

@@ -1,0 +1,16 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/dotastyles.css" />
+		<include src="file://{resources}/styles/custom_game/Tower.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/Tower.js" />
+	</scripts>
+	<Panel class="TowerPanel" hittest="false">
+		<Button id="TowerButton" onmouseover="ShowToolTip()" onmouseout="HideTowerDes()"  onmouseactivate="BuildTower()">
+			<DOTAHeroImage id="TowerImage" heroimagestyle="landscape" />
+			<Label class="disable" id="TowerLocker"/>
+		</Button>
+	</Panel>
+</root>
+

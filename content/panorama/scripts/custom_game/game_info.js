@@ -105,9 +105,9 @@ function SetTowerInfo(data){
 	//$.DispatchEvent( "DOTAShowTitleTextTooltipStyled", button, tittle , des,'test');
 	var desPanel = $.CreatePanel( "Panel", $.GetContextPanel(), "" );
 	desPanel.BLoadLayout( "file://{resources}/layout/custom_game/towerdes.xml", false, false );
- 	var cursor = GameUI.GetCursorPosition();
-	desPanel.style.x=cursor[0]-450+"px";
-	desPanel.style.y=cursor[1]+0+"px";
+ 	var cursor = GetPercPos();
+	desPanel.style.x=cursor[0];
+	desPanel.style.y=cursor[1];
 	desPanel.style.z="10px";
 	desPanel.style.width="360px";
 	desPanel.GetChild(0).GetChild(0).text=tittle;
@@ -122,4 +122,12 @@ function HideTowerDes(){
 		desPanelList[i-1].RemoveAndDeleteChildren();
 		desPanelList.pop();
 	}
+}
+
+
+function GetPercPos(posa,posb){
+	var cPos=GameUI.GetCursorPosition();
+	cPos[0]=((cPos[0])/Game.GetScreenWidth())*100+2+"%";
+	cPos[1]=((cPos[1])/(Game.GetScreenHeight()/0.808))*100+12+"%";
+	return cPos;
 }

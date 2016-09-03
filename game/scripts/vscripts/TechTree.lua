@@ -183,7 +183,7 @@ ET01=(function(self)
 end),
 
 ET02=(function(self)
-	local towerList={"ST11L01"}
+	local towerList={"ES01L01"}
 	for i=1,#towerList do
 		table.insert(towerUnlocked[self.playerid],towerList[i]) 
 	end
@@ -262,7 +262,7 @@ WT02=(function(self)
 end),
 
 WT03=(function(self)
-	local towerList={"ST12L01"}
+	local towerList={"WS01L01"}
 	for i=1,#towerList do
 		table.insert(towerUnlocked[self.playerid],towerList[i]) 
 	end
@@ -319,7 +319,7 @@ FT02=(function(self)
 end),
 
 FT03=(function(self)
-	local towerList={"ST13L01"}
+	local towerList={"FS01L01"}
 	for i=1,#towerList do
 		table.insert(towerUnlocked[self.playerid],towerList[i]) 
 	end
@@ -379,7 +379,7 @@ end),
 
 
 AT03=(function(self)
-	local towerList={"ST14L01"}
+	local towerList={"AS01L01"}
 	for i=1,#towerList do
 		table.insert(towerUnlocked[self.playerid],towerList[i]) 
 	end

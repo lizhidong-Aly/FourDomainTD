@@ -1,11 +1,11 @@
-"ST11L02"
+"ES01L03"
 {
 "Model"											"models/props_structures/tower_good4.vmdl"
 
-"Level"											"2"
+"Level"											"3"
 "ModelScale" 									"0.45"
 "AttackRange"									"1000"
-"VisionDaytimeRange"             				"1200"			//Next Level Cost
+"VisionDaytimeRange"             				"0"			//Next Level Cost
 "UnitLabel"										"E"				//Next Level Index
 
 "BaseClass"										"npc_dota_creature"

@@ -42,14 +42,14 @@ SL={
 	E=1.7
 }
 TowerInfo={
-	ST01L0={AL.B,SL.B,"head_shoot",nil,"SellTower","Upgrade"},
-	ST01L1={0.35,SL.S,"dragon_breath",nil,nil,nil},
-	ST01L2={5,4.5,"earth_shot",nil,nil,nil},
-	ST02L0={AL.E,1.3,"booty_gold",nil,"SellTower","Upgrade"},
-	ST11L0={0,1,"earth_core_aura","earth_core_overload","SellTower","Upgrade"},
-	ST12L0={0,1,"water_core_aura","water_core_overload","SellTower","Upgrade"},
-	ST13L0={0,1,"fire_core_aura","fire_core_overload","SellTower","Upgrade"},
-	ST14L0={0,1,"lightning_core_aura","lightning_core_overload","SellTower","Upgrade"},
+	CS01L0={AL.B,SL.B,"head_shoot",nil,"SellTower","Upgrade"},
+	CS01L1={0.35,SL.S,"dragon_breath",nil,nil,nil},
+	CS01L2={5,4.5,"earth_shot",nil,nil,nil},
+	CS02L0={AL.E,1.3,"booty_gold",nil,"SellTower","Upgrade"},
+	ES01L0={0,1,"earth_core_aura","earth_core_overload","SellTower","Upgrade"},
+	WS01L0={0,1,"water_core_aura","water_core_overload","SellTower","Upgrade"},
+	FS01L0={0,1,"fire_core_aura","fire_core_overload","SellTower","Upgrade"},
+	AS01L0={0,1,"lightning_core_aura","lightning_core_overload","SellTower","Upgrade"},
 
 	ET01L0={AL.B,SL.C,"splash_attack",nil,"SellTower","Upgrade"},
 	ET02L0={AL.S,SL.E,"stun_hit",nil,"SellTower","Upgrade"},

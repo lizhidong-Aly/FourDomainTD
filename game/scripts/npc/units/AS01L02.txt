@@ -1,12 +1,11 @@
-"ST14L01"
+"AS01L02"
 {
 "Model"											"models/props_structures/tower_good4.vmdl"
 
-"Level"											"1"
+"Level"											"2"
 "ModelScale" 									"0.45"
 "AttackRange"									"1000"
-"BountyXP"  				 					"300"			//Build Cost
-"VisionDaytimeRange"             				"600"			//Next Level Cost
+"VisionDaytimeRange"             				"1200"			//Next Level Cost
 "UnitLabel"										"AL"				//Next Level Index
 
 "BaseClass"										"npc_dota_creature"

@@ -1,9 +1,9 @@
-"ST01L03"
+"CS01L01"
 {
 "Model"											"models/heroes/sniper/sniper.vmdl"
 "SoundSet"										"Hero_Sniper"
 "GameSoundsFile"								"soundevents/game_sounds_heroes/game_sounds_sniper.vsndevts"
-"Level"											"3"
+"Level"											"1"
 "ModelScale" 									"1.05"
 
  
@@ -12,7 +12,8 @@
 "AttackRange"									"1200"
 "ProjectileModel"								"particles/units/heroes/hero_sniper/sniper_base_attack.vpcf"
 "ProjectileSpeed"								"6000"
-"VisionDaytimeRange"             				"0"			//Next Level Cost
+"BountyXP"  				 					"50"			//Build Cost
+"VisionDaytimeRange"             				"200"			//Next Level Cost
 "UnitLabel"										"N"				//Next Level Index
 
 "BaseClass"										"npc_dota_creature"

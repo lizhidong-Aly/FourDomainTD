@@ -4,7 +4,6 @@
 		<include src="file://{resources}/styles/dotastyles.css" />
 		<include src="file://{resources}/styles/custom_game/BUI.css"	/>
 	</styles>
-	
 		<Panel hittest="false">
 			<Panel id="TowerDesPanel" hittest="false">
 				<Label id="TowerTittle" html="true" hittest="false"/>		

@@ -22,7 +22,7 @@ function OpenBuildingMenu(keys)
 	local pid=keys.caster:GetPlayerID()
 	CustomGameEventManager:Send_ServerToPlayer( keys.caster:GetPlayerOwner(), "MenuSwtich", {} )
 	CustomGameEventManager:Send_ServerToPlayer( keys.caster:GetPlayerOwner(), "CloseTechMenu", {} )
-	CustomGameEventManager:Send_ServerToPlayer( keys.caster:GetPlayerOwner(), "setbuilder", {num=keys.caster_entindex} )
+	--CustomGameEventManager:Send_ServerToPlayer( keys.caster:GetPlayerOwner(), "setbuilder", {num=keys.caster_entindex} )
 end
 
 function SendTowerInfo(index,keys)
@@ -66,6 +66,7 @@ function SendTowerInfo(index,keys)
 end
 
 function SetTowerType(index,keys)
+	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(keys.PlayerID), "MenuSwtich", {} )
 	TowerType[keys.PlayerID]=keys.type
 end
 ----------------------------------------------------------------Build Tower----------------------------------------------------------------
