@@ -137,6 +137,7 @@ function UnitMove(unit,desname)
 end
 
 function isThisWaveFinished()
+	print(unitLeft)
 	unitLeft = unitLeft - 1
 	return unitLeft<=0
 end
@@ -207,6 +208,15 @@ end
 
 function InitDomainStatus()
 	DomainStatus.Earth.player=0
+	if PlayerResource:GetPlayer(1)~=nil then
+		DomainStatus.Water.player=1
+	end
+	if PlayerResource:GetPlayer(2)~=nil then
+		DomainStatus.Fire.player=2
+	end
+	if PlayerResource:GetPlayer(3)~=nil then
+		DomainStatus.Air.player=3
+	end
 end
 
 
