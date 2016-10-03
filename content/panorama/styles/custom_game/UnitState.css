@@ -91,6 +91,29 @@ box-shadow: black -4px -4px 8px 8px;
 	border-radius:2px;
 }
 
+.AspectRatio5x4 #MergeButton
+{
+	width: 65px;
+	height: 65px;
+	margin-top: 932px;
+	margin-left: 1275px;
+}
+
+.AspectRatio4x3 #MergeButton
+{
+	width: 68px;
+	height: 68px;
+	margin-top: 921px;
+	margin-left: 1359px;
+}
+
+.AspectRatio16x10 #MergeButton
+{
+	margin-top: 950px;
+	margin-left: 305px;
+}
+
+
 #MergeButton:hover{
 	color: #ffffff;
 	border: 2px solid #7cfc00;
@@ -100,13 +123,31 @@ box-shadow: black -4px -4px 8px 8px;
 }
 #MergeDes{
 	margin-top: 760px;
-	margin-left: 1320px;
+	margin-left: 120px;
 	width: 240px;
 	height: 140px;
 	border: 2px solid #707070;
 	border-radius:2px;
 	background-color: gradient( linear, 100% 0%, 100% 100%, from( #111111 ), color-stop( 0.01, #202327 ), color-stop( 0.2, #141619ff ), to( #000000dd ) );
 	box-shadow: black -4px -4px 8px 8px;
+}
+
+.AspectRatio5x4 #MergeDes
+{
+	margin-top: 921px;
+	margin-left: 1059px;
+}
+
+.AspectRatio4x3 #MergeDes
+{
+	margin-top: 921px;
+	margin-left: 1059px;
+}
+
+.AspectRatio16x10 #MergeDes
+{
+	margin-top: 950px;
+	margin-left: 305px;
 }
 
 #MergeDes.Hidden{

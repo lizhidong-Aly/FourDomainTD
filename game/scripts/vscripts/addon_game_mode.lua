@@ -163,7 +163,7 @@ function TDGameMode:OnEntityKilled( keys )
 	local u=EntIndexToHScript(keys.entindex_killed)
 	if u:GetTeamNumber()~=DOTA_TEAM_GOODGUYS  then
 		CustomGameEventManager:Send_ServerToAllClients("UpdateKillBoard",nil)
-		if Mode==1 then
+		if Mode==2 then
 			if isThisWaveFinished() then
 				WaveFinished()
 			end

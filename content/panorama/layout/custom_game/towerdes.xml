@@ -2,7 +2,7 @@
 
 	<styles>
 		<include src="file://{resources}/styles/dotastyles.css" />
-		<include src="file://{resources}/styles/custom_game/BUI.css"	/>
+		<include src="file://{resources}/styles/custom_game/ToolTips.css"	/>
 	</styles>
 		<Panel hittest="false">
 			<Panel id="TowerDesPanel" hittest="false">
@@ -10,5 +10,4 @@
 				<Label id="TowerDes" html="true" hittest="false"/>		
 			</Panel>	
 		</Panel>
-		
-</root>
+	</root>

@@ -43,9 +43,7 @@ function ShowMergeDes(){
 	var desPanel = $.CreatePanel( "Panel", $.GetContextPanel(), "" );
 	desPanelList.push(desPanel);
 	desPanel.BLoadLayout( "file://{resources}/layout/custom_game/towerdes.xml", false, false );
-	desPanel.style.x=1300+"px";
-	desPanel.style.y=680+"px";
-	desPanel.style.width="360px";
+	desPanel.SetHasClass("MergeDes",true);
 	var tittle=$.Localize( "#Merge" )
 	var des="";
 	des=des + $.Localize( "#MergeDes" )

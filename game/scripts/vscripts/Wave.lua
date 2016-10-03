@@ -1,8 +1,7 @@
 require("Parameter")
 
-
 function NextWave()
-	local unitofthiswave=CreateUnit((currentWave+1),worldPoint)
+	local unitofthiswave=CreateUnit((currentWave+1),worldPoint:GetOrigin())
 	local delay=unitofthiswave:GetAttackAnimationPoint()
 	local upl=unitofthiswave:GetAttackRange()
 	unitofthiswave:RemoveSelf()
@@ -67,8 +66,8 @@ function PathInit()
 end	
 
 
-function CreateUnit(wIndex,ori)
-	local unit=CreateUnitByName(waveName[wIndex],ori:GetOrigin(),false,nil,nil,DOTA_TEAM_BADGUYS)
+function CreateUnit(wIndex,pos)
+	local unit=CreateUnitByName(waveName[wIndex],pos,false,nil,nil,DOTA_TEAM_BADGUYS)
 	unit:AddNewModifier(nil, nil, "modifier_phased", {duration=4})
 	unit:AddNewModifier(nil, nil, "modifier_invulnerable", {duration=2})
 	SetHp(unit,difficulty)
@@ -87,7 +86,7 @@ end
 function Test()
 	local dummy = Entities:FindByName(nil,"WorldPoint")
 	--CreateUnitByName("earth_buffer",dummy:GetOrigin(),false,nil,nil,DOTA_TEAM_GOODGUYS)
-	CreateUnit(currentWave,dummy)
+	CreateUnit(currentWave,dummy:GetOrigin())
 	local pos=dummy:GetOrigin()
 	pos[1]=pos[1]+200
 	CreateUnitByName(waveName[currentWave],pos,false,nil,nil,DOTA_TEAM_BADGUYS)
@@ -171,7 +170,7 @@ function TimingforNextWave()
 	if GameRules:IsGamePaused() then
 		return 0.8
 	end
-	local unit = CreateUnit(currentWave+1,worldPoint)
+	local unit = CreateUnit(currentWave+1,worldPoint:GetOrigin())
 	local mi=(unit:GetUnitLabel()=="1")
 	local mr=unit:GetMagicalArmorValue()
 	local ms=unit:GetBaseMoveSpeed()
@@ -196,18 +195,19 @@ end
 --Level Mode
 
 function LevelMode()
+	
 	playernum=PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
-	for i=1,playernum do
-		allplayerid[i]=PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_GOODGUYS,i)
-	end
-	WaveSwaperForLevelMode(playernum)
+	InitDomainStatus()
+	WaveSwaperForLevelMode()
 	currentWave = currentWave +1
 	ramingtime=60
 	GameRules:GetGameModeEntity():SetThink(TimingforNextWaveForLevelMode,0)
 	return nil
 end
 
-
+function InitDomainStatus()
+	DomainStatus.Earth.player=0
+end
 
 
 timeStoped=false
@@ -227,20 +227,14 @@ function WaveSwaperForLevelMode()
 		if GameRules:IsGamePaused() then
 			return 0.1
 		end
-		if ramingtime>50 then 
+		if ramingtime>50 or timeStoped then 
 			return 1
 		end
-		if timeStoped then
-			return 1
-		end
-		if GameRules:State_Get()==DOTA_GAMERULES_STATE_POST_GAME then
+		local wc=currentWave
+		if GameRules:State_Get()==DOTA_GAMERULES_STATE_POST_GAME or wc==-1 then
 			return nil
 		end 
-		local wc=currentWave
-		if wc==-1 then
-			return nil
-		end
-		local unitofthiswave=CreateUnit((currentWave),worldPoint)
+		local unitofthiswave=CreateUnit((currentWave),worldPoint:GetOrigin())
 		local delay=unitofthiswave:GetAttackAnimationPoint()
 		local delay=delay*1.5
 		if delay<0.1 or delay>20 then
@@ -248,9 +242,9 @@ function WaveSwaperForLevelMode()
 		end
 		unitofthiswave:RemoveSelf()
 		local goldbounty = math.ceil(totalgold[wc]/(80/delay))
-		for i=1,#oriForSwaper do
-			if not DomainClosed[oriForSwaper[i]:GetName()] then
-				local unit = CreateUnit(wc,oriForSwaper[i])
+		for d,v in pairs(DomainStatus) do     --d: Domain Name v: table value
+			if v.player~=nil then 
+				local unit = CreateUnit(wc,v.position)
 				UnitMove(unit,"FinalDomain")
 				unit:SetMinimumGoldBounty(goldbounty)
 				unit:SetBaseMaxHealth(unit:GetHealth()*(1+currentWave/50))
@@ -299,7 +293,7 @@ function TimingforNextWaveForLevelMode()
 		end
 	end
 	if (currentWave+1) < #waveName then
-		unit = CreateUnit(currentWave+1,worldPoint)
+		unit = CreateUnit(currentWave+1,worldPoint:GetOrigin())
 	end
 	if unit~=nil then
 		mi=(unit:GetUnitLabel()=="1")

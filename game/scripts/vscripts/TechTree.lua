@@ -1,4 +1,4 @@
-	require("Tech")
+require("Tech")
 require("Link")
 require("BuildUI")
 TechTree={

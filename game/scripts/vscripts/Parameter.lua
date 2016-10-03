@@ -1,8 +1,8 @@
 function ParameterInit()
 	PRE_GAME_TIME=1
-	INIT_GOLD=400000
+	INIT_GOLD=40000
 	INIT_TECH_POINT=100
-	Mode=0
+	Mode=2
 	Difficulty=0
 	TowerType={}
 	TowerBuilding={}
@@ -84,11 +84,27 @@ function ParameterInit()
 		"Water",
 		"Fire"
 	}
-	DomainClosed = {
-		Earth=false,
-		Air=false,
-		Water=false,
-		Fire=false,
+	DomainStatus={
+		Earth={
+			entity=Entities:FindByName(nil,"Earth"),
+			position=Entities:FindByName(nil,"Earth"):GetOrigin(),
+			player=nil,
+		},
+		Air={
+			entity=Entities:FindByName(nil,"Air"),
+			position=Entities:FindByName(nil,"Earth"):GetOrigin(),
+			player=nil,
+		},
+		Water={
+			entity=Entities:FindByName(nil,"Water"),
+			position=Entities:FindByName(nil,"Earth"):GetOrigin(),
+			player=nil,
+		},
+		Fire={
+			entity=Entities:FindByName(nil,"Fire"),
+			position=Entities:FindByName(nil,"Earth"):GetOrigin(),
+			player=nil,
+		},
 	}
 	waveName = {
 		"TestOnly",
