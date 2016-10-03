@@ -9,24 +9,9 @@
 	
 	<Panel hittest="false">
 		<Panel id="main"	hittest="false">
-			<Panel	class="pname" hittest="false">				
-				<Label class="name" id="player1"	text=""/>
-				<Label class="name" id="player2"	text=""/>
-				<Label class="name" id="player3"	text=""/>
-				<Label class="name" id="player4"	text=""/>
-			</Panel>
-			<Panel	class="killcount"  hittest="false">				
-				<Label class="count" id="kill1"	text="" hittest="false"/>
-				<Label class="count" id="kill2"	text="" hittest="false"/>
-				<Label class="count" id="kill3"	text="" hittest="false"/>
-				<Label class="count" id="kill4"	text="" hittest="false"/>
-			</Panel>
 			<Panel	class="timer Hidden" id="timer" hittest="false">				
 				<Label id="time"	text="#Next wave coming in: " hittest="false"/>
 				<Label id="LevelDes"	text="" hittest="false"/>
-			</Panel>
-			<Panel	class="fountain Hidden" id="fountain" hittest="false">				
-				<Label id="waring"	text="#Fountain has been contaminated by " hittest="false"/>
 			</Panel>
 			<Panel id="skillerr" hittest="false">				
 				<Label id="msg"	text="" hittest="false"/>

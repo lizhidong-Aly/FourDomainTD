@@ -32,7 +32,6 @@ function EnterFinalDomain(trigger)
 		if fountain~=nil then
 			data=100-fountain:GetHealth()
 		end
-		CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(0),"UnitEscaped",{num=data})
 		if chp<=0 then
 			if fountain~=nil then
 				fountain:RemoveSelf()

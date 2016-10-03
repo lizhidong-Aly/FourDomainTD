@@ -1,7 +1,5 @@
-var allid =Game.GetAllPlayerIDs()
+var allid =Game.GetAllPlayerIDs();
 var e=0;
-GameEvents.Subscribe( "UpdateKillBoard", UpdateKillBoard);
-GameEvents.Subscribe( "UnitEscaped", ShowFuntainState);
 GameEvents.Subscribe( "LevelEnd", ShowLevelEndMessage);
 GameEvents.Subscribe( "TimingforNextWave", TimingforNextWave);
 GameEvents.Subscribe( "ErrorMsg", ErrorMsg);
@@ -37,18 +35,6 @@ function HideErrAlert(){
 	}
 	e=e-0.2;
 	$.Schedule(0.2,HideErrAlert);
-}
-
-function UpdateKillBoard(){
-	for (var i=0;i<allid.length;i++){
-		$( "#player"+(i+1) ).text = (i+1)+"."+Players.GetPlayerName(allid[i]);
-		$( "#kill"+(i+1) ).text = Players.GetLastHits(allid[i]) + " kills";
-	}
-}
-
-function ShowFuntainState(data){
-	var text=$.Localize( "#UnitEscaped" )+"  "+data.num+"%";
-	GameEvents.SendCustomGameEventToServer( "DisplayMessage", {text:text} );
 }
 
 function ShowLevelEndMessage(data){

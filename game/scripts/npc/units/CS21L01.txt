@@ -1,4 +1,4 @@
-"CS01L21"
+"CS21L01"
 {
 "Model"											"models/heroes/sniper/sniper.vmdl"
 "Level"											"1"

@@ -30,6 +30,7 @@ function SendTowerInfo(index,keys)
 		CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.PlayerID),"MergeTargetInfoSent",{none=true})
 		return
 	end
+	print(keys.type)
 	local unit = CreateUnitByName(keys.type,Entities:FindByName(nil,Domain[1]):GetOrigin(),false,nil,nil,DOTA_TEAM_GOODGUYS)
 	local cost = GetTowerTotalCost(unit)
 	IniTower(nil,unit,cost)

@@ -29,11 +29,11 @@
 
 	        	<Panel class="ContextPanel" id="InfoMerge">
 	        		<Label  class="TextStyle" html="true" id="MergeListLabel" text=""/>
-	        		<Button	class="subbutton" id="ST01L21" onmouseover="ShowToolTip('ST01L21')"	onmouseout="HideTowerDes()">
+	        		<Button	class="subbutton" id="ST01L21" onmouseover="ShowToolTip('CS11L01')"	onmouseout="HideTowerDes()">
 						<DOTAHeroImage heroname="npc_dota_hero_sniper" heroimagestyle="landscape" />
 						<Label class="disable enable" />
 					</Button>
-					<Button	class="subbutton" id="ST01L11" onmouseover="ShowToolTip('ST01L11')"	onmouseout="HideTowerDes()">
+					<Button	class="subbutton" id="ST01L11" onmouseover="ShowToolTip('CS21L01')"	onmouseout="HideTowerDes()">
 						<DOTAHeroImage heroname="npc_dota_hero_sniper" heroimagestyle="landscape" />
 						<Label class="disable enable" />
 					</Button>

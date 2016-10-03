@@ -1,9 +1,10 @@
 function ParameterInit()
-	PRE_GAME_TIME=1
-	INIT_GOLD=40000
-	INIT_TECH_POINT=100
+	PRE_GAME_TIME=30
+	INIT_GOLD=400
+	INIT_TECH_POINT=0
 	Mode=2
 	Difficulty=0
+	unitLeft = 0
 	TowerType={}
 	TowerBuilding={}
 	unitEscaped = 0
@@ -92,17 +93,17 @@ function ParameterInit()
 		},
 		Air={
 			entity=Entities:FindByName(nil,"Air"),
-			position=Entities:FindByName(nil,"Earth"):GetOrigin(),
+			position=Entities:FindByName(nil,"Air"):GetOrigin(),
 			player=nil,
 		},
 		Water={
 			entity=Entities:FindByName(nil,"Water"),
-			position=Entities:FindByName(nil,"Earth"):GetOrigin(),
+			position=Entities:FindByName(nil,"Water"):GetOrigin(),
 			player=nil,
 		},
 		Fire={
 			entity=Entities:FindByName(nil,"Fire"),
-			position=Entities:FindByName(nil,"Earth"):GetOrigin(),
+			position=Entities:FindByName(nil,"Fire"):GetOrigin(),
 			player=nil,
 		},
 	}
@@ -155,7 +156,6 @@ function ParameterInit()
 	for i=1,4 do
 		CustomNetTables:SetTableValue( "domain_selected_list",Domain[i],{pid=-1});
 	end
-	unitLeft = 0
 	local a=Entities:FindByName(nil,"ent_dota_fountain_good")
 	--a:SetAttackCapability(DOTA_UNIT_CAP_NO_ATTACK)   --禁用中央泉水攻击能力
 	fountain=CreateUnitByName("fountain",a:GetOrigin(),false,nil,nil,DOTA_TEAM_GOODGUYS)
@@ -192,11 +192,6 @@ function SetDifficulty(index,keys)
 	elseif difficulty==2 then
 		refund=0.6
 	end
-end
-
-function SetOriForSwaper(dname)
-	print("SetOriForSwaper")
-	table.insert(oriForSwaper, Entities:FindByName(nil,dname))
 end
 
 function CloseDomain(dname)

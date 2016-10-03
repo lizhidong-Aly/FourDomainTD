@@ -72,7 +72,6 @@ function TDGameMode:InitGameMode()
 	CustomGameEventManager:RegisterListener( "RequestAps", SendAps )
 	CustomGameEventManager:RegisterListener( "DisplayMessage", DisplayMessage )
 	CustomGameEventManager:RegisterListener( "ClosedAllUI", ClosedAllUI )
-	CustomGameEventManager:RegisterListener( "Transform", Transform )
 	CustomGameEventManager:RegisterListener( "SetDomainForPlayer", SetDomainForPlayer )
 	CustomGameEventManager:RegisterListener( "RequestTowerUpdate", SendTowerUnlocked )
     ListenToGameEvent("game_rules_state_change", Dynamic_Wrap(TDGameMode,"OnGameRulesStateChange"), self)
@@ -122,9 +121,19 @@ function TDGameMode:OnGameRulesStateChange( keys )
 		elseif Mode==1 then
         	NextWave()
         elseif Mode==2 then
+        	RandomHeroSelection()
         	LevelMode()
         end
     end
+end
+
+function RandomHeroSelection()
+	for i=0,3 do
+		local player = PlayerResource:GetPlayer(i)
+		if player~=nil and player:GetAssignedHero()==nil then
+			player:MakeRandomHeroSelection()
+		end
+	end
 end
 
 function TDGameMode:OnDisconnect( keys )
@@ -162,8 +171,7 @@ end
 function TDGameMode:OnEntityKilled( keys )
 	local u=EntIndexToHScript(keys.entindex_killed)
 	if u:GetTeamNumber()~=DOTA_TEAM_GOODGUYS  then
-		CustomGameEventManager:Send_ServerToAllClients("UpdateKillBoard",nil)
-		if Mode==2 then
+		if Mode==1 then
 			if isThisWaveFinished() then
 				WaveFinished()
 			end

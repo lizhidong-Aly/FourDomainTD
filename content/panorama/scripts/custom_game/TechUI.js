@@ -53,7 +53,7 @@ function UndateTechInfo(data){
 		$("#TechCost").text=$.Localize( "#techlv" );
 	}
 }
-
+UpdateTechPoint(0);
 function UpdateTechPoint(data)
 {
 	$("#TechPoint").text=$.Localize( "#techpoint" )+data.point;

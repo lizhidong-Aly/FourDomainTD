@@ -1,10 +1,10 @@
-"CS01L11"
+"CS11L01"
 {
 "Model"											"models/heroes/sniper/sniper.vmdl"
 "Level"											"1"
 "ModelScale" 									"1.05"
-
-
+"SoundSet"										"Hero_Sniper"
+"GameSoundsFile"								"soundevents/game_sounds_heroes/game_sounds_sniper.vsndevts"
 "AttackAnimationPoint"							"0.2"
 "AttackAcquisitionRange"						"1500"
 "AttackRange"									"800"

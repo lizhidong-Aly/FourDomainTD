@@ -43,8 +43,8 @@ SL={
 }
 TowerInfo={
 	CS01L0={AL.B,SL.B,"head_shoot",nil,"SellTower","Upgrade"},
-	CS01L1={0.35,SL.S,"dragon_breath",nil,nil,nil},
-	CS01L2={5,4.5,"earth_shot",nil,nil,nil},
+	CS11L0={0.35,SL.S,"dragon_breath",nil,nil,nil},
+	CS21L0={5,4.5,"earth_shot",nil,nil,nil},
 	CS02L0={AL.E,1.3,"booty_gold",nil,"SellTower","Upgrade"},
 	ES01L0={0,1,"earth_core_aura","earth_core_overload","SellTower","Upgrade"},
 	WS01L0={0,1,"water_core_aura","water_core_overload","SellTower","Upgrade"},
