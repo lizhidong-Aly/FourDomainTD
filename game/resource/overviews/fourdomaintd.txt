@@ -1,8 +1,8 @@
 fourdomaintd
 {
 	material materials/overviews/fourdomaintd.vmat
-	pos_x -4500
-	pos_y 4600
-	scale 8.789
+	pos_x 0
+	pos_y -2147483648
+	scale -332306979139188339659867366684098560.000
 }
 

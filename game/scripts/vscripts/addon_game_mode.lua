@@ -1,7 +1,9 @@
-require ("Wave")
+require ("UnitSpawner")
 require ("BuildUI")
 require ("Parameter")
 require ("TechUI")
+require ("Wave")
+require ("timers")
 require	("SkillScript")
 if TDGameMode == nil then
         TDGameMode = class({})
@@ -59,7 +61,6 @@ function TDGameMode:InitGameMode()
     print( "Four Domain TD is loaded." )
 	require("amhc_library/amhc")
 	AMHCInit()
-	ParameterInit()
 	InitMergeList()
 	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_GOODGUYS, 4 )
 	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_BADGUYS, 0 )
@@ -89,16 +90,6 @@ function ClosedAllUI(index,keys)
 	CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.PlayerID),"ClosedAllUI",{})
 end
 
-function SetDomainForPlayer(index,keys)
-	local data=CustomNetTables:GetTableValue("domain_selected_list",keys.domain)
-	local point=Entities:FindByName(nil,keys.domain)
-	local pos=point:GetOrigin()
-	local pid=keys.PlayerID
-	if data.pid==-1 then
-		SetOriForSwaper(keys.domain)
-		CustomNetTables:SetTableValue("domain_selected_list",keys.domain,{pid=pid,pos=pos})
-	end
-end
 
 function SendAps(index,keys)
 	local unit=EntIndexToHScript(keys.name)
@@ -117,14 +108,30 @@ function TDGameMode:OnGameRulesStateChange( keys )
     	CustomGameEventManager:Send_ServerToAllClients("SelectDomainRandom",nil)
     	InitTechTree()
     	if Mode==0 then
-			Test()
-		elseif Mode==1 then
-        	NextWave()
-        elseif Mode==2 then
+			TestMode()
+        elseif Mode==1 then
         	RandomHeroSelection()
-        	LevelMode()
+        	InitUnitSpwaner()
         end
     end
+end
+
+function TestMode()
+	print("Now On Test Mode")
+	local dummy = Entities:FindByName(nil,"WorldCentre")
+	local pos=dummy:GetOrigin()
+	pos[1]=pos[1]+200
+	CreateUnitByName(waveName[currentWave],pos,false,nil,nil,DOTA_TEAM_BADGUYS)
+	pos[2]=pos[2]+200
+	CreateUnitByName(waveName[currentWave],pos,false,nil,nil,DOTA_TEAM_BADGUYS)
+	pos[2]=pos[2]-400
+	CreateUnitByName(waveName[currentWave],pos,false,nil,nil,DOTA_TEAM_BADGUYS)
+end
+
+function InitUnitSpwaner()
+	print("Now Start InitUnitSpwaner")
+	_G.Spawner = UnitSpawner:new("Earth",0)
+	Spawner:Spawn()
 end
 
 function RandomHeroSelection()
@@ -172,8 +179,8 @@ function TDGameMode:OnEntityKilled( keys )
 	local u=EntIndexToHScript(keys.entindex_killed)
 	if u:GetTeamNumber()~=DOTA_TEAM_GOODGUYS  then
 		if Mode==1 then
-			if isThisWaveFinished() then
-				WaveFinished()
+			if IsEndOfCurrentWave() then
+				WaveEnd()
 			end
 		end
 	end

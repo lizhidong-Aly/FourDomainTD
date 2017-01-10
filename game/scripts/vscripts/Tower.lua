@@ -12,7 +12,7 @@ function GetBuildCost(name)
 	if name==nil then
 		return -1
 	end
-	local unit = CreateUnitByName(name,Entities:FindByName(nil,Domain[1]):GetOrigin(),false,nil,nil,DOTA_TEAM_GOODGUYS)
+	local unit = CreateUnitByName(name,Vector(-4800,4096,128),false,nil,nil,DOTA_TEAM_GOODGUYS)
 	local cost = unit:GetDeathXP()
 	unit:RemoveSelf()
 	return cost

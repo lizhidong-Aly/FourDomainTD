@@ -1,106 +1,57 @@
 require("Parameter")
 
 function NextWave()
-	local unitofthiswave=CreateUnit((currentWave+1),worldPoint:GetOrigin())
-	local delay=unitofthiswave:GetAttackAnimationPoint()
-	local upl=unitofthiswave:GetAttackRange()
-	unitofthiswave:RemoveSelf()
-	if delay<0.1 or delay>10 then
-		delay=0.6
-	end
-	if upl<1 or upl>30 then
-		upl=20
-	end
-	playernum=PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
-	for i=1,playernum do
-		allplayerid[i]=PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_GOODGUYS,i)
-	end
-	WaveSwaper(currentWave,playernum,upl,delay)
-	CustomGameEventManager:Send_ServerToAllClients("WaveAlert",{waveno=currentWave})
-	currentWave = currentWave +1
-	return nil
+	Spawner:Spawn()
 end
 
-function WaveSwaper(wc,pc,upl,delay)
-	local dummy = Entities:FindByName(nil,"ent_dota_fountain_good")
-	unitLeft = upl*pc
-	if pc >4 then
-		pc=4
+function IsEndOfCurrentWave()
+	unitRemaining=unitRemaining-1
+	print(unitRemaining)
+	if not Spawner.isOnSpawn and unitRemaining==0 then
+		return true
 	end
-	wc=wc+1
-	dummy:SetThink(function() 
-		if GameRules:IsGamePaused() then
-		return 0.1
+	return false
+end
+
+function WaveEnd()
+	if Spawner.levelNo==40 then
+		print("Game End, Congrts, You Win")
+		GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
+	else
+		print("End Of This Wave, Prepare for Next Wave")
+		NextWave()
+	end
+end
+
+function ReachEndPoint(trigger)
+	local activator=trigger.activator
+	if activator:GetTeamNumber()~=DOTA_TEAM_GOODGUYS  then
+		local dmg=activator:GetLevel()
+		local hp= 100 --fountain:GetHealth()
+		local chp=hp-dmg
+		local data=100-chp
+		activator:RemoveSelf()
+		--[[AMHC:Damage(fountain,fountain,dmg,DAMAGE_TYPE_PURE,1)
+		activator:RemoveSelf()
+		if fountain~=nil then
+			data=100-fountain:GetHealth()
 		end
-		local goldbounty = math.ceil(totalgold[wc]/(upl/0.5))
-		for i=1,pc do
-			local unit = CreateUnit(wc,oriForSwaper[i])
-			UnitMove(unit,"FinalDomain")
-			unit:SetMinimumGoldBounty(goldbounty)
-			if unit:GetUnitLabel()=="1" then
-				unit:AddNewModifier(nil, nil, "modifier_magic_immune", {})
+		if chp<=0 then
+			if fountain~=nil then
+				fountain:RemoveSelf()
 			end
+			GameRules:MakeTeamLose(DOTA_TEAM_GOODGUYS)
 		end
-		if upl~=nil then
-			unitCreated = unitCreated+1
-			if unitCreated == upl then
-				unitCreated = 0
-				--Entities:FindByName(nil,"ent_dota_fountain_good"):SetContextThink("IsWaveFinished",IsWaveFinished,0)
-				return nil
-			else
-				return delay
+		--CustomGameEventManager:Send_ServerToAllClients("UnitEscaped",{num=unitEscaped})
+		if Mode==1 then
+			if isThisWaveFinished() then
+				WaveFinished()
 			end
-		end
-	end)
-end
-
-
-
-
-function PathInit()
-	for i=1,4 do
-		basePoint[i]=Entities:FindByName(nil,table.remove(pos,math.random(#pos)))
-	end
-	math.randomseed(n)
-	n = math.random(1000)
-end	
-
-
-function CreateUnit(wIndex,pos)
-	local unit=CreateUnitByName(waveName[wIndex],pos,false,nil,nil,DOTA_TEAM_BADGUYS)
-	unit:AddNewModifier(nil, nil, "modifier_phased", {duration=4})
-	unit:AddNewModifier(nil, nil, "modifier_invulnerable", {duration=2})
-	SetHp(unit,difficulty)
-	return unit
-end
-
-
-function SetHp(unit,diff)
-	if(difficulty>0) then
-		unit:SetBaseMaxHealth(unit:GetHealth()*(1+0.3))
+		end]]--
 	end
 end
-
-
-
-function Test()
-	local dummy = Entities:FindByName(nil,"WorldPoint")
-	--CreateUnitByName("earth_buffer",dummy:GetOrigin(),false,nil,nil,DOTA_TEAM_GOODGUYS)
-	CreateUnit(currentWave,dummy:GetOrigin())
-	local pos=dummy:GetOrigin()
-	pos[1]=pos[1]+200
-	CreateUnitByName(waveName[currentWave],pos,false,nil,nil,DOTA_TEAM_BADGUYS)
-	pos[2]=pos[2]+200
-	CreateUnitByName(waveName[currentWave],pos,false,nil,nil,DOTA_TEAM_BADGUYS)
-	pos[2]=pos[2]-400
-	CreateUnitByName(waveName[currentWave],pos,false,nil,nil,DOTA_TEAM_BADGUYS)
-	--for i=1,#waveName do
-	--	local unit = CreateUnit(i,worldPoint)
-	--	UnitMove(unit,"WorldPoint")
-	--end
-end
-
-
+------------------------------------------------------------------------------------------------------------------------
+--[[]
 function DistubuteGold()
 	local bounty =0
 	bounty=math.floor(totalgold[currentWave]*1.3)
@@ -118,79 +69,6 @@ function DistubuteGold()
 	end
 	CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(0),"LevelEnd",{gold=bounty})
 end
-
-
-
-function UnitMove(unit,desname)
-	local des=Entities:FindByName(nil,desname)
-	local order = 
-		{                                       
-        UnitIndex = unit:entindex(), 
-        OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
-        TargetIndex = nil, 
-        AbilityIndex = 0, 
-        Position = des:GetOrigin(),
-        Queue = 0 
-		}
-		unit:SetContextThink(DoUniqueString("order"), function() ExecuteOrderFromTable(order) end, 0.1)
-		unit:AddNewModifier(nil, nil, "modifier_phased", {duration=0.1})
-end
-
-function isThisWaveFinished()
-	print(unitLeft)
-	unitLeft = unitLeft - 1
-	return unitLeft<=0
-end
-
-
---[[function IsWaveFinished()
-	local list=Entities:FindAllByClassname("npc_dota_creature")
-	print(#list)
-	for i=1,#list do
-		print(string.find(list[i]:GetUnitName(),"level")~=nil)
-		if string.find(list[i]:GetUnitName(),"level")~=nil then
-			return 0.5
-		end
-	end
-	WaveFinished()
-	return nil
-end]]--
-
-
-function WaveFinished()
-	if currentWave==#waveName then
-		GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
-	else 
-		DistubuteGold()
-		GameRules:GetGameModeEntity():SetThink(TimingforNextWave,0)
-		CustomGameEventManager:Send_ServerToAllClients("WaveAlert",{waveno=-1})
-	end
-end
-
-function TimingforNextWave()
-	if GameRules:IsGamePaused() then
-		return 0.8
-	end
-	local unit = CreateUnit(currentWave+1,worldPoint:GetOrigin())
-	local mi=(unit:GetUnitLabel()=="1")
-	local mr=unit:GetMagicalArmorValue()
-	local ms=unit:GetBaseMoveSpeed()
-	local am=unit:GetAttackRange()
-	unit:RemoveSelf()
-	if ramingtime==0 then
-		NextWave()
-		CustomGameEventManager:Send_ServerToAllClients("TimingforNextWave",{rt=ramingtime})
-		ramingtime=16
-		return nil
-	else
-		ramingtime = ramingtime - 1 
-		CustomGameEventManager:Send_ServerToAllClients("TimingforNextWave",{am=am,mi=mi,mr=mr,ms=ms,rt=ramingtime})
-		return 1
-	end
-end
-
-
-
 
 -----------------------------------------------------------------------------------------------------------------------------
 --Level Mode
@@ -232,7 +110,7 @@ end
 
 
 function WaveSwaperForLevelMode()
-	local dummy = Entities:FindByName(nil,"ent_dota_fountain_good")
+	local dummy = Entities:FindByName(nil,"WorldCentre")
 	dummy:SetThink(function() 
 		if GameRules:IsGamePaused() then
 			return 0.1
@@ -255,7 +133,7 @@ function WaveSwaperForLevelMode()
 		for d,v in pairs(DomainStatus) do     --d: Domain Name v: table value
 			if v.player~=nil then 
 				local unit = CreateUnit(wc,v.position)
-				UnitMove(unit,"FinalDomain")
+				UnitMove(unit,"WorldCentre")
 				unit:SetMinimumGoldBounty(goldbounty)
 				unit:SetBaseMaxHealth(unit:GetHealth()*(1+currentWave/50))
 				if unit:GetUnitLabel()=="1" then
@@ -337,4 +215,4 @@ function EndCheck()
 	else
 		return 1
 	end
-end
+end]]--

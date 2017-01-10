@@ -3,95 +3,75 @@
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
 	m_nMaxParticles = 80
-	m_Renderers =
+	m_Renderers = 
 	[
 		{
 			_class = "C_OP_RenderSprites"
 			m_nSequenceCombineMode = "SEQUENCE_COMBINE_MODE_USE_SEQUENCE_0"
-			m_flAddSelfAmount = 1.000000
+			m_flAddSelfAmount = 1.0
 			m_bSaturateColorPreAlphaBlend = false
 			m_hTexture = resource:"materials/particle/glyphs/glyph1.vtex"
 			m_nOrientationType = 2
 		},
 	]
-	m_Operators =
+	m_Operators = 
 	[
 		{
 			_class = "C_OP_BasicMovement"
 		},
 		{
 			_class = "C_OP_Orient2DRelToCP"
-			m_flRotOffset = 180.000000
+			m_flRotOffset = 180.0
 		},
 		{
 			_class = "C_OP_Decay"
 		},
 		{
 			_class = "C_OP_FadeOutSimple"
-			m_flFadeOutTime = 0.150000
+			m_flFadeOutTime = 0.15
 		},
 		{
 			_class = "C_OP_FadeInSimple"
-			m_flFadeInTime = 0.125000
+			m_flFadeInTime = 0.125
 		},
 		{
 			_class = "C_OP_RampScalarLinearSimple"
 			m_nOpEndCapState = 1
 			m_nField = 16
-			m_Rate = -1.500000
-			m_flEndTime = 999999.000000
+			m_Rate = -1.5
+			m_flEndTime = 999999.0
 		},
 		{
 			_class = "C_OP_PositionLock"
 		},
 		{
 			_class = "C_OP_RemapCPtoVector"
-			m_vOutputMax =
-			[
-				1.000000,
-				1.000000,
-				1.000000,
-			]
+			m_vOutputMax = [ 1.0, 1.0, 1.0 ]
 			m_nFieldOutput = 6
-			m_vInputMax =
-			[
-				255.000000,
-				255.000000,
-				255.000000,
-			]
+			m_vInputMax = [ 255.0, 255.0, 255.0 ]
 			m_nCPInput = 15
 			m_nOpScaleCP = 16
 		},
 	]
-	m_Initializers =
+	m_Initializers = 
 	[
 		{
 			_class = "C_INIT_RandomRotation"
-			m_flDegreesMin = -10.000000
-			m_flDegreesMax = 10.000000
+			m_flDegreesMin = -10.0
+			m_flDegreesMax = 10.0
 		},
 		{
 			_class = "C_INIT_RandomRadius"
-			m_flRadiusMin = 24.000000
-			m_flRadiusMax = 24.000000
+			m_flRadiusMin = 24.0
+			m_flRadiusMax = 24.0
 		},
 		{
 			_class = "C_INIT_RandomAlpha"
 		},
 		{
 			_class = "C_INIT_PositionOffset"
-			m_OffsetMin =
-			[
-				0.000000,
-				0.000000,
-				12.000000,
-			]
-			m_OffsetMax =
-			[
-				0.000000,
-				0.000000,
-				12.000000,
-			]
+			m_OffsetMin = [ 0.0, 0.0, 12.0 ]
+			m_OffsetMax = [ 0.0, 0.0, 12.0 ]
 		},
 		{
 			_class = "C_INIT_RandomSequence"
@@ -100,49 +80,40 @@
 		},
 		{
 			_class = "C_INIT_RingWave"
-			m_flParticlesPerOrbit = 30.000000
+			m_flParticlesPerOrbit = 55.0
 			m_bEvenDistribution = true
-			m_flInitialRadius = 96.000000
+			m_flInitialRadius = 256.0
+			m_flThickness = 2.0
 		},
 		{
 			_class = "C_INIT_RemapScalar"
-			m_flOutputMax = 2.000000
-			m_flOutputMin = 10000.000000
+			m_flOutputMax = 2.0
+			m_flOutputMin = 10000.0
 			m_nFieldOutput = 1
-			m_flInputMax = 0.000000
+			m_flInputMax = 0.0
 		},
 		{
 			_class = "C_INIT_RemapCPtoVector"
-			m_vOutputMax =
-			[
-				1.000000,
-				1.000000,
-				1.000000,
-			]
+			m_vOutputMax = [ 1.0, 1.0, 1.0 ]
 			m_nFieldOutput = 6
-			m_vInputMax =
-			[
-				255.000000,
-				255.000000,
-				255.000000,
-			]
+			m_vInputMax = [ 255.0, 255.0, 255.0 ]
 			m_nCPInput = 15
 			m_nOpScaleCP = 16
 		},
 	]
-	m_Emitters =
+	m_Emitters = 
 	[
 		{
 			_class = "C_OP_ContinuousEmitter"
-			m_flEmitRate = 15.000000
+			m_flEmitRate = 29.0
 		},
 	]
-	m_ForceGenerators =
+	m_ForceGenerators = 
 	[
 		{
 			_class = "C_OP_AttractToControlPoint"
-			m_fFalloffPower = -0.200000
-			m_fForceAmount = 600.000000
+			m_fFalloffPower = -0.2
+			m_fForceAmount = 600.0
 			m_nOpEndCapState = 1
 		},
 	]

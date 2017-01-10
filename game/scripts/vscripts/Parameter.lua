@@ -1,16 +1,12 @@
-function ParameterInit()
-	PRE_GAME_TIME=30
-	INIT_GOLD=400
-	INIT_TECH_POINT=0
-	Mode=2
+	PRE_GAME_TIME=1
+	INIT_GOLD=400000
+	INIT_TECH_POINT=100
+	SPAWN_DELAY=2
+	unitRemaining=0
+	Mode=1
 	Difficulty=0
-	unitLeft = 0
 	TowerType={}
 	TowerBuilding={}
-	unitEscaped = 0
-	oriForSwaper = {}
-	unitCreated = 0
-	currentWave = 1
 	allplayerid={}
 	difficulty=0
 	refund=1
@@ -20,147 +16,51 @@ function ParameterInit()
 	remain={}
 	towerUnlocked={}
 	Tree={}
-	HPRelation={}
-	totalgold = {
-	0,
-	100,
-	100,
-	200,
-	200,
-	400,
-	
-	150,
-	200,
-	250,
-	300,
-	700,
-	
-	350,
-	400,
-	450,
-	500,
-	1000,
-	
-	600,
-	650,
-	700,
-	750,
-	1200,
-	
-	900,
-	950,
-	1000,
-	1050,
-	1500,
-	
-	1300,
-	1350,
-	1400,
-	1450,
-	1750,
-	
-	1800,
-	1900,
-	2000,
-	2100,
-	2700,
+	_G.levelInfo={
+		{name="level01",hp=101,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2},
+		{name="level02",hp=102,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2},
+		{name="level03",hp=103,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2},
+		{name="level04",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2},
+		{name="level05",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2},
+		{name="level06",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2},
+		{name="level07",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2},
+		{name="level08",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2},
+		{name="level09",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2},
+		{name="level10",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2},
+		{name="level11",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2},
+		{name="level12",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2},
+		{name="level13",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2},
+		{name="level14",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2},
+		{name="level15",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2},
+		{name="level16",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2},
+		{name="level17",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2},
+		{name="level18",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2},
+		{name="level19",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2},
+		{name="level20",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2},
+		{name="level21",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2},
+		{name="level22",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2},
+		{name="level23",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2},
+		{name="level24",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2},
+		{name="level25",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2},
+		{name="level26",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2},
+		{name="level27",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2},
+		{name="level28",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2},
+		{name="level29",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2},
+		{name="level30",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2},
+		{name="level31",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2},
+		{name="level32",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2},
+		{name="level33",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2},
+		{name="level34",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2},
+		{name="level35",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2},
+		{name="level36",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2},
+		{name="level37",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2},
+		{name="level38",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2},
+		{name="level39",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2},
+		{name="level40",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2},
 
-	2500,
-	2600,
-	2700,
-	2800,
-	3500,
-	
-	3000,
-	3100,
-	3200,
-	3300,
-	10000,
-	
-	20000
 	}
-	Domain = {
-		"Earth",
-		"Air",
-		"Water",
-		"Fire"
-	}
-	DomainStatus={
-		Earth={
-			entity=Entities:FindByName(nil,"Earth"),
-			position=Entities:FindByName(nil,"Earth"):GetOrigin(),
-			player=nil,
-		},
-		Air={
-			entity=Entities:FindByName(nil,"Air"),
-			position=Entities:FindByName(nil,"Air"):GetOrigin(),
-			player=nil,
-		},
-		Water={
-			entity=Entities:FindByName(nil,"Water"),
-			position=Entities:FindByName(nil,"Water"):GetOrigin(),
-			player=nil,
-		},
-		Fire={
-			entity=Entities:FindByName(nil,"Fire"),
-			position=Entities:FindByName(nil,"Fire"):GetOrigin(),
-			player=nil,
-		},
-	}
-	waveName = {
-		"TestOnly",
-		"level01",
-		"level02",
-		"level03",
-		"level04",
-		"level05",
-		"level06",
-		"level07",
-		"level08",
-		"level09",
-		"level10",
-		"level11",
-		"level12",
-		"level13",
-		"level14",
-		"level15",
-		"level16",
-		"level17",
-		"level18",
-		"level19",
-		"level20",
-		"level21",
-		"level22",
-		"level23",
-		"level24",
-		"level25",
-		"level26",
-		"level27",
-		"level28",
-		"level29",
-		"level30",
-		"level31",
-		"level32",
-		"level33",
-		"level34",
-		"level35",
-		"level36",
-		"level37",
-		"level38",
-		"level39",
-		"level40"
-		
-	}
-	playernum=1
-	worldPoint=Entities:FindByName(nil,"WorldPoint")
-	for i=1,4 do
-		CustomNetTables:SetTableValue( "domain_selected_list",Domain[i],{pid=-1});
-	end
-	local a=Entities:FindByName(nil,"ent_dota_fountain_good")
-	--a:SetAttackCapability(DOTA_UNIT_CAP_NO_ATTACK)   --禁用中央泉水攻击能力
-	fountain=CreateUnitByName("fountain",a:GetOrigin(),false,nil,nil,DOTA_TEAM_GOODGUYS)
+	worldPoint=Entities:FindByName(nil,"WorldCentre")
 
-end
 
 function SetDifficulty(index,keys)
 	vote[keys.PlayerID]=keys.data
@@ -192,8 +92,4 @@ function SetDifficulty(index,keys)
 	elseif difficulty==2 then
 		refund=0.6
 	end
-end
-
-function CloseDomain(dname)
-	DomainClosed[dname]=true
 end

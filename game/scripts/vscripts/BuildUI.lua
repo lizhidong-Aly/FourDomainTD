@@ -10,7 +10,6 @@ function unitInit( unit )
 	unit:SetAbilityPoints(0)
 	unit:SetGold(INIT_GOLD,false)
 	local pid=unit:GetPlayerID()
-	HPRelation[pid]={unit,nil,false}
 	alltower[pid]={}
 	Tree[pid]=TechTree:new(pid)
 	Tree[pid]:UpdateTechTree()
@@ -31,7 +30,7 @@ function SendTowerInfo(index,keys)
 		return
 	end
 	print(keys.type)
-	local unit = CreateUnitByName(keys.type,Entities:FindByName(nil,Domain[1]):GetOrigin(),false,nil,nil,DOTA_TEAM_GOODGUYS)
+	local unit = CreateUnitByName(keys.type,Vector(-4800,4096,128),false,nil,nil,DOTA_TEAM_GOODGUYS)
 	local cost = GetTowerTotalCost(unit)
 	IniTower(nil,unit,cost)
 	local abilityname={}
@@ -98,9 +97,6 @@ function BuildTest(keys)
 	local unitaround=Entities:FindByClassnameNearest("npc_dota_creature",center,40)
 	if	unitaround~=nil and not unitaround:IsAlive() then
 			unitaround=nil
-	end
-	if((center[2]<3840 and center[2]>3200) or (center[1]<3840 and center[1]>3072) or (center[2]>-3840 and center[2]<-3200)) then
-			unitaround=1
 	end
 	if unitaround~=nil then
 		keys.caster:Stop()
@@ -208,10 +204,10 @@ end
 
 
 function NormalizePosition(pos)
-	pos[1]=math.ceil(math.floor(pos[1]/64)/2)*128
-	pos[2]=math.ceil(math.floor(pos[2]/64)/2)*128
+	pos[1]=math.floor(pos[1]/128)*128+64
+	pos[2]=math.floor(pos[2]/128)*128+64
 	local new=GetGroundPosition(pos,nil)
-	return not (new[3]<510 or new[3]>514)
+	return new[3]==256
 end
 
 
