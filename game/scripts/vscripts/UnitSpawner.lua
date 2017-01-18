@@ -2,7 +2,7 @@ UnitSpawner={
 	name=nil,
 	pid=nil,
 	pos=nil,
-	levelNo=39,
+	levelNo=0,
 	count_spawner=0,
 	timer_spawner=nil,
 	isOnSpawn=false,
@@ -29,13 +29,13 @@ function UnitSpawner:Spawn()
 	if self.levelNo==40 then
 		return 0
 	end
-	self.isOnSpawn=true
 	self.levelNo=self.levelNo+1
 	self.timer_spawner=Timers:CreateTimer(DoUniqueString(self.name),
 	{
 		endTime = SPAWN_DELAY,
 		callback = 
 		function()
+			self.isOnSpawn=true
 			self:OnSpawn()
      		return _G.levelInfo[self.levelNo].distance
     	end
@@ -44,7 +44,7 @@ end
 
 function UnitSpawner:OnSpawn()
 	self:CreateUnit(_G.levelInfo[self.levelNo])
-	unitRemaining=unitRemaining+1
+	_G.unitRemaining=_G.unitRemaining+1
 	self.count_spawner=self.count_spawner+1
 	if self.count_spawner==_G.levelInfo[self.levelNo].amount then
 		print("End Of This Level")
@@ -56,7 +56,7 @@ end
 
 function UnitSpawner:CreateUnit(unitInfo)
 	local unit=CreateUnitByName(unitInfo.name,self.pos,false,nil,nil,DOTA_TEAM_BADGUYS)
-
+	unit:CreatureLevelUp(unitInfo.lv-unit:GetLevel())
 	unit:SetBaseMaxHealth(unitInfo.hp)
 	unit:SetPhysicalArmorBaseValue(unitInfo.armor)
 	unit:SetBaseMagicalResistanceValue(unitInfo.magicRes)
@@ -66,7 +66,6 @@ function UnitSpawner:CreateUnit(unitInfo)
 	unit:SetBaseMoveSpeed(unitInfo.moveSpeed)
 	unit:SetBaseHealthRegen(unitInfo.hpRegen)
 	unit:SetMinimumGoldBounty(unitInfo.baseGoldBounty)
-
 	local order = 
 		{                                       
         UnitIndex = unit:entindex(),

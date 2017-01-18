@@ -4,23 +4,41 @@ ShowUpgradeCost();
 ShowMergeButton();
 var desPanelList=[];
 var ctarget="";
-
+var hudRoot;
+var panel;
+for(panel=$.GetContextPanel();panel!=null;panel=panel.GetParent()){
+	hudRoot=panel;
+}
+var abil;
+var image;
 
 function HideState(){
 	HideTowerDes();
 }
 
 function ShowUpgradeCost(){
+	if(hudRoot!=null){
+		abil=hudRoot.FindChildTraverse("Ability1");
+	}
+	if(abil!=null){
+		image=abil.FindChildTraverse("AbilityImage")
+	}
 	var u = Players.GetLocalPlayerPortraitUnit();
-	if ((Entities.GetAbilityByName(u,"Upgrade")!=-1)){
-		$("#CostPanel").SetHasClass("Hidden", false);
-		$( "#upcost" ).text = Entities.GetDayTimeVisionRange(u);
-	}
-	else {
-		$("#CostPanel").SetHasClass("Hidden", true);
-	}
+	if (image!=null){
+		if(image.abilityname=="Upgrade"){
 
-
+		//$.DispatchEvent( "DOTAShowTitleTextTooltip", abil, "tittle","des" );
+			/*
+		costPanel.SetHasClass("Hidden", false);
+		costPanel.FindChildTraverse("upcost").text = Entities.GetDayTimeVisionRange(u);
+		costPanel.SetParent(image,"13")
+		}
+		else {
+			costPanel.SetHasClass("Hidden", true);
+		}*/
+		//$.Msg("Update Upgrade Cost");
+		}
+	}
 	$.Schedule(1/30,ShowUpgradeCost);
 }
 

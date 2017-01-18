@@ -1,0 +1,139 @@
+
+TdPlayer={
+	pid=nil,
+	eh_current=0,
+	eh_limit=INIT_EH_LIMIT,
+	TechTree=nil,
+	UnitSpawner=nil,
+	TowerOwned={},
+	towerBuilding=nil,
+	CPU=nil,
+}
+CDOTAPlayer.__index=CDOTAPlayer
+TdPlayer.__index = TdPlayer
+setmetatable(TdPlayer,CDOTAPlayer)
+
+function TdPlayer:InitPlayer(pid)
+	print("Init Player")
+	local self = PlayerResource:GetPlayer(pid)
+	setmetatable(self,TdPlayer)
+	_G.Player[pid]=self
+	self.UnitSpawner=UnitSpawner:new("Earth",pid)
+	self.pid=pid
+	self:InitHero()
+	self:InitTechTree()
+	CustomGameEventManager:RegisterListener( "SendCurrentPortraitUnit", UpdateCurrentPortraitUnit )
+	Timers:CreateTimer(function()
+      	self:UpdateUI()
+      	return 1/30
+    end
+  	)
+	return self
+end
+
+function UpdateCurrentPortraitUnit(index,keys)
+	--print("UpdateCurrentPortraitUnit")
+	local pid=keys.PlayerID
+	if pid~=nil and _G.Player[pid]~=nil then
+		_G.Player[pid].CPU=keys.unit
+	end
+end
+
+function TdPlayer:UpdateUI()
+	--print("UpdateUI")
+	if self.CPU~=nil then
+		local unit=EntIndexToHScript(self.CPU)
+		local rInfo={
+				eh_limit=0,
+				eh=0,
+				tech=0,
+				gold=0,
+			}
+		if unit~=nil then
+			local ownerOfCPU=_G.Player[unit:GetPlayerOwnerID()]
+			if ownerOfCPU~=nil then
+				rInfo={
+					eh_limit=ownerOfCPU.eh_limit,
+					eh=ownerOfCPU.eh_current,
+					tech=ownerOfCPU.TechTree.TP,
+					gold=PlayerResource:GetGold(ownerOfCPU.pid),
+				}
+			end
+		end
+		--DeepPrintTable(rInfo)
+		CustomGameEventManager:Send_ServerToPlayer( self, "UpdateResourceInfo", rInfo )
+------------------------------------------------------------------------------------------------------------
+		local tInfo={
+					totalcost=0,
+					attribute=0,
+					upcost=0,
+					bat=0,
+					eh=0,
+					energy=0,
+				}
+-----------------------Unit is Tower--------------------------------------------------------
+		if unit~=nil and _G.TowerInfo[unit:GetUnitName()]~=nil then
+			local tower=unit:ToTower()
+			if tower~=nil then
+				tInfo={
+						totalcost=tower.totalCost,
+						attribute=_G.TowerInfo[tower.name].attribute,
+						bat=tower:GetBaseAttackTime(),
+						eh=tower.eh,
+						energy=tower.energy,
+					}
+				if _G.TowerInfo[tower.name].upgradeTo~=nil then
+					tInfo.upcost=_G.TowerInfo[_G.TowerInfo[tower.name].upgradeTo].cost
+				else
+					tInfo.upcost="N/A"
+				end
+			end
+		end
+-------------------------------------------------------------------------------------------------
+		--DeepPrintTable(tInfo)
+		CustomGameEventManager:Send_ServerToPlayer( self, "UpdateTowerInfo", tInfo )
+	end
+end
+
+function TdPlayer:InitHero()
+	local hero=self:GetAssignedHero()
+	hero:SetMoveCapability(DOTA_UNIT_CAP_MOVE_FLY)
+	hero:SetAttackCapability(DOTA_UNIT_CAP_NO_ATTACK)
+	hero:SetBaseStrength(0)
+	hero:SetBaseAgility(0)
+	hero:SetBaseIntellect(0)
+	hero:SetBaseMaxHealth(200)
+	--hero:SetMana(200)
+	hero:SetBaseMoveSpeed(550)
+	hero:AddItemByName('item_blink')
+	for i=0,hero:GetAbilityCount() do
+		local ability = hero:GetAbilityByIndex(i)
+		if ability~=nil then
+			hero:RemoveAbility(ability:GetAbilityName())
+		end
+	end
+	local abiList={
+		'OpenBuildingMenu',
+		'OpenTechMenu',
+		'SelectPosition',
+		--'',
+	}
+	for i,v in pairs(abiList) do 
+		hero:AddAbility(v):SetLevel(1)
+	end
+	hero:SetAbilityPoints(0)
+	hero:SetGold(INIT_GOLD,false)
+end
+
+function TdPlayer:InitTechTree()
+	self.TechTree=TechTree:new(self.pid)
+	self.TechTree:UpdateTechTree()
+end
+
+function TdPlayer:StartSpawn()
+	self.UnitSpawner:Spawn()
+end
+
+function TdPlayer:ModifyCurrentCrystal(change)
+	self.eh_current=self.eh_current+change
+end

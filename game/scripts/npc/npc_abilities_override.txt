@@ -27,7 +27,8 @@
 		"ItemAliases"					"blink dagger"
 		"SideShop"						"1"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		
+		"ItemDroppable"					"0"
+		"ItemSellable"					"0"
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
@@ -35,7 +36,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"blink_range"			"20000"
+				"blink_range"			"99999"
 			}
 			"02"
 			{
@@ -45,7 +46,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"blink_range_clamp"	"1100"
+				"blink_range_clamp"		"1100"
 			}
 		}
 	}
@@ -80,7 +81,7 @@
 
 
 
-	"resonance_dummy"
+	"resonance_dummy_hidden"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -228,12 +229,12 @@
 	
 	
 	
-		"ice_nova"
+		"ice_nova_hidden"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"					"5134"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
@@ -253,7 +254,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"1000 2000 50000"
+		"AbilityDamage"					"0"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -280,7 +281,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"slow_movement_speed"	"-40 -45 -50"
+				"slow_movement_speed"	"-30 -40 -50"
 			}
 			"04"
 			{
@@ -472,12 +473,12 @@
 	}
 
 
-"storm_form_dummy"
+"storm_form_dummy_hidden"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"					"5101"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"BaseClass"						"storm_spirit_ball_lightning"
 		"LevelsBetweenUpgrades"			"0"
 		"MaxLevel"						"1"
@@ -534,12 +535,12 @@
 			}
 		}
 	}
-"chain_lightling_dummy"
+"chain_lightling_dummy_hidden"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"					"5110"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
@@ -641,7 +642,7 @@
 	"item_ward_sentry"			"REMOVE"
 	"item_tango"			"REMOVE"
 	"item_tango_single"			"REMOVE"
-	"item_courier"			"REMOVE"
+
 	"item_tpscroll"			"REMOVE"
 	"item_recipe_travel_boots"			"REMOVE"
 	"item_travel_boots"			"REMOVE"
@@ -678,7 +679,7 @@
 	"item_mekansm"			"REMOVE"
 	"item_recipe_vladmir"			"REMOVE"
 	"item_vladmir"			"REMOVE"
-	"item_flying_courier"			"REMOVE"
+
 	"item_recipe_buckler"			"REMOVE"
 	"item_buckler"			"REMOVE"
 	"item_recipe_ring_of_basilius"			"REMOVE"

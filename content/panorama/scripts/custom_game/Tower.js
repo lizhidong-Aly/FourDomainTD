@@ -1,31 +1,20 @@
 "use strict";
 
-var towerId="";
-var desPanelList=[];
 var tittle;
 var des;
+var context=$.GetContextPanel()
 function SetTower(imageName,unlock){
 	$("#TowerImage").heroname=imageName;
-	GameEvents.SendCustomGameEventToServer( "RequestTowerInfo", {type:$.GetContextPanel().id} );
+	GameEvents.SendCustomGameEventToServer( "RequestTowerInfo", {type:context.id} );
 	$("#TowerLocker").SetHasClass("enable",unlock);
 }
 
 function ShowToolTip(){
-	var buiPanel=$.GetContextPanel().GetParent().GetParent().GetParent().GetParent().GetParent();
-	var desPanel = $.CreatePanel( "Panel", buiPanel, "TowerToolTop" );
-	desPanel.BLoadLayout( "file://{resources}/layout/custom_game/towerdes.xml", false, false );
-	var cursor = GetPercPos();
-	desPanel.style.x=cursor[0];
-	desPanel.style.y=cursor[1];
-	desPanel.style.z="10px";
-	desPanel.style.width="360px";
-	desPanel.GetChild(0).GetChild(0).text=tittle;
-	desPanel.GetChild(0).GetChild(1).text=des;
-	desPanelList.push(desPanel);
+	$.DispatchEvent( "DOTAShowTitleTextTooltip", context, tittle,des);
 }
 
 function SetTowerInfo(data){
-	if(data.entry=="help" || data.name!=$.GetContextPanel().id){
+	if(data.entry=="help" || data.name!=context.id){
 		return;
 	}
 	HideTowerDes()
@@ -46,7 +35,8 @@ function SetTowerInfo(data){
 		des=des + $.Localize( "#TowerLocked" );
 	}
 	des=des + $.Localize( "#TowerDesA" ) + attri ;
-	des=des + $.Localize( "#TowerDesB" ) + "<font color='gold'>" + data.cost + "</font>" ;
+	des=des + $.Localize( "#TowerDesB" )+ "<font color='gold'> " + data.cost + " </font>黄金 以及" + "<font color='green'> " + data.eh + " </font>水晶";
+	$("#GoldCost").text=data.cost;
 	des=des + $.Localize( "#TowerDesC" ) + data.dmg;
 	des=des + $.Localize( "#TowerDesD" ) + Math.round(data.spe*100)/100;
 	des=des + $.Localize( "#TowerDesE" ) + data.range;
@@ -57,24 +47,14 @@ function SetTowerInfo(data){
 				des=des+"<br>";
 			}
 		}
-	//$.DispatchEvent( "DOTAShowTitleTextTooltipStyled", button, tittle , des,'test');
 }
-
-
-function GetPercPos(posa,posb){
-	var cPos=GameUI.GetCursorPosition();
-	cPos[0]=((cPos[0])/Game.GetScreenWidth())*100+2.5+"%";
-	cPos[1]=((cPos[1])/(Game.GetScreenHeight()/0.808))*100+3+"%";
-	return cPos;
-}
-
 
 function BuildTower(name) {
 	if ($("#TowerLocker").BHasClass("enable")){
 		var builder=Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer());
 		var ability = Entities.GetAbilityByName(builder,"SelectPosition");
 		Abilities.ExecuteAbility( ability, builder, false );
-		GameEvents.SendCustomGameEventToServer( "SetTowerType", {type:$.GetContextPanel().id} );
+		GameEvents.SendCustomGameEventToServer( "SetTowerType", {type:context.id} );
 	}
 	else {
 		Game.EmitSound("General.Cancel");
@@ -82,15 +62,12 @@ function BuildTower(name) {
 }
 
 function HideTowerDes(){
-	for(var i=desPanelList.length;i>0;i--){
-		desPanelList[i-1].RemoveAndDeleteChildren();
-		desPanelList.pop();
-	}
+	$.DispatchEvent( "DOTAHideTitleTextTooltip",context);
 }
 
 (function()
 {
-	$.GetContextPanel().SetTower = SetTower;
+	context.SetTower = SetTower;
 	GameEvents.Subscribe( "TowerInfoSent", SetTowerInfo);
 	GameEvents.Subscribe( "MenuSwtich", HideTowerDes);
 })();

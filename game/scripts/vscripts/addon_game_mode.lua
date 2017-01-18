@@ -4,7 +4,9 @@ require ("Parameter")
 require ("TechUI")
 require ("Wave")
 require ("timers")
+require ("MergeUI")
 require	("SkillScript")
+require ("TdPlayer")
 if TDGameMode == nil then
         TDGameMode = class({})
 end
@@ -61,7 +63,6 @@ function TDGameMode:InitGameMode()
     print( "Four Domain TD is loaded." )
 	require("amhc_library/amhc")
 	AMHCInit()
-	InitMergeList()
 	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_GOODGUYS, 4 )
 	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_BADGUYS, 0 )
 	GameRules:SetPreGameTime(PRE_GAME_TIME)
@@ -70,68 +71,60 @@ function TDGameMode:InitGameMode()
 	CustomGameEventManager:RegisterListener( "RequestTowerInfo", SendTowerInfo )
 	CustomGameEventManager:RegisterListener( "RequestTechInfoUpdate", UpdateTechInfo )
 	CustomGameEventManager:RegisterListener( "UpgradeTech", UpgradeTech )
-	CustomGameEventManager:RegisterListener( "RequestAps", SendAps )
-	CustomGameEventManager:RegisterListener( "DisplayMessage", DisplayMessage )
+	CustomGameEventManager:RegisterListener( "Notifier_LocalizeEndMsg", Notifier_LocalizeEndMsg )
 	CustomGameEventManager:RegisterListener( "ClosedAllUI", ClosedAllUI )
-	CustomGameEventManager:RegisterListener( "SetDomainForPlayer", SetDomainForPlayer )
-	CustomGameEventManager:RegisterListener( "RequestTowerUpdate", SendTowerUnlocked )
+	CustomGameEventManager:RegisterListener( "DrawAttackRange", DrawAttackRange )
+	CustomGameEventManager:RegisterListener( "AdvanceTower", AdvanceTower )
     ListenToGameEvent("game_rules_state_change", Dynamic_Wrap(TDGameMode,"OnGameRulesStateChange"), self)
     ListenToGameEvent('player_disconnect', Dynamic_Wrap(TDGameMode, 'OnDisconnect'), self)
-	ListenToGameEvent("npc_spawned", Dynamic_Wrap(TDGameMode, "OnNPCSpawned"), self)
 	ListenToGameEvent("entity_killed", Dynamic_Wrap(TDGameMode, "OnEntityKilled"), self)
+	ListenToGameEvent("npc_spawned", Dynamic_Wrap(TDGameMode, "OnNPCSpawned"), self)
 	ListenToGameEvent("player_reconnected", Dynamic_Wrap(TDGameMode, 'OnPlayerReconnect'), self)
 end
 
-function DisplayMessage(index,keys)
-	GameRules:SendCustomMessage(keys.text, 0, 0)
+function AdvanceTower(index,keys)
+	local tower=EntIndexToHScript(keys.tower):ToTower()
+	tower:Advance()
+end
+
+function DrawAttackRange(index,keys)
+	DebugDrawClear()
+	if(keys.units~=nil) then
+		for i,v in pairs(keys.units) do
+			local unit=EntIndexToHScript(v)
+			if unit~=nil and _G.TowerInfo[unit:GetUnitName()]~=nil then
+				--Circle(Vector_1,Quaternion_2,float_3,int_4,int_5,int_6,int_7,bool_8,float_9)
+				DebugDrawCircle(unit:GetOrigin(), Vector(0,255,0),0, keys.range[i], true, -1)
+			end
+		end
+	end
+	--DebugDrawSphere(self:GetOrigin(), Vector(0,255,0),0.1,1000,false,10)
+end
+
+function Notifier_LocalizeEndMsg(index,keys)
+	_G.end_msg_left=keys.left
+	_G.end_msg_right=keys.right
 end
 
 function ClosedAllUI(index,keys)
 	CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.PlayerID),"ClosedAllUI",{})
 end
 
-
-function SendAps(index,keys)
-	local unit=EntIndexToHScript(keys.name)
-	local aps=unit:GetAttacksPerSecond()
-	local cost=GetTowerTotalCost(unit)
-	CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.PlayerID),"UpdateState",{aps=aps,cost=cost})
-end
-
-
-
-function TDGameMode:OnGameRulesStateChange( keys )
-    print("OnGameRulesStateChange")
-    local newState = GameRules:State_Get()
-
-    if newState==DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
-    	CustomGameEventManager:Send_ServerToAllClients("SelectDomainRandom",nil)
-    	InitTechTree()
-    	if Mode==0 then
-			TestMode()
-        elseif Mode==1 then
-        	RandomHeroSelection()
-        	InitUnitSpwaner()
-        end
-    end
-end
-
 function TestMode()
 	print("Now On Test Mode")
-	local dummy = Entities:FindByName(nil,"WorldCentre")
-	local pos=dummy:GetOrigin()
+	--DeepPrintTable(CDOTA_BaseNPC)
+	local pos=Vector(1000,1000,128)
 	pos[1]=pos[1]+200
-	CreateUnitByName(waveName[currentWave],pos,false,nil,nil,DOTA_TEAM_BADGUYS)
+	CreateUnitByName("TestOnly",pos,false,nil,nil,DOTA_TEAM_BADGUYS)
 	pos[2]=pos[2]+200
-	CreateUnitByName(waveName[currentWave],pos,false,nil,nil,DOTA_TEAM_BADGUYS)
+	CreateUnitByName("TestOnly",pos,false,nil,nil,DOTA_TEAM_BADGUYS)
 	pos[2]=pos[2]-400
-	CreateUnitByName(waveName[currentWave],pos,false,nil,nil,DOTA_TEAM_BADGUYS)
+	CreateUnitByName("TestOnly",pos,false,nil,nil,DOTA_TEAM_BADGUYS)
 end
 
-function InitUnitSpwaner()
-	print("Now Start InitUnitSpwaner")
-	_G.Spawner = UnitSpawner:new("Earth",0)
-	Spawner:Spawn()
+function PlayMode()
+    print("Now On Play Mode")
+    NextWave()
 end
 
 function RandomHeroSelection()
@@ -141,6 +134,23 @@ function RandomHeroSelection()
 			player:MakeRandomHeroSelection()
 		end
 	end
+end
+
+function TDGameMode:OnGameRulesStateChange( keys )
+    print("OnGameRulesStateChange")
+    local newState = GameRules:State_Get()
+    if newState==DOTA_GAMERULES_STATE_PRE_GAME then
+    	InitMergeList()
+		InitFountain()
+    end
+    if newState==DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
+    	if MODE==0 then
+			TestMode()
+        end
+   		if MODE==1 then
+        	PlayMode()
+        end
+    end
 end
 
 function TDGameMode:OnDisconnect( keys )
@@ -167,25 +177,23 @@ function TDGameMode:OnPlayerReconnect(keys)
   	end
 end
 
-
-function TDGameMode:OnNPCSpawned( keys )
-	local unit = EntIndexToHScript(keys.entindex)
-	if unit:IsHero() then
-		unitInit(unit)
+function TDGameMode:OnNPCSpawned(keys)
+	local u=EntIndexToHScript(keys.entindex)
+	if(u~=nil and u:IsHero()) then
+		Timers:CreateTimer(0.1, function()
+    		TdPlayer:InitPlayer(u:GetPlayerID())
+    	end
+  		)
 	end
 end
 
 function TDGameMode:OnEntityKilled( keys )
 	local u=EntIndexToHScript(keys.entindex_killed)
-	if u:GetTeamNumber()~=DOTA_TEAM_GOODGUYS  then
-		if Mode==1 then
-			if IsEndOfCurrentWave() then
-				WaveEnd()
-			end
-		end
+	if u:GetTeamNumber()==DOTA_TEAM_BADGUYS and u:IsCreature() then
+	local attacker=EntIndexToHScript(keys.entindex_attacker)
+	if attacker:ToTower() ~=nil then
+		attacker:ModifyEnergy(u:GetLevel())
 	end
-end
-
-function SendTowerUnlocked(index,keys)
-	CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.PlayerID),"InitUnlock",towerUnlocked[keys.PlayerID])
+		IsEndOfCurrentWave()
+	end
 end

@@ -1,53 +1,101 @@
 require("Parameter")
 
+function InitFountain()
+	local ent=Entities:FindByName(nil,"68_good_filler_1")
+	if ent==nil then
+		print("nil ent")
+	else
+		print("fountain init")
+
+		ent:RemoveAbility("backdoor_protection_in_base")
+		ent:RemoveAbility("filler_ability")
+		
+		local modi=ent:FindAllModifiers()
+		for i,v in ipairs(modi) do
+			print(v:GetName())
+			v:Destroy()
+		end
+		ent:SetHealth(100)
+		ent:SetMaxHealth(100)
+		ent:SetModelScale(2)
+	end
+end
+
 function NextWave()
-	Spawner:Spawn()
+	local lNo=_G.Player[0].UnitSpawner.levelNo
+	local lInfo=_G.levelInfo[lNo]
+	CustomGameEventManager:Send_ServerToAllClients("SynchronizeTimer",{reset=true,delay=SPAWN_DELAY,lvNo=lNo})
+	Timers:CreateTimer(function()
+		CustomGameEventManager:Send_ServerToAllClients("SynchronizeTimer",{reset=false})
+		if _G.Player[0].UnitSpawner.isOnSpawn then
+			return nil
+		end
+      	return 1
+    end)
+  	for i,v in pairs(_G.Player) do
+		v:StartSpawn()
+	end
 end
 
 function IsEndOfCurrentWave()
-	unitRemaining=unitRemaining-1
-	print(unitRemaining)
-	if not Spawner.isOnSpawn and unitRemaining==0 then
-		return true
+	_G.unitRemaining=_G.unitRemaining-1
+	print(_G.unitRemaining)
+	if not _G.Player[0].UnitSpawner.isOnSpawn and _G.unitRemaining==0 then
+		WaveEnd()
 	end
-	return false
 end
 
 function WaveEnd()
-	if Spawner.levelNo==40 then
+	if _G.Player[0].UnitSpawner.levelNo==40 then
 		print("Game End, Congrts, You Win")
 		GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
 	else
 		print("End Of This Wave, Prepare for Next Wave")
+		GiveEndBouns()
 		NextWave()
 	end
 end
 
+function GiveEndBouns()
+	local lInfo=_G.levelInfo[_G.Player[0].UnitSpawner.levelNo]
+	local bounty=lInfo.baseGoldBounty*lInfo.amount
+	for i,v in pairs(_G.Player) do
+		local hero=v:GetAssignedHero()
+		v.TechTree:IncreaseTechPoint(1)
+		AMHC:CreateNumberEffect( hero,1,2,AMHC.MSG_GOLD,"green",0 )
+		hero:ModifyGold(bounty,false,0)
+		hero:EmitSoundParams("General.Sell",200,300,1)
+		AMHC:CreateNumberEffect( hero,bounty,2,AMHC.MSG_GOLD,"yellow",0 )
+	end
+	local end_msg=_G.end_msg_left.." "..bounty.." ".._G.end_msg_right
+	GameRules:SendCustomMessage(end_msg, 0, 0)
+	--[[
+	for i=0,4 do
+		if HPRelation[i]~=nil then
+			local hero=HPRelation[i][1]
+			if Tree[i]~=nil then
+				Tree[i]:IncreaseTechPoint(1)
+				AMHC:CreateNumberEffect( hero,1,2,AMHC.MSG_GOLD,"green",0 )
+			end
+			hero:ModifyGold(bounty,false,0)
+			hero:EmitSoundParams("General.Sell",200,300,1)
+			AMHC:CreateNumberEffect( hero,bounty,2,AMHC.MSG_GOLD,"yellow",0 )
+		end
+	end
+	CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(0),"LevelEnd",{gold=bounty})]]--
+end
+
 function ReachEndPoint(trigger)
 	local activator=trigger.activator
-	if activator:GetTeamNumber()~=DOTA_TEAM_GOODGUYS  then
+	local fountain=Entities:FindByName(nil,"68_good_filler_1")
+	if activator:GetTeamNumber()==DOTA_TEAM_BADGUYS  then
 		local dmg=activator:GetLevel()
-		local hp= 100 --fountain:GetHealth()
-		local chp=hp-dmg
-		local data=100-chp
 		activator:RemoveSelf()
-		--[[AMHC:Damage(fountain,fountain,dmg,DAMAGE_TYPE_PURE,1)
-		activator:RemoveSelf()
-		if fountain~=nil then
-			data=100-fountain:GetHealth()
-		end
-		if chp<=0 then
-			if fountain~=nil then
-				fountain:RemoveSelf()
-			end
+		AMHC:Damage(fountain,fountain,dmg,DAMAGE_TYPE_PURE,1)
+		if not fountain:IsAlive() then
 			GameRules:MakeTeamLose(DOTA_TEAM_GOODGUYS)
 		end
-		--CustomGameEventManager:Send_ServerToAllClients("UnitEscaped",{num=unitEscaped})
-		if Mode==1 then
-			if isThisWaveFinished() then
-				WaveFinished()
-			end
-		end]]--
+		IsEndOfCurrentWave()
 	end
 end
 ------------------------------------------------------------------------------------------------------------------------

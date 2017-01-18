@@ -1,11 +1,4 @@
 
-GameEvents.Subscribe( "OpenTechMenu", OpenTechMenu);
-GameEvents.Subscribe( "UndateTechInfo", UndateTechInfo);
-GameEvents.Subscribe( "UnlockTech", UnlockTech);
-GameEvents.Subscribe( "CloseTechMenu", CloseTechMenu);
-GameEvents.Subscribe( "UpdateTechPoint", UpdateTechPoint);
-GameEvents.Subscribe( "ClosedAllUI", CloseTechMenu);
-
 function OpenTechMenu(){
 	$("#TechMenu").SetHasClass("Hidden", !($("#TechMenu").BHasClass("Hidden")));
 }
@@ -53,8 +46,14 @@ function UndateTechInfo(data){
 		$("#TechCost").text=$.Localize( "#techlv" );
 	}
 }
-UpdateTechPoint(0);
-function UpdateTechPoint(data)
+
+(function()
 {
-	$("#TechPoint").text=$.Localize( "#techpoint" )+data.point;
-}
+	$.Msg("TechUI.js is loaded");
+	GameEvents.Subscribe( "OpenTechMenu", OpenTechMenu);
+	GameEvents.Subscribe( "UndateTechInfo", UndateTechInfo);
+	GameEvents.Subscribe( "UnlockTech", UnlockTech);
+	GameEvents.Subscribe( "CloseTechMenu", CloseTechMenu);
+	GameEvents.Subscribe( "ClosedAllUI", CloseTechMenu);
+})();
+

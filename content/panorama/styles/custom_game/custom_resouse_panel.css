@@ -1,0 +1,45 @@
+#CustomrResouseInfoPanel
+{
+	width: 252px;
+	margin-top: 105px;
+	height: 100px;
+	flow-children:right;
+	visibility: visible;
+}
+
+.SubPanel{
+	width:31%;
+	height: 90%;
+	flow-children:right;
+}
+#Gold{
+	margin-left: 4%;
+}
+.defultStyle{
+    font-size: 15px;
+	letter-spacing: 1px;
+    color: #eeeeee;
+    margin-top: 5px;
+	vertical-align: center;
+}
+#GoldIcon{
+	vertical-align: center;
+	background-image: url("s2r://panorama/images/hud/reborn/gold_small_psd.vtex");
+	background-size: 100% 100%;
+	width:20px;
+	height: 20px;
+}
+#CrystalIcon{
+	vertical-align: center;
+	background-image: url("file://{resources}/images/custom_game/crystal.psd");
+	background-size: 100% 100%;
+	width:20px;
+	height: 16px;
+}
+#EssencelIcon{
+	vertical-align: center;
+	background-image: url("file://{resources}/images/custom_game/essence.psd");
+	background-size: 100% 100%;
+	width:20px;
+	height: 20px;
+}

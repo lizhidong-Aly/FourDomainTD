@@ -1,14 +1,6 @@
 var builder;
-
 var isMenuOpen=false;
 var desPanelList=[];
-GameEvents.Subscribe( "MenuSwtich", MenuSwtich);
-GameEvents.Subscribe( "UnlockTower", UnlockTowerLevel);
-GameEvents.Subscribe( "CloseBUI", CloseBUI);
-GameEvents.Subscribe( "SelectNewTower", SelectNewTower);
-GameEvents.SendCustomGameEventToServer( "RequestTowerUpdate", {} );
-GameEvents.Subscribe( "ClosedAllUI", CloseBUI);
-
 
 function InitTowerList(){
 	var towerInfo = {
@@ -65,7 +57,6 @@ function InitTowerList(){
 	}
 	
 }
-InitTowerList();
 
 function MenuSwtich(){
 	$("#Bmenu").SetHasClass("Show", !($("#Bmenu").BHasClass("Show")));
@@ -82,7 +73,7 @@ function ShowSubMenu(name){
 }
 
 function UnLockTower(name){
-	$("#"+name).GetChild(0).GetChild(1).SetHasClass("enable",true);
+	$("#"+name).FindChildTraverse("TowerLocker").SetHasClass("enable",true);
 	GameEvents.SendCustomGameEventToServer( "RequestTowerInfo", {type:name} );
 }
 
@@ -96,9 +87,36 @@ function UnlockTowerLevel(data){
 
 function SelectNewTower(data){
 	var unit=Players.GetSelectedEntities(Players.GetLocalPlayer())
+	var current=Players.GetLocalPlayerPortraitUnit();
 	for(var i=0;i<unit.length;i++){
 		if (unit[i]==data.old){
-			GameUI.SelectUnit(data.newone,true)
+			unit[i]=data.new;
+			if(current==data.old){
+				GameUI.SelectUnit(data.new,false)
+				for(var j=0;j<unit.length;j++){
+					if (unit[j]!=data.new){
+						GameUI.SelectUnit(unit[j],true)
+					}
+				}
+			}else{
+				GameUI.SelectUnit(current,false)
+				for(var j=0;j<unit.length;j++){
+					if (unit[j]!=current){
+						GameUI.SelectUnit(unit[j],true)
+					}
+				}
+			}
 		}
 	}
 }
+
+(function()
+{
+	$.Msg("BuildUI.js is loaded");
+	GameEvents.Subscribe( "MenuSwtich", MenuSwtich);
+	GameEvents.Subscribe( "UnlockTower", UnlockTowerLevel);
+	GameEvents.Subscribe( "CloseBUI", CloseBUI);
+	GameEvents.Subscribe( "SelectNewTower", SelectNewTower);
+	GameEvents.Subscribe( "ClosedAllUI", CloseBUI);
+	InitTowerList();
+})();

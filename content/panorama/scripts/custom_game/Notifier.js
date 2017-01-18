@@ -1,104 +1,74 @@
+"use strict";
 var allid =Game.GetAllPlayerIDs();
-var e=0;
-GameEvents.Subscribe( "LevelEnd", ShowLevelEndMessage);
-GameEvents.Subscribe( "TimingforNextWave", TimingforNextWave);
-GameEvents.Subscribe( "ErrorMsg", ErrorMsg);
-GameEvents.Subscribe( "WaveAlert", WaveAlert);
-
+var err_timer=0;
+var DELAY=0;
+var spawn_timer=0;
+var lvNo=0;
+//---------------Timer for Error Msg-------------------------
 function ErrorMsg(data){
-		$.GetContextPanel().SetHasClass( "Hidden", false);
-		if (data.str==1){
-			$("#msg").text=$.Localize( "#wrongposition" );
-		}else if (data.str==2){
-			$("#msg").text=$.Localize( "#notower" );
-		}else if(data.str==3){
-			$("#msg").text=$.Localize( "#nogold" );
-		}else if(data.str==4){
-			$("#msg").text=$.Localize( "#maxlevel" );
-		}else if(data.str==5){
-			$("#msg").text=$.Localize( "#needunlock" );
-		}else if(data.str==6){
-			$("#msg").text=$.Localize( "#wrongspellpos" );
-		}else if(data.str==7){
-			$("#msg").text=$.Localize( "#notp" );
-		}
-		Game.EmitSound("General.Cancel");
-		$.GetContextPanel().SetHasClass( "ErrAlert", true);
-		e=1.2
-		HideErrAlert();
+	err_timer=1.2
+	Game.EmitSound("General.Cancel");
+	$("#err_msg").text=$.Localize( data.err );
+	$.GetContextPanel().SetHasClass( "ErrAlert", true);
 }
 
 function HideErrAlert(){
-	if (e<0){
+	if (err_timer<0){
 		$.GetContextPanel().SetHasClass( "ErrAlert", false);
-		return;
+	}else{
+		err_timer-=0.1;
 	}
-	e=e-0.2;
-	$.Schedule(0.2,HideErrAlert);
+	$.Schedule(0.1,HideErrAlert);
 }
 
-function ShowLevelEndMessage(data){
-	var text=$.Localize( "#goldgain" )+" "+data.gold+" "+$.Localize( "#tpgain" );
-	GameEvents.SendCustomGameEventToServer( "DisplayMessage", {text:text} );
+function HideSpawnTimer(){
+	if(spawn_timer<=0 || spawn_timer==DELAY){
+		if($.GetContextPanel().BHasClass("SpawnAlert")){
+			$.GetContextPanel().SetHasClass( "SpawnAlert", false);
+			ShowStartMsg();
+		}
+	}else{
+		$("#spawn_msg").text=$.Localize( "#nextleveltimer" )+spawn_timer;
+		$.GetContextPanel().SetHasClass("SpawnAlert", true);
+	}
+	$.Schedule(0.1,HideSpawnTimer);
 }
 
-function TimingforNextWave(data){
-	var nw="Next Wave: "
-	if (data.mode=="level"){
-		nw="Next Level: "
-	}
-	if (data.rt<0){
-		$("#timer").SetHasClass("Hidden", true);
-		return;
-	}
-	else {
-		$("#timer").SetHasClass("Hidden", false);
-		$( "#time" ).text=nw+data.rt;
-		$("#LevelDes").text="\n"+$.Localize( "#amount" )+data.am;
-		if(data.am==1){
-			$("#LevelDes").text="\nBOSS";
-		}
-		if (data.am==0){
-			$("#LevelDes").text=""
-		}
-		if(data.mr>0){
-			$("#LevelDes").text=$("#LevelDes").text+"\n"+Math.round(data.mr*100)+$.Localize( "#magicresi" );
-		}
-		if(data.mi){
-			$("#LevelDes").text=$("#LevelDes").text+"\n"+$.Localize( "#magicimue" );
-		}
-		if(data.ms>522){
-			$("#LevelDes").text=$("#LevelDes").text+"\n"+data.ms+$.Localize( "#movespe" );
-		}
+function SynchronizeTimer(data){
+	if(data.reset){
+		DELAY=data.delay+1;
+		spawn_timer=data.delay+1;
+		lvNo=data.lvNo+1;
+	}else{
+		spawn_timer-=1;
 	}
 }
 
-
-
-function WaveAlert(data){
-	var w="Wave "
-	if (data.mode=="level"){
-		w="Level "
-	}
-	if (!($.GetContextPanel().BHasClass("ShowAlert"))){
-		$.GetContextPanel().SetHasClass( "ShowAlert", true);
-		if(data.waveno==-1){
-			$( "#WaveAlert_Text" ).text = $( "#WaveAlert_Text" ).text+" Complete";
-		}
-		else{
-			$( "#WaveAlert_Text" ).text = w+data.waveno;
-		}
-		Game.EmitSound("ui.npe_objective_complete");
-		$.Schedule(1.5,HideWaveAlert);
-	}
-
-}
-
-function HideWaveAlert(){
-	$.GetContextPanel().SetHasClass( "ShowAlert", false);
+function ShowStartMsg(){
+	$("#start_msg").text="第"+lvNo+"波";
+	Game.EmitSound("ui.npe_objective_complete");
+	$.GetContextPanel().SetHasClass("Show", true);
+	$.Schedule(2,function(){
+		$.GetContextPanel().SetHasClass("Show", false);
+	});
 }
 
 
+//-----------------------Level End, give end bound to each player-----------
+function GiveEndBouns(){
+	var text_l=$.Localize( "#goldgain" );
+	var text_r=$.Localize( "#tpgain" );
+	GameEvents.SendCustomGameEventToServer( "Notifier_LocalizeEndMsg", {left:text_l,right:text_r} );
+}
+(function()
+{
+	$.Msg("Notifier.js is loaded");
+	GiveEndBouns();
+	GameEvents.Subscribe( "ErrorMsg", ErrorMsg);
+	GameEvents.Subscribe( "SynchronizeTimer", SynchronizeTimer);
+	HideErrAlert();
+	HideSpawnTimer();
+})();
 
 
 

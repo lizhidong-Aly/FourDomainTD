@@ -1,14 +1,16 @@
 <root>
-<script>
-	<include src="file://{resources}/scripts/custom_game/Global.js" />
-</script>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/Global.js" />
+	</scripts>
         <Panel>
-		<CustomUIElement type="Hud"					layoutfile="file://{resources}/layout/custom_game/UnitState.xml" />
 		<CustomUIElement type="Hud"					layoutfile="file://{resources}/layout/custom_game/Notifier.xml" />
+		<CustomUIElement type="Hud" 				layoutfile="file://{resources}/layout/custom_game/MergeUI.xml" />
+
 		<CustomUIElement type="Hud"					layoutfile="file://{resources}/layout/custom_game/BUI.xml" />
 		<CustomUIElement type="Hud"					layoutfile="file://{resources}/layout/custom_game/TechUI.xml" />
-	
 		<CustomUIElement type="Hud" 				layoutfile="file://{resources}/layout/custom_game/game_info.xml" />
+
+
         <CustomUIElement type="GameSetup"           layoutfile="file://{resources}/layout/custom_game/team_select.xml" />
 		<CustomUIElement type="GameSetup"           layoutfile="file://{resources}/layout/custom_game/difficulty.xml" />
 		</Panel>

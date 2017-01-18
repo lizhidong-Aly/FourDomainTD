@@ -3,8 +3,8 @@ require("Link")
 require("BuildUI")
 TechTree={
 	AllTech={},
-	playerid,
-	TP
+	pid=nil,
+	TP=0
 }
 
 TechTree.__index = TechTree
@@ -12,7 +12,7 @@ TechTree.__index = TechTree
 function TechTree:new(pid)
 	local self={}
 	setmetatable(self,TechTree)
-	self.playerid=pid
+	self.pid=pid
 	self.AllTech=TechTree:InitContent()
 	self.TP=INIT_TECH_POINT
 	return self
@@ -61,7 +61,7 @@ end
 function TechTree:UpdateTechTree()
 	for i=1,#self.AllTech do
 		if self.AllTech[i]:CanUpgrade() then
-			UnlockTechInUI(self.playerid,self.AllTech[i]:GetName())
+			UnlockTechInUI(self.pid,self.AllTech[i]:GetName())
 		end
 	end
 end
@@ -78,43 +78,29 @@ function TechTree:UpgradeTech(name)
 						self:UpdateTechTree()
 						return true
 					else
-						ErrorMsg(self.playerid,NOT_ENOUGH_TP)
+						ErrorMsg(self.pid,NOT_ENOUGH_TP)
 					end
 				else
-					ErrorMsg(self.playerid,TECH_REACH_MAX_LEVEL)
+					ErrorMsg(self.pid,TECH_REACH_MAX_LEVEL)
 				end
 			else
-				ErrorMsg(self.playerid,TECH_NEED_UNLOCK)
+				ErrorMsg(self.pid,TECH_NEED_UNLOCK)
 			end
 		end
 	end
 end
 
-function TechTree:GetTechPoint()
-	return self.TP
-end
-
-function TechTree:SetTecgPoint(tp)
-	self.TP=tp
-end
-
 function TechTree:IncreaseTechPoint(n)
 	self.TP=self.TP+n
-	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(self.playerid), "UpdateTechPoint", {point=self.TP} )
 end
 
 function TechTree:UseTechPoint(p)
 	if self.TP>=p then
 		self.TP=self.TP-p
-		CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(self.playerid), "UpdateTechPoint", {point=self.TP} )
 		return true
 	else 
 		return false
 	end
-end
-
-function TechTree:GetPlayerId()
-	return self.playerid
 end
 
 function TechTree:GetTech(name)
@@ -126,14 +112,14 @@ function TechTree:GetTech(name)
 end
 
 function TechTree:GetAllTowerByName(name)
+	local pid = self.pid
+	local alltower=_G.Player[pid].TowerOwned
 	local t={}
-	if not (alltower[self.playerid]==nil) then
-		for i=1,#alltower[self.playerid] do
-			if not alltower[self.playerid][i]:IsNull() then
-				if not (string.find(alltower[self.playerid][i]:GetUnitName(),name)==nil) then
-					print("PlyarID:"..self.playerid.."     GetAllTowerByName work:   "..alltower[self.playerid][i]:GetUnitName())
-					table.insert(t,alltower[self.playerid][i])
-				end
+	if not (alltower==nil) then
+		for i,v in pairs(alltower) do 
+			if not (string.find(v:GetUnitName(),name)==nil) then
+					print("PlyarID:"..pid.."     GetAllTowerByName work:   "..v:GetUnitName())
+					table.insert(t,v)
 			end
 		end
 	end
@@ -142,13 +128,15 @@ end
 
 
 function TechTree:GetAllTowerByLabel(label)
+	local pid = self.pid
+	local alltower=_G.Player[pid].TowerOwned
 	local t={}
-	if not (alltower[self.playerid]==nil) then
-		for i=1,#alltower[self.playerid] do
-			if not alltower[self.playerid][i]:IsNull() then
-				if not (string.find(alltower[self.playerid][i]:GetUnitLabel(),label)==nil) then
-					print("PlyarID:"..self.playerid.."     GetAllTowerByName work:   "..alltower[self.playerid][i]:GetUnitLabel())
-					table.insert(t,alltower[self.playerid][i])
+	if not (alltower==nil) then
+		for i,v in pairs(alltower) do
+			if not v:IsNull() then
+				if not (string.find(v:GetUnitLabel(),label)==nil) then
+					print("PlyarID:"..pid.."     GetAllTowerByName work:   "..v:GetUnitLabel())
+					table.insert(t,v)
 				end
 			end
 		end
@@ -157,7 +145,7 @@ function TechTree:GetAllTowerByLabel(label)
 end
 
 function TechTree:ModifyTower(name,level,tech)
-	ListenerIndex=ListenToGameEvent("tower_built", Dynamic_Wrap(TechTree, "TechListener"), {playerid=self.playerid,name=name,entry=level,tech=tech})
+	ListenerIndex=ListenToGameEvent("tower_built", Dynamic_Wrap(TechTree, "TechListener"), {pid=self.pid,name=name,entry=level,tech=tech})
 	local tow=self:GetAllTowerByLabel(name)
 	for i=1,#tow do
 		if not tow[i]:IsNull() then
@@ -175,32 +163,23 @@ end
 TechFun={
 ET01=(function(self)
 	local towerList={"ET01L01","ET02L01","ET03L01"}
-	for i=1,#towerList do
-		table.insert(towerUnlocked[self.playerid],towerList[i]) 
-	end
-	--self:ModifyTower("E",1,"ET01")
-	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(self.playerid), "UnlockTower", towerList )
+	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(self.pid), "UnlockTower", towerList )
 end),
 
 ET02=(function(self)
 	local towerList={"ES01L01"}
-	for i=1,#towerList do
-		table.insert(towerUnlocked[self.playerid],towerList[i]) 
-	end
-	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(self.playerid), "UnlockTower", towerList )
+	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(self.pid), "UnlockTower", towerList )
 end),
 
 ET11=(function(self)
 	local towerList={"ET11L01","ET12L01","ET13L01"}
-	for i=1,#towerList do
-		table.insert(towerUnlocked[self.playerid],towerList[i]) 
-	end
+
 	self:ModifyTower("E",2,"ET11")
-	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(self.playerid), "UnlockTower", towerList )
+	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(self.pid), "UnlockTower", towerList )
 end),
 
 ET12=(function(self)
-	ListenerIndex=ListenToGameEvent("tower_built", Dynamic_Wrap(TechTree, "TechListener"), {playerid=self.playerid,name="ET12L",tech="ET12"})
+	ListenerIndex=ListenToGameEvent("tower_built", Dynamic_Wrap(TechTree, "TechListener"), {pid=self.pid,name="ET12L",tech="ET12"})
 	local tow=self:GetAllTowerByName("ET12")
 	for i=1,#tow do
 		if not tow[i]:IsNull() then
@@ -213,15 +192,13 @@ end),
 
 ET21=(function(self)
 	local towerList={"ET21L01"}
-	for i=1,#towerList do
-		table.insert(towerUnlocked[self.playerid],towerList[i]) 
-	end
+
 	self:ModifyTower("E",3,"ET21")
-	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(self.playerid), "UnlockTower", towerList )
+	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(self.pid), "UnlockTower", towerList )
 end),
 
 ET22=(function(self)
-	ListenerIndex=ListenToGameEvent("tower_built", Dynamic_Wrap(TechTree, "TechListener"), {playerid=self.playerid,name="ET21L03",tech="ET22"})
+	ListenerIndex=ListenToGameEvent("tower_built", Dynamic_Wrap(TechTree, "TechListener"), {pid=self.pid,name="ET21L03",tech="ET22"})
 	local tow=self:GetAllTowerByName("ET21L03")
 	for i=1,#tow do
 		if not tow[i]:IsNull() then
@@ -242,15 +219,13 @@ end),
 
 WT01=(function(self)
 	local towerList={"WT02L01","WT01L01","WT03L01"}
-	for i=1,#towerList do
-		table.insert(towerUnlocked[self.playerid],towerList[i]) 
-	end
+
 	self:ModifyTower("W",1,"WT01")
-	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(self.playerid), "UnlockTower", towerList )
+	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(self.pid), "UnlockTower", towerList )
 end),
 
 WT02=(function(self)
-	ListenerIndex=ListenToGameEvent("tower_built", Dynamic_Wrap(TechTree, "TechListener"), {playerid=self.playerid,name="WT01L0",tech="WT02"})
+	ListenerIndex=ListenToGameEvent("tower_built", Dynamic_Wrap(TechTree, "TechListener"), {pid=self.pid,name="WT01L0",tech="WT02"})
 	local tow=self:GetAllTowerByName("WT01")
 	for i=1,#tow do
 		if not tow[i]:IsNull() then
@@ -263,23 +238,19 @@ end),
 
 WT03=(function(self)
 	local towerList={"WS01L01"}
-	for i=1,#towerList do
-		table.insert(towerUnlocked[self.playerid],towerList[i]) 
-	end
-	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(self.playerid), "UnlockTower", towerList )
+
+	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(self.pid), "UnlockTower", towerList )
 end),
 
 WT11=(function(self)
 	local towerList={"WT11L01","WT13L01"}
-	for i=1,#towerList do
-		table.insert(towerUnlocked[self.playerid],towerList[i]) 
-	end
+
 	self:ModifyTower("W",2,"WT11")
-	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(self.playerid), "UnlockTower", towerList )
+	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(self.pid), "UnlockTower", towerList )
 end),
 
 WT12=(function(self)
-	ListenerIndex=ListenToGameEvent("tower_built", Dynamic_Wrap(TechTree, "TechListener"), {playerid=self.playerid,name="WT13L0",tech="WT12"})
+	ListenerIndex=ListenToGameEvent("tower_built", Dynamic_Wrap(TechTree, "TechListener"), {pid=self.pid,name="WT13L0",tech="WT12"})
 	local tow=self:GetAllTowerByName("WT13")
 	for i=1,#tow do
 		if not tow[i]:IsNull() then
@@ -292,11 +263,9 @@ end),
 
 WT21=(function(self)
 	local towerList={"WT21L01"}
-	for i=1,#towerList do
-		table.insert(towerUnlocked[self.playerid],towerList[i]) 
-	end
+
 	self:ModifyTower("W",3,"WT21")
-	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(self.playerid), "UnlockTower", towerList )
+	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(self.pid), "UnlockTower", towerList )
 end),
 
 WT31=(function(self)
@@ -307,11 +276,9 @@ end),
 
 FT01=(function(self)
 	local towerList={"FT01L01","FT02L01","FT03L01"} 
-	for i=1,#towerList do
-		table.insert(towerUnlocked[self.playerid],towerList[i]) 
-	end
+
 	self:ModifyTower("F",1,"FT01")
-	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(self.playerid), "UnlockTower", towerList)
+	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(self.pid), "UnlockTower", towerList)
 end),
 
 FT02=(function(self)
@@ -320,23 +287,19 @@ end),
 
 FT03=(function(self)
 	local towerList={"FS01L01"}
-	for i=1,#towerList do
-		table.insert(towerUnlocked[self.playerid],towerList[i]) 
-	end
-	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(self.playerid), "UnlockTower", towerList )
+
+	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(self.pid), "UnlockTower", towerList )
 end),
 
 FT11=(function(self)
 	local towerList={"FT11L01","FT12L01","FT13L01"}
-	for i=1,#towerList do
-		table.insert(towerUnlocked[self.playerid],towerList[i]) 
-	end
+
 	self:ModifyTower("F",2,"FT11")
-	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(self.playerid), "UnlockTower", towerList )
+	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(self.pid), "UnlockTower", towerList )
 end),
 
 FT12=(function(self)
-	ListenerIndex=ListenToGameEvent("tower_built", Dynamic_Wrap(TechTree, "TechListener"), {playerid=self.playerid,name="FT12L0",tech="FT12"})
+	ListenerIndex=ListenToGameEvent("tower_built", Dynamic_Wrap(TechTree, "TechListener"), {pid=self.pid,name="FT12L0",tech="FT12"})
 	local tow=self:GetAllTowerByName("FT12")
 	for i=1,#tow do
 		if not tow[i]:IsNull() then
@@ -359,16 +322,14 @@ end),
 
 AT01=(function(self)
 	local towerList={"AT02L01","AT03L01","AT01L01"}
-	for i=1,#towerList do
-		table.insert(towerUnlocked[self.playerid],towerList[i]) 
-	end
+
 	self:ModifyTower("A",1,"AT01")
-	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(self.playerid), "UnlockTower", towerList )
+	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(self.pid), "UnlockTower", towerList )
 end),
 
 
 AT02=(function(self)
-	ListenerIndex=ListenToGameEvent("tower_built", Dynamic_Wrap(TechTree, "TechListener"), {playerid=self.playerid,name="AT03L0",tech="AT02"})
+	ListenerIndex=ListenToGameEvent("tower_built", Dynamic_Wrap(TechTree, "TechListener"), {pid=self.pid,name="AT03L0",tech="AT02"})
 	local tow=self:GetAllTowerByName("AT03")
 	for i=1,#tow do
 		if not tow[i]:IsNull() then
@@ -380,19 +341,15 @@ end),
 
 AT03=(function(self)
 	local towerList={"AS01L01"}
-	for i=1,#towerList do
-		table.insert(towerUnlocked[self.playerid],towerList[i]) 
-	end
-	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(self.playerid), "UnlockTower", towerList )
+
+	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(self.pid), "UnlockTower", towerList )
 end),
 
 AT11=(function(self)
 	local towerList={"AT11L01","AT12L01","AT13L01"} 
-	for i=1,#towerList do
-		table.insert(towerUnlocked[self.playerid],towerList[i]) 
-	end
+
 	self:ModifyTower("A",2,"AT11")
-	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(self.playerid), "UnlockTower", towerList)
+	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(self.pid), "UnlockTower", towerList)
 end),
 
 AT21=(function(self)
@@ -411,9 +368,10 @@ end
 
 function TechTree:TechListener(keys)
 	local unit=EntIndexToHScript(keys.tower)
+	local pid=unit:GetPlayerOwnerID()
 	if unit:IsCreature() then
-		if keys.playerid==self.playerid then
-			if not (string.find(unit:GetUnitLabel(),self.name)==nil) then
+		if pid==self.pid then
+			if not (string.find(_G.TowerInfo[unit:GetUnitName()].attribute,self.name)==nil) then
 				if self.entry~=nil then
 					abil=unit:FindAbilityByName("attribute_bouns".."_"..self.name)
 					if abil==nil then

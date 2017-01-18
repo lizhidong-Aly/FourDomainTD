@@ -1,0 +1,61 @@
+"rank_master_buff"
+{
+// General
+//-------------------------------------------------------------------------------------------------------------
+"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+"BaseClass"						"ability_datadriven"
+"AbilityTextureName"			"earth_spirit_boulder_smash"
+"MaxLevel"						"1"
+"precache"
+{
+"particle"  "particles/econ/events/ti6/hero_levelup_ti6.vpcf"
+}
+// Modifiers
+//-------------------------------------------------------------------------------------------------------------
+"Modifiers"
+{
+"modifier_rank_master_buff"
+{
+"IsHidden"				"0"
+"Passive"				"1"
+"OnCreated"
+{
+	"AttachEffect"
+	{
+		"EffectName"        "particles/econ/events/ti6/hero_levelup_ti6.vpcf"
+		"EffectAttachType"  "follow_origin"
+		"Target"            "CASTER"
+	}
+}
+"Properties"
+{
+"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"	"%dmginc"
+"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%speinc"
+"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"				"%rangeinc"
+}
+}
+}
+
+// Special
+//-------------------------------------------------------------------------------------------------------------
+"AbilitySpecial"
+{
+"01"
+{
+"var_type"					"FIELD_INTEGER"
+"dmginc"					"100"
+}
+"02"
+{
+"var_type"					"FIELD_INTEGER"
+"speinc"					"100"
+}
+
+"03"
+{
+"var_type"					"FIELD_INTEGER"
+"rangeinc"					"200"
+}
+
+}
+}

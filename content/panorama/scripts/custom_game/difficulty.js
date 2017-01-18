@@ -1,4 +1,3 @@
-GameEvents.Subscribe( "CurrentDifficulty", UpdateDiff);
 function ShowToolTip(data){
 	var des="";
 	if (data==0){
@@ -29,3 +28,10 @@ function UpdateDiff(data){
 		$("#CurrentDifficulty").text=$.Localize( "#vhard" );
 	
 }
+
+(function()
+{
+	$.Msg("difficulty.js is loaded");
+	GameEvents.Subscribe( "CurrentDifficulty", UpdateDiff);
+})();
+

@@ -28,15 +28,16 @@ function InitMergeList()
 		CustomNetTables:SetTableValue( "merge_list",i,v);
 	end
 end
-function MergeInit( unit )
-	local name=unit:GetUnitName()
-	if MergeList[name]~=nil then
-		unit:AddAbility("Merge")
-		unit:FindAbilityByName("Merge"):SetLevel(1)
-	end
-end
 
 function MergeCheck( keys )
+	if keys.caster~=nil and keys.target~=nil then
+		local caster=keys.caster:ToTower()
+		local target=keys.target:ToTower()
+		if caster~=nil and target~=nil then
+			caster:MergeTest(target)
+		end
+	end
+	--[[
 	local caster=keys.caster
 	local target=keys.target
 	local pid=caster:GetPlayerOwnerID()
@@ -59,10 +60,18 @@ function MergeCheck( keys )
 		end
 	else
 		caster:Stop()
-	end
+	end]]
 end
 
 function ReturnMergeCost(keys)
+	if keys.caster~=nil and keys.target~=nil then
+		local caster=keys.caster:ToTower()
+		local target=keys.target:ToTower()
+		if caster~=nil and target~=nil then
+			caster:ReturnMergeCost(target)
+		end
+	end
+	--[[
 	local caster=keys.caster
 	local target=keys.target
 	local cname=caster:GetUnitName()
@@ -75,10 +84,18 @@ function ReturnMergeCost(keys)
 		end
 	end
 	local cost=MergeList[cname][mIndex][1]
-	PlayerResource:ModifyGold(pid,cost,false,0)
+	PlayerResource:ModifyGold(pid,cost,false,0)]]
 end
 
 function Merge(keys)
+	if keys.caster~=nil and keys.target~=nil then
+		local caster=keys.caster:ToTower()
+		local target=keys.target:ToTower()
+		if caster~=nil and target~=nil then
+			caster:Merge(target)
+		end
+	end
+	--[[
 	local caster=keys.caster
 	local target=keys.target
 	local cname=caster:GetUnitName()
@@ -102,5 +119,5 @@ function Merge(keys)
 		local unit=CreateUnitByName(nlname,pos,false,nil,nil,DOTA_TEAM_GOODGUYS)
 		CustomGameEventManager:Send_ServerToPlayer( caster:GetPlayerOwner(), "SelectNewTower", {old=caster:entindex(),newone=unit:entindex()} )
 		IniTower(pid,unit,totalcost)
-	end
+	end]]--
 end

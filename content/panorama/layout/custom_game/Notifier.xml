@@ -9,15 +9,14 @@
 	
 	<Panel hittest="false">
 		<Panel id="main"	hittest="false">
-			<Panel	class="timer Hidden" id="timer" hittest="false">				
-				<Label id="time"	text="#Next wave coming in: " hittest="false"/>
-				<Label id="LevelDes"	text="" hittest="false"/>
+			<Panel id="ErrTimer" hittest="false">				
+				<Label id="err_msg"	text="" hittest="false"/>
 			</Panel>
-			<Panel id="skillerr" hittest="false">				
-				<Label id="msg"	text="" hittest="false"/>
+			<Panel id="SpawnTimer" hittest="false">				
+				<Label id="spawn_msg"	text="" hittest="false"/>
 			</Panel>
-			<Panel id="WaveAlert" hittest="false">				
-				<Label id="WaveAlert_Text"	text=""/>
+			<Panel id="StartAlert" hittest="false">				
+				<Label id="start_msg"	text="123" hittest="false"/>
 			</Panel>
 		</Panel>			
 	</Panel>		

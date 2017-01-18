@@ -1,0 +1,41 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/dotastyles.css" />
+		<include src="file://{resources}/styles/custom_game/custom_status_panel.css"	/>
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/custom_status_panel.js" />
+	</scripts>
+		<Panel hittest="false" html="true">
+			<Panel id="CustomTowerInfoPanel" hittest="false">
+				<Panel class="SubPanel" onmouseover="ShowDetailedInfo('a')" onmouseout="HideToolTips()" id="TowerDmgInfo" hittest="true">
+					<Panel class="StatusPanel" id="Dmg" hittest="false">
+						<Label class="defultStyle"	text="攻击力:"/>
+						<Label class="defultStyle data" id="dmg_data"	text="100"/>
+					</Panel>
+					<Panel class="StatusPanel" id="Spe" hittest="false">
+						<Label class="defultStyle"	text="攻击速度:"/>
+						<Label class="defultStyle data" id="spe_data"	text="100"/>
+					</Panel>
+					<Panel class="StatusPanel" id="Range" hittest="false">
+						<Label class="defultStyle"	text="射程:"/>
+						<Label class="defultStyle data" id="range_data"	text="100"/>
+					</Panel>
+				</Panel>
+				<Panel class="SubPanel" id="TowerCostInfo" onmouseover="ShowDetailedInfo('b')"  onmouseout="HideToolTips()" hittest="true">
+					<Panel class="StatusPanel" id="TowalCost" hittest="false">
+						<Label class="defultStyle"	text="总花费:"/>
+						<Label class="defultStyle data" id="cost_data"	text="100"/>
+					</Panel>
+					<Panel class="StatusPanel" id="UpgradeCost" hittest="false">
+						<Label class="defultStyle"	text="升级花费:"/>
+						<Label class="defultStyle data" id="upcost_data"	text="100"/>
+					</Panel>
+					<Panel class="StatusPanel" id="Attribute" hittest="false">
+						<Label class="defultStyle" text="属性:"/>
+						<Label class="defultStyle data" id="attribute_data"	text="100"/>
+					</Panel>
+				</Panel>
+			</Panel>
+		</Panel>
+</root>

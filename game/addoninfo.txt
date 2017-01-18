@@ -1,9 +1,9 @@
 "AddonInfo"
 {
 	"TeamCount" 	"1"
-	"maps"		"fourdomaintd"
+	"maps"		"adventure_example"
 	"IsPlayable"	"1"
-	"fourdomaintd"
+	"adventure_example"
 	{
 		"MaxPlayers"	"4"
 	}

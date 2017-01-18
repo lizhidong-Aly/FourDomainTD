@@ -52,7 +52,7 @@ end
 
 function Resonance(keys)
 	local playerid = keys.caster:GetMainControllingPlayer()
-	local abil=keys.caster:FindAbilityByName("resonance_dummy")
+	local abil=keys.caster:FindAbilityByName("resonance_dummy_hidden")
 	keys.caster:CastAbilityImmediately(abil,playerid)
 
 end
@@ -138,7 +138,7 @@ end
 function StartSplitShot(keys)
 	local caster=keys.caster
 	local playerid = caster:GetMainControllingPlayer()
-	local ss=caster:FindAbilityByName("split_shot_dummy")
+	local ss=caster:FindAbilityByName("split_shot_dummy_hidden")
 	if not ss:IsCooldownReady() then
 		return 
 	end
@@ -222,7 +222,7 @@ function StormForm(keys)
 	local caster=keys.caster
 	local point=keys.target_points[1]
 	local playerid = caster:GetMainControllingPlayer()
-	local abil=caster:FindAbilityByName("storm_form_dummy")
+	local abil=caster:FindAbilityByName("storm_form_dummy_hidden")
 	if not NormalizePosition(point) then
 		ErrorMsg(playerid,SPELL_CAN_NO_CAST_ON_POSITION)
 		caster:Stop()
@@ -273,7 +273,7 @@ function ChainLightling( keys)
 	local caster = keys.caster
 	local target = keys.target
 	local playerid = caster:GetPlayerOwnerID()
-	local abi=caster:FindAbilityByName("chain_lightling_dummy")
+	local abi=caster:FindAbilityByName("chain_lightling_dummy_hidden")
 	if abi~=nil then
 		caster:CastAbilityOnTarget(target, abi,playerid)
 	end
@@ -301,7 +301,7 @@ end
 
 function FrostNovaAttack( keys )
 	local playerid = keys.caster:GetMainControllingPlayer()
-	local abil=keys.caster:FindAbilityByName("ice_nova")
+	local abil=keys.caster:FindAbilityByName("ice_nova_hidden")
 	keys.caster:CastAbilityOnTarget(keys.target, abil, playerid)
 end
 

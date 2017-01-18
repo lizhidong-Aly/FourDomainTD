@@ -8,20 +8,10 @@ function OpenTechMenu(keys)
 	CustomGameEventManager:Send_ServerToPlayer( keys.caster:GetPlayerOwner(), "CloseInfo", {} )
 end
 
-function InitTechTree()
-	if Tree[0]==nil then
-		playernum=PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
-		for i=1,playernum do
-			Tree[i-1]=TechTree:new(i-1)
-			Tree[i-1]:UpdateTechTree()
-			towerUnlocked[i-1]={}
-			CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(i-1), "UpdateTechPoint", {point=Tree[i-1]:GetTechPoint()} )
-		end
-	end
-end
-
 function UpdateTechInfo(index,keys)
-	local tech=Tree[keys.PlayerID]:GetTech(keys.name)
+	local pid=keys.PlayerID
+	local tTree=_G.Player[pid].TechTree
+	local tech=tTree:GetTech(keys.name)
 	if tech==nil then 
 		print("Request Tech do not exist")
 		return
@@ -35,7 +25,9 @@ function UpdateTechInfo(index,keys)
 end
 
 function UpgradeTech(index,keys)
-	if Tree[keys.PlayerID]:UpgradeTech(keys.name) then
+	local pid=keys.PlayerID
+	local tTree=_G.Player[pid].TechTree
+	if tTree:UpgradeTech(keys.name) then
 		UpdateTechInfo(nil,keys)
 	end
 end

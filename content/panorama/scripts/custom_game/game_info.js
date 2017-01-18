@@ -1,7 +1,4 @@
-GameEvents.Subscribe( "ClosedAllUI", HideInfoPanel);
-GameEvents.Subscribe( "CloseInfo", HideInfoPanel);
-GameEvents.Subscribe( "TowerInfoSent", SetTowerInfo);
-var desPanelList=[];
+
 function ShowInfoPanel(){
 	//print($.GetContextPanel().GetParent().GetParent().GetChild(2).GetChild(2))
 	$("#Main").SetHasClass("Show", !($("#Main").BHasClass("Show")))
@@ -25,7 +22,6 @@ function ShowContextPanel(name){
 }
 
 function InitContextOfInfo(){
-
 	var text="";
 	text=text+$.Localize("addon_game_name");
 	text=text + "<br>" + $.Localize("#version")
@@ -36,25 +32,7 @@ function InitContextOfInfo(){
 	text="";
 	text=$.Localize("#merge_intro")
 	$("#MergeListLabel").text=text;
-	var mergelist=CustomNetTables.GetTableValue( "merge_list", "SingleMegeList" );
-	var i;
-	text=""
-	for (i in mergelist){
-		var towera=$.Localize("#"+mergelist[i][1]);
-		towera=towera.slice(0,-4)
-		var towerb=$.Localize("#"+mergelist[i][2]);
-		towerb=towerb.slice(0,-4)
-		text=text+towera + " + " + towerb + " = " +  $.Localize("#"+mergelist[i][4])+"<br>"
-	}
-	//$("#MergeList").text=text;
 }
-
-function print(o){
-	$.Msg(o);
-}
-
-InitContextOfInfo();
-
 
 function ShowToolTip(name){
 	GameEvents.SendCustomGameEventToServer( "RequestTowerInfo", {type:name,entry:"help"} );
@@ -86,10 +64,10 @@ function SetTowerInfo(data){
 		}
 	}
 	var towera=$.Localize("#"+mergelist[i][1]);
-	towera=towera.slice(0,-4)
+	//towera=towera.slice(0,-4)
 	var towerb=$.Localize("#"+mergelist[i][2]);
-	towerb=towerb.slice(0,-4)
-	des=des + $.Localize( "#MergeElement" ) + towera+" , "+towerb;
+	//towerb=towerb.slice(0,-4)
+	des=des + $.Localize( "#MergeElement" ) + towera+","+towerb;
 
 	des=des +"<br>"+ $.Localize( "#TowerDesA" ) + attri ;
 	des=des + $.Localize( "#TowerDesC" ) + data.dmg;
@@ -102,32 +80,18 @@ function SetTowerInfo(data){
 				des=des+"<br>";
 			}
 		}
-	//$.DispatchEvent( "DOTAShowTitleTextTooltipStyled", button, tittle , des,'test');
-	var desPanel = $.CreatePanel( "Panel", $.GetContextPanel(), "" );
-	desPanel.BLoadLayout( "file://{resources}/layout/custom_game/towerdes.xml", false, false );
- 	var cursor = GetPercPos();
-	desPanel.style.x=cursor[0];
-	desPanel.style.y=cursor[1];
-	desPanel.style.z="10px";
-	desPanel.style.width="360px";
-	desPanel.GetChild(0).GetChild(0).text=tittle;
-	desPanel.GetChild(0).GetChild(1).text=des;
-	desPanelList.push(desPanel);
-	//$.Msg(button.selectionpos_x);
-	//$.Msg(button.selectionpos_y);
+	$.DispatchEvent( "DOTAShowTitleTextTooltip",button,tittle,des);
 }
 
 function HideTowerDes(){
-	for(var i=desPanelList.length;i>0;i--){
-		desPanelList[i-1].RemoveAndDeleteChildren();
-		desPanelList.pop();
-	}
+	$.DispatchEvent( "DOTAHideTitleTextTooltip");
 }
 
-
-function GetPercPos(posa,posb){
-	var cPos=GameUI.GetCursorPosition();
-	cPos[0]=((cPos[0])/Game.GetScreenWidth())*100+2+"%";
-	cPos[1]=((cPos[1])/(Game.GetScreenHeight()/0.808))*100+12+"%";
-	return cPos;
-}
+(function()
+{
+	$.Msg("game_info.js is loaded");
+	GameEvents.Subscribe( "ClosedAllUI", HideInfoPanel);
+	GameEvents.Subscribe( "CloseInfo", HideInfoPanel);
+	GameEvents.Subscribe( "TowerInfoSent", SetTowerInfo);
+	InitContextOfInfo();
+})();

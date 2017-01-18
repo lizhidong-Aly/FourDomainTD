@@ -1,0 +1,25 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/dotastyles.css" />
+		<include src="file://{resources}/styles/custom_game/custom_resouse_panel.css"	/>
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/custom_resouse_panel.js" />
+	</scripts>
+		<Panel hittest="false">
+			<Panel id="CustomrResouseInfoPanel" hittest="false">
+				<Panel class="SubPanel" id="Gold" hittest="false">
+					<Panel id="GoldIcon" hittest="false"/>
+					<Label class="defultStyle" id="gold_data" text="100"/>
+				</Panel>
+				<Panel class="SubPanel" id="Essence" hittest="false">
+					<Panel id="EssencelIcon" hittest="false"/>
+					<Label class="defultStyle" id="essence_data" text="100"/>
+				</Panel>
+				<Panel class="SubPanel" id="Crystal" hittest="false">
+					<Panel id="CrystalIcon" hittest="false"/>
+					<Label class="defultStyle" id="crystal_data" text="10/12"/>
+				</Panel>
+			</Panel>
+		</Panel>
+</root>

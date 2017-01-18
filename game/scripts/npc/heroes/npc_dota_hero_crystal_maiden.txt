@@ -11,7 +11,6 @@
 "StatusHealth"              	"1000"
 "StatusMana"                	"1000"
 "ShouldDoFlyHeightVisual"   	"100"
-"AbilityLayout" 				"5"
 "Ability1"                                        "OpenBuildingMenu"
 "Ability2"                                        "OpenTechMenu"
 "Ability3"                                        "SelectPosition"

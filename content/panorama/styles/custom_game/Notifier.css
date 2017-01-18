@@ -1,118 +1,95 @@
-
 #main{
-margin-top: 50px;
-margin-left: 0px;
-width: 1920px;
-height: 900px;
-
-}
-.timer{
-margin-top: 80px;
-margin-left: 1620px;
-color: #ffffff;
-padding-left: 16px;
-padding-right: 16px;
-background-color: gradient( linear, 100% 0%, 100% 100%, from( #111111 ), color-stop( 0.01, #202327 ), color-stop( 0.2, #141619ff ), to( #000000dd ) );
-box-shadow: black -4px -4px 8px 8px;
+    width: 1920px;
+    height: 1080px;
 }
 
-.AspectRatio5x4 .timer
+#ErrTimer
 {
-    margin-top: 50px;
-    margin-left: 1050px;
-}
-
-.AspectRatio4x3 .timer
-{
-    margin-top: 50px;
-    margin-left: 1100px;
-}
-
-.AspectRatio16x10 .timer
-{
-    margin-top: 50px;
-    margin-left: 1400px;
-}
-
-.timer.Hidden{
-visibility:collapse;
-}
-#time{
-font-size: 30px;
-}
-
-#LevelDes{
-	font-size: 25px;
-	margin-left: 0px;
-	margin-top:10px;
-	color: #d0d0d0;
-}
-
-
-#WaveAlert
-{
-    flow-children: down;
-    color: white;
     horizontal-align: center;
-    margin: 0px;
-    margin-top: 200px;
-    font-size: 96px;
-    font-weight: bold;
-    opacity: 0;
-    visibility: visible;
-    transition-property: transform, opacity;
-    transition-duration: 0.3s;
-    border: 0px solid white;
-    transform: scaleX(1.5) scaleY(1.5);
-}
-
-
-
-.ShowAlert #WaveAlert
-{
-    opacity: 1;
-    transform: scaleX(1) scaleY(1);
-    visibility: visible;
-}
-
-#WaveAlert_Text
-{
-    text-shadow: 2px 2px 2px #121212;
-    color: #dddddd;
-    horizontal-align: center;
-    font-size: 60px;
-}
-
-
-#skillerr
-{
-    flow-children: down;
-    color: white;
-    horizontal-align: center;
-    margin: 0px;
-    margin-top: 720px;
-    font-size: 6px;
-    opacity: 0;
+    margin-top: 75%;
     visibility: visible;
     transition-property: transform, opacity;
     transition-duration: 0.1s;
-    border: 0px solid white;
-    transform: scaleX(1.2) scaleY(1.2);
+    transform: scaleX(1.5) scaleY(1.5);
+    opacity: 0;
 }
 
-.ErrAlert #skillerr
+.ErrAlert #ErrTimer
 {
-    opacity: 1;
+    opacity: 2;
     transform: scaleX(1) scaleY(1);
     visibility: visible;
 }
 
-#msg
+#err_msg
 {
     text-shadow: 1px 1px 1px #121212;
     color: #ff0111;
     horizontal-align: center;
-    font-size: 32px;
+    font-size: 28px;
+}
+
+
+#SpawnTimer
+{
+    background-color: gradient( linear, 100% 0%, 100% 100%, from( #111111 ), color-stop( 0.01, #202327 ), color-stop( 0.2, #141619ff ), to( #000000dd ) );
+    box-shadow: black 1px 1px 2px 1px;
+    border: 1px solid #707070;
+    border-radius:2px;
+    margin-top: 10%;
+    horizontal-align: right;
+    visibility: visible;
+    transition-property: transform, opacity;
+    transition-duration: 0.2s;
+    opacity: 0;
+    transform: translatex(20%);
+}
+
+.SpawnAlert #SpawnTimer
+{
+    transform: translatex(-10%);
+    opacity: 2;
+}
+
+#spawn_msg
+{
+    text-shadow: 1px 1px 1px #121212;
+    color: #ffffff;
+    horizontal-align: center;
+    vertical-align: center;
+    font-size: 28px;
+    text-align: right;
+    padding-left: 20px;
+    padding-right: 20px;
+    letter-spacing:2px;
+}
+
+
+#StartAlert
+{
+    horizontal-align: center;
+    margin-top: 20%;
+    visibility: visible;
+    transition-property: transform, opacity;
+    transition-duration: 0.3s;
+    transform: scaleX(2) scaleY(2);
+    opacity: 0;
+}
+
+.Show #StartAlert
+{
+    opacity: 2;
+    transform: scaleX(1) scaleY(1);
+    visibility: visible;
+}
+
+#start_msg
+{
+    text-shadow: 1px 1px 1px #121212;
+    color: #ffffff;
+    horizontal-align: center;
+    font-size: 60px;
+    letter-spacing:4px;
 }
 
 
