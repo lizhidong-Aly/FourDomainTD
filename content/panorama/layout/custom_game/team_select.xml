@@ -37,7 +37,7 @@
 						<Label id="GameModeNameLabel" text="#addon_game_name" />
 					</Panel>
 					<Panel id="MapInfo">
-						<Label id="MapInfoLabel" text="#LoadingScreenMapInfo" />
+						<Label id="MapInfoLabel" text="#addon_game_name" />
 					</Panel>
 					
 					<!--Countdown timer-->

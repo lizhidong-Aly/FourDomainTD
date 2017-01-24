@@ -1,7 +1,0 @@
-"none_d"
-{
-"BaseClass"          			    "ability_datadriven"
-"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-"MaxLevel"							"1"
-"AbilityTextureName"				"invoker_invoke"
-}

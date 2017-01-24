@@ -1,0 +1,15 @@
+"Enemy"
+{
+"1"
+	{
+		"name"				"level01"
+		"hp"				"101"
+		"armor"				"10"
+		"magicRes"			"10"
+		"magicImmune"		"false"
+		"moveSpeed"			"300"
+		"hpRegen"			"1"
+		"dmg"				"1"
+		"abi"
+	}
+}

@@ -1,13 +1,13 @@
 #LevelPanel{
     overflow: noclip;
-    width:74px;
-    height:136px;
+    width:65px;
+    height:145px;
     vertical-align: bottom;
-    margin-left: 158px;
+    margin-left: 147px;
     background-color: #353a3c;
     tooltip-position:top;
     tooltip-body-position:50% 50%;
-
+    z-index: 10;
 }
 
 #LevelPanelBG{

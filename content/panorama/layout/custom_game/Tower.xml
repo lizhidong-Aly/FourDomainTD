@@ -9,7 +9,7 @@
 	<Panel class="TowerPanel" hittest="false">
 		<Button id="TowerButton" onmouseover="ShowToolTip()" onmouseout="HideTowerDes()"  onmouseactivate="BuildTower()">
 			<DOTAHeroImage id="TowerImage" heroimagestyle="landscape" />
-			<Label id="GoldCost" text="100"/>
+			<Label id="GoldCost" text="0"/>
 			<Label class="disable" id="TowerLocker"/>
 		</Button>
 	</Panel>

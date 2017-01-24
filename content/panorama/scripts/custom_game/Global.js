@@ -5,9 +5,9 @@ for(panel=$.GetContextPanel();panel!=null;panel=panel.GetParent()){
 	hudRoot=panel;
 }
 function InitResourcePanel(){
-	SetUIComponentVisibility("stats",false)
-	if(hudRoot.FindChildTraverse("CustomrResouseInfoPanel")==null){
-		var panel = $.CreatePanel( "Panel", hudRoot.FindChildTraverse("inventory"), "" );
+	SetUIComponentVisibility("stats",true)
+	if(hudRoot.FindChildTraverse("CustomrResousePanel")==null){
+		var panel = $.CreatePanel( "Panel", hudRoot.FindChildTraverse("inventory"), "CustomrResousePanel" );
 		panel.BLoadLayout( "file://{resources}/layout/custom_game/custom_resouse_panel.xml", false, false );
 	}
 	if(hudRoot.FindChildTraverse("CustomTowerInfoPanel")==null){
@@ -38,6 +38,12 @@ function InstructionSendConstantly(){
 }
 //Send info to server
 function DrawAttackRangeOfUnitSelected(){
+	var current=Players.GetLocalPlayerPortraitUnit();
+	if(Entities.IsOwnedByAnyPlayer(current)){
+		var range=Entities.GetAttackRange(current);
+		GameEvents.SendCustomGameEventToServer( "DrawAttackRange", {unit:current,range:range});
+	}
+	/**
 	var units=null;
 	var range=null;
 	var current=Players.GetLocalPlayerPortraitUnit();
@@ -48,7 +54,7 @@ function DrawAttackRangeOfUnitSelected(){
 			range[i]=Entities.GetAttackRange(units[i]);
 		}
 	}
-	GameEvents.SendCustomGameEventToServer( "DrawAttackRange", {units:units,range:range});
+	GameEvents.SendCustomGameEventToServer( "DrawAttackRange", {units:units,range:range});*/
 }
 
 function SendCurrentPortraitUnit(){
@@ -62,7 +68,7 @@ function UpdateUIbasedOnUnitType(){
 	var current=Players.GetLocalPlayerPortraitUnit();
 	if(Entities.IsHero(current)){
 		ChangeUISettingToHero()
-	}else if(Entities.IsControllableByAnyPlayer(current) && !Entities.HasMovementCapability(current)){
+	}else if(Entities.IsControllableByAnyPlayer(current) && Entities.IsRooted(current)){
 		ChangeUISettingToTower()
 	}else{
 		ChangeUISettingToOthers()
@@ -72,19 +78,35 @@ function UpdateUIbasedOnUnitType(){
 function ChangeUISettingToHero(){
 	SetUIComponentVisibility("CustomTowerInfoPanel",false)
 	SetUIComponentVisibility("InventoryContainer",true)
-	SetUIComponentVisibility("StatBranch",true)
+	SetUIComponentVisibility("LevelPanel",false)
+	SetUIComponentVisibility("inventory_backpack_list",false)
+	hudRoot.FindChildTraverse("inventory").style["width"]="202px";
+	hudRoot.FindChildTraverse("center_block").style.width=104+202+159+352+"px";
+	//hudRoot.FindChildTraverse("AbilitiesAndStatBranch").style.width="2000px";
+	hudRoot.FindChildTraverse("HealthManaContainer").style.width="328px";
+	hudRoot.FindChildrenWithClassTraverse("AbilityInsetShadowRight")[0].style["margin-right"]="253px";
 }
 
 function ChangeUISettingToTower(){
 	SetUIComponentVisibility("CustomTowerInfoPanel",true)
 	SetUIComponentVisibility("InventoryContainer",false)
-	SetUIComponentVisibility("StatBranch",false)
+	SetUIComponentVisibility("LevelPanel",true)
+	hudRoot.FindChildTraverse("inventory").style["width"]="252px";
+	hudRoot.FindChildTraverse("center_block").style.width=104+252+159+302+"px";
+	//hudRoot.FindChildTraverse("AbilitiesAndStatBranch").style.width="288px";
+	hudRoot.FindChildTraverse("HealthManaContainer").style.width="278px";
+	hudRoot.FindChildrenWithClassTraverse("AbilityInsetShadowRight")[0].style["margin-right"]="303px";
 }
 
 function ChangeUISettingToOthers(){
 	SetUIComponentVisibility("CustomTowerInfoPanel",true)
 	SetUIComponentVisibility("InventoryContainer",false)
-	SetUIComponentVisibility("StatBranch",true)
+	SetUIComponentVisibility("LevelPanel",false)
+	hudRoot.FindChildTraverse("inventory").style["width"]="252px";
+	hudRoot.FindChildTraverse("center_block").style.width=104+252+159+302+"px";
+	//hudRoot.FindChildTraverse("AbilitiesAndStatBranch").style.width="288px";
+	hudRoot.FindChildTraverse("HealthManaContainer").style.width="278px";
+	hudRoot.FindChildrenWithClassTraverse("AbilityInsetShadowRight")[0].style["margin-right"]="303px";
 }
 
 function ModifyTooltipWidth(){
@@ -97,6 +119,24 @@ function ModifyTooltipWidth(){
 	}
 
 }
+
+function InitUIComponment(){
+	InstructionSendConstantly();
+	InitResourcePanel();
+	ModifyTooltipWidth();
+	SetUIComponentVisibility("StatBranchDrawer",false)
+	SetUIComponentVisibility("StatBranch",false)
+	SetUIComponentVisibility("stats_container",false)
+	SetUIComponentVisibility("PortraitBacker",true)
+	SetUIComponentVisibility("PortraitBackerColor",true)
+	var lvPanel=hudRoot.FindChildTraverse("LevelPanel");
+	if(lvPanel==null){
+		lvPanel = $.CreatePanel( "Panel",hudRoot.FindChildTraverse("center_block"), "LevelPanel" );
+		lvPanel.BLoadLayout( "file://{resources}/layout/custom_game/LevelPanel.xml", false, false );
+	}
+	hudRoot.FindChildTraverse("AbilitiesAndStatBranch").style["min-width"]="720px";
+}
+
 //-------------------------------------------------------------------------------
 (function()
 {
@@ -149,13 +189,5 @@ function ModifyTooltipWidth(){
 	for(panel=$.GetContextPanel();panel!=null;panel=panel.GetParent()){
 		hudRoot=panel;
 	}
-	InstructionSendConstantly();
-	InitResourcePanel();
-	ModifyTooltipWidth();
-	SetUIComponentVisibility("StatBranchDrawer",false)
-	var lvPanel=hudRoot.FindChildTraverse("LevelPanel");
-	if(lvPanel==null){
-		lvPanel = $.CreatePanel( "Panel",hudRoot.FindChildTraverse("center_block"), "LevelPanel" );
-		lvPanel.BLoadLayout( "file://{resources}/layout/custom_game/LevelPanel.xml", false, false );
-	}
+	InitUIComponment();
 })();

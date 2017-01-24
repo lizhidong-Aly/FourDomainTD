@@ -12,10 +12,10 @@
 			<Panel id="energy_bar"/>
 			<Panel id="bar_cover"/>
 			<Panel id="HighLevel">
-				<Label class="defultStyle" id="high_name" text="传奇" />
+				<Label class="defultStyle" id="high_name" text="#rank_elite" />
 			</Panel>
 			<Panel id="LowLevel" hittest="false">
-				<Label class="defultStyle" id="low_name" text="大师" />
+				<Label class="defultStyle" id="low_name" text="#rank_normal" />
 			</Panel>
 		</Panel>	
 	</Panel>		

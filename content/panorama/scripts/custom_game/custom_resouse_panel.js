@@ -3,11 +3,25 @@ GameEvents.Subscribe( "UpdateResourceInfo", UpdateData);
 function UpdateData(data){
 	var panel=$.GetContextPanel().FindChildTraverse("CustomrResouseInfoPanel")
 	if(panel!=null && panel.visible){
-		$("#gold_data").text=data.gold;
-		$("#essence_data").text=data.tech;
-		$("#crystal_data").text=data.eh+"/"+data.eh_limit;
+		$("#gold_data").text=MakeTextColor(data.gold,"gold");
+		$("#essence_data").text=MakeTextColor(data.tech,"#00baff");
+		$("#crystal_data").text=MakeTextColor(data.eh+"/"+data.eh_limit,"#b72cff");
 		//$.Msg(Entities.IsOwnedByAnyPlayer( u ))
 	}
+}
+
+function ShowResourceHelp(type){
+	var title=$.Localize( "#resource_"+type )+$("#"+type+"_data").text;
+	var des=$.Localize( "#resource_"+type+"_help" );
+	$.DispatchEvent( "DOTAShowTitleTextTooltip", $("#"+type), title,des);
+}
+
+function MakeTextColor(text,color){
+	return "<font color='"+color+"'>"+text+"</font>";
+}
+
+function HideResourceHelp(){
+	$.DispatchEvent( "DOTAHideTitleTextTooltip")
 }
 
 (function()

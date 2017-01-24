@@ -34,7 +34,7 @@ end
 
 -- Main think function for this unit
 function AIThink()
-	if thisEntity:IsAlive() ~= true then
+	if not thisEntity:IsAlive() then
 		return nil
 	end
 
@@ -56,60 +56,40 @@ function AIThink()
 	end
 	
 	local target=Entities:FindAllInSphere(thisEntity:GetOrigin(),ability:GetCastRange())
-	local tindex=nil
-	if target[1]~=nil then
-		local team=ability:GetAbilityTargetTeam()
-		if team==DOTA_UNIT_TARGET_TEAM_FRIENDLY then
-			tindex=AliesTargetTest(target,modname)
-		elseif team==DOTA_UNIT_TARGET_TEAM_ENEMY then 
-			local magicimmnue=(ability:GetAbilityTargetFlags()==DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES)
-			tindex=EnemyTargetTest(target,modname,magicimmnue)
-		end
-	end
-	if tindex~=nil then
-		CastAbilities( ability,target[tindex] )
-	end
-
-	return 1.0
-end
-
-function EnemyTargetTest(target,modname,magicimmnue) 
-	for i=1,#target do
-		if target[i]:GetClassname()=="npc_dota_creature" then
-			if target[i]:GetTeamNumber()==DOTA_TEAM_BADGUYS then
-				if target[i]:IsAlive() then
-					if magicimmnue or (not target[i]:IsMagicImmune())then
-						local modi=target[i]:FindModifierByName(modname)
+	for i,v in pairs(target) do
+		if v~=nil and v:GetClassname()=="npc_dota_creature" and v:IsAlive() then
+			local caster_pos=thisEntity:GetOrigin()
+			local target_pos=v:GetOrigin()
+			local distance=math.sqrt(math.pow(caster_pos[1]-target_pos[1],2)+math.pow(caster_pos[2]-target_pos[2],2))
+			if distance<ability:GetCastRange() then
+				local team=ability:GetAbilityTargetTeam()
+				if team==DOTA_UNIT_TARGET_TEAM_FRIENDLY and v:GetTeamNumber()==thisEntity:GetTeamNumber() then
+					if v:IsAttacking() then
+						local modi=v:FindModifierByName(modname)
 						if modi==nil then
-							return i
+							CastAbilities( ability,v )
+							return 1.0
+						end
+					end	
+				elseif team==DOTA_UNIT_TARGET_TEAM_ENEMY and v:GetTeamNumber()~=thisEntity:GetTeamNumber() then
+					local magicimmnue=(ability:GetAbilityTargetFlags()==DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES)
+					if magicimmnue or (not v:IsMagicImmune())then
+						local modi=v:FindModifierByName(modname)
+						if modi==nil then
+							CastAbilities( ability,v )
+							return 1.0
 						end
 					end
 				end
 			end
 		end
 	end
-	return nil
+	return 1.0
 end
-
-function AliesTargetTest(target,modname) 
-	for i=1,#target do
-		if target[i]:GetClassname()=="npc_dota_creature" then
-			if target[i]:IsAttacking() then
-				local modi=target[i]:FindModifierByName(modname)
-				if modi==nil then
-					return i
-				end
-			end
-		end
-	end
-	return nil
-end
-
-
 
 -- Attempt to cast any abilities that are on the unit
 function CastAbilities(ability,target )
-
+	--print("Cast:"..ability:GetAbilityName().."  To Target:"..target:GetUnitName())
 	-- If the ability is being channelled exit the function
 	if ability:IsChanneling() then
 		return

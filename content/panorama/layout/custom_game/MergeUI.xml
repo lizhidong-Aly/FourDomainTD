@@ -8,7 +8,6 @@
 		<Panel hittest="false">
 			<Panel id="MarkPanel" hittest="false">
 				<Panel id="Mark" hittest="false">
-				
 				</Panel>
 			</Panel>
 		</Panel>

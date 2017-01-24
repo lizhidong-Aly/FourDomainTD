@@ -1,229 +1,226 @@
-	PRE_GAME_TIME=2
-	INIT_GOLD=5000
-	INIT_TECH_POINT=50
-	INIT_EH_LIMIT=20
-	SPAWN_DELAY=15
-	MODE=1
-	DIFFICULTY=0
-	REFUND=1
-	vote={}
-	_G.Player={}
-	_G.unitRemaining=0
-	_G.TowerInfo={
-	--eh=element heart 人口占用
-		-------------------通用-------------------
-		--矮人火枪手
-		CS01L01={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="N",eh=1,abil={"head_shoot"},upgradeTo="CS01L02"},
-		CS01L02={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="N",eh=2,abil={"head_shoot"},upgradeTo="CS01L03"},
-		CS01L03={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="N",eh=3,abil={"head_shoot"},upgradeTo=nil},
-		CS21L01={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="E",eh=1,abil={"earth_shot"},upgradeTo=nil},
-		CS11L01={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="F",eh=1,abil={"dragon_breath"},upgradeTo=nil},
-		--炼金术师
-		CS02L01={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="N",eh=1,abil={"booty_gold"},upgradeTo="CS02L02"},
-		CS02L02={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="N",eh=1,abil={"booty_gold"},upgradeTo="CS02L03"},
-		CS02L03={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="N",eh=1,abil={"booty_gold"},upgradeTo=nil},
+PRE_GAME_TIME=2
+INIT_GOLD=100000
+INIT_TECH_POINT=100
+INIT_EH_LIMIT=99
+SPAWN_DELAY=5
+MODE=0
+DIFFICULTY=1
+REFUND=1
+vote={}
+_G.isOnSpawn=false
+_G.levelNo=0
+_G.Player={}
+_G.unitRemaining=0
+_G.SpawnPosition={
+	Vector(-4800,4096,128),
+	Vector(4096,4800,128),
+	Vector(4800,-4096,128),
+	Vector(-4096,-4800,128),
+}
+_G.TowerInfo={
+--eh=element heart 人口占用
+	-------------------通用-------------------
+	--矮人火枪手
+	CS01L01={dmgCoefficient=2.5,attSpe=1.5,attRange=900,cost=20,attribute="N",eh=1,abil={"head_shoot"},upgradeTo="CS01L02"},
+	CS01L02={dmgCoefficient=2.2,attSpe=1.5,attRange=1000,cost=50,attribute="N",eh=1,abil={"head_shoot"},upgradeTo="CS01L03"},
+	CS01L03={dmgCoefficient=1.9,attSpe=1.5,attRange=1100,cost=200,attribute="N",eh=1,abil={"head_shoot"},upgradeTo=nil},
+
+	CS21L01={dmgCoefficient=5,attSpe=10,attRange=3500,cost=600+20+50+200+50+200+600,attribute="E",eh=4,eh_needed=1,abil={"earth_shot"},upgradeTo=nil},
+	CS11L01={dmgCoefficient=0.1,attSpe=1,attRange=500,cost=400+20+50+200+60+200+500,attribute="F",eh=4,eh_needed=1,abil={"dragon_breath"},upgradeTo=nil},
+	--炼金术师
+	CS02L01={dmgCoefficient=1.5,attSpe=1.2,attRange=1200,cost=30,attribute="N",eh=1,abil={"booty_gold"},upgradeTo="CS02L02"},
+	CS02L02={dmgCoefficient=1.2,attSpe=1.2,attRange=1200,cost=100,attribute="N",eh=1,abil={"booty_gold"},upgradeTo="CS02L03"},
+	CS02L03={dmgCoefficient=1.0,attSpe=1.2,attRange=1200,cost=300,attribute="N",eh=1,abil={"booty_gold"},upgradeTo=nil},
 -------------------地-------------------
-		--核心
-		ES01L01={minAttDmg=0,maxAttDmg=0,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="E",eh=1,abil={"earth_core_aura"},upgradeTo="ES01L02"},
-		ES01L02={minAttDmg=0,maxAttDmg=0,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="E",eh=1,abil={"earth_core_aura"},upgradeTo="ES01L03"},
-		ES01L03={minAttDmg=0,maxAttDmg=0,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="E",eh=1,abil={"earth_core_aura"},upgradeTo=nil},
-		--大地之灵
-		ET01L01={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="E",eh=1,abil={"splash_attack"},upgradeTo="ET01L02"},
-		ET01L02={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="E",eh=1,abil={"splash_attack"},upgradeTo="ET01L03"},
-		ET01L03={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="E",eh=1,abil={"splash_attack"},upgradeTo=nil},
-		--上古泰坦
-		ET02L01={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="E",eh=1,abil={"stun_hit"},upgradeTo="ET02L02"},
-		ET02L02={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="E",eh=1,abil={"stun_hit"},upgradeTo="ET02L03"},
-		ET02L03={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="E",eh=1,abil={"stun_hit"},upgradeTo=nil},
-		--食人魔法师
-		ET03L01={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="E",eh=1,abil={"earth_blessing"},upgradeTo="ET03L02"},
-		ET03L02={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="E",eh=1,abil={"earth_blessing"},upgradeTo="ET03L03"},
-		ET03L03={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="E",eh=1,abil={"earth_blessing"},upgradeTo=nil},
-		--撼地者
-		ET11L01={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="E",eh=1,abil={"brilliance_aura"},upgradeTo="ET11L02"},
-		ET11L02={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="E",eh=1,abil={"brilliance_aura"},upgradeTo="ET11L03"},
-		ET11L03={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="E",eh=1,abil={"brilliance_aura"},upgradeTo=nil},
-		--沙王
-		ET12L01={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="E",eh=1,abil={"sandstorm"},upgradeTo="ET12L02"},
-		ET12L02={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="E",eh=1,abil={"sandstorm"},upgradeTo="ET12L03"},
-		ET12L03={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="E",eh=1,abil={"sandstorm"},upgradeTo=nil},
+	--核心
+	ES01L01={dmgCoefficient=0,attSpe=0,attRange=0,cost=200,attribute="E",eh=1,abil={"earth_core_aura","earth_core_overload"},upgradeTo="ES01L02"},
+	ES01L02={dmgCoefficient=0,attSpe=0,attRange=0,cost=500,attribute="E",eh=2,abil={"earth_core_aura","earth_core_overload"},upgradeTo="ES01L03"},
+	ES01L03={dmgCoefficient=0,attSpe=0,attRange=0,cost=2000,attribute="E",eh=3,abil={"earth_core_aura","earth_core_overload"},upgradeTo=nil},
+	--大地之灵
+	ET01L01={dmgCoefficient=1.5,attSpe=1.8,attRange=1000,cost=50,attribute="E",eh=1,abil={"splash_attack"},upgradeTo="ET01L02"},
+	ET01L02={dmgCoefficient=1.2,attSpe=1.8,attRange=1200,cost=200,attribute="E",eh=1,abil={"splash_attack"},upgradeTo="ET01L03"},
+	ET01L03={dmgCoefficient=0.9,attSpe=1.8,attRange=1400,cost=600,attribute="E",eh=2,abil={"splash_attack"},upgradeTo=nil},
+	--上古泰坦
+	ET02L01={dmgCoefficient=3,attSpe=2.5,attRange=800,cost=80,attribute="E",eh=1,abil={"stun_hit"},upgradeTo="ET02L02"},
+	ET02L02={dmgCoefficient=2.5,attSpe=2.5,attRange=800,cost=280,attribute="E",eh=1,abil={"stun_hit"},upgradeTo="ET02L03"},
+	ET02L03={dmgCoefficient=2,attSpe=2.5,attRange=800,cost=800,attribute="E",eh=2,abil={"stun_hit"},upgradeTo=nil},
+	--食人魔法师
+	ET03L01={dmgCoefficient=1.2,attSpe=1.7,attRange=1000,cost=250,attribute="E",eh=1,abil={"earth_blessing"},upgradeTo="ET03L02"},
+	ET03L02={dmgCoefficient=1,attSpe=1.7,attRange=1000,cost=400,attribute="E",eh=1,abil={"earth_blessing"},upgradeTo="ET03L03"},
+	ET03L03={dmgCoefficient=0.8,attSpe=1.7,attRange=1000,cost=750,attribute="E",eh=2,abil={"earth_blessing"},upgradeTo=nil},
+	--撼地者
+	ET11L01={dmgCoefficient=2,attSpe=1.6,attRange=1300,cost=300,attribute="E",eh=2,abil={"brilliance_aura"},upgradeTo="ET11L02"},
+	ET11L02={dmgCoefficient=1.9,attSpe=1.6,attRange=1300,cost=600,attribute="E",eh=2,abil={"brilliance_aura"},upgradeTo="ET11L03"},
+	ET11L03={dmgCoefficient=1.8,attSpe=1.6,attRange=1300,cost=900,attribute="E",eh=3,abil={"brilliance_aura"},upgradeTo=nil},
+	--沙王
+	ET12L01={dmgCoefficient=1.1,attSpe=1.1,attRange=1000,cost=750,attribute="E",eh=2,abil={"sandstorm"},upgradeTo="ET12L02"},
+	ET12L02={dmgCoefficient=0.9,attSpe=1.1,attRange=1000,cost=1400,attribute="E",eh=2,abil={"sandstorm"},upgradeTo="ET12L03"},
+	ET12L03={dmgCoefficient=0.7,attSpe=1.1,attRange=1000,cost=2500,attribute="E",eh=3,abil={"sandstorm"},upgradeTo=nil},
 
-		ET12L11={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="E",eh=1,abil={"sandstorm"},upgradeTo=nil},
-		--兽王
-		ET13L01={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="E",eh=1,abil={"battle_cry"},upgradeTo="ET13L02"},
-		ET13L02={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="E",eh=1,abil={"battle_cry"},upgradeTo="ET13L03"},
-		ET13L03={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="E",eh=1,abil={"battle_cry"},upgradeTo=nil},
-		--谜团
-		ET21L01={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="E",eh=1,abil={"griavty_control"},upgradeTo="ET21L02"},
-		ET21L02={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="E",eh=1,abil={"griavty_control"},upgradeTo="ET21L03"},
-		ET21L03={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="E",eh=1,abil={"griavty_control"},upgradeTo=nil},
+	ET12L11={lv=4,dmgCoefficient=0.6,attSpe=1.5,attRange=1200,cost=2000+50+200+600+750+1400+2500,attribute="E",eh=6,eh_needed=1,abil={"sandstorm"},upgradeTo=nil},
+	--兽王
+	ET13L01={dmgCoefficient=1.5,attSpe=1.2,attRange=1200,cost=1000,attribute="E",eh=3,abil={"battle_cry"},upgradeTo="ET13L02"},
+	ET13L02={dmgCoefficient=1.2,attSpe=1.2,attRange=1300,cost=1600,attribute="E",eh=3,abil={"battle_cry"},upgradeTo="ET13L03"},
+	ET13L03={dmgCoefficient=0.9,attSpe=1.2,attRange=1400,cost=2800,attribute="E",eh=4,abil={"battle_cry"},upgradeTo=nil},
+	--谜团
+	ET21L01={dmgCoefficient=2,attSpe=1.5,attRange=1500,cost=4000,attribute="E",eh=4,abil={"griavty_control"},upgradeTo="ET21L02"},
+	ET21L02={dmgCoefficient=1.5,attSpe=1.5,attRange=1500,cost=8000,attribute="E",eh=5,abil={"griavty_control"},upgradeTo="ET21L03"},
+	ET21L03={dmgCoefficient=1,attSpe=1.5,attRange=1500,cost=12000,attribute="E",eh=6,abil={"griavty_control"},upgradeTo=nil},
 -------------------水-------------------
-		--核心
-		WS01L01={minAttDmg=0,maxAttDmg=0,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="W",eh=1,abil={"water_core_aura"},upgradeTo="WS01L02"},
-		WS01L02={minAttDmg=0,maxAttDmg=0,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="W",eh=1,abil={"water_core_aura"},upgradeTo="WS01L03"},
-		WS01L03={minAttDmg=0,maxAttDmg=0,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="W",eh=1,abil={"water_core_aura"},upgradeTo=nil},
-		--变体精灵
-		WT01L01={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="W",eh=1,abil={"water_mark"},upgradeTo="WT01L02"},
-		WT01L02={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="W",eh=1,abil={"water_mark"},upgradeTo="WT01L03"},
-		WT01L03={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="W",eh=1,abil={"water_mark"},upgradeTo=nil},
-		--剧毒术士
-		WT02L01={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="W",eh=1,abil={"erosion"},upgradeTo="WT02L02"},
-		WT02L02={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="W",eh=1,abil={"erosion"},upgradeTo="WT02L03"},
-		WT02L03={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="W",eh=1,abil={"erosion"},upgradeTo=nil},
-		--美杜莎
-		WT03L01={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="W",eh=1,abil={"split_shot","split_shot_dummy_hidden"},upgradeTo="WT03L02"},
-		WT03L02={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="W",eh=1,abil={"split_shot","split_shot_dummy_hidden"},upgradeTo="WT03L03"},
-		WT03L03={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="W",eh=1,abil={"split_shot","split_shot_dummy_hidden"},upgradeTo=nil},
+	--核心
+	WS01L01={dmgCoefficient=0,attSpe=0,attRange=0,cost=300,attribute="W",eh=1,abil={"water_core_aura","water_core_overload"},upgradeTo="WS01L02"},
+	WS01L02={dmgCoefficient=0,attSpe=0,attRange=0,cost=500,attribute="W",eh=2,abil={"water_core_aura","water_core_overload"},upgradeTo="WS01L03"},
+	WS01L03={dmgCoefficient=0,attSpe=0,attRange=0,cost=1200,attribute="W",eh=3,abil={"water_core_aura","water_core_overload"},upgradeTo=nil},
+	--变体精灵
+	WT01L01={dmgCoefficient=0.9,attSpe=1.6,attRange=900,cost=100,attribute="W",eh=1,abil={"water_mark"},upgradeTo="WT01L02"},
+	WT01L02={dmgCoefficient=0.7,attSpe=1.6,attRange=900,cost=150,attribute="W",eh=1,abil={"water_mark"},upgradeTo="WT01L03"},
+	WT01L03={dmgCoefficient=0.5,attSpe=1.6,attRange=900,cost=200,attribute="W",eh=1,abil={"water_mark"},upgradeTo=nil},
+	--剧毒术士
+	WT02L01={dmgCoefficient=1.1,attSpe=1.7,attRange=1200,cost=60,attribute="W",eh=2,abil={"erosion"},upgradeTo="WT02L02"},
+	WT02L02={dmgCoefficient=0.9,attSpe=1.7,attRange=1200,cost=180,attribute="W",eh=2,abil={"erosion"},upgradeTo="WT02L03"},
+	WT02L03={dmgCoefficient=0.7,attSpe=1.7,attRange=1200,cost=320,attribute="W",eh=2,abil={"erosion"},upgradeTo=nil},
+	--美杜莎
+	WT03L01={dmgCoefficient=1,attSpe=1.6,attRange=800,cost=150,attribute="W",eh=2,abil={"split_shot","split_shot_dummy_hidden"},upgradeTo="WT03L02"},
+	WT03L02={dmgCoefficient=0.8,attSpe=1.6,attRange=850,cost=300,attribute="W",eh=2,abil={"split_shot","split_shot_dummy_hidden"},upgradeTo="WT03L03"},
+	WT03L03={dmgCoefficient=0.6,attSpe=1.6,attRange=900,cost=800,attribute="W",eh=3,abil={"split_shot","split_shot_dummy_hidden"},upgradeTo=nil},
 
-		WT03L11={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="W",eh=1,abil={"split_shot","frost_attack","split_shot_dummy_hidden"},upgradeTo=nil},
-		--极寒幽魂
-		WT11L01={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="W",eh=1,abil={"frost_curse_field"},upgradeTo="WT11L02"},
-		WT11L02={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="W",eh=1,abil={"frost_curse_field"},upgradeTo="WT11L03"},
-		WT11L03={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="W",eh=1,abil={"frost_curse_field"},upgradeTo=nil},
-		--巨牙海民
-		WT13L01={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="W",eh=1,abil={"ice_mark"},upgradeTo="WT13L02"},
-		WT13L02={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="W",eh=1,abil={"ice_mark"},upgradeTo="WT13L03"},
-		WT13L03={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="W",eh=1,abil={"ice_mark"},upgradeTo=nil},
-		--巫妖
-		WT21L01={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="W",eh=1,abil={"frost_nova_attack_passive","life_ritual","ice_nova_hidden"},upgradeTo="WT21L02"},
-		WT21L02={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="W",eh=1,abil={"frost_nova_attack_passive","life_ritual","ice_nova_hidden"},upgradeTo="WT21L03"},
-		WT21L03={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="W",eh=1,abil={"frost_nova_attack_passive","life_ritual","ice_nova_hidden"},upgradeTo=nil},
+	WT03L11={lv=4,dmgCoefficient=0.5,attSpe=1.6,attRange=1000,cost=2000+150+300+800+400+800+1200,attribute="W",eh=7,eh_needed=1,abil={"split_shot","frost_attack","split_shot_dummy_hidden"},upgradeTo=nil},
+	--极寒幽魂
+	WT11L01={dmgCoefficient=1.2,attSpe=1.6,attRange=1200,cost=400,attribute="W",eh=2,abil={"frost_curse_field"},upgradeTo="WT11L02"},
+	WT11L02={dmgCoefficient=1.1,attSpe=1.6,attRange=1200,cost=800,attribute="W",eh=2,abil={"frost_curse_field"},upgradeTo="WT11L03"},
+	WT11L03={dmgCoefficient=1,attSpe=1.6,attRange=1200,cost=1200,attribute="W",eh=3,abil={"frost_curse_field"},upgradeTo=nil},
+	--巨牙海民
+	WT13L01={dmgCoefficient=1.8,attSpe=1.55,attRange=800,cost=300,attribute="W",eh=2,abil={"ice_mark"},upgradeTo="WT13L02"},
+	WT13L02={dmgCoefficient=1.4,attSpe=1.55,attRange=800,cost=1000,attribute="W",eh=3,abil={"ice_mark"},upgradeTo="WT13L03"},
+	WT13L03={dmgCoefficient=1,attSpe=1.55,attRange=800,cost=2000,attribute="W",eh=4,abil={"ice_mark"},upgradeTo=nil},
+	--巫妖
+	WT21L01={dmgCoefficient=2,attSpe=1.6,attRange=1000,cost=2000,attribute="W",eh=3,abil={"frost_nova_attack_passive","life_ritual","ice_nova_hidden"},upgradeTo="WT21L02"},
+	WT21L02={dmgCoefficient=1.7,attSpe=1.6,attRange=1000,cost=4000,attribute="W",eh=4,abil={"frost_nova_attack_passive","life_ritual","ice_nova_hidden"},upgradeTo="WT21L03"},
+	WT21L03={dmgCoefficient=1.4,attSpe=1.6,attRange=1000,cost=8000,attribute="W",eh=5,abil={"frost_nova_attack_passive","life_ritual","ice_nova_hidden"},upgradeTo=nil},
 -------------------火-------------------
-		--核心
-		FS01L01={minAttDmg=0,maxAttDmg=0,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="F",eh=1,abil={"fire_core_aura"},upgradeTo="FS01L02"},
-		FS01L02={minAttDmg=0,maxAttDmg=0,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="F",eh=1,abil={"fire_core_aura"},upgradeTo="FS01L03"},
-		FS01L03={minAttDmg=0,maxAttDmg=0,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="F",eh=1,abil={"fire_core_aura"},upgradeTo=nil},
-		--灰烬之灵
-		FT01L01={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="F",eh=1,abil={"critical_hit"},upgradeTo="FT01L02"},
-		FT01L02={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="F",eh=1,abil={"critical_hit"},upgradeTo="FT01L03"},
-		FT01L03={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="F",eh=1,abil={"critical_hit"},upgradeTo=nil},
-		--凤凰
-		FT02L01={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="F",eh=1,abil={"sunfire"},upgradeTo="FT02L02"},
-		FT02L02={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="F",eh=1,abil={"sunfire"},upgradeTo="FT02L03"},
-		FT02L03={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="F",eh=1,abil={"sunfire"},upgradeTo=nil},
-		--术士
-		FT03L01={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="F",eh=1,abil={"fire_ritual"},upgradeTo="FT03L02"},
-		FT03L02={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="F",eh=1,abil={"fire_ritual"},upgradeTo="FT03L03"},
-		FT03L03={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="F",eh=1,abil={"fire_ritual"},upgradeTo=nil},
+	--核心
+	FS01L01={dmgCoefficient=0,attSpe=0,attRange=0,cost=250,attribute="F",eh=1,abil={"fire_core_aura","fire_core_overload"},upgradeTo="FS01L02"},
+	FS01L02={dmgCoefficient=0,attSpe=0,attRange=0,cost=550,attribute="F",eh=2,abil={"fire_core_aura","fire_core_overload"},upgradeTo="FS01L03"},
+	FS01L03={dmgCoefficient=0,attSpe=0,attRange=0,cost=1200,attribute="F",eh=3,abil={"fire_core_aura","fire_core_overload"},upgradeTo=nil},
+	--灰烬之灵
+	FT01L01={dmgCoefficient=1.0,attSpe=1,attRange=600,cost=60,attribute="F",eh=1,abil={"critical_hit"},upgradeTo="FT01L02"},
+	FT01L02={dmgCoefficient=1.15,attSpe=1,attRange=600,cost=200,attribute="F",eh=1,abil={"critical_hit"},upgradeTo="FT01L03"},
+	FT01L03={dmgCoefficient=1.3,attSpe=1,attRange=600,cost=500,attribute="F",eh=2,abil={"critical_hit"},upgradeTo=nil},
+	--凤凰
+	FT02L01={dmgCoefficient=1.2,attSpe=1.2,attRange=1000,cost=100,attribute="F",eh=1,abil={"sunfire"},upgradeTo="FT02L02"},
+	FT02L02={dmgCoefficient=0.8,attSpe=1.2,attRange=1000,cost=300,attribute="F",eh=1,abil={"sunfire"},upgradeTo="FT02L03"},
+	FT02L03={dmgCoefficient=0.6,attSpe=1.2,attRange=1000,cost=900,attribute="F",eh=2,abil={"sunfire"},upgradeTo=nil},
+	--术士
+	FT03L01={dmgCoefficient=1.4,attSpe=1.6,attRange=1100,cost=250,attribute="F",eh=1,abil={"fire_ritual"},upgradeTo="FT03L02"},
+	FT03L02={dmgCoefficient=1.45,attSpe=1.6,attRange=1100,cost=400,attribute="F",eh=1,abil={"fire_ritual"},upgradeTo="FT03L03"},
+	FT03L03={dmgCoefficient=1.5,attSpe=1.6,attRange=1100,cost=800,attribute="F",eh=2,abil={"fire_ritual"},upgradeTo=nil},
 
-		FT03L11={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="F",eh=1,abil={"fire_ritual_e"},upgradeTo=nil},
-		--火女
-		FT11L01={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="F",eh=1,abil={"flame_blood"},upgradeTo="FT11L02"},
-		FT11L02={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="F",eh=1,abil={"flame_blood"},upgradeTo="FT11L03"},
-		FT11L03={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="F",eh=1,abil={"flame_blood"},upgradeTo=nil},
-		--神灵武士
-		FT12L01={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="F",eh=1,abil={"burning_soul"},upgradeTo="FT12L02"},
-		FT12L02={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="F",eh=1,abil={"burning_soul"},upgradeTo="FT12L03"},
-		FT12L03={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="F",eh=1,abil={"burning_soul"},upgradeTo=nil},
-		--主宰
-		FT13L01={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="F",eh=1,abil={"thousand_faces_katana"},upgradeTo="FT13L02"},
-		FT13L02={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="F",eh=1,abil={"thousand_faces_katana"},upgradeTo="FT13L03"},
-		FT13L03={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="F",eh=1,abil={"thousand_faces_katana"},upgradeTo=nil},
+	FT03L11={lv=4,dmgCoefficient=1.2,attSpe=1.6,attRange=1100,cost=2000+250+400+800+100+300+900,attribute="F",eh=5,eh_needed=1,abil={"fire_ritual_e"},upgradeTo=nil},
+	--火女
+	FT11L01={dmgCoefficient=2,attSpe=1.3,attRange=900,cost=300,attribute="F",eh=2,abil={"flame_blood"},upgradeTo="FT11L02"},
+	FT11L02={dmgCoefficient=2,attSpe=1.3,attRange=900,cost=600,attribute="F",eh=3,abil={"flame_blood"},upgradeTo="FT11L03"},
+	FT11L03={dmgCoefficient=2,attSpe=1.3,attRange=900,cost=900,attribute="F",eh=4,abil={"flame_blood"},upgradeTo=nil},
+	--神灵武士
+	FT12L01={dmgCoefficient=1,attSpe=1.1,attRange=800,cost=350,attribute="F",eh=2,abil={"burning_soul"},upgradeTo="FT12L02"},
+	FT12L02={dmgCoefficient=0.8,attSpe=1.1,attRange=800,cost=700,attribute="F",eh=2,abil={"burning_soul"},upgradeTo="FT12L03"},
+	FT12L03={dmgCoefficient=0.6,attSpe=1.1,attRange=800,cost=1000,attribute="F",eh=3,abil={"burning_soul"},upgradeTo=nil},
+	--主宰
+	FT13L01={dmgCoefficient=2.5,attSpe=1.2,attRange=1000,cost=500,attribute="F",eh=2,abil={"thousand_faces_katana"},upgradeTo="FT13L02"},
+	FT13L02={dmgCoefficient=2.2,attSpe=1.2,attRange=1000,cost=750,attribute="F",eh=2,abil={"thousand_faces_katana"},upgradeTo="FT13L03"},
+	FT13L03={dmgCoefficient=1.9,attSpe=1.2,attRange=1000,cost=1250,attribute="F",eh=3,abil={"thousand_faces_katana"},upgradeTo=nil},
 -------------------气-------------------
-		--核心
-		AS01L01={minAttDmg=0,maxAttDmg=0,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="A",eh=1,abil={"lightning_core_aura"},upgradeTo="AS01L02"},
-		AS01L02={minAttDmg=0,maxAttDmg=0,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="A",eh=1,abil={"lightning_core_aura"},upgradeTo="AS01L03"},
-		AS01L03={minAttDmg=0,maxAttDmg=0,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="A",eh=1,abil={"lightning_core_aura"},upgradeTo=nil},
-		--天怒
-		AT01L01={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="A",eh=1,abil={"moon_glaive"},upgradeTo="AT01L02"},
-		AT01L02={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="A",eh=1,abil={"moon_glaive"},upgradeTo="AT01L03"},
-		AT01L03={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="A",eh=1,abil={"moon_glaive"},upgradeTo=nil},
-		--痛苦女王
-		AT02L01={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="A",eh=1,abil={"resonance","resonance_dummy_hidden"},upgradeTo="AT02L02"},
-		AT02L02={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="A",eh=1,abil={"resonance","resonance_dummy_hidden"},upgradeTo="AT02L03"},
-		AT02L03={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="A",eh=1,abil={"resonance","resonance_dummy_hidden"},upgradeTo=nil},
-		--闪电幽魂
-		AT03L01={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="A",eh=1,abil={"ultra_voltage"},upgradeTo="AT03L02"},
-		AT03L02={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="A",eh=1,abil={"ultra_voltage"},upgradeTo="AT03L03"},
-		AT03L03={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="A",eh=1,abil={"ultra_voltage"},upgradeTo=nil},
-		--风行者
-		AT11L01={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="A",eh=1,abil={"wind_bleesing"},upgradeTo="AT11L02"},
-		AT11L02={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="A",eh=1,abil={"wind_bleesing"},upgradeTo="AT11L03"},
-		AT11L03={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="A",eh=1,abil={"wind_bleesing"},upgradeTo=nil},
-		--风暴之灵
-		AT12L01={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="A",eh=1,abil={"storm_form","storm_form_dummy_hidden","disable_move_hidden"},upgradeTo="AT12L02"},
-		AT12L02={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="A",eh=1,abil={"storm_form","storm_form_dummy_hidden","disable_move_hidden"},upgradeTo="AT12L03"},
-		AT12L03={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="A",eh=1,abil={"storm_form","storm_form_dummy_hidden","disable_move_hidden"},upgradeTo=nil},
+	--核心
+	AS01L01={dmgCoefficient=0,attSpe=0,attRange=0,cost=400,attribute="A",eh=1,abil={"lightning_core_aura","lightning_core_overload"},upgradeTo="AS01L02"},
+	AS01L02={dmgCoefficient=0,attSpe=0,attRange=0,cost=800,attribute="A",eh=2,abil={"lightning_core_aura","lightning_core_overload"},upgradeTo="AS01L03"},
+	AS01L03={dmgCoefficient=0,attSpe=0,attRange=0,cost=2000,attribute="A",eh=3,abil={"lightning_core_aura","lightning_core_overload"},upgradeTo=nil},
+	--天怒
+	AT01L01={dmgCoefficient=0.8,attSpe=1.6,attRange=1200,cost=80,attribute="A",eh=1,abil={"moon_glaive"},upgradeTo="AT01L02"},
+	AT01L02={dmgCoefficient=0.7,attSpe=1.6,attRange=1300,cost=300,attribute="A",eh=1,abil={"moon_glaive"},upgradeTo="AT01L03"},
+	AT01L03={dmgCoefficient=0.6,attSpe=1.6,attRange=1400,cost=700,attribute="A",eh=2,abil={"moon_glaive"},upgradeTo=nil},
+	--痛苦女王
+	AT02L01={dmgCoefficient=2,attSpe=1.5,attRange=900,cost=200,attribute="A",eh=1,abil={"resonance","resonance_dummy_hidden"},upgradeTo="AT02L02"},
+	AT02L02={dmgCoefficient=1.7,attSpe=1.5,attRange=900,cost=500,attribute="A",eh=1,abil={"resonance","resonance_dummy_hidden"},upgradeTo="AT02L03"},
+	AT02L03={dmgCoefficient=1.4,attSpe=1.5,attRange=900,cost=800,attribute="A",eh=2,abil={"resonance","resonance_dummy_hidden"},upgradeTo=nil},
+	--闪电幽魂
+	AT03L01={dmgCoefficient=0.9,attSpe=1.0,attRange=1000,cost=250,attribute="A",eh=1,abil={"ultra_voltage"},upgradeTo="AT03L02"},
+	AT03L02={dmgCoefficient=0.7,attSpe=1.0,attRange=1000,cost=500,attribute="A",eh=1,abil={"ultra_voltage"},upgradeTo="AT03L03"},
+	AT03L03={dmgCoefficient=0.6,attSpe=1.0,attRange=1000,cost=750,attribute="A",eh=2,abil={"ultra_voltage"},upgradeTo=nil},
+	--风行者
+	AT11L01={dmgCoefficient=1.2,attSpe=1.4,attRange=1500,cost=500,attribute="A",eh=2,abil={"wind_bleesing"},upgradeTo="AT11L02"},
+	AT11L02={dmgCoefficient=1,attSpe=1.4,attRange=1500,cost=1000,attribute="A",eh=3,abil={"wind_bleesing"},upgradeTo="AT11L03"},
+	AT11L03={dmgCoefficient=0.8,attSpe=1.4,attRange=1500,cost=1500,attribute="A",eh=4,abil={"wind_bleesing"},upgradeTo=nil},
+	--风暴之灵
+	AT12L01={dmgCoefficient=2.0,attSpe=1.2,attRange=1200,cost=1000,attribute="A",eh=3,abil={"storm_form","storm_form_dummy_hidden"},upgradeTo="AT12L02"},
+	AT12L02={dmgCoefficient=1.75,attSpe=1.2,attRange=1200,cost=2000,attribute="A",eh=4,abil={"storm_form","storm_form_dummy_hidden"},upgradeTo="AT12L03"},
+	AT12L03={dmgCoefficient=1.5,attSpe=1.2,attRange=1200,cost=3000,attribute="A",eh=5,abil={"storm_form","storm_form_dummy_hidden"},upgradeTo=nil},
 
-		AT12L11={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="A",eh=1,abil={"storm_form_e","storm_form_dummy_hidden","disable_move_hidden"},upgradeTo=nil},
-		--宙斯
-		AT13L01={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="A",eh=1,abil={"chain_lightling","chain_lightling_dummy_hidden"},upgradeTo="AT13L02"},
-		AT13L02={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="A",eh=1,abil={"chain_lightling","chain_lightling_dummy_hidden"},upgradeTo="AT13L03"},
-		AT13L03={minAttDmg=50,maxAttDmg=60,attSpe=1.5,attRange=800,cost=50,killBouns={},attribute="A",eh=1,abil={"chain_lightling","chain_lightling_dummy_hidden"},upgradeTo=nil},
+	AT12L11={dmgCoefficient=1.2,attSpe=1.1,attRange=1400,cost=3000+1000+2000+3000+250+500+750,attribute="A",eh=8,eh_needed=1,abil={"storm_form_e","storm_form_dummy_hidden"},upgradeTo=nil},
+	--宙斯
+	AT13L01={dmgCoefficient=1.6,attSpe=1.5,attRange=900,cost=900,attribute="A",eh=1,abil={"chain_lightling","chain_lightling_dummy_hidden"},upgradeTo="AT13L02"},
+	AT13L02={dmgCoefficient=1.4,attSpe=1.5,attRange=900,cost=1800,attribute="A",eh=1,abil={"chain_lightling","chain_lightling_dummy_hidden"},upgradeTo="AT13L03"},
+	AT13L03={dmgCoefficient=1.2,attSpe=1.5,attRange=900,cost=2400,attribute="A",eh=1,abil={"chain_lightling","chain_lightling_dummy_hidden"},upgradeTo=nil},
+}
+_G.EnemyType={
+	ARMY={amount=40,distance=1,lv=1},
+	NORMAL={amount=20,distance=2,lv=2},
+	ELITE={amount=5,distance=8,lv=8},
+	BOSS={amount=1,distance=1,lv=50},
+}
+_G.levelInfo={
+	{name="level01",hp=50,armor=0,magicRes=0,moveSpeed=350,hpRegen=1,abi={},baseGoldBounty=1,type="NORMAL"},
+	{name="level02",hp=100,armor=2,magicRes=0,moveSpeed=450,hpRegen=2,abi={},baseGoldBounty=1,type="NORMAL"},
+	{name="level03",hp=200,armor=5,magicRes=0,moveSpeed=390,hpRegen=4,abi={},baseGoldBounty=1,type="NORMAL"},
+	{name="level04",hp=300,armor=8,magicRes=0,moveSpeed=340,hpRegen=10,abi={},baseGoldBounty=1,type="NORMAL"},
+	{name="level05",hp=1000,armor=20,magicRes=50,moveSpeed=270,hpRegen=1,abi={},baseGoldBounty=1,type="ELITE"},
+	{name="level06",hp=600,armor=5,magicRes=0,moveSpeed=430,hpRegen=8,abi={},baseGoldBounty=1,type="ARMY"},
+	{name="level07",hp=900,armor=10,magicRes=0,moveSpeed=410,hpRegen=12,abi={},baseGoldBounty=1,type="NORMAL"},
+	{name="level08",hp=1200,armor=12,magicRes=20,moveSpeed=380,hpRegen=10,abi={},baseGoldBounty=1,type="NORMAL"},
+	{name="level09",hp=2000,armor=25,magicRes=40,moveSpeed=350,hpRegen=20,abi={},baseGoldBounty=1,type="ELITE"},
+	{name="level10",hp=5000,armor=40,magicRes=100,moveSpeed=400,hpRegen=25,abi={"enemy_magic_immune"},baseGoldBounty=1,type="BOSS"},
+	{name="level11",hp=1200,armor=10,magicRes=40,moveSpeed=500,hpRegen=14,abi={},baseGoldBounty=1,type="ARMY"},
+	{name="level12",hp=2500,armor=20,magicRes=0,moveSpeed=400,hpRegen=10,abi={},baseGoldBounty=1,type="NORMAL"},
+	{name="level13",hp=4700,armor=30,magicRes=0,moveSpeed=300,hpRegen=50,abi={},baseGoldBounty=1,type="ELITE"},
+	{name="level14",hp=3500,armor=20,magicRes=75,moveSpeed=300,hpRegen=20,abi={},baseGoldBounty=1,type="NORMAL"},
+	{name="level15",hp=6400,armor=30,magicRes=75,moveSpeed=250,hpRegen=30,abi={},baseGoldBounty=1,type="ELITE"},
+	{name="level16",hp=4200,armor=60,magicRes=100,moveSpeed=420,hpRegen=0,abi={"enemy_magic_immune"},baseGoldBounty=1,type="NORMAL"},
+	{name="level17",hp=4500,armor=0,magicRes=0,moveSpeed=550,hpRegen=10,abi={},baseGoldBounty=1,type="ARMY"},
+	{name="level18",hp=5000,armor=40,magicRes=75,moveSpeed=530,hpRegen=20,abi={},baseGoldBounty=1,type="NORMAL"},
+	{name="level19",hp=12000,armor=100,magicRes=20,moveSpeed=300,hpRegen=50,abi={},baseGoldBounty=1,type="ELITE"},
+	{name="level20",hp=30000,armor=200,magicRes=100,moveSpeed=270,hpRegen=100,abi={},baseGoldBounty=1,type="BOSS"},
+	{name="level21",hp=13000,armor=120,magicRes=10,moveSpeed=380,hpRegen=40,abi={},baseGoldBounty=1,type="NORMAL"},
+	{name="level22",hp=25000,armor=10,magicRes=20,moveSpeed=400,hpRegen=2000,abi={},baseGoldBounty=1,type="NORMAL"},
+	{name="level23",hp=17000,armor=90,magicRes=50,moveSpeed=550,hpRegen=0,abi={},baseGoldBounty=1,type="NORMAL"},
+	{name="level24",hp=16000,armor=70,magicRes=100,moveSpeed=340,hpRegen=20,abi={"enemy_magic_immune"},baseGoldBounty=1,type="NORMAL"},
+	{name="level25",hp=40000,armor=150,magicRes=100,moveSpeed=400,hpRegen=100,abi={},baseGoldBounty=1,type="ELITE"},
+	{name="level26",hp=20000,armor=120,magicRes=0,moveSpeed=480,hpRegen=80,abi={},baseGoldBounty=1,type="ARMY"},
+	{name="level27",hp=35000,armor=100,magicRes=0,moveSpeed=300,hpRegen=20,abi={},baseGoldBounty=1,type="NORMAL"},
+	{name="level28",hp=30000,armor=80,magicRes=100,moveSpeed=380,hpRegen=40,abi={},baseGoldBounty=1,type="NORMAL"},
+	{name="level29",hp=50000,armor=220,magicRes=40,moveSpeed=250,hpRegen=400,abi={},baseGoldBounty=1,type="ELITE"},
+	{name="level30",hp=80000,armor=400,magicRes=100,moveSpeed=300,hpRegen=1,abi={"enemy_magic_immune"},baseGoldBounty=1,type="BOSS"},
+	{name="level31",hp=46000,armor=120,magicRes=30,moveSpeed=300,hpRegen=500,abi={},baseGoldBounty=1,type="NORMAL"},
+	{name="level32",hp=50000,armor=150,magicRes=0,moveSpeed=520,hpRegen=20,abi={},baseGoldBounty=1,type="NORMAL"},
+	{name="level33",hp=60000,armor=280,magicRes=0,moveSpeed=440,hpRegen=100,abi={},baseGoldBounty=1,type="NORMAL"},
+	{name="level34",hp=62000,armor=1000,magicRes=-50,moveSpeed=300,hpRegen=0,abi={},baseGoldBounty=1,type="NORMAL"},
+	{name="level35",hp=80000,armor=500,magicRes=70,moveSpeed=250,hpRegen=1000,abi={},baseGoldBounty=1,type="ELITE"},
+	{name="level36",hp=60000,armor=100,magicRes=20,moveSpeed=550,hpRegen=10,abi={"enemy_move_speed_constant"},baseGoldBounty=1,type="ARMY"},
+	{name="level37",hp=70000,armor=200,magicRes=0,moveSpeed=400,hpRegen=800,abi={"enemy_move_speed_constant"},baseGoldBounty=1,type="NORMAL"},
+	{name="level38",hp=80000,armor=800,magicRes=70,moveSpeed=450,hpRegen=0,abi={"enemy_move_speed_constant"},baseGoldBounty=1,type="ELITE"},
+	{name="level39",hp=90000,armor=1000,magicRes=80,moveSpeed=400,hpRegen=1400,abi={"enemy_move_speed_constant"},baseGoldBounty=1,type="ELITE"},
+	{name="level40",hp=200000,armor=2000,magicRes=50,moveSpeed=350,hpRegen=2000,abi={},baseGoldBounty=1,type="BOSS"},
+}
 
-	}
-	_G.levelInfo={
-		{name="level01",hp=101,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=2,amount=2,distance=2,lv=50},
-		{name="level02",hp=102,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=2,distance=2,lv=50},
-		{name="level03",hp=103,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=2,distance=2,lv=50},
-		{name="level04",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=2,distance=2,lv=50},
-		{name="level05",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=2,distance=2,lv=50},
-		{name="level06",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=2,distance=2,lv=50},
-		{name="level07",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=2,distance=2,lv=50},
-		{name="level08",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=2,distance=2,lv=50},
-		{name="level09",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2,lv=50},
-		{name="level10",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2,lv=50},
-		{name="level11",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2,lv=50},
-		{name="level12",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2,lv=50},
-		{name="level13",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2,lv=50},
-		{name="level14",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2,lv=50},
-		{name="level15",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2,lv=50},
-		{name="level16",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2,lv=50},
-		{name="level17",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2,lv=50},
-		{name="level18",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2,lv=50},
-		{name="level19",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2,lv=50},
-		{name="level20",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2,lv=50},
-		{name="level21",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2,lv=50},
-		{name="level22",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2,lv=50},
-		{name="level23",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2,lv=50},
-		{name="level24",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2,lv=50},
-		{name="level25",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2,lv=50},
-		{name="level26",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2,lv=50},
-		{name="level27",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2,lv=50},
-		{name="level28",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2,lv=50},
-		{name="level29",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2,lv=50},
-		{name="level30",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2,lv=50},
-		{name="level31",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2,lv=50},
-		{name="level32",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2,lv=50},
-		{name="level33",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2,lv=50},
-		{name="level34",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2,lv=50},
-		{name="level35",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2,lv=50},
-		{name="level36",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2,lv=50},
-		{name="level37",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2,lv=50},
-		{name="level38",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2,lv=50},
-		{name="level39",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2,lv=50},
-		{name="level40",hp=100,armor=0,magicRes=0,magicImmune=false,moveSpeed=300,hpRegen=1,dmg=1,abi={},baseGoldBounty=0,amount=20,distance=2,lv=50},
-	}
-
-
-function SetDifficulty(index,keys)
-	vote[keys.PlayerID]=keys.data
-	local count={0,0,0}
-	for i=0,#vote do
-		if vote[i]==0 then
-			count[1]=count[1]+1
-		elseif vote[i]==1 then
-			count[2]=count[2]+1
-		elseif vote[i]==2 then
-			count[3]=count[3]+1
-		end
-	end
-	local ma=0
-	local currdif=0
-	for i=1,3 do
-		if (count[i]>ma) then
-			ma=count[i];
-			currdif=i-1;
-		end
-	end
-	CustomGameEventManager:Send_ServerToAllClients("CurrentDifficulty",{diff=currdif})
-	
-	DIFFICULTY=currdif
-	if DIFFICULTY==0 then
-		REFUND=1
-	elseif DIFFICULTY==1 then
-		REFUND=0.9
-	elseif DIFFICULTY==2 then
-		REFUND=0.6
-	end
-end
+_G.HeroAbility={
+	"hero_special_earth_lv1_blessing",
+	"hero_special_water_lv1_blessing",
+	"hero_special_fire_lv1_blessing",
+	"hero_special_air_lv1_blessing",
+	"hero_special_earth_lv2_blessing",
+	"hero_special_water_lv2_blessing",
+	"hero_special_fire_lv2_blessing",
+	"hero_special_air_lv2_blessing",
+	"hero_special_earth_lv2_core_guard",
+	"hero_special_absolute_zero",
+	"hero_special_flame_outbrust",
+	"hero_special_tornado",
+	"hero_special_flame_outbrust",
+}

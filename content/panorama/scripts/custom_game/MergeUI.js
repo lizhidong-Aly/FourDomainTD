@@ -35,6 +35,7 @@ function MergeMode(){
 	}else{
 		isOnMergeMoed=false;
 		$.DispatchEvent( "DOTAHideTitleTextTooltip");
+		$.DispatchEvent( "DOTAHideTextTooltip")
 	}
 }
 
@@ -82,7 +83,10 @@ function SetMergeInfo(data){
 		}
 		des = "";
 		des=des + $.Localize( "#TowerDesA" ) + attri ;
-		des=des + $.Localize( "#MergeDesA" ) + "<font color='gold'>" + cost + "</font>" ;
+		des=des + $.Localize( "#MergeDesA" ) + "<font color='gold'>" + cost + "</font>" 
+		if(data.eh_needed!=null){
+			des=des+"&" +MakeTextColor(data.eh_needed,"#b72cff")
+		}
 		des=des + $.Localize( "#TowerDesC" ) + data.dmg;
 		des=des + $.Localize( "#TowerDesD" ) + Math.round(data.spe*100)/100;
 		des=des + $.Localize( "#TowerDesE" ) + data.range;
@@ -103,7 +107,7 @@ function SetMergeInfo(data){
 		mark.style.x=cursor[0];
 		mark.style.y=cursor[1];
 		tittle=$.Localize( "#CanNotMerge" )
-		$.DispatchEvent( "DOTAShowTitleTextTooltip",mark,tittle,des);
+		$.DispatchEvent( "DOTAShowTextTooltip",mark,tittle);
 	}
 }
 
@@ -133,6 +137,10 @@ function GetPercPos(){
 	cPos[0]=Math.round((cPos[0])/Game.GetScreenWidth()*1000)/10+"%";
 	cPos[1]=Math.round((cPos[1])/(Game.GetScreenHeight())*1000)/10+"%";
 	return cPos;
+}
+
+function MakeTextColor(text,color){
+	return "<font color='"+color+"'>"+text+"</font>";
 }
 
 (function()

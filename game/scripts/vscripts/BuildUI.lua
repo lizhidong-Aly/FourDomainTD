@@ -10,26 +10,31 @@ end
 
 function SendTowerInfo(index,keys)
 	local tname=keys.type
+	local tInfo=_G.TowerInfo[tname]
 	if tname=="none" then
 		CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.PlayerID),"MergeTargetInfoSent",{none=true})
 		return
 	end
 	local abilities={}
-	for i,v in ipairs(_G.TowerInfo[tname].abil) do 
+	for i,v in ipairs(tInfo.abil) do 
 		if string.find(v,"hidden")==nil then
 			table.insert(abilities, v)
 		end
 	end
+	local avgDmg=tInfo.dmgCoefficient*tInfo.cost
+	local maxDmg=math.floor(avgDmg*1.15)
+	local minDmg=math.ceil(avgDmg*0.85)
 	local info=
 		{
 			aname=abilities,
-			attri=_G.TowerInfo[tname].attribute,
+			attri=tInfo.attribute,
 			name=tname,
-			cost=_G.TowerInfo[tname].cost,
-			dmg=_G.TowerInfo[tname].minAttDmg.."-".._G.TowerInfo[tname].maxAttDmg,
-			range=_G.TowerInfo[tname].attRange,
-			spe=_G.TowerInfo[tname].attSpe,
-			eh=_G.TowerInfo[tname].eh,
+			cost=tInfo.cost,
+			dmg=minDmg.."-"..maxDmg,
+			range=tInfo.attRange,
+			spe=tInfo.attSpe,
+			eh=tInfo.eh,
+			eh_needed=tInfo.eh_needed,
 			entry=keys.entry
 		}
 	if keys.entry=="Merge" then
@@ -107,11 +112,12 @@ function BuildTest(keys)
 	base:SetOwner(hero)
 	base:SetUnitName(tb)
 	base:SetDeathXP(cost)
+	base:AddNewModifier(nil, nil, "modifier_rooted", {duration=-1})
 	local buildabi=base:FindAbilityByName("BuildTower")
 	base:SetThink(function() 
-			base:CastAbilityNoTarget(buildabi, playerid)
-			return nil 
-		end)
+		base:CastAbilityNoTarget(buildabi, playerid)
+		return nil 
+	end)
 end
 
 function RefundBuildCost(keys)
@@ -137,10 +143,7 @@ end
 function ReturnUpgradeCost(keys)
 	local tower=keys.caster:ToTower()
 	tower:ReturnUpgradeCost()
-
 end
-
-
 ----------------------------------------------------------------Sell Tower----------------------------------------------------------------
 function SellTower(keys)
 	local t=keys.caster:ToTower()

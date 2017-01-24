@@ -38,14 +38,14 @@ function SynchronizeTimer(data){
 	if(data.reset){
 		DELAY=data.delay+1;
 		spawn_timer=data.delay+1;
-		lvNo=data.lvNo+1;
+		lvNo=data.lvNo;
 	}else{
 		spawn_timer-=1;
 	}
 }
 
 function ShowStartMsg(){
-	$("#start_msg").text="第"+lvNo+"波";
+	$("#start_msg").text=$.Localize( "#wave_alert_prefix" )+lvNo+$.Localize( "#wave_alert_suffix" );
 	Game.EmitSound("ui.npe_objective_complete");
 	$.GetContextPanel().SetHasClass("Show", true);
 	$.Schedule(2,function(){

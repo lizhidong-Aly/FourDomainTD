@@ -11,8 +11,10 @@
 	width:31%;
 	height: 90%;
 	flow-children:right;
+    tooltip-position:top;
+    tooltip-body-position:50% 50%;
 }
-#Gold{
+#gold{
 	margin-left: 4%;
 }
 .defultStyle{

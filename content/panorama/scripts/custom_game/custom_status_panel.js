@@ -6,51 +6,140 @@ function UpdateData(data){
 	var panel=$.GetContextPanel().FindChildTraverse("CustomTowerInfoPanel")
 	if(panel!=null && panel.visible){
 		var u =Players.GetLocalPlayerPortraitUnit();
-		info.minDmg=Entities.GetDamageMin(u);
-		info.maxDmg=Entities.GetDamageMax(u);
-		info.extraDmg=Entities.GetDamageBonus(u);
-		var aveDmg=(info.minDmg+info.maxDmg)/2+info.extraDmg;
-		info.spe=Entities.GetAttackSpeed(u);
-		info.range=Entities.GetAttackRange(u);
-		$("#dmg_data").text=aveDmg;
-		$("#spe_data").text=Math.round(info.spe*100);
-		$("#range_data").text=info.range;
-		$("#cost_data").text=data.totalcost;
-		$("#upcost_data").text=data.upcost;
-		$("#attribute_data").text=data.attribute;
+		if(Entities.IsEnemy(u)){
+			info.armor=Entities.GetPhysicalArmorValue(u);
+			info.magicArmor=Math.round(Entities.GetMagicalArmorValue(u)*100);
+			info.moveSpe=Math.round(data.movSpe)
+			info.changeOnMoveSpe=info.moveSpe-info.baseMovSpe;
+			info.armorChange=Entities.GetBonusPhysicalArmor(u);
+			info.resistancePhy=Math.round(Entities.GetArmorReductionForDamageType(u,DAMAGE_TYPES.DAMAGE_TYPE_PHYSICAL)*100)
+			SetStatusMode("def");
+			$("#label_a_data").text=info.armor;
+			$("#label_b_data").text=info.magicArmor+"%";
+			$("#label_c_data").text=info.moveSpe;
+		}else if(Entities.GetAbilityByName(u,"base_passive")!=-1 || !Entities.IsControllableByAnyPlayer(u)){
+			SetStatusMode("att");
+			$("#label_a_data").text=0;
+			$("#label_b_data").text=0;
+			$("#label_c_data").text=0;	
+		}else{
+			SetStatusMode("att");
+			info.minDmg=Entities.GetDamageMin(u);
+			info.maxDmg=Entities.GetDamageMax(u);
+			info.extraDmg=Entities.GetDamageBonus(u);
+			info.spe=Entities.GetAttackSpeed(u);
+			info.range=Entities.GetAttackRange(u);
+			info.rangeChange=info.range-info.baseRange;
+			$("#label_a_data").text=(info.minDmg+info.maxDmg)/2+info.extraDmg;
+			$("#label_b_data").text=Math.round(info.spe*100);
+			$("#label_c_data").text=info.range;
+		}
+			$("#cost_data").text=info.totalcost;
+			$("#upcost_data").text=info.upcost_gold;
+			if(info.upcost=="N/A"){
+				$("#upcost_data").text="N/A"
+			}
+			$("#attribute_data").text=DecodeAttribute(info.attribute);
 		//$.Msg(Entities.IsOwnedByAnyPlayer( u ))
 	}
 }
 
+function DecodeAttribute(attribute){
+	var text='';
+	for(var i=0;i<attribute.length;i++){
+		text=text+$.Localize( "#"+attribute[i] );
+		if(i<attribute.length-1){
+			text=text+"-";
+		}
+	}
+	return text;
+}
+
 function ShowDetailedInfo(data){
 	var des=null;
-	var tittle='详细属性';
+	var tittle=$.Localize( "#status_detail" );
 	var context=$.GetContextPanel().FindChildTraverse("TowerDmgInfo");
 	var u =Players.GetLocalPlayerPortraitUnit();
 	if(info!=null){
 		if(data=="a"){
-			des=' 攻击力:'+info.minDmg+'-'+info.maxDmg;
-			if(info.extraDmg>1){
-				des=des+'('+'+'+info.extraDmg+')';
+			var u =Players.GetLocalPlayerPortraitUnit();
+			if(Entities.IsEnemy(u)){
+				des=$.Localize( "#status_armor" )+MakeTextColor((info.armor-info.armorChange),"white");
+				if(info.armorChange>0){
+					des=des+"("+MakeTextColor("+"+info.armorChange,"green")+")";
+				}else if(info.armorChange<0){
+					des=des+"("+MakeTextColor(info.armorChange,"red")+")"
+				}
+				des=des+'<br>'+$.Localize( "#status_resistance_phy" )+MakeTextColor(info.resistancePhy+"%","white");
+				des=des+'<br>'+$.Localize( "#status_magic_armor" )+MakeTextColor(info.magicArmor+"%","white");
+				des=des+'<br>'+$.Localize( "#status_movespe" )+MakeTextColor(info.baseMovSpe,"white");
+				if(info.changeOnMoveSpe>0){
+					des=des+"("+MakeTextColor("+"+info.changeOnMoveSpe,"green")+")";
+				}else if(info.changeOnMoveSpe<0){
+					des=des+"("+MakeTextColor(info.changeOnMoveSpe,"red")+")"
+				}
+			}else if(Entities.GetAbilityByName(u,"base_passive")!=-1 || !Entities.IsControllableByAnyPlayer(u)){
+				des=$.Localize( "#status_dmage" )+MakeTextColor(0,"white");
+				des=des+'<br>'+$.Localize( "#status_speed" )+MakeTextColor(0,"white");
+				des=des+'<br>'+$.Localize( "#status_range" )+MakeTextColor(0,"white");
 			}
-			var attInterval=Math.round((info.bat/info.spe)*100)/100
-			des=des+'<br>'+'攻击速度:'+Math.round(info.spe*100)+'('+attInterval+'秒攻击一次'+')';
-			des=des+'<br>'+'射程:'+info.range;
-			$.DispatchEvent( "DOTAShowTitleTextTooltip", context, tittle,des);
+			else{
+				des=$.Localize( "#status_dmage" )+MakeTextColor(info.minDmg+'-'+info.maxDmg,"white");
+				if(info.extraDmg>0){
+					des=des+"("+MakeTextColor("+"+info.extraDmg,"green")+")";
+				}else if(info.extraDmg<0){
+					des=des+"("+MakeTextColor(info.extraDmg,"red")+")"
+				}
+				var attInterval=Math.round((info.bat/info.spe)*100)/100
+				var spedes=MakeTextColor(Math.round(info.spe*100),"white")+'('+MakeTextColor(attInterval+$.Localize( "#status_speed_suffix" ),"white")+')'
+				des=des+'<br>'+$.Localize( "#status_speed" )+spedes;
+				des=des+'<br>'+$.Localize( "#status_range" )+MakeTextColor(info.baseRange,"white");
+				if(info.rangeChange>0){
+					des=des+"("+MakeTextColor("+"+info.rangeChange,"green")+")";
+				}else if(info.rangeChange<0){
+					des=des+"("+MakeTextColor(info.rangeChange,"red")+")"
+				}
+			}
+			$.DispatchEvent( "DOTAShowTitleTextTooltip", $("#TowerDmgInfo"), tittle,des);
 		}else{
 			context=$.GetContextPanel().FindChildTraverse("TowerCostInfo");
-			des='总计花费:'+info.totalcost;
-			des=des+'<br>'+'升级需要:'+info.upcost;
-			des=des+'<br>'+'水晶占用:'+info.eh;
-			des=des+'<br>'+'属性:'+info.attribute;
-			$.DispatchEvent( "DOTAShowTitleTextTooltip", context, tittle,des);
+			des=$.Localize( "#status_total_cost" )+MakeTextColor(info.totalcost,"gold");
+			des=des+'<br>'+$.Localize( "#status_up_cost" )
+			if(info.upcost=="N/A"){
+				des=des+"N/A"
+			}
+			else{
+				des=des+MakeTextColor(info.upcost_gold,"gold");
+				if(info.upcost_eh!=0){
+					des=des+"&"+MakeTextColor(info.upcost_eh,"#b72cff")
+				}
+			}
+			des=des+'<br>'+$.Localize( "#status_crystal_used" )+MakeTextColor(info.eh,"#b72cff");
+			des=des+'<br>'+$.Localize( "#status_attribute" )+DecodeAttribute(info.attribute);
+			$.DispatchEvent( "DOTAShowTitleTextTooltip", $("#TowerCostInfo"), tittle,des);
 		}
+	}
+}
+
+function SetStatusMode(mode){
+	if(mode=="def"){
+		$("#status_label_a").text=$.Localize("#status_armor");
+		$("#status_label_b").text=$.Localize("#status_magic_armor");
+		$("#status_label_c").text=$.Localize("#status_movespe");
+	}else{
+		$("#status_label_a").text=$.Localize("#status_dmage");
+		$("#status_label_b").text=$.Localize("#status_speed");
+		$("#status_label_c").text=$.Localize("#status_range");
 	}
 }
 
 function HideToolTips(){
 	//GameEvents.SendCustomGameEventToServer( "ClearAttackRange", {} );
 	$.DispatchEvent( "DOTAHideTitleTextTooltip");
+}
+
+function MakeTextColor(text,color){
+	return "<font color='"+color+"'>"+text+"</font>";
 }
 
 (function()

@@ -21,21 +21,12 @@ function SetTowerInfo(data){
 	var type =data.name;
 	var button = $("#"+ type );
 	tittle = $.Localize( "#Summon" )+$.Localize( "#"+type );
-	var attri="";
-	for(var i=0;i<data.attri.length;i++){
-		attri=attri+$.Localize( "#"+data.attri[i] );
-		if(i<data.attri.length-1){
-			attri=attri+"-";
-		}
-		
-	}
-
 	des = "";
 	if (!$("#TowerLocker").BHasClass("enable")){
 		des=des + $.Localize( "#TowerLocked" );
 	}
-	des=des + $.Localize( "#TowerDesA" ) + attri ;
-	des=des + $.Localize( "#TowerDesB" )+ "<font color='gold'> " + data.cost + " </font>黄金 以及" + "<font color='green'> " + data.eh + " </font>水晶";
+	des=des + $.Localize( "#TowerDesA" ) + DecodeAttribute(data.attri) ;
+	des=des + $.Localize( "#TowerDesB" )+ "<font color='gold'> " + data.cost + " </font>黄金 以及" + "<font color='#b72cff'> " + data.eh + " </font>水晶";
 	$("#GoldCost").text=data.cost;
 	des=des + $.Localize( "#TowerDesC" ) + data.dmg;
 	des=des + $.Localize( "#TowerDesD" ) + Math.round(data.spe*100)/100;
@@ -47,6 +38,17 @@ function SetTowerInfo(data){
 				des=des+"<br>";
 			}
 		}
+}
+
+function DecodeAttribute(attribute){
+	var text='';
+	for(var i=0;i<attribute.length;i++){
+		text=text+$.Localize( "#"+attribute[i] );
+		if(i<attribute.length-1){
+			text=text+"-";
+		}
+	}
+	return text;
 }
 
 function BuildTower(name) {

@@ -18,16 +18,17 @@ function TdPlayer:InitPlayer(pid)
 	local self = PlayerResource:GetPlayer(pid)
 	setmetatable(self,TdPlayer)
 	_G.Player[pid]=self
-	self.UnitSpawner=UnitSpawner:new("Earth",pid)
+	self.UnitSpawner=UnitSpawner:new(pid)
 	self.pid=pid
 	self:InitHero()
 	self:InitTechTree()
 	CustomGameEventManager:RegisterListener( "SendCurrentPortraitUnit", UpdateCurrentPortraitUnit )
-	Timers:CreateTimer(function()
-      	self:UpdateUI()
-      	return 1/30
-    end
-  	)
+  	Timers:CreateTimer({
+   		useGameTime = false,
+    	callback = function()
+	      	self:UpdateUI()
+	      	return 1/30
+    	end})
 	return self
 end
 
@@ -65,28 +66,39 @@ function TdPlayer:UpdateUI()
 ------------------------------------------------------------------------------------------------------------
 		local tInfo={
 					totalcost=0,
-					attribute=0,
-					upcost=0,
+					attribute="N",
+					upcost="N/A",
 					bat=0,
 					eh=0,
 					energy=0,
+					baseRange=0,
 				}
 -----------------------Unit is Tower--------------------------------------------------------
-		if unit~=nil and _G.TowerInfo[unit:GetUnitName()]~=nil then
-			local tower=unit:ToTower()
-			if tower~=nil then
-				tInfo={
-						totalcost=tower.totalCost,
-						attribute=_G.TowerInfo[tower.name].attribute,
-						bat=tower:GetBaseAttackTime(),
-						eh=tower.eh,
-						energy=tower.energy,
-					}
-				if _G.TowerInfo[tower.name].upgradeTo~=nil then
-					tInfo.upcost=_G.TowerInfo[_G.TowerInfo[tower.name].upgradeTo].cost
-				else
-					tInfo.upcost="N/A"
+		if unit~=nil then
+			if unit:IsTower() then
+				local tower=unit:ToTower()
+				if tower~=nil then
+					tInfo={
+							totalcost=tower.totalCost,
+							attribute=_G.TowerInfo[tower.name].attribute,
+							bat=tower:GetBaseAttackTime(),
+							eh=tower.eh,
+							energy=tower.energy,
+							baseRange=_G.TowerInfo[tower.name].attRange,
+						}
+					if _G.TowerInfo[tower.name].upgradeTo~=nil then
+						tInfo.upcost_gold=_G.TowerInfo[_G.TowerInfo[tower.name].upgradeTo].cost
+						local changeOnEH=_G.TowerInfo[tower.nl].eh-tower.eh
+						tInfo.upcost_eh=changeOnEH
+					else
+						tInfo.upcost="N/A"
+					end
 				end
+			else
+				tInfo.baseMovSpe=unit:GetBaseMoveSpeed()
+				tInfo.movSpe=unit:GetMoveSpeedModifier(tInfo.baseMovSpe)
+				tInfo.baseRange=unit:GetAttackRange()
+				tInfo.bat=unit:GetBaseAttackTime()
 			end
 		end
 -------------------------------------------------------------------------------------------------
@@ -97,6 +109,12 @@ end
 
 function TdPlayer:InitHero()
 	local hero=self:GetAssignedHero()
+	hero:SetOrigin(Vector((self.UnitSpawner.pos[1]/2),(self.UnitSpawner.pos[2]/2),256))
+	PlayerResource:SetCameraTarget(self.pid,hero)
+	Timers:CreateTimer(0.5, function()
+    	PlayerResource:SetCameraTarget(self.pid,nil)
+    end
+  	)
 	hero:SetMoveCapability(DOTA_UNIT_CAP_MOVE_FLY)
 	hero:SetAttackCapability(DOTA_UNIT_CAP_NO_ATTACK)
 	hero:SetBaseStrength(0)
@@ -106,7 +124,7 @@ function TdPlayer:InitHero()
 	--hero:SetMana(200)
 	hero:SetBaseMoveSpeed(550)
 	hero:AddItemByName('item_blink')
-	for i=0,hero:GetAbilityCount() do
+	for i=0,12 do
 		local ability = hero:GetAbilityByIndex(i)
 		if ability~=nil then
 			hero:RemoveAbility(ability:GetAbilityName())
@@ -116,7 +134,9 @@ function TdPlayer:InitHero()
 		'OpenBuildingMenu',
 		'OpenTechMenu',
 		'SelectPosition',
-		--'',
+		'element_seal_1',
+		'element_seal_2',
+		'element_seal_3',
 	}
 	for i,v in pairs(abiList) do 
 		hero:AddAbility(v):SetLevel(1)

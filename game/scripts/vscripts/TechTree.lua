@@ -134,7 +134,7 @@ function TechTree:GetAllTowerByLabel(label)
 	if not (alltower==nil) then
 		for i,v in pairs(alltower) do
 			if not v:IsNull() then
-				if not (string.find(v:GetUnitLabel(),label)==nil) then
+				if not (string.find(v.attribute,label)==nil) then
 					print("PlyarID:"..pid.."     GetAllTowerByName work:   "..v:GetUnitLabel())
 					table.insert(t,v)
 				end

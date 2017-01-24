@@ -19,11 +19,9 @@
     tooltip-body-position:50% 50%;
 }
 .defultStyle{
-    font-size: 14px;
+    font-size: 13px;
 	letter-spacing: 1px;
     color: #eeeeee;
-	margin-left: 4px;
-	margin-right: 4px;
 	text-align: left;
 	vertical-align: center;
 }

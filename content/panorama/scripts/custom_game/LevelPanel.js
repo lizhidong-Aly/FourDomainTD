@@ -6,7 +6,7 @@ var rankInfo = [
 {name:"rank_legend",low:750,high:99999,color:"orange"},
 ];
 var e=0;
-var rank_global=0;
+var rank_current=0;
 function RankUpdate(data){
 	e=data.energy;
 	for(var i in rankInfo){
@@ -18,7 +18,7 @@ function RankUpdate(data){
 				$("#low_name").style.color=rankInfo[i-1].color;
 				$("#high_name").style.color=rank.color;
 				$("#energy_bar").style.height="44%";
-				rank_global=i;
+				rank_current=i;
 			}else{
 				$("#low_name").text=$.Localize(rank.name);
 				$("#high_name").text=$.Localize(rankInfo[i-1+2].name);
@@ -26,29 +26,35 @@ function RankUpdate(data){
 				$("#high_name").style.color="grey";
 				var height=Math.round(((e-(rank.low))/rank.high)*440)/10;
 				$("#energy_bar").style.height=height+"%";
-				rank_global=i;
+				rank_current=i;
 			}
 		}
 	}
 }
 
 function ShowRanKDetail(){
-	$.Msg("123")
-	var title="等阶";
+	var title=$.Localize( "#rank" );
 	var des="";
-	des="当前等阶:"+$("#low_name").text;
-	des=des+"<br>"+"下一等阶:"+$("#high_name").text;
-	des=des+"<br>"+"还需:"+(e-rankInfo[rank_global].low)+"/"+rankInfo[rank_global].high;
-	if(rank_global==3){
-	des="当前等阶:"+$("#high_name").text;
-	des=des+"<br>"+"下一等阶:"+"无";
-	des=des+"<br>"+"还需:"+"750"+"/"+"750";	
+	if(rank_current==3){
+		des=$.Localize( "#rank_current" )+MakeTextColor($("#high_name").text,rankInfo[rank_current].color);
+		des=des+"<br>"+$.Localize( "#rank_next" )+$.Localize("#rank_none");
+		des=des+"<br>"+$.Localize( "#rank_needed" )+MakeTextColor(e-250,"white")+"/"+MakeTextColor("500","white");
+		des=des+"<br>"+$.Localize( "#rank_help" )
+	}else{
+		des=$.Localize( "#rank_current" )+MakeTextColor($("#low_name").text,rankInfo[rank_current].color);
+		des=des+"<br>"+$.Localize( "#rank_next" )+MakeTextColor($("#high_name").text,rankInfo[rank_current-1+2].color);
+		des=des+"<br>"+$.Localize( "#rank_needed" )+MakeTextColor((e-rankInfo[rank_current].low),"white")+"/"+MakeTextColor(rankInfo[rank_current].high,"white");
+		des=des+"<br>"+$.Localize( "#rank_help" )
 	}
 	$.DispatchEvent( "DOTAShowTitleTextTooltip", $.GetContextPanel(), title,des);
 }
 
 function HideRanKDetail(){
 	$.DispatchEvent( "DOTAHideTitleTextTooltip")
+}
+
+function MakeTextColor(text,color){
+	return "<font color='"+color+"'>"+text+"</font>";
 }
 
 (function()

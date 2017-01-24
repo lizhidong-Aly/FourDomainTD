@@ -6,34 +6,34 @@
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/custom_status_panel.js" />
 	</scripts>
-		<Panel hittest="false" html="true">
-			<Panel id="CustomTowerInfoPanel" hittest="false">
-				<Panel class="SubPanel" onmouseover="ShowDetailedInfo('a')" onmouseout="HideToolTips()" id="TowerDmgInfo" hittest="true">
-					<Panel class="StatusPanel" id="Dmg" hittest="false">
-						<Label class="defultStyle"	text="攻击力:"/>
-						<Label class="defultStyle data" id="dmg_data"	text="100"/>
+		<Panel  html="false">
+			<Panel id="CustomTowerInfoPanel"  html="true">
+				<Panel class="SubPanel" onmouseover="ShowDetailedInfo('a')" onmouseout="HideToolTips()" id="TowerDmgInfo">
+					<Panel class="StatusPanel" id="Dmg" >
+						<Label class="defultStyle" id="status_label_a"	text="#status_dmage"/>
+						<Label class="defultStyle data" id="label_a_data" html="true" text="100"/>
 					</Panel>
-					<Panel class="StatusPanel" id="Spe" hittest="false">
-						<Label class="defultStyle"	text="攻击速度:"/>
-						<Label class="defultStyle data" id="spe_data"	text="100"/>
+					<Panel class="StatusPanel" id="Spe" >
+						<Label class="defultStyle" id="status_label_b"	text="#status_speed"/>
+						<Label class="defultStyle data" id="label_b_data" html="true" text="100"/>
 					</Panel>
-					<Panel class="StatusPanel" id="Range" hittest="false">
-						<Label class="defultStyle"	text="射程:"/>
-						<Label class="defultStyle data" id="range_data"	text="100"/>
+					<Panel class="StatusPanel" id="Range" >
+						<Label class="defultStyle" id="status_label_c"	text="#status_range"/>
+						<Label class="defultStyle data" id="label_c_data" html="true" text="100"/>
 					</Panel>
 				</Panel>
-				<Panel class="SubPanel" id="TowerCostInfo" onmouseover="ShowDetailedInfo('b')"  onmouseout="HideToolTips()" hittest="true">
-					<Panel class="StatusPanel" id="TowalCost" hittest="false">
-						<Label class="defultStyle"	text="总花费:"/>
-						<Label class="defultStyle data" id="cost_data"	text="100"/>
+				<Panel class="SubPanel" id="TowerCostInfo" onmouseover="ShowDetailedInfo('b')"  onmouseout="HideToolTips()">
+					<Panel class="StatusPanel" id="TowalCost" >
+						<Label class="defultStyle" text="#status_total_cost"/>
+						<Label class="defultStyle data" id="cost_data" html="true" text="0"/>
 					</Panel>
-					<Panel class="StatusPanel" id="UpgradeCost" hittest="false">
-						<Label class="defultStyle"	text="升级花费:"/>
-						<Label class="defultStyle data" id="upcost_data"	text="100"/>
+					<Panel class="StatusPanel" id="UpgradeCost" >
+						<Label class="defultStyle" text="#status_up_cost"/>
+						<Label class="defultStyle data" id="upcost_data" html="true" text="0"/>
 					</Panel>
-					<Panel class="StatusPanel" id="Attribute" hittest="false">
-						<Label class="defultStyle" text="属性:"/>
-						<Label class="defultStyle data" id="attribute_data"	text="100"/>
+					<Panel class="StatusPanel" id="Attribute" >
+						<Label class="defultStyle" text="#status_attribute"/>
+						<Label class="defultStyle data" id="attribute_data" html="true" text="N"/>
 					</Panel>
 				</Panel>
 			</Panel>

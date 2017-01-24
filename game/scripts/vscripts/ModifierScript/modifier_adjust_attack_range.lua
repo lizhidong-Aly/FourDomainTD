@@ -1,0 +1,1 @@
+modifier_adjust_attack_range = class({})

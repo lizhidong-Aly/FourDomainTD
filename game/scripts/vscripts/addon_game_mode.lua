@@ -5,7 +5,6 @@ require ("TechUI")
 require ("Wave")
 require ("timers")
 require ("MergeUI")
-require	("SkillScript")
 require ("TdPlayer")
 if TDGameMode == nil then
         TDGameMode = class({})
@@ -60,6 +59,8 @@ function Activate()
 end
   
 function TDGameMode:InitGameMode()
+	--modifier_adjust_attack_range = class({})
+	--LinkLuaModifier( "ModifierScript/modifier_adjust_attack_range", LUA_MODIFIER_MOTION_NONE )
     print( "Four Domain TD is loaded." )
 	require("amhc_library/amhc")
 	AMHCInit()
@@ -74,31 +75,30 @@ function TDGameMode:InitGameMode()
 	CustomGameEventManager:RegisterListener( "Notifier_LocalizeEndMsg", Notifier_LocalizeEndMsg )
 	CustomGameEventManager:RegisterListener( "ClosedAllUI", ClosedAllUI )
 	CustomGameEventManager:RegisterListener( "DrawAttackRange", DrawAttackRange )
-	CustomGameEventManager:RegisterListener( "AdvanceTower", AdvanceTower )
     ListenToGameEvent("game_rules_state_change", Dynamic_Wrap(TDGameMode,"OnGameRulesStateChange"), self)
     ListenToGameEvent('player_disconnect', Dynamic_Wrap(TDGameMode, 'OnDisconnect'), self)
 	ListenToGameEvent("entity_killed", Dynamic_Wrap(TDGameMode, "OnEntityKilled"), self)
 	ListenToGameEvent("npc_spawned", Dynamic_Wrap(TDGameMode, "OnNPCSpawned"), self)
 	ListenToGameEvent("player_reconnected", Dynamic_Wrap(TDGameMode, 'OnPlayerReconnect'), self)
+
+	Convars:RegisterCommand( "TestComand_A", Dynamic_Wrap(TDGameMode, 'TestComand_A'), "Console Comand For Test", FCVAR_CHEAT )
 end
 
-function AdvanceTower(index,keys)
-	local tower=EntIndexToHScript(keys.tower):ToTower()
-	tower:Advance()
+function TDGameMode:TestComand_A()
+	print("****************TestComand_A****************")
+	--local kv=LoadKeyValues("scripts/npc/custom_tower.txt")
+	print(GetRandomSpecialAbility())
+	print("******************Test End******************")
 end
 
 function DrawAttackRange(index,keys)
 	DebugDrawClear()
-	if(keys.units~=nil) then
-		for i,v in pairs(keys.units) do
-			local unit=EntIndexToHScript(v)
-			if unit~=nil and _G.TowerInfo[unit:GetUnitName()]~=nil then
-				--Circle(Vector_1,Quaternion_2,float_3,int_4,int_5,int_6,int_7,bool_8,float_9)
-				DebugDrawCircle(unit:GetOrigin(), Vector(0,255,0),0, keys.range[i], true, -1)
-			end
+	if(keys.unit~=nil) then
+		local unit=EntIndexToHScript(keys.unit)
+		if unit~=nil and unit:IsAlive() and unit:IsTower() then
+			DebugDrawCircle(unit:GetOrigin(), Vector(0,255,0),0, keys.range, true, 0.1)
 		end
 	end
-	--DebugDrawSphere(self:GetOrigin(), Vector(0,255,0),0.1,1000,false,10)
 end
 
 function Notifier_LocalizeEndMsg(index,keys)
@@ -110,23 +110,6 @@ function ClosedAllUI(index,keys)
 	CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.PlayerID),"ClosedAllUI",{})
 end
 
-function TestMode()
-	print("Now On Test Mode")
-	--DeepPrintTable(CDOTA_BaseNPC)
-	local pos=Vector(1000,1000,128)
-	pos[1]=pos[1]+200
-	CreateUnitByName("TestOnly",pos,false,nil,nil,DOTA_TEAM_BADGUYS)
-	pos[2]=pos[2]+200
-	CreateUnitByName("TestOnly",pos,false,nil,nil,DOTA_TEAM_BADGUYS)
-	pos[2]=pos[2]-400
-	CreateUnitByName("TestOnly",pos,false,nil,nil,DOTA_TEAM_BADGUYS)
-end
-
-function PlayMode()
-    print("Now On Play Mode")
-    NextWave()
-end
-
 function RandomHeroSelection()
 	for i=0,3 do
 		local player = PlayerResource:GetPlayer(i)
@@ -136,21 +119,90 @@ function RandomHeroSelection()
 	end
 end
 
+function SetDifficulty(index,keys)
+	vote[keys.PlayerID+1]=keys.data
+	local count={0,0,0}
+	for i,v in pairs(vote) do
+		count[v]=count[v]+1
+	end
+	local currdif=1
+	local x=-1
+	for i=1,3 do
+		if count[i]>x then
+			x=count[i]
+			currdif=i
+		end
+	end
+	CustomGameEventManager:Send_ServerToAllClients("CurrentDifficulty",{diff=currdif})
+	DIFFICULTY=currdif
+	if DIFFICULTY==1 then
+		REFUND=1
+	elseif DIFFICULTY==2 then
+		REFUND=0.75
+	elseif DIFFICULTY==3 then
+		REFUND=0.5
+	end
+end
+
+
 function TDGameMode:OnGameRulesStateChange( keys )
     print("OnGameRulesStateChange")
     local newState = GameRules:State_Get()
     if newState==DOTA_GAMERULES_STATE_PRE_GAME then
     	InitMergeList()
 		InitFountain()
+		InitOutLands()
     end
     if newState==DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
     	if MODE==0 then
 			TestMode()
         end
    		if MODE==1 then
-        	PlayMode()
+        	NextWave()
         end
     end
+end
+
+function InitFountain()
+	_G.Fountain=Entities:FindByName(nil,"68_good_filler_1")
+	if Fountain==nil then
+		print("nil ent")
+	else
+		print("fountain init")
+		Fountain:SetTeam(DOTA_TEAM_GOODGUYS)
+		local modi=Fountain:FindAllModifiers()
+		for i,v in ipairs(modi) do
+			print(v:GetName())
+			v:Destroy()
+		end
+		Fountain:RemoveAbility("backdoor_protection_in_base")
+		Fountain:RemoveAbility("filler_ability")
+		Fountain:AddAbility("fountain_aura"):SetLevel(1)
+		Fountain:SetMaxHealth(100)
+		Fountain:SetHealth(100)
+		Fountain:SetModelScale(2)
+	end
+end
+
+function InitOutLands()
+	local pos=Vector(-4000,2000,256)
+	for i,v in ipairs(_G.levelInfo) do 
+		print("Create : "..i)
+		local u=UnitSpawner:CreateUnit(v,pos,nil)
+		print(u:GetUnitName())
+		pos[1]=pos[1]+128
+	end
+end
+
+function TestMode()
+	print("Now On Test Mode")
+	local pos=Vector(1000,1000,128)
+	pos[1]=pos[1]+200
+	CreateUnitByName("TestOnly",pos,false,nil,nil,DOTA_TEAM_BADGUYS)
+	pos[2]=pos[2]+200
+	CreateUnitByName("TestOnly",pos,false,nil,nil,DOTA_TEAM_BADGUYS)
+	pos[2]=pos[2]-400
+	CreateUnitByName("TestOnly",pos,false,nil,nil,DOTA_TEAM_BADGUYS)
 end
 
 function TDGameMode:OnDisconnect( keys )
@@ -192,7 +244,7 @@ function TDGameMode:OnEntityKilled( keys )
 	if u:GetTeamNumber()==DOTA_TEAM_BADGUYS and u:IsCreature() then
 	local attacker=EntIndexToHScript(keys.entindex_attacker)
 	if attacker:ToTower() ~=nil then
-		attacker:ModifyEnergy(u:GetLevel())
+		attacker:ModifyEnergy(u:GetLevel(),true)
 	end
 		IsEndOfCurrentWave()
 	end

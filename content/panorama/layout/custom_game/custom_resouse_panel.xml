@@ -6,19 +6,19 @@
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/custom_resouse_panel.js" />
 	</scripts>
-		<Panel hittest="false">
-			<Panel id="CustomrResouseInfoPanel" hittest="false">
-				<Panel class="SubPanel" id="Gold" hittest="false">
-					<Panel id="GoldIcon" hittest="false"/>
-					<Label class="defultStyle" id="gold_data" text="100"/>
+		<Panel hittest="false" html="true">
+			<Panel id="CustomrResouseInfoPanel">
+				<Panel class="SubPanel" id="gold"  onmouseover="ShowResourceHelp('gold')" onmouseout="HideResourceHelp()">
+					<Panel id="GoldIcon"/>
+					<Label class="defultStyle" id="gold_data"  html="true" text="0"/>
 				</Panel>
-				<Panel class="SubPanel" id="Essence" hittest="false">
-					<Panel id="EssencelIcon" hittest="false"/>
-					<Label class="defultStyle" id="essence_data" text="100"/>
+				<Panel class="SubPanel" id="essence"  onmouseover="ShowResourceHelp('essence')" onmouseout="HideResourceHelp()">
+					<Panel id="EssencelIcon"/>
+					<Label class="defultStyle" id="essence_data"  html="true" text="0"/>
 				</Panel>
-				<Panel class="SubPanel" id="Crystal" hittest="false">
-					<Panel id="CrystalIcon" hittest="false"/>
-					<Label class="defultStyle" id="crystal_data" text="10/12"/>
+				<Panel class="SubPanel" id="crystal"  onmouseover="ShowResourceHelp('crystal')" onmouseout="HideResourceHelp()">
+					<Panel id="CrystalIcon"/>
+					<Label class="defultStyle" id="crystal_data"  html="true" text="0/0"/>
 				</Panel>
 			</Panel>
 		</Panel>
