@@ -1,5 +1,6 @@
 
 TdPlayer={
+	hero=nil,
 	pid=nil,
 	eh_current=0,
 	eh_limit=INIT_EH_LIMIT,
@@ -8,6 +9,8 @@ TdPlayer={
 	TowerOwned={},
 	towerBuilding=nil,
 	CPU=nil,
+	all_units={},
+	isAbandoned=false,
 }
 CDOTAPlayer.__index=CDOTAPlayer
 TdPlayer.__index = TdPlayer
@@ -62,7 +65,7 @@ function TdPlayer:UpdateUI()
 			end
 		end
 		--DeepPrintTable(rInfo)
-		CustomGameEventManager:Send_ServerToPlayer( self, "UpdateResourceInfo", rInfo )
+		SendEventToPlayer(self.pid,"UpdateResourceInfo", rInfo )
 ------------------------------------------------------------------------------------------------------------
 		local tInfo={
 					totalcost=0,
@@ -72,6 +75,7 @@ function TdPlayer:UpdateUI()
 					eh=0,
 					energy=0,
 					baseRange=0,
+					fund_return=0,
 				}
 -----------------------Unit is Tower--------------------------------------------------------
 		if unit~=nil then
@@ -85,6 +89,7 @@ function TdPlayer:UpdateUI()
 							eh=tower.eh,
 							energy=tower.energy,
 							baseRange=_G.TowerInfo[tower.name].attRange,
+							fund_return=math.ceil(tower.totalCost*REFUND),
 						}
 					if _G.TowerInfo[tower.name].upgradeTo~=nil then
 						tInfo.upcost_gold=_G.TowerInfo[_G.TowerInfo[tower.name].upgradeTo].cost
@@ -103,12 +108,13 @@ function TdPlayer:UpdateUI()
 		end
 -------------------------------------------------------------------------------------------------
 		--DeepPrintTable(tInfo)
-		CustomGameEventManager:Send_ServerToPlayer( self, "UpdateTowerInfo", tInfo )
+		SendEventToPlayer(self.pid, "UpdateTowerInfo", tInfo )
 	end
 end
 
 function TdPlayer:InitHero()
 	local hero=self:GetAssignedHero()
+	self.hero=hero
 	hero:SetOrigin(Vector((self.UnitSpawner.pos[1]/2),(self.UnitSpawner.pos[2]/2),256))
 	PlayerResource:SetCameraTarget(self.pid,hero)
 	Timers:CreateTimer(0.5, function()
@@ -151,7 +157,9 @@ function TdPlayer:InitTechTree()
 end
 
 function TdPlayer:StartSpawn()
-	self.UnitSpawner:Spawn()
+	if not self.isAbandoned then
+		self.UnitSpawner:Spawn()
+	end
 end
 
 function TdPlayer:ModifyCurrentCrystal(change)

@@ -17,7 +17,7 @@ abilityList={
 	{"earth_blessing","modifier_earth_blessing_buff"},
 	{"fire_ritual","none"},
 	{"fire_ritual_e","none"},
-	{"life_ritual","none"},
+	{"life_ritual","modifier_life_ritual_mark"},
 }
 
 

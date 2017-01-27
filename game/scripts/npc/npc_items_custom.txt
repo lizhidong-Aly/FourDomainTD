@@ -1,76 +1,158 @@
 "DOTAAbilities"
 {
-	"item_arcane_boots2"
+	"item_bag_of_gold"
 	{
-		"ID"							"1006"
-	
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"BaseClass"						"item_arcane_boots"
-	
-		// Stats		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"55.0"
-	
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"25"
-		"ItemCost"						"2450"
-		"ItemShopTags"					"move_speed;boost_mana;mana_pool"
-		"ItemQuality"					"rare"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
-		"ItemDisassembleRule"			"0"
-		"ItemAlertable"					"1"
-		"ItemAliases"					"mana;mb"
-		
-		// Special	
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"ID"                                                      		"4001"
+		"AbilityBehavior"                                         		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"                                   		"DOTA_UNIT_TARGET_TEAM_NONE"
+		"AbilityUnitTargetType"                                   		"DOTA_UNIT_TARGET_NONE"
+		"BaseClass"                                               		"item_datadriven"
+		"AbilityTextureName"                                      		"item_infused_raindrop"
+		"AbilityCastRange"                                        		"900"
+		"AbilityCastPoint"                                        		"0"
+		"AbilityCooldown"                                         		"0"
+		"AbilityManaCost"                                         		"0"
+		"ItemQuality"													"consumable"
+		"ItemCost"                                                		"0"
+		"ItemDroppable"                                           		"1"
+		"ItemSellable"                                            		"0"
+		"ItemCastOnPickup"												"1"
+		"ItemInitialCharges"                                      		"500"
+		"ItemRequiresCharges"                                     		"1"
+		"ItemKillable"													"0"
+		"ItemShareability"                                        		"ITEM_FULLY_SHAREABLE_STACKING"
+		"MaxUpgradeLevel"                                         		"1"
+		"ItemBaseLevel"                                           		"1"
+		"ItemStackable" 												"1"
+		"ItemPermanent" 												"0"
+		"Model"															"models/props_gameplay/gold_coin001.vmdl"
+		"OnSpellStart"
 		{
-			"01"
+			"RunScript"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_movement"		"75"
+				"ScriptFile"	"scripts/vscripts/ItemScript/item_bag_of_gold.lua"
+				"Function"		"ModifyGold"
 			}
-			"02"
+			"SpendCharge" {}
+		}
+	}
+
+	"item_element_essence"
+	{
+		"ID"                                                      		"4002"
+		"AbilityBehavior"                                         		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"                                   		"DOTA_UNIT_TARGET_TEAM_NONE"
+		"AbilityUnitTargetType"                                   		"DOTA_UNIT_TARGET_NONE"
+		"BaseClass"                                               		"item_datadriven"
+		"AbilityTextureName"                                      		"item_energy_booster"
+		"AbilityCastRange"                                        		"900"
+		"AbilityCastPoint"                                        		"0"
+		"AbilityCooldown"                                         		"0"
+		"AbilityManaCost"                                         		"0"
+		"ItemQuality"													"consumable"
+		"ItemCost"                                                		"0"
+		"ItemDroppable"                                           		"1"
+		"ItemSellable"                                            		"0"
+		"ItemCastOnPickup"												"1"
+		"ItemInitialCharges"                                      		"1"
+		"ItemRequiresCharges"                                     		"1"
+		"ItemKillable"													"0"
+		"ItemShareability"                                        		"ITEM_FULLY_SHAREABLE_STACKING"
+		"MaxUpgradeLevel"                                         		"1"
+		"ItemBaseLevel"                                           		"1"
+		"ItemStackable" 												"1"
+		"ItemPermanent" 												"0"
+		"Model"															"models/props_gameplay/rune_doubledamage01.vmdl"
+		"OnSpellStart"
+		{
+			"SpendCharge" {}
+			"RunScript"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_mana"			"500"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"replenish_radius"		"600"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"replenish_amount"		"250"
+				"ScriptFile"	"scripts/vscripts/ItemScript/item_element_essence.lua"
+				"Function"		"ModifyElementEssence"
 			}
 		}
 	}
-	//=================================================================================================================
-	// Recipe: Arcane Boots
-	//=================================================================================================================
-	"item_recipe_arcane_boots2"
+	"item_element_crystal"
 	{
-		"ID"							"1005"
-	
-		"BaseClass"						"item_recipe_arcane_boots"
-	
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
-		"ItemShopTags"					""
-		
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_arcane_boots2"
-		"ItemRequirements"
+		"ID"                                                      		"4003"
+		"AbilityBehavior"                                         		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"                                   		"DOTA_UNIT_TARGET_TEAM_NONE"
+		"AbilityUnitTargetType"                                   		"DOTA_UNIT_TARGET_NONE"
+		"BaseClass"                                               		"item_datadriven"
+		"AbilityTextureName"                                      		"item_infused_raindrop"
+		"AbilityCastRange"                                        		"900"
+		"AbilityCastPoint"                                        		"0"
+		"AbilityCooldown"                                         		"0"
+		"AbilityManaCost"                                         		"0"
+		"ItemQuality"													"consumable"
+		"ItemCost"                                                		"0"
+		"ItemDroppable"                                           		"1"
+		"ItemSellable"                                            		"0"
+		"ItemCastOnPickup"												"1"
+		"ItemInitialCharges"                                      		"1"
+		"ItemRequiresCharges"                                     		"1"
+		"ItemKillable"													"0"
+		"ItemShareability"                                        		"ITEM_FULLY_SHAREABLE_STACKING"
+		"MaxUpgradeLevel"                                         		"1"
+		"ItemBaseLevel"                                           		"1"
+		"ItemStackable" 												"1"
+		"ItemPermanent" 												"0"
+		"Model"															"models/props_gameplay/rune_arcane.vmdl"
+		"OnSpellStart"
 		{
-			"01"						"item_energy_booster;item_arcane_boots"
+			"SpendCharge" {}
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/ItemScript/item_element_crystal.lua"
+				"Function"		"ModifyCrystal"
+			}
+		}
+	}
+	"item_energy_orb"
+	{
+		"ID"                                                      		"4004"
+		"AbilityBehavior"                                         		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"                                   		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"                                   		"DOTA_UNIT_TARGET_CREEP"
+		"BaseClass"                                               		"item_datadriven"
+		"AbilityTextureName"                                      		"item_vitality_booster"
+		"AbilityCastRange"                                        		"900"
+		"AbilityCastPoint"                                        		"0.1"
+		"AbilityCooldown"                                         		"0"
+		"AbilityManaCost"                                         		"0"
+		"ItemQuality"													"consumable"
+		"ItemCost"                                                		"0"
+		"ItemDroppable"                                           		"1"
+		"ItemSellable"                                            		"0"
+		"ItemCastOnPickup"												"0"
+		"ItemInitialCharges"                                      		"1"
+		"ItemRequiresCharges"                                     		"1"
+		"ItemKillable"													"0"
+		"ItemShareability"                                        		"ITEM_FULLY_SHAREABLE_STACKING"
+		"MaxUpgradeLevel"                                         		"1"
+		"ItemBaseLevel"                                           		"1"
+		"ItemStackable" 												"1"
+		"ItemPermanent" 												"0"
+		"Model"															"models/props_gameplay/rune_haste01.vmdl"
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/ItemScript/item_energy_orb.lua"
+				"Function"		"TowerCheck"
+				"Target"		"TARGET"
+			}
+		}
+		"OnSpellStart"
+		{
+			"SpendCharge" {}
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/ItemScript/item_energy_orb.lua"
+				"Function"		"GiveEnergy"
+				"Target"		"TARGET"
+			}
 		}
 	}
 }

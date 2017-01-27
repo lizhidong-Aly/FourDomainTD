@@ -37,30 +37,6 @@ function MergeCheck( keys )
 			caster:MergeTest(target)
 		end
 	end
-	--[[
-	local caster=keys.caster
-	local target=keys.target
-	local pid=caster:GetPlayerOwnerID()
-	local cname=caster:GetUnitName()
-	local tname=target:GetUnitName()
-	local totalcost = GetTowerTotalCost(caster)+GetTowerTotalCost(target)
-	local mIndex=-1
-	for i=1,#MergeList[cname] do
-		if MergeList[cname][i][3]==tname then
-			mIndex=i
-		end
-	end
-	if mIndex~=-1 and pid==target:GetPlayerOwnerID() then
-		local currentGold = PlayerResource:GetGold(pid)
-		if currentGold >= MergeList[cname][mIndex][1] then
-			PlayerResource:SpendGold(pid,MergeList[cname][mIndex][1],0)
-		else
-			ErrorMsg(pid,NOT_ENOUGH_GOLD)
-			caster:Stop()
-		end
-	else
-		caster:Stop()
-	end]]
 end
 
 function ReturnMergeCost(keys)
@@ -71,20 +47,6 @@ function ReturnMergeCost(keys)
 			caster:ReturnMergeCost(target)
 		end
 	end
-	--[[
-	local caster=keys.caster
-	local target=keys.target
-	local cname=caster:GetUnitName()
-	local tname=target:GetUnitName()
-	local pid=caster:GetPlayerOwnerID()
-	local mIndex=-1
-	for i=1,#MergeList[cname] do
-		if MergeList[cname][i][3]==tname then
-			mIndex=i
-		end
-	end
-	local cost=MergeList[cname][mIndex][1]
-	PlayerResource:ModifyGold(pid,cost,false,0)]]
 end
 
 function Merge(keys)
@@ -95,29 +57,4 @@ function Merge(keys)
 			caster:Merge(target)
 		end
 	end
-	--[[
-	local caster=keys.caster
-	local target=keys.target
-	local cname=caster:GetUnitName()
-	local tname=target:GetUnitName()
-	local pid=caster:GetPlayerOwnerID()
-	local mIndex=-1
-	for i=1,#MergeList[cname] do
-		if MergeList[cname][i][3]==tname then
-			mIndex=i
-		end
-	end
-	if target:IsAlive() then
-		local nlname = MergeList[cname][mIndex][2]
-		local totalcost = GetTowerTotalCost(caster)+GetTowerTotalCost(target)+MergeList[cname][mIndex][1]
-		local pos=caster:GetOrigin()
-		caster:ForceKill(false)
-		target:ForceKill(false)
-		RemoveTowerFromTable(alltower[pid],caster)
-		RemoveTowerFromTable(alltower[pid],target)
-		caster:SetThink(function()  caster:RemoveSelf() return nil end, 0.02)
-		local unit=CreateUnitByName(nlname,pos,false,nil,nil,DOTA_TEAM_GOODGUYS)
-		CustomGameEventManager:Send_ServerToPlayer( caster:GetPlayerOwner(), "SelectNewTower", {old=caster:entindex(),newone=unit:entindex()} )
-		IniTower(pid,unit,totalcost)
-	end]]--
 end

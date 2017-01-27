@@ -21,7 +21,7 @@ setmetatable(Tower,CDOTA_BaseNPC_Creature)
 
 function Tower:new(tname,pos,pid,totalCost)
 	local self=CreateUnitByName(tname,pos,false,nil,nil,DOTA_TEAM_GOODGUYS)
-	self:AddNewModifier(nil, nil, "modifier_phased", {duration=4})
+	self:AddNewModifier(nil, nil, "modifier_phased", {duration=-1})
 	setmetatable(self,Tower)
 	self.name=tname
 	self.pid=pid
@@ -37,7 +37,7 @@ function Tower:new(tname,pos,pid,totalCost)
 end
 
 function CDOTA_BaseNPC_Creature:IsTower()
-	return _G.TowerInfo[self:GetUnitName()]~=nil
+	return _G.TowerInfo[self:GetUnitName()]~=nil and self:FindAbilityByName("base_passive")==nil
 end
 
 function CDOTA_BaseNPC_Creature:ToTower()
@@ -71,8 +71,9 @@ function Tower:Init()
 	self:SetBaseDamageMin(minDmg)
 	self:SetBaseAttackTime(tInfo.attSpe)
 	if self.pid~=nil then
-		local hero=PlayerResource:GetPlayer(self.pid):GetAssignedHero()
+		local hero=_G.Player[self.pid].hero
 		self:SetControllableByPlayer(self.pid, false )
+		table.insert(_G.Player[self.pid].all_units,self)
 		self:SetOwner(hero)
 	end
 	self:AbilityInit()
@@ -167,7 +168,7 @@ function Tower:Merge(target)
 	local pos=self:GetOrigin()
 	local energy_a=self.energy
 	local energy_b=target.energy
-	local player=_G.Player[self.pid]
+	local player=_G.Player[pid]
 	local t=Tower:new(mName,pos,pid,totalCost)
 	if(self.rank<RANK_LEGEND and target.rank<RANK_LEGEND and t.rank==RANK_LEGEND) then
 		player.eh_limit=player.eh_limit+12
@@ -176,7 +177,7 @@ function Tower:Merge(target)
 		player.eh_limit=player.eh_limit+3
 	end
 	t:ModifyEnergy(energy_a+energy_b,false)
-	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(pid), "SelectNewTower", {old=self:entindex(),new=t:entindex()} )
+	SendEventToPlayer(pid,"SelectNewTower", {old=self:entindex(),new=t:entindex()} )
 	self:Remove(true)
 	target:Remove(true)
 end
@@ -201,10 +202,6 @@ end
 
 --------------------------------------------------------------------
 function Tower:UpgradeTest()
-	if self.pid~=self:GetMainControllingPlayer() then
-		t:Stop()
-		return
-	end
 	local gold = PlayerResource:GetGold(self.pid)
 	local cost=self.upcost
 	local player=_G.Player[self.pid] 
@@ -231,7 +228,7 @@ function Tower:Upgrade()
 	local totalCost=self.totalCost+_G.TowerInfo[self.nl].cost
 	local new = Tower:new(_G.TowerInfo[self.name].upgradeTo,self:GetOrigin(),self.pid,totalCost)
 	new:ModifyEnergy(self.energy,false)
-	CustomGameEventManager:Send_ServerToPlayer( self:GetPlayerOwner(), "SelectNewTower", {old=self:entindex(),new=new:entindex()} )
+	SendEventToPlayer(self.pid,"SelectNewTower", {old=self:entindex(),new=new:entindex()} )
 	self:Remove(true)
 end
 
@@ -270,19 +267,20 @@ function Tower:Advance()
 	if self.rank==RANK_ELITE then
 		self:AddAbility("rank_elite_buff"):SetLevel(1)
 	elseif self.rank==RANK_MASTER then
+		self:RemoveAbility("rank_elite_buff")
+		self:RemoveModifierByName("modifier_rank_elite_buff")
 		self:AddAbility("rank_master_buff"):SetLevel(1)
 	elseif self.rank==RANK_LEGEND then
+		self:RemoveAbility("rank_elite_buff")
+		self:RemoveModifierByName("modifier_rank_elite_buff")
+		self:RemoveAbility("rank_master_buff")
+		self:RemoveModifierByName("modifier_rank_master_buff")
 		self:AddAbility("rank_legend_buff"):SetLevel(1)
 	end
 end
 
 function Tower:Sell()
 	print("Sell Tower")
-	if self.pid~=self:GetMainControllingPlayer() then
-		self:Stop()
-		ErrorMsg(self.pid,NOT_OWN_TARGET)
-		return
-	end
 	for i=1,8 do
 		local a=self:GetAbilityByIndex(i)
 		if a~=nil then
@@ -293,7 +291,7 @@ function Tower:Sell()
 			end
 		end
 	end
-	local fundreturn = math.ceil(self.totalCost*REFUND)
+	local fundreturn = math.ceil(self.totalCost*_G.REFUND)
 	PlayerResource:ModifyGold(self.pid,fundreturn,false,0)
 	local player=_G.Player[self.pid]
 	player.eh_current=player.eh_current-self.eh

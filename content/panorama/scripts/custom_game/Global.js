@@ -1,6 +1,6 @@
 var hudRoot;
 var panel;
-
+var attack_range_indicators=new Array();
 for(panel=$.GetContextPanel();panel!=null;panel=panel.GetParent()){
 	hudRoot=panel;
 }
@@ -38,11 +38,47 @@ function InstructionSendConstantly(){
 }
 //Send info to server
 function DrawAttackRangeOfUnitSelected(){
-	var current=Players.GetLocalPlayerPortraitUnit();
-	if(Entities.IsOwnedByAnyPlayer(current)){
-		var range=Entities.GetAttackRange(current);
-		GameEvents.SendCustomGameEventToServer( "DrawAttackRange", {unit:current,range:range});
+	var portrait_unit=Players.GetLocalPlayerPortraitUnit();
+	if(!Entities.IsOwnedByAnyPlayer(portrait_unit)){
+		for(var i in attack_range_indicators){
+			if(attack_range_indicators[i]!=null){
+				Particles.DestroyParticleEffect(attack_range_indicators[i],true);
+				Particles.ReleaseParticleIndex(attack_range_indicators[i])	
+				attack_range_indicators[i]=null;
+			}
+		}
+		return
 	}
+	var current=Players.GetSelectedEntities(Players.GetLocalPlayer());
+	for(var i in current){
+		if(	Entities.IsOwnedByAnyPlayer(current[i]) 
+			&& !Entities.IsHero(current[i])
+			&& attack_range_indicators[current[i]]==null){
+			var range=Entities.GetAttackRange(current[i]);
+			var a=[range,0,0]
+			attack_range_indicators[current[i]]=Particles.CreateParticle("particles/custom_effect/attack_range_circle.vpcf",ParticleAttachment_t.PATTACH_ABSORIGIN_FOLLOW,current[i])
+			Particles.SetParticleControl( attack_range_indicators[current[i]],1,a)
+		}
+	}
+	for(var i in attack_range_indicators){
+		if(attack_range_indicators!=null){
+			var exist=false
+			for(var j in current){
+				if(current[j]==i){
+					exist=true
+				}
+			}
+			if(!exist){
+				if(attack_range_indicators[i]!=null){
+					Particles.DestroyParticleEffect(attack_range_indicators[i],true);
+					Particles.ReleaseParticleIndex(attack_range_indicators[i])	
+					attack_range_indicators[i]=null;
+				}
+
+			}
+		}
+	}
+	//GameEvents.SendCustomGameEventToServer( "DrawAttackRange", {unit:current,range:range});
 	/**
 	var units=null;
 	var range=null;

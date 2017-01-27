@@ -163,19 +163,19 @@ end
 TechFun={
 ET01=(function(self)
 	local towerList={"ET01L01","ET02L01","ET03L01"}
-	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(self.pid), "UnlockTower", towerList )
+	SendEventToPlayer(self.pid, "UnlockTower", towerList )
 end),
 
 ET02=(function(self)
 	local towerList={"ES01L01"}
-	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(self.pid), "UnlockTower", towerList )
+	SendEventToPlayer(self.pid, "UnlockTower", towerList )
 end),
 
 ET11=(function(self)
 	local towerList={"ET11L01","ET12L01","ET13L01"}
 
 	self:ModifyTower("E",2,"ET11")
-	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(self.pid), "UnlockTower", towerList )
+	SendEventToPlayer(self.pid, "UnlockTower", towerList )
 end),
 
 ET12=(function(self)
@@ -194,7 +194,7 @@ ET21=(function(self)
 	local towerList={"ET21L01"}
 
 	self:ModifyTower("E",3,"ET21")
-	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(self.pid), "UnlockTower", towerList )
+	SendEventToPlayer(self.pid, "UnlockTower", towerList )
 end),
 
 ET22=(function(self)
@@ -221,7 +221,7 @@ WT01=(function(self)
 	local towerList={"WT02L01","WT01L01","WT03L01"}
 
 	self:ModifyTower("W",1,"WT01")
-	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(self.pid), "UnlockTower", towerList )
+	SendEventToPlayer(self.pid, "UnlockTower", towerList )
 end),
 
 WT02=(function(self)
@@ -239,14 +239,14 @@ end),
 WT03=(function(self)
 	local towerList={"WS01L01"}
 
-	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(self.pid), "UnlockTower", towerList )
+	SendEventToPlayer(self.pid, "UnlockTower", towerList )
 end),
 
 WT11=(function(self)
 	local towerList={"WT11L01","WT13L01"}
 
 	self:ModifyTower("W",2,"WT11")
-	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(self.pid), "UnlockTower", towerList )
+	SendEventToPlayer(self.pid, "UnlockTower", towerList )
 end),
 
 WT12=(function(self)
@@ -265,7 +265,7 @@ WT21=(function(self)
 	local towerList={"WT21L01"}
 
 	self:ModifyTower("W",3,"WT21")
-	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(self.pid), "UnlockTower", towerList )
+	SendEventToPlayer(self.pid, "UnlockTower", towerList )
 end),
 
 WT31=(function(self)
@@ -278,7 +278,7 @@ FT01=(function(self)
 	local towerList={"FT01L01","FT02L01","FT03L01"} 
 
 	self:ModifyTower("F",1,"FT01")
-	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(self.pid), "UnlockTower", towerList)
+	SendEventToPlayer(self.pid, "UnlockTower", towerList )
 end),
 
 FT02=(function(self)
@@ -288,14 +288,14 @@ end),
 FT03=(function(self)
 	local towerList={"FS01L01"}
 
-	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(self.pid), "UnlockTower", towerList )
+	SendEventToPlayer(self.pid, "UnlockTower", towerList )
 end),
 
 FT11=(function(self)
 	local towerList={"FT11L01","FT12L01","FT13L01"}
 
 	self:ModifyTower("F",2,"FT11")
-	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(self.pid), "UnlockTower", towerList )
+	SendEventToPlayer(self.pid, "UnlockTower", towerList )
 end),
 
 FT12=(function(self)
@@ -324,7 +324,7 @@ AT01=(function(self)
 	local towerList={"AT02L01","AT03L01","AT01L01"}
 
 	self:ModifyTower("A",1,"AT01")
-	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(self.pid), "UnlockTower", towerList )
+	SendEventToPlayer(self.pid, "UnlockTower", towerList )
 end),
 
 
@@ -342,14 +342,14 @@ end),
 AT03=(function(self)
 	local towerList={"AS01L01"}
 
-	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(self.pid), "UnlockTower", towerList )
+	SendEventToPlayer(self.pid, "UnlockTower", towerList )
 end),
 
 AT11=(function(self)
 	local towerList={"AT11L01","AT12L01","AT13L01"} 
 
 	self:ModifyTower("A",2,"AT11")
-	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(self.pid), "UnlockTower", towerList)
+	SendEventToPlayer(self.pid, "UnlockTower", towerList )
 end),
 
 AT21=(function(self)

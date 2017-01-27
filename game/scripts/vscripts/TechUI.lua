@@ -1,11 +1,11 @@
 require("TechTree")
 
 function OpenTechMenu(keys)
-	local pid = keys.caster:GetPlayerID()
+	local pid = keys.caster:GetPlayerOwnerID()
 	--InitTechTree()
-	CustomGameEventManager:Send_ServerToPlayer( keys.caster:GetPlayerOwner(), "OpenTechMenu", {} )
-	CustomGameEventManager:Send_ServerToPlayer( keys.caster:GetPlayerOwner(), "CloseBUI", {} )
-	CustomGameEventManager:Send_ServerToPlayer( keys.caster:GetPlayerOwner(), "CloseInfo", {} )
+	SendEventToPlayer(pid, "OpenTechMenu", {} )
+	SendEventToPlayer(pid, "CloseBUI", {} )
+	SendEventToPlayer(pid, "CloseInfo", {} )
 end
 
 function UpdateTechInfo(index,keys)
@@ -21,7 +21,7 @@ function UpdateTechInfo(index,keys)
 		print("PlayerID:"..keys.PlayerID.." : do not exist.")
 		return
 	end
-	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(keys.PlayerID), "UndateTechInfo", info )
+	SendEventToPlayer(keys.PlayerID, "UndateTechInfo", info )
 end
 
 function UpgradeTech(index,keys)
@@ -33,7 +33,5 @@ function UpgradeTech(index,keys)
 end
 
 function UnlockTechInUI(pid,name)
-	if not (PlayerResource:GetPlayer(pid)==nil) then
-		CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(pid), "UnlockTech", {name=name} )
-	end
+	SendEventToPlayer(pid,"UnlockTech", {name=name} )
 end

@@ -1,6 +1,6 @@
 function StartSplitShot(keys)
 	local caster=keys.caster
-	local playerid = caster:GetMainControllingPlayer()
+	local playerid = caster:GetPlayerOwnerID()
 	local ss=caster:FindAbilityByName("split_shot_dummy_hidden")
 	if not ss:IsCooldownReady() then
 		return 
@@ -10,7 +10,7 @@ end
 
 function SplitShot(keys)
 	local caster=keys.caster
-	local playerid = caster:GetMainControllingPlayer()
+	local playerid = caster:GetPlayerOwnerID()
 	local target=Entities:FindAllInSphere(caster:GetOrigin(),caster:GetAttackRange())
 	local amount=1
 	for i,v in pairs(target) do

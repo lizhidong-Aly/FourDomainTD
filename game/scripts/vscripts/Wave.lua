@@ -24,44 +24,51 @@ function IsEndOfCurrentWave()
 end
 
 function WaveEnd()
-	if _G.levelNo%10==0 then
-		UnlockAbility()
-	end
 	if _G.levelNo==40 then
 		print("Game End, Congrts, You Win")
 		GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
 	else
 		print("End Of This Wave, Prepare for Next Wave")
+		if _G.levelNo%10==0 then
+			UnlockAbility()
+		end
 		GiveEndBouns()
 		NextWave()
 	end
 end
 
 function UnlockAbility()
-	for i,v in _G.Player do
+	for i,v in pairs(_G.Player) do
 		local hero=v:GetAssignedHero()
 		if hero~=nil then
-			local seal_level_name="element_seal_".._G.levelNo/10
-			local seal=hero:FindAbilityByName(seal_level_name)
-			local new_ability_name=GetRandomSpecialAbility()
-			hero:AddAbility(new_ability_name):SetLevel(1)
-			new_ability:SetLevel(1)
-			hero:SwapAbilities(new_ability_name,seal_level_name,true,true)
-			hero:RemoveAbility(seal_level_name)
+			local seal=nil
+			for i=1,3 do
+				if seal==nil then
+					seal=hero:FindAbilityByName("element_seal_"..i)
+				end
+			end
+			if seal~=nil then
+				local new=hero:AddAbility(GetRandomAbilityFromList(_G.HeroAbility))
+				new:SetLevel(1)
+				hero:SwapAbilities(new:GetAbilityName(),seal:GetAbilityName(),true,true)
+				hero:RemoveAbility(seal:GetAbilityName())
+				ParticleManager:CreateParticle("particles/econ/events/ti6/hero_levelup_ti6.vpcf",PATTACH_ABSORIGIN,hero)
+				EmitSoundOn("compendium_levelup",hero)
+			end
 		end
 	end
 end
 
-function GetRandomSpecialAbility()
-	local i=RandomInt(1,#_G.HeroAbility)
-	local name=_G.HeroAbility[i]
-	table.remove(_G.HeroAbility,i)
+function GetRandomAbilityFromList(abiList)
+	local i=RandomInt(1,#abiList)
+	local name=abiList[i]
+	table.remove(abiList,i)
 	return name
 end
 
 function GiveEndBouns()
 	local lInfo=_G.levelInfo[_G.levelNo]
-	local bounty=_G.levelNo*50--lInfo.baseGoldBounty*_G.EnemyType[lInfo.type].amount
+	local bounty=_G.levelNo*40--lInfo.baseGoldBounty*_G.EnemyType[lInfo.type].amount
 	for i,v in pairs(_G.Player) do
 		local hero=v:GetAssignedHero()
 		v.TechTree:IncreaseTechPoint(1)

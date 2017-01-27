@@ -2,7 +2,7 @@
 function StormForm(keys)
 	local caster=keys.caster
 	local point=keys.target_points[1]
-	local playerid = caster:GetMainControllingPlayer()
+	local playerid = caster:GetPlayerOwnerID()
 	local abil=caster:FindAbilityByName("storm_form_dummy_hidden")
 	if not NormalizePosition(point) then
 		ErrorMsg(playerid,SPELL_CAN_NO_CAST_ON_POSITION)

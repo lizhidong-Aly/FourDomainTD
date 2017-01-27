@@ -1,5 +1,5 @@
 "use strict";
-GameEvents.Subscribe( "UpdateTowerInfo", UpdateData);
+
 var info=null;
 function UpdateData(data){
 	info=data
@@ -104,6 +104,7 @@ function ShowDetailedInfo(data){
 		}else{
 			context=$.GetContextPanel().FindChildTraverse("TowerCostInfo");
 			des=$.Localize( "#status_total_cost" )+MakeTextColor(info.totalcost,"gold");
+			des=des+'<br>'+$.Localize( "#status_fund_return" )+MakeTextColor(info.fund_return,"gold")
 			des=des+'<br>'+$.Localize( "#status_up_cost" )
 			if(info.upcost=="N/A"){
 				des=des+"N/A"
@@ -144,6 +145,7 @@ function MakeTextColor(text,color){
 
 (function()
 {
+	GameEvents.Subscribe( "UpdateTowerInfo", UpdateData);
 	$.Msg("custom_status_panel.js is loaded")
 })();
 //url("s2r://panorama/images/hud/reborn/inventory_bg_bg_psd.vtex"

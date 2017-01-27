@@ -11,5 +11,5 @@ NOT_OWN_TARGET="#NOT_OWN_TARGET"
 NOT_LEGAL_TARGET="#CanNotMerge"
 OTHER_ABILITY_ON_COOLDOWN="#OTHER_ABILITY_ON_COOLDOWN"
 function ErrorMsg(playerid,err)
-	CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerid),"ErrorMsg",{err=err})
+	SendEventToPlayer(playerid,"ErrorMsg",{err=err})
 end

@@ -1,18 +1,18 @@
 require("Tower")
 require("Notifier")
+require("global")
 
 function OpenBuildingMenu(keys)
 	local pid=keys.caster:GetPlayerID()
-	CustomGameEventManager:Send_ServerToPlayer( keys.caster:GetPlayerOwner(), "MenuSwtich", {} )
-	CustomGameEventManager:Send_ServerToPlayer( keys.caster:GetPlayerOwner(), "CloseTechMenu", {} )
-	--CustomGameEventManager:Send_ServerToPlayer( keys.caster:GetPlayerOwner(), "setbuilder", {num=keys.caster_entindex} )
+	SendEventToPlayer(pid,"MenuSwtich", {} )
+	SendEventToPlayer(pid,"CloseTechMenu", {} )
 end
 
 function SendTowerInfo(index,keys)
 	local tname=keys.type
 	local tInfo=_G.TowerInfo[tname]
 	if tname=="none" then
-		CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.PlayerID),"MergeTargetInfoSent",{none=true})
+		SendEventToPlayer(keys.PlayerID,"MergeTargetInfoSent",{none=true})
 		return
 	end
 	local abilities={}
@@ -38,25 +38,29 @@ function SendTowerInfo(index,keys)
 			entry=keys.entry
 		}
 	if keys.entry=="Merge" then
-		CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.PlayerID),"MergeTargetInfoSent",info)
+		SendEventToPlayer(keys.PlayerID,"MergeTargetInfoSent",info)
 	else
-		CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.PlayerID),"TowerInfoSent",info)
+		SendEventToPlayer(keys.PlayerID, "TowerInfoSent",info)
+		--SendEventToPlayer(keys.PlayerID,"TowerInfoSent",info)
 	end
 end
 
 function SetTowerType(index,keys)
-	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(keys.PlayerID), "MenuSwtich", {} )
+	 SendEventToPlayer(keys.PlayerID, "MenuSwtich", {} )
 	_G.Player[keys.PlayerID].towerBuilding=keys.type
 end
 ----------------------------------------------------------------Build Tower----------------------------------------------------------------
 function Build(keys)
-	local playerid = keys.caster:GetMainControllingPlayer()
+	local playerid = keys.caster:GetPlayerOwnerID()
 	local caster=keys.caster
 	local type=caster:GetUnitName()
 	local center=caster:GetOrigin()
 	NormalizePosition(center)
 	local t=Tower:new(type,center,playerid,_G.TowerInfo[type].cost)
-	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(playerid), "SelectNewTower", {old=caster:entindex(),new=t:entindex()} )
+	SendEventToPlayer(playerid, "SelectNewTower", {old=caster:entindex(),new=t:entindex()} )
+	if caster:FindAbilityByName("unit_no_player_can_control")~=nil then
+		t:AddAbility("unit_no_player_can_control"):SetLevel(1)
+	end
 	caster:ForceKill(false)
 	caster:SetThink(function()  caster:RemoveSelf() return nil end, 0.02)
 end
@@ -108,6 +112,7 @@ function BuildTest(keys)
 	------召唤
 	local base=CreateUnitByName("tower_base",center,false,nil,nil,DOTA_TEAM_GOODGUYS)
 	base:SetControllableByPlayer(playerid, false )
+	table.insert(_G.Player[playerid].all_units,base)
 	local hero=PlayerResource:GetPlayer(playerid):GetAssignedHero()
 	base:SetOwner(hero)
 	base:SetUnitName(tb)
@@ -123,7 +128,7 @@ end
 function RefundBuildCost(keys)
 	local caster = keys.caster
 	local cost=caster:GetDeathXP()
-	local playerid = caster:GetMainControllingPlayer()
+	local playerid = caster:GetPlayerOwnerID()
 	PlayerResource:ModifyGold(playerid,cost,false,0)
 	_G.Player[playerid].eh_current=_G.Player[playerid].eh_current-_G.TowerInfo[caster:GetUnitName()].eh
 	caster:ForceKill(false)

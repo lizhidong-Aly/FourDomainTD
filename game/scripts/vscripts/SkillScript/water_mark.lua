@@ -1,5 +1,5 @@
 function WaterMark(keys)
-	local playerid = keys.caster:GetMainControllingPlayer()
+	local playerid = keys.caster:GetPlayerOwnerID()
 	local mark = keys.unit:FindModifierByName("modifier_water_mark_buff")
 	if (mark~=nil) then
 		if mark:GetCaster()==nil then
@@ -17,7 +17,7 @@ function WaterMark(keys)
 		end
 		mark:IncrementStackCount()
 		local dmg=mark:GetStackCount()*dc
-		local caster=PlayerResource:GetPlayer(playerid):GetAssignedHero()
+		local caster=keys.caster
 		caster:Damage(keys.unit,dmg,DAMAGE_TYPE_PHYSICAL,1)
 		mark:SetDuration(keys.duration,true)
 	end

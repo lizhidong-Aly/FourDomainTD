@@ -7,12 +7,12 @@
 		//UI文本
 		"addon_game_name"                                                      "四域TD"
 
-		"diffchoise"                                                           "难度选择:  "
+		"diffchoise"                                                           "难度选择: "
 		"normal"                                                               "凡人的盛宴"
 		"hard"                                                                 "精锐的试炼"
 		"vhard"                                                                "地狱的狂欢"
-		"currdiff"                                                             "当前难度:  "
-		"normaldesc"                                                           "[无敌方精英单位]<br>[回收元素返还全额召唤花费]"
+		"currdiff"                                                             "当前难度: "
+		"normaldesc"                                                           "[极小概率出现敌方精英单位]<br>[回收元素返还全额召唤花费]"
 		"harddesc"                                                             "[小概率出现敌方精英单位]<br>[回收元素返还召唤花费75%]"
 		"vharddesc"                                                            "[大概率出现敌方精英单位]<br>[回收元素返还召唤花费50%]"
 
@@ -21,9 +21,9 @@
 		"info_merge"                                                           "融合列表"
 		"info_rest"                                                            "其他相关"
 
-		"author"                                                               "作者: Litchi"
-		"version"                                                              "版本: V1.0 Beta"
-		"intro"                                                                "简介: 四域TD是一个传统的塔防类RPG地图.通过召唤不同的防御塔，以及不同塔的组合来抵御一波波来袭的敌人.目前总计有40波敌人."
+		"author"                                                               "作者:Litchi"
+		"version"                                                              "版本:V1.0 Beta"
+		"intro"                                                                "简介:四域TD是一个传统的塔防类RPG地图.通过召唤不同的防御塔，以及不同塔的组合来抵御一波波来袭的敌人.目前总计有40波敌人."
 		"comm"                                                                 ""
 
 		"Earth"                                                                "山丘"
@@ -31,8 +31,8 @@
 		"Fire"                                                                 "燃焰"
 		"Air"                                                                  "大气"
 
-		"merge_intro"                                                          "融合系统: <br>一些防御塔在升至满级以后，可以通过与某一特定的塔融合来变得更加强大，下列是目前可以进行融合的塔的列表: <br>"
-		"MergeElement"                                                         "<font color='#ADFF2F'>融合需要: </font>"
+		"merge_intro"                                                          "融合系统:<br>一些防御塔在升至满级以后，可以通过与某一特定的塔融合来变得更加强大，下列是目前可以进行融合的塔的列表:<br>"
+		"MergeElement"                                                         "<font color='#ADFF2F'>融合需要:</font>"
 
 		"BuildingMenu"                                                         "召唤选单"
 		"submenue"                                                             "山丘"
@@ -51,10 +51,20 @@
 		"rank_legend"                                                          "传奇"
 		"rank_none"                                                            "无"
 		"rank"                                                                 "等阶"
-		"rank_current"                                                         "当前等阶: "
-		"rank_next"                                                            "下一等阶: "
-		"rank_needed"                                                          "还需: "
-		"rank_help"                                                            "说明: 在击杀敌人后将会根据敌人等级获得一定的能量, 积攒至一定程度后可提升等阶, 大幅增加各项属性"
+		"rank_current"                                                         "当前等阶:"
+		"rank_next"                                                            "下一等阶:"
+		"rank_needed"                                                          "还需:"
+		"rank_help"                                                            "说明:在击杀敌人后将会根据敌人等级获得一定的能量点, 积攒至一定程度后可提升等阶, 大幅增加各项属性"
+
+		"DOTA_Tooltip_modifier_rank_elite_buff"                                           "精锐"
+		"DOTA_Tooltip_modifier_rank_elite_buff_Description"                               "增加%dMODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE%%%的攻击力, %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%点攻击速度, 以及%dMODIFIER_PROPERTY_ATTACK_RANGE_BONUS%码的射程"
+
+		"DOTA_Tooltip_modifier_rank_master_buff"                                          "大师"
+		"DOTA_Tooltip_modifier_rank_master_buff_Description"                              "增加%dMODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE%%%的攻击力, %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%点攻击速度, 以及%dMODIFIER_PROPERTY_ATTACK_RANGE_BONUS%码的射程"
+
+		"DOTA_Tooltip_modifier_rank_legend_buff"                                          "传奇"
+		"DOTA_Tooltip_modifier_rank_legend_buff_Description"                              "增加%dMODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE%%%的攻击力, %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%点攻击速度, 以及%dMODIFIER_PROPERTY_ATTACK_RANGE_BONUS%码的射程"
+
 
 		"BUILD_WRONG_POSITION"                                                 "无法在当前位置召唤"
 		"BUILD_NO_TOWER_SELCTED"                                               "未选定目标召唤元素"
@@ -69,13 +79,13 @@
 
 		"goldgain"                                                             "本级结束，进入下一级，你获得了<font color='#FFD700'>"
 		"tpgain"                                                               "金币</font> 和 <font color='#ADFF2F'> 1 元素精华</font>"
-		"nextleveltimer"                                                       "下一波: "
+		"nextleveltimer"                                                       "下一波:"
 		"wave_alert_prefix"                                                    "第"
 		"wave_alert_suffix"                                                    "波"
 
 		"Summon"                                                               "召唤 "
 		"TowerLocked"                                                          "<font color='#FF0000'>需要解锁</font><br>"
-		"TowerDesA"                                                            "<font color='#ADFF2F'>属性:  </font>"
+		"TowerDesA"                                                            "<font color='#ADFF2F'>属性: </font>"
 		"E"                                                                    "<font color='#D2B48C'>地</font>"
 		"W"                                                                    "<font color='#87CEFA'>水</font>"
 		"F"                                                                    "<font color='#EE4000'>火</font>"
@@ -85,41 +95,40 @@
 		"S"                                                                    "<font color='#DBDBDB'>空间</font>"
 		"N"                                                                    "<font color='#CDCDC1'>无</font>"
 
-		"TowerDesB"                                                            "<br><font color='#ADFF2F'>召唤花费:  </font>"
-		"TowerDesC"                                                            "<br><font color='#ADFF2F'>攻击力:  </font>"
-		"TowerDesD"                                                            "<br><font color='#ADFF2F'>攻击速度:  </font>"
-		"TowerDesE"                                                            "<br><font color='#ADFF2F'>射程:  </font>"
-		"TowerDesF"                                                            "<br><font color='#ADFF2F'>能力:  </font>"
-		"TowerDesG"                                                            "<br><font color='#ADFF2F'>效果:  </font>"
+		"TowerDesB"                                                            "<br><font color='#ADFF2F'>召唤花费: </font>"
+		"TowerDesC"                                                            "<br><font color='#ADFF2F'>攻击力: </font>"
+		"TowerDesD"                                                            "<br><font color='#ADFF2F'>攻击速度: </font>"
+		"TowerDesE"                                                            "<br><font color='#ADFF2F'>射程: </font>"
+		"TowerDesF"                                                            "<br><font color='#ADFF2F'>能力: </font>"
+		"TowerDesG"                                                            "<br><font color='#ADFF2F'>效果: </font>"
 
 		"MergeList"                                                            "<br>可以与下列单位融合:"
 		"Merge"                                                                "融合"
 		"MergeTo"                                                              "融合为 "
-		"MergeDes"                                                             "与另一种特定的元素融合，将两者的力量合二为一.新的元素将会出现在融合发起者的位置."
-		"MergeWarning"                                                         "<br><font color='#FF0000'>警告: 融合后的元素无法出售</font>"
 		"MergeDesA"                                                            "<br><font color='#ADFF2F'>融合花费:</font>"
 		"CanNotMerge"                                                          "无法与该单位融合"
 
-		"resource_gold"                                                        "金钱: "
-		"resource_gold_help"                                                   "用途: 最普通的一种资源，应该不需要太多说明吧<br>来源: [在每一波结束后], [击杀敌人]"
-		"resource_essence"                                                     "元素精华: "
-		"resource_essence_help"                                                "用途: 元素凝结而成的液态物质, 可以用来升级科技<br>来源: [在每一波结束后], [精英敌人掉落], [某些元素的技能]"
-		"resource_crystal"                                                     "元素水晶: "
-		"resource_crystal_help"                                                "用途: 高纯度元素的固态结晶, 召唤元素的必须品, 每个元素单位会占用一定的水晶，可以通过回收单位来释放被占用的水晶<br>来源: [BOSS掉落], [元素单位升阶至大师(+3水晶)或传奇(+12水晶)]"
+		"resource_gold"                                                        "金钱:"
+		"resource_gold_help"                                                   "用途:最普通的一种资源，应该不需要太多说明吧<br>来源:[在每一波结束后], [击杀敌人]"
+		"resource_essence"                                                     "元素精华:"
+		"resource_essence_help"                                                "用途:元素凝结而成的液态物质, 可以用来升级科技<br>来源:[在每一波结束后], [精英敌人掉落], [某些元素的技能]"
+		"resource_crystal"                                                     "元素水晶:"
+		"resource_crystal_help"                                                "用途:高纯度元素的固态结晶, 召唤元素的必须品, 每个元素单位会占用一定的水晶，可以通过回收单位来释放被占用的水晶<br>来源:[BOSS掉落], [元素单位升阶至大师(+3水晶)或传奇(+12水晶)]"
 
-		"status_dmage"                                                         "攻击力: "
-		"status_speed"                                                         "攻击速度: "
-		"status_speed_suffix"                                                  "秒攻击一次"
-		"status_range"                                                         "射程: "
-		"status_armor"                                                         "护甲: "
-		"status_resistance_phy"                                                "物理伤害减免: "
-		"status_magic_armor"                                                   "魔法抗性: "
-		"status_movespe"                                                       "移动速度: "
-		"status_total_cost"                                                    "总计花费: "
-		"status_up_cost"                                                       "升级需要: "
-		"status_attribute"                                                     "属性: "
-		"status_detail"                                                        "详细属性: "
-		"status_crystal_used"                                                  "水晶占用: "
+		"status_dmage"                                                         	"攻击力:"
+		"status_speed"                                                         	"攻击速度:"
+		"status_speed_suffix"                                                  	"秒攻击一次"
+		"status_range"                                                         	"射程:"
+		"status_armor"                                                         	"护甲:"
+		"status_resistance_phy"                                                	"物理伤害减免:"
+		"status_magic_armor"                                                   	"魔法抗性:"
+		"status_movespe"                                                       	"移动速度:"
+		"status_total_cost"                                                    	"总计花费:"
+		"status_fund_return"													"回收返还:"	
+		"status_up_cost"                                                       	"升级需要:"
+		"status_attribute"                                                     	"属性:"
+		"status_detail"                                                        	"详细属性:"
+		"status_crystal_used"                                                  	"水晶占用:"
 
 
 		//单位名称
@@ -234,7 +243,66 @@
 		"AT13L02"                                                              "宙斯 Lv2"
 		"AT13L03"                                                              "宙斯 LvMax"
 
-		//-----英雄技能
+//敌人名称
+
+		"level01"                                                                         "豺狼人投矛手"
+		"level02"                                                                         "幼狼"
+		"level03"                                                                         "巨狼"
+		"level04"                                                                         "食人魔祭司"
+		"level05"                                                                         "花岗岩傀儡"
+		"level06"                                                                         "半人马战士"
+		"level07"                                                                         "半人马勇士"
+		"level08"                                                                         "雌性熊怪"
+		"level09"                                                                         "雄性熊怪"
+		"level10"                                                                         "大恶魔"
+		"level11"                                                                         "萨特斥候"
+		"level12"                                                                         "萨特勇士"
+		"level13"                                                                         "萨特酋长"
+		"level14"                                                                         "雷隐兽"
+		"level15"                                                                         "远古雷隐兽"
+		"level16"                                                                         "投石车"
+		"level17"                                                                         "精锐士兵"
+		"level18"                                                                         "死灵射手"
+		"level19"                                                                         "死灵战士"
+		"level20"                                                                         "恶魔真型"
+		"level21"                                                                         "祸心"
+		"level22"                                                                         "暴食"
+		"level23"                                                                         "杀戮"
+		"level24"                                                                         "背叛"
+		"level25"                                                                         "绝望"
+		"level26"                                                                         "棕熊"
+		"level27"                                                                         "白熊"
+		"level28"                                                                         "黑白之灵"
+		"level29"                                                                         "火浣熊"
+		"level30"                                                                         "梦魇真型"
+		"level31"                                                                         "树人"
+		"level32"                                                                         "树怪"
+		"level33"                                                                         "诱捕者"
+		"level34"                                                                         "瘴气树人"
+		"level35"                                                                         "食人树怪"
+		"level36"                                                                         "魔狼"
+		"level37"                                                                         "巨型魔狼"
+		"level38"                                                                         "重装魔狼"
+		"level39"                                                                         "狼王"
+		"level40"                                                                         "巨神兵"
+
+
+//道具
+
+		"DOTA_Tooltip_ability_item_bag_of_gold"                                           "金币"
+		"DOTA_Tooltip_ability_item_bag_of_gold_Description"                               "给予不定量的金币"
+
+		"DOTA_Tooltip_ability_item_element_essence"                                       "元素精华"
+		"DOTA_Tooltip_ability_item_element_essence_Description"                           ""
+
+		"DOTA_Tooltip_ability_item_element_crystal"                                       "元素水晶"
+		"DOTA_Tooltip_ability_item_element_crystal_Description"                           ""
+
+		"DOTA_Tooltip_ability_item_energy_orb"                                            "高能结晶"
+		"DOTA_Tooltip_ability_item_energy_orb_Description"                                "给予目标元素50点额外的能量"
+
+
+//-----系统相关技能
 
 		"DOTA_Tooltip_ability_OpenBuildingMenu"                                "打开召唤界面"
 		"DOTA_Tooltip_ability_OpenBuildingMenu_Description"                    ""
@@ -262,45 +330,130 @@
 		"DOTA_Tooltip_ability_SellTower_Description"                           "1秒之后出售该塔，根据难度不同返还不同比例的总召唤花费."
 		"DOTA_Tooltip_ability_SellTower_Lore"                                  "其他技能冷却期间不可回收"
 
+		"DOTA_Tooltip_ability_Merge"                                           "融合"
+		"DOTA_Tooltip_ability_Merge_Description"                               "将两个元素融合起来, 形成一个更强大的元素, 新的元素将在融合发起者的位置出现, 具体哪些元素可以融合, 请查阅右上角帮助界面内的融合列表"
 
-		"DOTA_Tooltip_ability_absolute_zero"                                   "绝对零度"
-		"DOTA_Tooltip_ability_absolute_zero_Description"                       "冻结一定范围内的所有敌方单位.使其无法移动"
-		"DOTA_Tooltip_ability_absolute_zero_Lore"                              ""
-		"DOTA_Tooltip_ability_absolute_zero_radius"                            "作用范围: "
-		"DOTA_Tooltip_ability_absolute_zero_duration"                          "持续时间: "
+//英雄特殊技能
+		"DOTA_Tooltip_ability_element_seal_1"                                             "元素封印-一级"
+		"DOTA_Tooltip_ability_element_seal_1_Description"                                 "在通过第十波的试炼后将会解开，随机获得一个特殊能力"
 
-		"DOTA_Tooltip_modifier_absolute_zero_buff"                             "冰封"
-		"DOTA_Tooltip_modifier_absolute_zero_buff_Description"                 "无法移动"
+		"DOTA_Tooltip_ability_element_seal_2"                                             "元素封印-二级"
+		"DOTA_Tooltip_ability_element_seal_2_Description"                                 "在通过第二十波的试炼后将会解开，随机获得一个特殊能力"
 
+		"DOTA_Tooltip_ability_element_seal_3"                                             "元素封印-三级"
+		"DOTA_Tooltip_ability_element_seal_3_Description"                                 "在通过第三十波的试炼后将会解开，随机获得一个特殊能力"
 
-		"DOTA_Tooltip_ability_burnning_blood"                                  "炽血"
-		"DOTA_Tooltip_ability_burnning_blood_Description"                      "大幅度增加目标区域内友军的攻击速度"
-		"DOTA_Tooltip_ability_burnning_blood_Lore"                             ""
-		"DOTA_Tooltip_ability_burnning_blood_attspe"                           "攻击速度增加: "
-		"DOTA_Tooltip_ability_burnning_blood_duration"                         "持续时间: "
-
-		"DOTA_Tooltip_modifier_burnning_blood_buff"                            "燃烧"
-		"DOTA_Tooltip_modifier_burnning_blood_buff_Description"                "攻击速度大幅增加"
-
-		"DOTA_Tooltip_ability_time_stop"                                       "时间静止"
-		"DOTA_Tooltip_ability_time_stop_Description"                           "暂停刷怪"
-		"DOTA_Tooltip_ability_time_stop_Lore"                                  ""
-		"DOTA_Tooltip_ability_time_stop_duration"                              "持续时间: "
-
-		"DOTA_Tooltip_modifier_time_stop_tooltip"                              "时间静止"
-		"DOTA_Tooltip_modifier_time_stop_tooltip_Description"                  "时间静止"
+		"DOTA_Tooltip_ability_hero_special_earth_lv1_blessing"                            "大地加持"
+		"DOTA_Tooltip_ability_hero_special_earth_lv1_blessing_Description"                "增加一个友方单位的攻击力"
+		"DOTA_Tooltip_ability_hero_special_earth_lv1_blessing_dmginc"                     "攻击力增加:"
+		"DOTA_Tooltip_ability_hero_special_earth_lv1_blessing_dmgincperc"                 "%攻击力增加:"
+		"DOTA_Tooltip_ability_hero_special_earth_lv1_blessing_duration"                   "持续时间:"
+		"DOTA_Tooltip_modifier_hero_special_earth_lv1_blessing"                           "大地加持"
+		"DOTA_Tooltip_modifier_hero_special_earth_lv1_blessing_Description"               "增加%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%点和%dMODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE%%%的攻击力"
 
 
+		"DOTA_Tooltip_ability_hero_special_earth_lv2_blessing"                            "星核加持"
+		"DOTA_Tooltip_ability_hero_special_earth_lv2_blessing_Description"                "增加附近友方单位的攻击力"
+		"DOTA_Tooltip_ability_hero_special_earth_lv2_blessing_dmginc"                     "%攻击力增加:"
+		"DOTA_Tooltip_ability_hero_special_earth_lv2_blessing_radius"                     "作用范围:"
+		"DOTA_Tooltip_modifier_hero_special_earth_lv2_blessing_buff"                      "星核加持"
+		"DOTA_Tooltip_modifier_hero_special_earth_lv2_blessing_buff_Description"          "增加%dMODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE%%%的攻击力"
 
-		"DOTA_Tooltip_ability_recovery"                                        "净化"
-		"DOTA_Tooltip_ability_recovery_Description"                            "净化中央泉水.降低污染度.回复其一定的生命值"
-		"DOTA_Tooltip_ability_recovery_Lore"                                   ""
-		"DOTA_Tooltip_ability_recovery_hpreg"                                  "生命回复: "
+		"DOTA_Tooltip_ability_hero_special_earth_great_power"                             "自然伟力"
+		"DOTA_Tooltip_ability_hero_special_earth_great_power_Description"                 "大幅增加目标范围内的友方攻击力"
+		"DOTA_Tooltip_ability_hero_special_earth_great_power_dmgincre"                    "%攻击力增加:"
+		"DOTA_Tooltip_ability_hero_special_earth_great_power_duration"                    "持续时间:"
+		"DOTA_Tooltip_ability_hero_special_earth_great_power_radius"                      "作用范围:"
+		"DOTA_Tooltip_modifier_hero_special_earth_great_power_buff"                       "自然伟力"
+		"DOTA_Tooltip_modifier_hero_special_earth_great_power_buff_Description"           "增加%dMODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE%%%的攻击力"
 
-		"DOTA_Tooltip_ability_invulnerable"                                    "暗雾屏障"
-		"DOTA_Tooltip_ability_invulnerable_Description"                        "召唤屏障保护中央泉水.使其一定时间内无敌.不会受到污染"
-		"DOTA_Tooltip_ability_invulnerable_Lore"                               ""
-		"DOTA_Tooltip_ability_invulnerable_duration"                           "持续时间: "
+
+		"DOTA_Tooltip_ability_hero_special_nature_root"                                   "自然禁锢"
+		"DOTA_Tooltip_ability_hero_special_nature_root_Description"                       "缠绕一个敌方单位, 使其无法移动"
+		"DOTA_Tooltip_ability_hero_special_nature_root_duration"                          "持续时间:"
+
+		"DOTA_Tooltip_ability_hero_special_water_lv1_blessing"                            "海洋加持"
+		"DOTA_Tooltip_ability_hero_special_water_lv1_blessing_Description"                "增加一个友方单位的魔法回复速度, 同时减少目标的技能冷却时间"
+		"DOTA_Tooltip_ability_hero_special_water_lv1_blessing_manaregen"                  "魔法恢复速度增加:"
+		"DOTA_Tooltip_ability_hero_special_water_lv1_blessing_cooldown"                   "%冷却时间减少:"		
+		"DOTA_Tooltip_ability_hero_special_water_lv1_blessing_duration"                   "持续时间:"
+		"DOTA_Tooltip_modifier_hero_special_water_lv1_blessing"                           "海洋加持"
+		"DOTA_Tooltip_modifier_hero_special_water_lv1_blessing_Description"               "增加%dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT%点魔法恢复速度，同时减少%dMODIFIER_PROPERTY_COOLDOWN_PERCENTAGE%%%的技能冷却时间"
+
+		"DOTA_Tooltip_ability_hero_special_water_lv2_blessing"                            "深渊加持"
+		"DOTA_Tooltip_ability_hero_special_water_lv2_blessing_Description"                "增加目标范围内友军的回魔速度, 同减少目标的冷却时间"
+		"DOTA_Tooltip_ability_hero_special_water_lv2_blessing_manaregen"                  "魔法恢复速度增加:"
+		"DOTA_Tooltip_ability_hero_special_water_lv2_blessing_cooldown"                   "%冷却时间减少:"
+		"DOTA_Tooltip_ability_hero_special_water_lv2_blessing_duration"                   "持续时间:"
+		"DOTA_Tooltip_ability_hero_special_water_lv2_blessing_radius"                     "作用范围:"
+		"DOTA_Tooltip_modifier_hero_special_water_lv2_blessing"                           "深渊加持"
+		"DOTA_Tooltip_modifier_hero_special_water_lv2_blessing_Description"               "增加%dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT%点魔法恢复速度，同时减少%dMODIFIER_PROPERTY_COOLDOWN_PERCENTAGE%%%的技能冷却时间"
+
+		"DOTA_Tooltip_ability_hero_special_absolute_zero"                                   "绝对零度"
+		"DOTA_Tooltip_ability_hero_special_absolute_zero_Description"                       "冻结一定范围内的所有敌方单位.使其无法移动"
+		"DOTA_Tooltip_ability_hero_special_absolute_zero_Lore"                              ""
+		"DOTA_Tooltip_ability_hero_special_absolute_zero_radius"                            "作用范围:"
+		"DOTA_Tooltip_ability_hero_special_absolute_zero_duration"                          "持续时间:"
+		"DOTA_Tooltip_modifier_hero_special_absolute_zero_buff"                             "冰封"
+		"DOTA_Tooltip_modifier_hero_special_absolute_zero_buff_Description"                 "无法移动"
+
+		"DOTA_Tooltip_ability_hero_special_fire_lv1_blessing"                             "烈焰加持"
+		"DOTA_Tooltip_ability_hero_special_fire_lv1_blessing_Description"                 "大幅增加目标的攻击速度"
+		"DOTA_Tooltip_ability_hero_special_fire_lv1_blessing_attspe"                      "攻击速度增加:"
+		"DOTA_Tooltip_ability_hero_special_fire_lv1_blessing_duration"                    "持续时间:"
+		"DOTA_Tooltip_modifier_hero_special_fire_lv1_blessing"                            "烈焰加持"
+		"DOTA_Tooltip_modifier_hero_special_fire_lv1_blessing_Description"                "增加%MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%点攻击速度"
+
+		"DOTA_Tooltip_ability_hero_special_fire_lv2_blessing"                             "熔岩加持"
+		"DOTA_Tooltip_ability_hero_special_fire_lv2_blessing_Description"                 "增加周围友军的攻击速度"
+		"DOTA_Tooltip_ability_hero_special_fire_lv2_blessing_attspe"                      "攻击速度增加:"
+		"DOTA_Tooltip_ability_hero_special_fire_lv2_blessing_radius"                      "作用范围:"
+		"DOTA_Tooltip_modifier_hero_special_fire_lv2_blessing_buff"                       "熔岩加持"
+		"DOTA_Tooltip_modifier_hero_special_fire_lv2_blessing_buff_Description"           "增加%MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%点攻击速度"
+
+
+		"DOTA_Tooltip_ability_hero_special_flame_outbrust"                                  "烈焰爆发"
+		"DOTA_Tooltip_ability_hero_special_flame_outbrust_Description"                      "大幅度增加目标区域内友军的攻击速度"
+		"DOTA_Tooltip_ability_hero_special_flame_outbrust_Lore"                             ""
+		"DOTA_Tooltip_ability_hero_special_flame_outbrust_attspe"                           "攻击速度增加:"
+		"DOTA_Tooltip_ability_hero_special_flame_outbrust_duration"                         "持续时间:"
+		"DOTA_Tooltip_ability_hero_special_flame_outbrust_radius"                         	"作用范围:"
+		"DOTA_Tooltip_modifier_hero_special_flame_outbrust_buff"                            "燃烧"
+		"DOTA_Tooltip_modifier_hero_special_flame_outbrust_buff_Description"                "增加%MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%点攻击速度"
+
+
+		"DOTA_Tooltip_ability_hero_special_air_lv1_blessing"                              "大气加持"
+		"DOTA_Tooltip_ability_hero_special_air_lv1_blessing_Description"                  "使一个友方单位获得无限射程"
+		"DOTA_Tooltip_ability_hero_special_air_lv1_blessing_duration"                     "持续时间:"
+		"DOTA_Tooltip_modifier_hero_special_air_lv1_blessing"                             "大气加持"
+		"DOTA_Tooltip_modifier_hero_special_air_lv1_blessing_Description"                 "获得无限射程"
+
+
+		"DOTA_Tooltip_ability_hero_special_air_lv2_blessing"                              "风暴加持"
+		"DOTA_Tooltip_ability_hero_special_air_lv2_blessing_Description"                  "提升周围友方单位的攻击射程"
+		"DOTA_Tooltip_ability_hero_special_air_lv2_blessing_range"                        "射程增加:"
+		"DOTA_Tooltip_ability_hero_special_air_lv2_blessing_radius"                       "作用范围:"
+		"DOTA_Tooltip_modifier_hero_special_air_lv2_blessing_buff"                        "风暴加持"
+		"DOTA_Tooltip_modifier_hero_special_air_lv2_blessing_buff_Description"            "增加%MODIFIER_PROPERTY_ATTACK_RANGE_BONUS%点射程"
+
+
+		"DOTA_Tooltip_ability_hero_special_tornado_field"                                 "风暴结界"
+		"DOTA_Tooltip_ability_hero_special_tornado_field_Description"                     "使目标范围内的友军单位获得无限射程"
+		"DOTA_Tooltip_ability_hero_special_tornado_field_duration"                        "持续时间:"
+		"DOTA_Tooltip_ability_hero_special_tornado_field_radius"                          "作用范围:"
+		"DOTA_Tooltip_modifier_hero_special_tornado_field_buff"                           "风暴结界"
+		"DOTA_Tooltip_modifier_hero_special_tornado_field_buff_Description"               "获得无限射程"
+
+
+		"DOTA_Tooltip_ability_hero_special_holy_light"                                        "圣光"
+		"DOTA_Tooltip_ability_hero_special_holy_light_Description"                            "净化中央泉水. 回复其一定的生命值"
+		"DOTA_Tooltip_ability_hero_special_holy_light_Lore"                                   ""
+		"DOTA_Tooltip_ability_hero_special_holy_light_hpreg"                                  "生命回复:"
+
+		"DOTA_Tooltip_ability_hero_special_final_shield"                                    "暗雾屏障"
+		"DOTA_Tooltip_ability_hero_special_final_shield_Description"                        "召唤屏障保护中央泉水.使其一定时间内无敌.不会受到污染"
+		"DOTA_Tooltip_ability_hero_special_final_shield_Lore"                               ""
+		"DOTA_Tooltip_ability_hero_special_final_shield_duration"                           "持续时间:"
 
 
 		"DOTA_Tooltip_ability_fountain_aura"                                              "背水"
@@ -312,13 +465,87 @@
 		"DOTA_Tooltip_ability_fountain_aura_dmg_bouns"                                    "%攻击力加成:"
 		"DOTA_Tooltip_modifier_fountain_aura_passive_buff"                                "背水"
 		"DOTA_Tooltip_modifier_fountain_aura_passive_buff_Description"                    "获得额外的%dMODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE%%%的攻击力,%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%点的攻击速度, %dMODIFIER_PROPERTY_ATTACK_RANGE_BONUS%码的射程以及%dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT%点魔法恢复速度"
-		//-----单位技能
+//敌方单位技能
+		"DOTA_Tooltip_ability_enemy_move_speed_constant"                                  "不懈"
+		"DOTA_Tooltip_ability_enemy_move_speed_constant_Description"                      "移动速度恒定，免疫所有减速加速效果"
+		"DOTA_Tooltip_modifier_enemy_move_speed_constant"                                 "不懈"
+		"DOTA_Tooltip_modifier_enemy_move_speed_constant_Description"                     "移动速度恒定，免疫所有减速加速效果"
+
+		"DOTA_Tooltip_ability_enemy_magic_immune"                                         "魔法免疫"
+		"DOTA_Tooltip_ability_enemy_magic_immune_Description"                             "免疫大多数魔法伤害和魔法效果"
+		"DOTA_Tooltip_modifier_enemy_magic_immune"                                        "魔法免疫"
+		"DOTA_Tooltip_modifier_enemy_magic_immune_Description"                            "免疫大多数魔法伤害和魔法效果"
+
+		"DOTA_Tooltip_ability_enemy_elite"                                                "恶魔眷属"
+		"DOTA_Tooltip_ability_enemy_elite_Description"                                    "获得额外的生命值, 死亡后有几率掉落元素精华"
+		"DOTA_Tooltip_ability_enemy_elite_hpinc"                                          "%生命增加:"
+
+		"DOTA_Tooltip_ability_enemy_guard_aura"                                           "恶魔庇护"
+		"DOTA_Tooltip_ability_enemy_guard_aura_Description"                               "降低周围友方单位收到的所有伤害"
+		"DOTA_Tooltip_ability_enemy_guard_aura_dmgdec"                                    "%伤害降低:"
+		"DOTA_Tooltip_ability_enemy_guard_aura_radius"                                    "作用范围:"
+		"DOTA_Tooltip_modifier_enemy_guard_aura_buff"                                     "恶魔庇护"
+		"DOTA_Tooltip_modifier_enemy_guard_aura_buff_Description"                         "减免%dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%受到的伤害"
+
+		"DOTA_Tooltip_ability_enemy_speed_aura"                                           "恶魔行军"
+		"DOTA_Tooltip_ability_enemy_speed_aura_Description"                               "提升周围友方单位的移动速度"
+		"DOTA_Tooltip_ability_enemy_speed_aura_movspe"                                    "%移动速度提升:"
+		"DOTA_Tooltip_ability_enemy_speed_aura_radius"                                    "作用范围:"
+		"DOTA_Tooltip_modifier_enemy_speed_aura_buff"                                     "恶魔行军"
+		"DOTA_Tooltip_modifier_enemy_speed_aura_buff_Description"                         "提升%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%的移动速度"
+
+		"DOTA_Tooltip_ability_enemy_life_aura"                                            "恶魔之血"
+		"DOTA_Tooltip_ability_enemy_life_aura_Description"                                "提升周围友方单位的生命值"
+		"DOTA_Tooltip_ability_enemy_life_aura_hpinc"                                      "%生命值增加:"
+		"DOTA_Tooltip_ability_enemy_life_aura_radius"                                     "作用范围:"
+		"DOTA_Tooltip_modifier_enemy_life_aura_buff"                                      "恶魔之血"
+		"DOTA_Tooltip_modifier_enemy_life_aura_buff_Description"                          "获得40%%的额外生命值"
+
+		"DOTA_Tooltip_ability_enemy_resistance_aura"                                      "恶魔屏障"
+		"DOTA_Tooltip_ability_enemy_resistance_aura_Description"                          "提升周围友方单位的魔法抗性"
+		"DOTA_Tooltip_ability_enemy_resistance_aura_magres"                               "%魔法抗性提升:"
+		"DOTA_Tooltip_ability_enemy_resistance_aura_radius"                               "作用范围:"
+		"DOTA_Tooltip_modifier_enemy_resistance_aura_buff"                                "恶魔屏障"
+		"DOTA_Tooltip_modifier_enemy_resistance_aura_buff_Description"                    "获得%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%的额外魔法抗性"
+
+		"DOTA_Tooltip_ability_enemy_sacrifice_guard"                                      "恶魔献祭-护盾"
+		"DOTA_Tooltip_ability_enemy_sacrifice_guard_Description"                          "死亡后发动, 减免附近友方单位收到的一切伤害"
+		"DOTA_Tooltip_ability_enemy_sacrifice_guard_dmgdec"                               "%伤害减免:"
+		"DOTA_Tooltip_ability_enemy_sacrifice_guard_duration"                             "持续时间:"
+		"DOTA_Tooltip_ability_enemy_sacrifice_guard_radius"                               "作用范围:"
+		"DOTA_Tooltip_modifier_enemy_sacrifice_guard"                                     "恶魔献祭-护盾"
+		"DOTA_Tooltip_modifier_enemy_sacrifice_guard_Description"                         "受到的伤害减免%dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%"
+
+		"DOTA_Tooltip_ability_enemy_sacrifice_charge"                                     "恶魔献祭-冲锋"
+		"DOTA_Tooltip_ability_enemy_sacrifice_charge_Description"                         "死亡后发动, 将附近友方单位的速度提至极限,并且不受减速效果影响"
+		"DOTA_Tooltip_ability_enemy_sacrifice_charge_duration"                            "持续时间:"
+		"DOTA_Tooltip_ability_enemy_sacrifice_charge_radius"                              "作用范围:"
+		"DOTA_Tooltip_modifier_enemy_sacrifice_charge"                                    "恶魔献祭-冲锋"
+		"DOTA_Tooltip_modifier_enemy_sacrifice_charge_Description"                        "移动速度提升至极限, 同时免疫减速效果"
+
+		"DOTA_Tooltip_ability_enemy_sacrifice_heal"                                       "恶魔献祭-生命"
+		"DOTA_Tooltip_ability_enemy_sacrifice_heal_Description"                           "死亡后发动, 在一秒内回复附近友方单位所有生命值"
+		"DOTA_Tooltip_ability_enemy_sacrifice_heal_regen"                                 "%生命值回复:"
+		"DOTA_Tooltip_ability_enemy_sacrifice_heal_duration"                              "持续时间:"
+		"DOTA_Tooltip_ability_enemy_sacrifice_heal_radius"                                "作用范围:"
+		"DOTA_Tooltip_modifier_enemy_sacrifice_heal"                                      "恶魔献祭-生命"
+		"DOTA_Tooltip_modifier_enemy_sacrifice_heal_Description"                          "回复所有生命值"
+
+		"DOTA_Tooltip_ability_enemy_sacrifice_antimagi"                                   "恶魔献祭-反魔"
+		"DOTA_Tooltip_ability_enemy_sacrifice_antimagi_Description"                       "死亡后发动, 使周围的友方单位免疫魔法伤害"
+		"DOTA_Tooltip_ability_enemy_sacrifice_antimagi_magres"                            "%魔法抗性提升:"
+		"DOTA_Tooltip_ability_enemy_sacrifice_antimagi_duration"                          "持续时间:"
+		"DOTA_Tooltip_ability_enemy_sacrifice_antimagi_radius"                            "作用范围:"
+		"DOTA_Tooltip_modifier_enemy_sacrifice_antimagi"                                  "恶魔献祭-反魔"
+		"DOTA_Tooltip_modifier_enemy_sacrifice_antimagi_Description"                      "免疫魔法伤害"
+
+//-----单位技能
 
 		"DOTA_Tooltip_ability_head_shoot"                                      "爆头"
 		"DOTA_Tooltip_ability_head_shoot_Description"                          "攻击有一定几率对目标造成额外伤害及短暂眩晕"
 		"DOTA_Tooltip_ability_head_shoot_Lore"                                 ""
-		"DOTA_Tooltip_ability_head_shoot_chance"                               "%几率: "
-		"DOTA_Tooltip_ability_head_shoot_duration"                             "眩晕时间: "
+		"DOTA_Tooltip_ability_head_shoot_chance"                               "%几率:"
+		"DOTA_Tooltip_ability_head_shoot_duration"                             "眩晕时间:"
 
 		"DOTA_Tooltip_ability_dragon_breath"                                   "炎龙之息"
 		"DOTA_Tooltip_ability_dragon_breath_Description"                       "攻击间隔恒定为0.1"
@@ -327,25 +554,25 @@
 		"DOTA_Tooltip_ability_earth_shot"                                      "大地震击"
 		"DOTA_Tooltip_ability_earth_shot_Description"                          "普通攻击对目标及目标周围的敌人造成伤害和短暂眩晕"
 		"DOTA_Tooltip_ability_earth_shot_Lore"                                 ""
-		"DOTA_Tooltip_ability_earth_shot_radius"                               "范围: "
-		"DOTA_Tooltip_ability_earth_shot_stun"                                 "眩晕时间: "
+		"DOTA_Tooltip_ability_earth_shot_radius"                               "范围:"
+		"DOTA_Tooltip_ability_earth_shot_stun"                                 "眩晕时间:"
 
 
 		"DOTA_Tooltip_ability_earth_core_aura"                                 "元素核心-山岩"
 		"DOTA_Tooltip_ability_earth_core_aura_Description"                     "提高周围友方单位的攻击力"
 		"DOTA_Tooltip_ability_earth_core_aura_Lore"                            "开关光环以刷新技能效果"
-		"DOTA_Tooltip_ability_earth_core_aura_dmginc"                          "%攻击力提高: "
-		"DOTA_Tooltip_ability_earth_core_aura_radius"                          "作用范围: "
+		"DOTA_Tooltip_ability_earth_core_aura_dmginc"                          "%攻击力提高:"
+		"DOTA_Tooltip_ability_earth_core_aura_radius"                          "作用范围:"
 
 		"DOTA_Tooltip_modifier_earth_core_aura_buff"                           "元素核心-山岩"
 		"DOTA_Tooltip_modifier_earth_core_aura_buff_Description"               "提高%dMODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE%%%的攻击力"
 
 		"DOTA_Tooltip_ability_earth_core_overload"                             "核心过载-山岩"
-		"DOTA_Tooltip_ability_earth_core_overload_Description"                 "使山岩核心过载.瞬间爆发出极强的元素力量.短时间内使得一定范围内的友军的攻击力获得极大的提升.\n警告: 过载会完全损毁核心!!!!"
+		"DOTA_Tooltip_ability_earth_core_overload_Description"                 "使山岩核心过载.瞬间爆发出极强的元素力量.短时间内使得一定范围内的友军的攻击力获得极大的提升.\n警告:过载会完全损毁核心!!!!"
 		"DOTA_Tooltip_ability_earth_core_overload_Lore"                        ""
-		"DOTA_Tooltip_ability_earth_core_overload_dmginc"                      "%攻击力提高: "
-		"DOTA_Tooltip_ability_earth_core_overload_duration"                    "持续时间: "
-		"DOTA_Tooltip_ability_earth_core_overload_radius"                      "作用范围: "
+		"DOTA_Tooltip_ability_earth_core_overload_dmginc"                      "%攻击力提高:"
+		"DOTA_Tooltip_ability_earth_core_overload_duration"                    "持续时间:"
+		"DOTA_Tooltip_ability_earth_core_overload_radius"                      "作用范围:"
 
 		"DOTA_Tooltip_modifier_earth_core_overload_buff"                       "核心过载-山岩"
 		"DOTA_Tooltip_modifier_earth_core_overload_buff_Description"           "提高%dMODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE%%%的攻击力"
@@ -354,17 +581,17 @@
 		"DOTA_Tooltip_ability_water_core_aura"                                 "元素核心-极寒"
 		"DOTA_Tooltip_ability_water_core_aura_Description"                     "降低周围敌方单位的移动速度.无视魔免"
 		"DOTA_Tooltip_ability_water_core_aura_Lore"                            "开关光环以刷新技能效果"
-		"DOTA_Tooltip_ability_water_core_aura_slowdown"                        "%移动速度减低: "
-		"DOTA_Tooltip_ability_water_core_aura_radius"                          "作用范围: "
+		"DOTA_Tooltip_ability_water_core_aura_slowdown"                        "%移动速度减低:"
+		"DOTA_Tooltip_ability_water_core_aura_radius"                          "作用范围:"
 
 		"DOTA_Tooltip_modifier_water_core_aura_debuff"                         "元素核心-极寒"
 		"DOTA_Tooltip_modifier_water_core_aura_debuff_Description"             "降低%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%的移动速度"
 
 		"DOTA_Tooltip_ability_water_core_overload"                             "核心过载-极寒"
-		"DOTA_Tooltip_ability_water_core_overload_Description"                 "使极寒核心过载.瞬间爆发出极强的元素力量.短时间内冻结一定范围内的敌方单位，使得其无法移动.\n警告: 过载会完全损毁核心!!!!"
+		"DOTA_Tooltip_ability_water_core_overload_Description"                 "使极寒核心过载.瞬间爆发出极强的元素力量.短时间内冻结一定范围内的敌方单位，使得其无法移动.\n警告:过载会完全损毁核心!!!!"
 		"DOTA_Tooltip_ability_water_core_overload_Lore"                        ""
-		"DOTA_Tooltip_ability_water_core_overload_duration"                    "持续时间: "
-		"DOTA_Tooltip_ability_water_core_overload_radius"                      "作用范围: "
+		"DOTA_Tooltip_ability_water_core_overload_duration"                    "持续时间:"
+		"DOTA_Tooltip_ability_water_core_overload_radius"                      "作用范围:"
 
 		"DOTA_Tooltip_modifier_water_core_overload_buff"                       "核心过载-极寒"
 		"DOTA_Tooltip_modifier_water_core_overload_buff_Description"           "无法移动"
@@ -375,18 +602,18 @@
 		"DOTA_Tooltip_ability_fire_core_aura"                                  "元素核心-炽炎"
 		"DOTA_Tooltip_ability_fire_core_aura_Description"                      "提升周围友方单位的攻击速度"
 		"DOTA_Tooltip_ability_fire_core_aura_Lore"                             "开关光环以刷新技能效果"
-		"DOTA_Tooltip_ability_fire_core_aura_attspe"                           "攻击速度提升: "
-		"DOTA_Tooltip_ability_fire_core_aura_radius"                           "作用范围: "
+		"DOTA_Tooltip_ability_fire_core_aura_attspe"                           "攻击速度提升:"
+		"DOTA_Tooltip_ability_fire_core_aura_radius"                           "作用范围:"
 
 		"DOTA_Tooltip_modifier_fire_core_aura_buff"                            "元素核心-炽炎"
 		"DOTA_Tooltip_modifier_fire_core_aura_buff_Description"                "提升%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%点攻击速度"
 
 		"DOTA_Tooltip_ability_fire_core_overload"                              "核心过载-炽炎"
-		"DOTA_Tooltip_ability_fire_core_overload_Description"                  "使炽炎核心过载.瞬间爆发出极强的元素力量.短时间内使得一定范围内的友方单位获得极大的攻击速度提升.\n警告: 过载会完全损毁核心!!!!"
+		"DOTA_Tooltip_ability_fire_core_overload_Description"                  "使炽炎核心过载.瞬间爆发出极强的元素力量.短时间内使得一定范围内的友方单位获得极大的攻击速度提升.\n警告:过载会完全损毁核心!!!!"
 		"DOTA_Tooltip_ability_fire_core_overload_Lore"                         ""
-		"DOTA_Tooltip_ability_fire_core_overload_attspe"                       "攻击速度提升: "
-		"DOTA_Tooltip_ability_fire_core_overload_duration"                     "持续时间: "
-		"DOTA_Tooltip_ability_fire_core_overload_radius"                       "作用范围: "
+		"DOTA_Tooltip_ability_fire_core_overload_attspe"                       "攻击速度提升:"
+		"DOTA_Tooltip_ability_fire_core_overload_duration"                     "持续时间:"
+		"DOTA_Tooltip_ability_fire_core_overload_radius"                       "作用范围:"
 
 		"DOTA_Tooltip_modifier_fire_core_overload_buff"                        "核心过载-炽炎"
 		"DOTA_Tooltip_modifier_fire_core_overload_buff_Description"            "提升%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%点攻击速度"
@@ -397,28 +624,28 @@
 		"DOTA_Tooltip_ability_lightning_core_aura"                             "元素核心-雷霆"
 		"DOTA_Tooltip_ability_lightning_core_aura_Description"                 "对范围内的敌人随机造成基于最大生命值的魔法伤害."
 		"DOTA_Tooltip_ability_lightning_core_aura_Lore"                        "开关光环以刷新技能效果"
-		"DOTA_Tooltip_ability_lightning_core_aura_dmg"                         "%伤害: "
-		"DOTA_Tooltip_ability_lightning_core_aura_radius"                      "作用范围: "
+		"DOTA_Tooltip_ability_lightning_core_aura_dmg"                         "%伤害:"
+		"DOTA_Tooltip_ability_lightning_core_aura_radius"                      "作用范围:"
 
 		"DOTA_Tooltip_modifier_lightning_core_aura_debuff"                     "元素核心-雷霆"
 		"DOTA_Tooltip_modifier_lightning_core_aura_debuff_Description"         "小心雷击!!"
 
 		"DOTA_Tooltip_ability_lightning_core_overload"                         "核心过载-雷霆"
-		"DOTA_Tooltip_ability_lightning_core_overload_Description"             "使雷霆核心过载.瞬间爆发出极强的元素力量.产生大量雷霆轰击周围的敌人,造成基于最大生命值的魔法伤害.\n警告: 过载会完全损毁核心"
+		"DOTA_Tooltip_ability_lightning_core_overload_Description"             "使雷霆核心过载.瞬间爆发出极强的元素力量.产生大量雷霆轰击周围的敌人,造成基于最大生命值的魔法伤害.\n警告:过载会完全损毁核心"
 		"DOTA_Tooltip_ability_lightning_core_overload_Lore"                    ""
-		"DOTA_Tooltip_ability_lightning_core_overload_dmg"                     "%每道雷霆伤害: "
-		"DOTA_Tooltip_ability_lightning_core_overload_radius"                  "打击范围: "
+		"DOTA_Tooltip_ability_lightning_core_overload_dmg"                     "%每道雷霆伤害:"
+		"DOTA_Tooltip_ability_lightning_core_overload_radius"                  "打击范围:"
 
 		"DOTA_Tooltip_ability_splash_attack"                                   "巨石冲击"
 		"DOTA_Tooltip_ability_splash_attack_Description"                       "对攻击目标周围一定范围的敌方单位造成伤害."
 		"DOTA_Tooltip_ability_splash_attack_Lore"                              "魔法伤害"
-		"DOTA_Tooltip_ability_splash_attack_radius"                            "目标周围: "
+		"DOTA_Tooltip_ability_splash_attack_radius"                            "目标周围:"
 
 
 		"DOTA_Tooltip_ability_booty_gold"                                      "战利品"
 		"DOTA_Tooltip_ability_booty_gold_Description"                          "每击杀一个敌人，将会获得额外的金钱奖励."
 		"DOTA_Tooltip_ability_booty_gold_Lore"                                 ""
-		"DOTA_Tooltip_ability_booty_gold_bouns"                                "额外金钱: "
+		"DOTA_Tooltip_ability_booty_gold_bouns"                                "额外金钱:"
 
 		"DOTA_Tooltip_modifier_extra_gold_count"                               "额外金钱"
 		"DOTA_Tooltip_modifier_extra_gold_count_Description"                   "已获得 %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% 的额外金钱"
@@ -427,19 +654,19 @@
 		"DOTA_Tooltip_ability_luck_gold"                                       "掠夺"
 		"DOTA_Tooltip_ability_luck_gold_Description"                           "每次攻击敌人，有一定概率获得(当前波数)的额外金钱"
 		"DOTA_Tooltip_ability_luck_gold_Lore"                                  ""
-		"DOTA_Tooltip_ability_luck_gold_chance"                                "%概率: "
+		"DOTA_Tooltip_ability_luck_gold_chance"                                "%概率:"
 
 		"DOTA_Tooltip_ability_stun_hit"                                        "重击"
 		"DOTA_Tooltip_ability_stun_hit_Description"                            "攻击有一定概率击晕敌人\n"
 		"DOTA_Tooltip_ability_stun_hit_Lore"                                   ""
-		"DOTA_Tooltip_ability_stun_hit_chance"                                 "%概率: "
-		"DOTA_Tooltip_ability_stun_hit_duration"                               "眩晕时间："
+		"DOTA_Tooltip_ability_stun_hit_chance"                                 "%概率:"
+		"DOTA_Tooltip_ability_stun_hit_duration"                               "眩晕时间:"
 
 		"DOTA_Tooltip_ability_earth_blessing"                                  "山岩之力"
 		"DOTA_Tooltip_ability_earth_blessing_Description"                      "提高一个友方单位的攻击力\n"
 		"DOTA_Tooltip_ability_earth_blessing_Lore"                             ""
-		"DOTA_Tooltip_ability_earth_blessing_dmginc"                           "攻击力提高: "
-		"DOTA_Tooltip_ability_earth_blessing_duration"                         "持续时间："
+		"DOTA_Tooltip_ability_earth_blessing_dmginc"                           "攻击力提高:"
+		"DOTA_Tooltip_ability_earth_blessing_duration"                         "持续时间:"
 
 		"DOTA_Tooltip_modifier_earth_blessing_buff"                            "山岩之力"
 		"DOTA_Tooltip_modifier_earth_blessing_buff_Description"                "提高%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%点攻击力"
@@ -447,38 +674,40 @@
 		"DOTA_Tooltip_ability_brilliance_aura"                                 "大地灵脉"
 		"DOTA_Tooltip_ability_brilliance_aura_Description"                     "汇聚大地灵脉，提高周围能量密度，增加友方单位的魔法恢复速度.\n"
 		"DOTA_Tooltip_ability_brilliance_aura_Lore"                            "光环可以开关以刷新光环BUFF!!!"
-		"DOTA_Tooltip_ability_brilliance_aura_radius"                          "作用范围："
-		"DOTA_Tooltip_ability_brilliance_aura_manaregen"                       "魔法恢复速度加成："
+		"DOTA_Tooltip_ability_brilliance_aura_radius"                          "作用范围:"
+		"DOTA_Tooltip_ability_brilliance_aura_manaregen"                       "魔法恢复速度加成:"
 
 		"DOTA_Tooltip_modifier_brilliance_aura_passive_buff"                   "大地灵脉"
 		"DOTA_Tooltip_modifier_brilliance_aura_passive_buff_Description"       "提高%dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT%点/秒的魔法恢复速度"
 
 		"DOTA_Tooltip_ability_sandstorm"                                       "沙暴"
-		"DOTA_Tooltip_ability_sandstorm_Description"                           "普通攻击有一定几率引发沙暴，对目标周围400的敌人造成伤害并减速，持续5秒.减速效果和伤害无视魔法免疫\n"
+		"DOTA_Tooltip_ability_sandstorm_Description"                           "普通攻击有一定几率引发沙暴，对目标周围的敌人造成伤害并减速，持续5秒.减速效果和伤害无视魔法免疫\n"
 		"DOTA_Tooltip_ability_sandstorm_Lore"                                  "可以通过-闪烁沙漠的意志-强化"
-		"DOTA_Tooltip_ability_sandstorm_chance"                                "%几率："
-		"DOTA_Tooltip_ability_sandstorm_movdown"                               "%减速："
-		"DOTA_Tooltip_ability_sandstorm_dmg"                                   "伤害："
+		"DOTA_Tooltip_ability_sandstorm_chance"                                "%几率:"
+		"DOTA_Tooltip_ability_sandstorm_movdown"                               "%减速:"
+		"DOTA_Tooltip_ability_sandstorm_dmg"                                   "伤害:"
+		"DOTA_Tooltip_ability_sandstorm_radius"                                "作用范围:"
 		"DOTA_Tooltip_modifier_sandstorm_movdown"                              "沙暴"
 		"DOTA_Tooltip_modifier_sandstorm_movdown_Description"                  "降低%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%的移动速度"
 
 		"DOTA_Tooltip_ability_sandstorm_e"                                     "闪烁沙漠的意志"
-		"DOTA_Tooltip_ability_sandstorm_e_Description"                         "普通攻击有一定几率引发沙暴，对目标周围400的敌人造成伤害并减速，每层减速效果持续5秒.减速效果和伤害无视魔法免疫\n"
+		"DOTA_Tooltip_ability_sandstorm_e_Description"                         "普通攻击有一定几率引发沙暴，对目标周围的敌人造成伤害并减速，每层减速效果持续5秒.减速效果和伤害无视魔法免疫\n"
 		"DOTA_Tooltip_ability_sandstorm_e_Lore"                                "已强化，减速效果现在可以叠加"
-		"DOTA_Tooltip_ability_sandstorm_e_chance"                              "%几率："
-		"DOTA_Tooltip_ability_sandstorm_e_movdown"                             "%减速："
-		"DOTA_Tooltip_ability_sandstorm_e_dmg"                                 "伤害："
+		"DOTA_Tooltip_ability_sandstorm_e_chance"                              "%几率:"
+		"DOTA_Tooltip_ability_sandstorm_e_movdown"                             "%减速:"
+		"DOTA_Tooltip_ability_sandstorm_e_dmg"                                 "伤害:"
+		"DOTA_Tooltip_ability_sandstorm_e_radius"                              "作用范围:"
 		"DOTA_Tooltip_modifier_sandstorm_e_movdown"                            "闪烁沙漠的意志"
 		"DOTA_Tooltip_modifier_sandstorm_e_movdown_Description"                "降低%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%的移动速度"
 
 		"DOTA_Tooltip_ability_battle_cry"                                      "战吼"
 		"DOTA_Tooltip_ability_battle_cry_Description"                          "普通攻击一定概率触发战吼.增加周围友军的攻击力.可以叠加\n"
 		"DOTA_Tooltip_ability_battle_cry_Lore"                                 ""
-		"DOTA_Tooltip_ability_battle_cry_dmginc"                               "%攻击力增加: "
-		"DOTA_Tooltip_ability_battle_cry_radius"                               "作用范围: "
-		"DOTA_Tooltip_ability_battle_cry_chance"                               "%概率: "
-		"DOTA_Tooltip_ability_battle_cry_duration"                             "持续时间: "
-		"DOTA_Tooltip_ability_battle_cry_limit"                                "叠加上限: "
+		"DOTA_Tooltip_ability_battle_cry_dmginc"                               "%攻击力增加:"
+		"DOTA_Tooltip_ability_battle_cry_radius"                               "作用范围:"
+		"DOTA_Tooltip_ability_battle_cry_chance"                               "%概率:"
+		"DOTA_Tooltip_ability_battle_cry_duration"                             "持续时间:"
+		"DOTA_Tooltip_ability_battle_cry_limit"                                "叠加上限:"
 		"DOTA_Tooltip_modifier_battle_cry_buff"                                "战吼"
 		"DOTA_Tooltip_modifier_battle_cry_buff_Description"                    "提升%dMODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE%%%的攻击力"
 
@@ -488,38 +717,41 @@
 		"DOTA_Tooltip_ability_griavty_control"                                 "重力掌控"
 		"DOTA_Tooltip_ability_griavty_control_Description"                     "谜团自发强化周边的重力，让其成为一股强大的阻力迟缓敌方单位.对谜团周围的敌方单位造成减速.\n"
 		"DOTA_Tooltip_ability_griavty_control_Lore"                            "可以通过-星核坍缩-强化"
-		"DOTA_Tooltip_ability_griavty_control_slowdown"                        "%减速："
-		"DOTA_Tooltip_ability_griavty_control_radius"                          "范围："
+		"DOTA_Tooltip_ability_griavty_control_slowdown"                        "%减速:"
+		"DOTA_Tooltip_ability_griavty_control_radius"                          "范围:"
 		"DOTA_Tooltip_modifier_griavty_control_passive_buff"                   "重力强化"
 		"DOTA_Tooltip_modifier_griavty_control_passive_buff_Description"       "降低%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%的移动速度"
 
 		"DOTA_Tooltip_ability_griavty_control_e"                               "星核坍缩"
 		"DOTA_Tooltip_ability_griavty_control_e_Description"                   "被动-谜团自发强化周边的重力，让其成为一股强大的阻力迟缓敌方单位.对谜团周围的敌方单位造成减速.\n主动-无限增大在指定地点的引力，直至坍缩成一颗黑洞，牵引敌方单位使其无法逃离.黑洞牵引效果无视魔法免疫."
 		"DOTA_Tooltip_ability_griavty_control_e_Lore"                          "已强化"
-		"DOTA_Tooltip_ability_griavty_control_e_slowdown"                      "%被动减速："
-		"DOTA_Tooltip_ability_griavty_control_e_radius"                        "被动范围："
-		"DOTA_Tooltip_ability_griavty_control_e_duration"                      "黑洞持续时间："
-		"DOTA_Tooltip_ability_griavty_control_e_blackholeradius"               "黑洞半径："
+		"DOTA_Tooltip_ability_griavty_control_e_slowdown"                      "%被动减速:"
+		"DOTA_Tooltip_ability_griavty_control_e_radius"                        "被动范围:"
+		"DOTA_Tooltip_ability_griavty_control_e_duration"                      "黑洞持续时间:"
+		"DOTA_Tooltip_ability_griavty_control_e_blackholeradius"               "黑洞半径:"
 		"DOTA_Tooltip_modifier_griavty_control_e_passive_buff"                 "重力强化"
 		"DOTA_Tooltip_modifier_griavty_control_e_passive_buff_Description"     "降低%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%的移动速度"
 
 
 		"DOTA_Tooltip_ability_frost_attack"                                    "寒霜之袭"
 		"DOTA_Tooltip_ability_frost_attack_Description"                        "普通攻击能对目标造成减速."
-		"DOTA_Tooltip_ability_frost_attack_duration"                           "持续时间: "
-		"DOTA_Tooltip_ability_frost_attack_slowdown"                           "%减速: "
+		"DOTA_Tooltip_ability_frost_attack_duration"                           "持续时间:"
+		"DOTA_Tooltip_ability_frost_attack_slowdown"                           "%减速:"
 		"DOTA_Tooltip_ability_frost_attack_Lore"                               ""
+		"DOTA_Tooltip_modifier_frost_attack_debuff"                            "寒霜之袭"
+		"DOTA_Tooltip_modifier_frost_attack_debuff_Description"                "移动速度减缓"
+
 
 		"DOTA_Tooltip_ability_water_mark"                                      "深海标记"
 		"DOTA_Tooltip_ability_water_mark_Description"                          "对目标施加一个深海标记，所有(属性-水)元素的普通攻击将会堆叠一层深海标记，刷新持续时间，并同时造成(堆叠层数x伤害系数)的伤害."
-		"DOTA_Tooltip_ability_water_mark_dmg"                                  "伤害系数: "
-		"DOTA_Tooltip_ability_water_mark_duration"                             "持续时间: "
+		"DOTA_Tooltip_ability_water_mark_dmg"                                  "伤害系数:"
+		"DOTA_Tooltip_ability_water_mark_duration"                             "持续时间:"
 		"DOTA_Tooltip_ability_water_mark_Lore"                                 "升级或出售该单位会导致该单位释放的标记被移除.\n可以通过-无尽海-强化"
 
 		"DOTA_Tooltip_ability_water_mark_e"                                    "深海标记"
 		"DOTA_Tooltip_ability_water_mark_e_Description"                        "对目标施加一个深海标记，所有(属性-水)元素的普通攻击将会堆叠一层深海标记，刷新持续时间，并同时造成(堆叠层数x伤害系数)的伤害."
-		"DOTA_Tooltip_ability_water_mark_e_dmg"                                "伤害系数: "
-		"DOTA_Tooltip_ability_water_mark_e_duration"                           "持续时间: "
+		"DOTA_Tooltip_ability_water_mark_e_dmg"                                "伤害系数:"
+		"DOTA_Tooltip_ability_water_mark_e_duration"                           "持续时间:"
 		"DOTA_Tooltip_ability_water_mark_e_Lore"                               "升级或出售该单位会导致该单位释放的标记被移除.\n已强化"
 
 		"DOTA_Tooltip_modifier_water_mark_buff"                                "深海标记"
@@ -528,15 +760,15 @@
 
 		"DOTA_Tooltip_ability_ice_mark"                                        "寒霜标记"
 		"DOTA_Tooltip_ability_ice_mark_Description"                            "对目标施加一个寒霜标记，所有(属性-冰)元素的普通攻击将会堆叠一层寒霜标记，并刷新持续时间.寒霜标记会降低单位(堆叠层数x缓速系数)的移动速度."
-		"DOTA_Tooltip_ability_ice_mark_movdown"                                "缓速系数: "
-		"DOTA_Tooltip_ability_ice_mark_duration"                               "持续时间: "
+		"DOTA_Tooltip_ability_ice_mark_movdown"                                "缓速系数:"
+		"DOTA_Tooltip_ability_ice_mark_duration"                               "持续时间:"
 		"DOTA_Tooltip_ability_ice_mark_Lore"                                   "可以通过-灵魂寒霜-强化"
 
 
 		"DOTA_Tooltip_ability_ice_mark_e"                                      "寒霜标记"
 		"DOTA_Tooltip_ability_ice_mark_e_Description"                          "对目标施加一个寒霜标记，所有(属性-冰)元素的普通攻击将会堆叠一层寒霜标记，并刷新持续时间.寒霜标记会降低单位(堆叠层数x缓速系数)%%%的移动速度."
-		"DOTA_Tooltip_ability_ice_mark_e_movdown"                              "缓速系数: "
-		"DOTA_Tooltip_ability_ice_mark_e_duration"                             "持续时间: "
+		"DOTA_Tooltip_ability_ice_mark_e_movdown"                              "缓速系数:"
+		"DOTA_Tooltip_ability_ice_mark_e_duration"                             "持续时间:"
 		"DOTA_Tooltip_ability_ice_mark_e_Lore"                                 "已强化"
 
 		"DOTA_Tooltip_modifier_ice_mark_buff"                                  "寒霜标记"
@@ -546,20 +778,20 @@
 		"DOTA_Tooltip_ability_erosion"                                         "腐蚀"
 		"DOTA_Tooltip_ability_erosion_Description"                             "普通攻击降低目标单位的护甲.可以叠加."
 		"DOTA_Tooltip_ability_erosion_Lore"                                    ""
-		"DOTA_Tooltip_ability_erosion_duration"                                "持续时间: "
-		"DOTA_Tooltip_ability_erosion_amordown"                                "护甲降低: "
-		"DOTA_Tooltip_ability_erosion_limit"                                   "最大叠加数: "
+		"DOTA_Tooltip_ability_erosion_duration"                                "持续时间:"
+		"DOTA_Tooltip_ability_erosion_amordown"                                "护甲降低:"
+		"DOTA_Tooltip_ability_erosion_limit"                                   "最大叠加数:"
 
 		"DOTA_Tooltip_ability_split_shot"                                      "多重箭"
 		"DOTA_Tooltip_ability_split_shot_Description"                          "同时攻击范围内的多个敌人"
 		"DOTA_Tooltip_ability_split_shot_Lore"                                 ""
-		"DOTA_Tooltip_ability_split_shot_amount"                        	   "最大目标数: "
+		"DOTA_Tooltip_ability_split_shot_amount"                        	   "最大目标数:"
 
 
 		"DOTA_Tooltip_ability_frost_curse_field"                               "寒域诅咒"
 		"DOTA_Tooltip_ability_frost_curse_field_Description"                   "来自万古寒川的无尽诅咒，增加范围内敌方单位受到的所有伤害."
-		"DOTA_Tooltip_ability_frost_curse_field_radius"                        "作用范围: "
-		"DOTA_Tooltip_ability_frost_curse_field_dmginc"                        "%伤害增加: "
+		"DOTA_Tooltip_ability_frost_curse_field_radius"                        "作用范围:"
+		"DOTA_Tooltip_ability_frost_curse_field_dmginc"                        "%伤害增加:"
 		"DOTA_Tooltip_ability_frost_curse_fieldLore"                           ""
 
 		"DOTA_Tooltip_modifier_frost_curse_field_passive_buff"                 "寒域诅咒"
@@ -568,36 +800,38 @@
 
 		"DOTA_Tooltip_ability_frost_nova_attack_passive"                       "冰霜新星"
 		"DOTA_Tooltip_ability_frost_nova_attack_passive_Description"           "普通攻击友一定几率对目标及周围的敌方单位造成伤害以及减速."
-		"DOTA_Tooltip_ability_frost_nova_attack_passive_radius"                "作用范围: "
-		"DOTA_Tooltip_ability_frost_nova_attack_passive_chance"                "%几率: "
-		"DOTA_Tooltip_ability_frost_nova_attack_passive_slow_movement_speed"   "%减速: "
+		"DOTA_Tooltip_ability_frost_nova_attack_passive_radius"                "作用范围:"
+		"DOTA_Tooltip_ability_frost_nova_attack_passive_chance"                "%几率:"
+		"DOTA_Tooltip_ability_frost_nova_attack_passive_slow_movement_speed"   "%减速:"
 		"DOTA_Tooltip_ability_frost_nova_attack_passive_Lore"                  ""
 
 
 		"DOTA_Tooltip_ability_life_ritual"                                     "死亡仪式"
 		"DOTA_Tooltip_ability_life_ritual_Description"                         "对一个目标造成基于最大生命值的无视魔免的纯粹伤害同时使其眩晕.并有一定几率获得一点元素精华"
-		"DOTA_Tooltip_ability_life_ritual_dmg"                                 "%伤害: "
-		"DOTA_Tooltip_ability_life_ritual_chance"                              "%几率: "
-		"DOTA_Tooltip_ability_life_ritual_mini_stun"                           "眩晕: "
-		"DOTA_Tooltip_ability_life_ritual_Lore"                                ""
+		"DOTA_Tooltip_ability_life_ritual_dmg"                                 "%伤害:"
+		"DOTA_Tooltip_ability_life_ritual_chance"                              "%几率:"
+		"DOTA_Tooltip_ability_life_ritual_mini_stun"                           "眩晕:"
+		"DOTA_Tooltip_ability_life_ritual_Lore"                                "对同一个目标只能生效一次"
 
 
 
 		"DOTA_Tooltip_ability_critical_hit"                                    "烈焰打击"
 		"DOTA_Tooltip_ability_critical_hit_Description"                        "一定概率触发暴击，造成额外伤害."
 		"DOTA_Tooltip_ability_critical_hit_Lore"                               ""
-		"DOTA_Tooltip_ability_critical_hit_dc"                                 "%倍率: "
-		"DOTA_Tooltip_ability_critical_hit_chance"                             "%概率: "
+		"DOTA_Tooltip_ability_critical_hit_dc"                                 "%倍率:"
+		"DOTA_Tooltip_ability_critical_hit_chance"                             "%概率:"
 
 		"DOTA_Tooltip_ability_sunfire"                                         "日火"
-		"DOTA_Tooltip_ability_sunfire_Description"                             "对900范围内的所有敌人每秒造成伤害"
+		"DOTA_Tooltip_ability_sunfire_Description"                             "对一定范围内的所有敌人每秒造成伤害"
 		"DOTA_Tooltip_ability_sunfire_Lore"                                    ""
-		"DOTA_Tooltip_ability_sunfire_dmgps"                                   "每秒伤害: "
+		"DOTA_Tooltip_ability_sunfire_dmgps"                                   "每秒伤害:"
+		"DOTA_Tooltip_ability_sunfire_radius"                                  "作用范围:"
 
 		"DOTA_Tooltip_ability_sunfire_e"                                       "日火"
-		"DOTA_Tooltip_ability_sunfire_e_Description"                           "对900范围内的所有敌人每秒造成无视魔免的纯粹伤害"
+		"DOTA_Tooltip_ability_sunfire_e_Description"                           "对一定范围内的所有敌人每秒造成无视魔免的纯粹伤害"
 		"DOTA_Tooltip_ability_sunfire_e_Lore"                                  ""
-		"DOTA_Tooltip_ability_sunfire_e_dmgps"                                 "每秒伤害: "
+		"DOTA_Tooltip_ability_sunfire_e_dmgps"                                 "每秒伤害:"
+		"DOTA_Tooltip_ability_sunfire_e_radius"                                "作用范围:"
 
 
 
@@ -606,22 +840,22 @@
 		"DOTA_Tooltip_ability_flame_blood"                                     "燃血"
 		"DOTA_Tooltip_ability_flame_blood_Description"                         "使目标体内血液奔流，增加其攻击速度，持续25秒."
 		"DOTA_Tooltip_ability_flame_blood_Lore"                                ""
-		"DOTA_Tooltip_ability_flame_blood_bonus_attack_speed"                  "攻击速度增加: "
+		"DOTA_Tooltip_ability_flame_blood_bonus_attack_speed"                  "攻击速度增加:"
 
 		"DOTA_Tooltip_ability_burning_soul"                                    "沸血之矛"
 		"DOTA_Tooltip_ability_burning_soul_Description"                        "普通攻击可以使敌人着火，每秒造成大量魔法伤害."
 		"DOTA_Tooltip_ability_burning_soul_Lore"                               "可通过-狂战士之血-强化"
-		"DOTA_Tooltip_ability_burning_soul_dmgps"                              "每秒伤害: "
-		"DOTA_Tooltip_ability_burning_soul_duration"                           "持续时间: "
+		"DOTA_Tooltip_ability_burning_soul_dmgps"                              "每秒伤害:"
+		"DOTA_Tooltip_ability_burning_soul_duration"                           "持续时间:"
 		"DOTA_Tooltip_modifier_burning_dmg_buff"                               "沸血之矛"
 		"DOTA_Tooltip_modifier_burning_dmg_buff_Description"                   "着火啦，每秒造成大量伤害."
 
 		"DOTA_Tooltip_ability_burning_soul_e"                                  "狂战士之血"
 		"DOTA_Tooltip_ability_burning_soul_e_Description"                      "被动-普通攻击可以使敌人着火，每秒造成大量魔法伤害.\n主动-激发体内的狂战士之血，在接下来的一段时间内，攻击速度提升至极限."
 		"DOTA_Tooltip_ability_burning_soul_e_Lore"                             "已强化"
-		"DOTA_Tooltip_ability_burning_soul_e_dmgps"                            "每秒伤害: "
-		"DOTA_Tooltip_ability_burning_soul_e_durationA"                        "被动持续时间: "
-		"DOTA_Tooltip_ability_burning_soul_e_durationB"                        "主动持续时间: "
+		"DOTA_Tooltip_ability_burning_soul_e_dmgps"                            "每秒伤害:"
+		"DOTA_Tooltip_ability_burning_soul_e_durationA"                        "被动持续时间:"
+		"DOTA_Tooltip_ability_burning_soul_e_durationB"                        "主动持续时间:"
 		"DOTA_Tooltip_modifier_burning_dmg_buff_e"                             "沸血之矛"
 		"DOTA_Tooltip_modifier_burning_dmg_buff_e_Description"                 "着火啦，每秒造成大量伤害."
 		"DOTA_Tooltip_modifier_burning_soul_buff"                              "狂战士之血"
@@ -630,20 +864,20 @@
 		"DOTA_Tooltip_ability_fire_ritual"                                     "火焰仪式"
 		"DOTA_Tooltip_ability_fire_ritual_Description"                         "对目标造成大量纯粹伤害.如果目标死于该伤害.召唤一个火傀儡."
 		"DOTA_Tooltip_ability_fire_ritual_Lore"                                ""
-		"DOTA_Tooltip_ability_fire_ritual_duration"                            "火傀儡持续时间: "
+		"DOTA_Tooltip_ability_fire_ritual_duration"                            "火傀儡持续时间:"
 
 		"DOTA_Tooltip_ability_fire_ritual_e"                                   "日火仪式"
 		"DOTA_Tooltip_ability_fire_ritual_e_Description"                       "对目标造成大量纯粹伤害.如果目标死于该伤害.召唤一个凤凰之灵."
 		"DOTA_Tooltip_ability_fire_ritual_e_Lore"                              ""
-		"DOTA_Tooltip_ability_fire_ritual_e_duration"                          "凤凰之灵持续时间: "
+		"DOTA_Tooltip_ability_fire_ritual_e_duration"                          "凤凰之灵持续时间:"
 
 
 		"DOTA_Tooltip_ability_thousand_faces_katana"                           "千面赤龙"
 		"DOTA_Tooltip_ability_thousand_faces_katana_Description"               "一把传奇的武器.能够吸收周围死去敌人的灵魂增强自身"
 		"DOTA_Tooltip_ability_thousand_faces_katana_Lore"                      ""
-		"DOTA_Tooltip_ability_thousand_faces_katana_dmginc"                    "每个灵魂增加攻击: "
-		"DOTA_Tooltip_ability_thousand_faces_katana_radius"                    "吸收范围: "
-		"DOTA_Tooltip_ability_thousand_faces_katana_limit"                     "灵魂吸收上限: "
+		"DOTA_Tooltip_ability_thousand_faces_katana_dmginc"                    "每个灵魂增加攻击:"
+		"DOTA_Tooltip_ability_thousand_faces_katana_radius"                    "吸收范围:"
+		"DOTA_Tooltip_ability_thousand_faces_katana_limit"                     "灵魂吸收上限:"
 		"DOTA_Tooltip_modifier_thousand_faces_katana_buff"                     "千面赤龙之力"
 		"DOTA_Tooltip_modifier_thousand_faces_katana_buff_Description"         "攻击力增加%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%点"
 
@@ -653,28 +887,28 @@
 		"DOTA_Tooltip_ability_moon_glaive"                                     "风刃"
 		"DOTA_Tooltip_ability_moon_glaive_Description"                         "弹射攻击目标周围的敌人，每次弹射都会使得伤害递减."
 		"DOTA_Tooltip_ability_moon_glaive_Lore"                                ""
-		"DOTA_Tooltip_ability_moon_glaive_bounces"                             "弹射次数: "
-		"DOTA_Tooltip_ability_moon_glaive_damage_reduction_percent"            "%每次弹射衰减: "
+		"DOTA_Tooltip_ability_moon_glaive_bounces"                             "弹射次数:"
+		"DOTA_Tooltip_ability_moon_glaive_damage_reduction_percent"            "%每次弹射衰减:"
 
 
 		"DOTA_Tooltip_ability_resonance"                                       "共振"
 		"DOTA_Tooltip_ability_resonance_Description"                           "普通攻击有一定概率对900范围内的所有敌方单位造成魔法伤害."
 		"DOTA_Tooltip_ability_resonance_Lore"                                  ""
-		"DOTA_Tooltip_ability_resonance_dmg"                                   "伤害: "
-		"DOTA_Tooltip_ability_resonance_chance"                                "%概率: "
+		"DOTA_Tooltip_ability_resonance_dmg"                                   "伤害:"
+		"DOTA_Tooltip_ability_resonance_chance"                                "%概率:"
 
 
 		"DOTA_Tooltip_ability_ultra_voltage"                                   "大气击穿"
 		"DOTA_Tooltip_ability_ultra_voltage_Description"                       "普通攻击有一定概率对目标造成无视魔免的纯粹伤害."
 		"DOTA_Tooltip_ability_ultra_voltage_Lore"                              ""
-		"DOTA_Tooltip_ability_ultra_voltage_dmg"                               "伤害: "
-		"DOTA_Tooltip_ability_ultra_voltage_chance"                            "%概率: "
+		"DOTA_Tooltip_ability_ultra_voltage_dmg"                               "伤害:"
+		"DOTA_Tooltip_ability_ultra_voltage_chance"                            "%概率:"
 
 
 		"DOTA_Tooltip_ability_wind_bleesing"                                   "风之祝福"
 		"DOTA_Tooltip_ability_wind_bleesing_Description"                       "风元素的祝福，使得周围友方单位的射程增加."
-		"DOTA_Tooltip_ability_wind_bleesing_radius"                            "作用范围: "
-		"DOTA_Tooltip_ability_wind_bleesing_rangeadded"                        "射程增加: "
+		"DOTA_Tooltip_ability_wind_bleesing_radius"                            "作用范围:"
+		"DOTA_Tooltip_ability_wind_bleesing_rangeadded"                        "射程增加:"
 		"DOTA_Tooltip_ability_wind_bleesing_Lore"                              "使用技能以开关光环，刷新buff"
 
 		"DOTA_Tooltip_modifier_wind_bleesing_passive_buff"                     "风之祝福"
@@ -687,10 +921,10 @@
 		"DOTA_Tooltip_ability_storm_form_e"                                    "赤色风暴"
 		"DOTA_Tooltip_ability_storm_form_e_Description"                        "化身风暴.移动至目标地点.同时使得沿途的所有友军获得攻击速度和攻击射程加成"
 		"DOTA_Tooltip_ability_storm_form_e_Lore"                               ""
-		"DOTA_Tooltip_ability_storm_form_e_radius"                             "影响半径: "
-		"DOTA_Tooltip_ability_storm_form_e_duration"                           "效果持续时间: "
-		"DOTA_Tooltip_ability_storm_form_e_rangebouns"                         "攻击射程加成: "
-		"DOTA_Tooltip_ability_storm_form_e_asbouns"                            "攻击速度加成: "
+		"DOTA_Tooltip_ability_storm_form_e_radius"                             "影响半径:"
+		"DOTA_Tooltip_ability_storm_form_e_duration"                           "效果持续时间:"
+		"DOTA_Tooltip_ability_storm_form_e_rangebouns"                         "攻击射程加成:"
+		"DOTA_Tooltip_ability_storm_form_e_asbouns"                            "攻击速度加成:"
 
 		"DOTA_Tooltip_modifier_storm_form_e_buff"                              "赤色风暴"
 		"DOTA_Tooltip_modifier_storm_form_e_buff_Description"                  "提高%dMODIFIER_PROPERTY_ATTACK_RANGE_BONUS%码射程和%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%点攻击速度."
@@ -702,9 +936,9 @@
 
 		"DOTA_Tooltip_ability_chain_lightling"                                 "连锁闪电"
 		"DOTA_Tooltip_ability_chain_lightling_Description"                     "攻击有一定几率释放连锁闪电."
-		"DOTA_Tooltip_ability_chain_lightling_chance"                          "%几率: "
-		"DOTA_Tooltip_ability_chain_lightling_dmg"                             "伤害: "
-		"DOTA_Tooltip_ability_chain_lightling_jumplimit"                       "最大弹跳次数: "
+		"DOTA_Tooltip_ability_chain_lightling_chance"                          "%几率:"
+		"DOTA_Tooltip_ability_chain_lightling_dmg"                             "伤害:"
+		"DOTA_Tooltip_ability_chain_lightling_jumplimit"                       "最大弹跳次数:"
 		"DOTA_Tooltip_ability_chain_lightling_Lore"                            ""
 
 
@@ -721,8 +955,8 @@
 		//科技系统
 		"techtree"                                                             "科技树"
 
-		"studycost"                                                            "学习花费:  "
-		"studyreq"                                                             "前置要求:  "
+		"studycost"                                                            "学习花费: "
+		"studyreq"                                                             "前置要求: "
 		"techlv"                                                               "已学习"
 
 
@@ -734,20 +968,20 @@
 
 
 		"ET11"                                                                 "石肤铭文"
-		"ET11DES"                                                              "用玄武岩研磨出来的石粉，在身上刻印下石肤铭文，作为回报，你将获得大地的青睐. \n\n 解锁所有二级土元素. \n 所有(属性-地)元素获得属性提升:  \n 攻击力 +20% \n 攻击速度 +20% \n 射程 +100码"
+		"ET11DES"                                                              "用玄武岩研磨出来的石粉，在身上刻印下石肤铭文，作为回报，你将获得大地的青睐. \n\n 解锁所有二级土元素. \n 所有(属性-地)元素获得属性提升: \n 攻击力 +20% \n 攻击速度 +20% \n 射程 +100码"
 
 		"ET12"                                                                 "闪烁沙漠的意志"
-		"ET12DES"                                                              "被闪烁沙漠盯上的人，注定无法幸存. \n\n 强化-沙王-沙暴：\n伤害类型转为纯粹.\n 允许 沙暴 的减速效果可以叠加."
+		"ET12DES"                                                              "被闪烁沙漠盯上的人，注定无法幸存. \n\n 强化-沙王-沙暴:\n伤害类型转为纯粹.\n 允许 沙暴 的减速效果可以叠加."
 
 		"ET21"                                                                 "星核之力"
-		"ET21DES"                                                              "从星球核心处而来的不竭之力. \n\n 解锁所有三级土元素. \n 所有(属性-地)元素获得属性提升:  \n 攻击力 +40% \n 攻击速度 +40% \n 射程 +200码"
+		"ET21DES"                                                              "从星球核心处而来的不竭之力. \n\n 解锁所有三级土元素. \n 所有(属性-地)元素获得属性提升: \n 攻击力 +40% \n 攻击速度 +40% \n 射程 +200码"
 
 		"ET22"                                                                 "星核坍缩"
-		"ET22DES"                                                              "从星球尸体中诞生的这个宇宙中最极端的力量-黑洞. \n\n 强化-谜团 LvMax-重力掌控: \n 允许 谜团 LvMax 释放 黑洞 ."
+		"ET22DES"                                                              "从星球尸体中诞生的这个宇宙中最极端的力量-黑洞. \n\n 强化-谜团 LvMax-重力掌控:\n 允许 谜团 LvMax 释放 黑洞 ."
 
 
 		"ET31"                                                                 "西莱纳的祝福"
-		"ET31DES"                                                              "你已获得元素领主西莱纳的祝福，大地将会是你坚实的后盾，力量的源泉.\n\n 所有(属性-地)元素获得属性提升:  \n 攻击力 +60% \n 攻击速度 +60% \n 射程 +300码"
+		"ET31DES"                                                              "你已获得元素领主西莱纳的祝福，大地将会是你坚实的后盾，力量的源泉.\n\n 所有(属性-地)元素获得属性提升: \n 攻击力 +60% \n 攻击速度 +60% \n 射程 +300码"
 
 
 
@@ -755,24 +989,24 @@
 		"WT01DES"                                                              "提升与海洋的亲和度. \n\n 解锁所有一级水元素."
 
 		"WT02"                                                                 "无尽海"
-		"WT02DES"                                                              "无尽海底的水压，没有生灵能够存活. \n\n 强化-变体精灵-深海标记: \n 允许对魔法免疫单位使用深海标记."
+		"WT02DES"                                                              "无尽海底的水压，没有生灵能够存活. \n\n 强化-变体精灵-深海标记:\n 允许对魔法免疫单位使用深海标记."
 
 		"WT03"                                                                 "核心凝聚-寒冰"
 		"WT03DES"                                                              "将寒霜的力量凝聚成实体. \n\n 允许召唤元素核心-寒冰"
 
 
 		"WT11"                                                                 "寒冰专精"
-		"WT11DES"                                                              "掌握寒冰的力量. \n\n 解锁所有二级水元素. \n 所有(属性-水)元素获得属性提升:  \n 攻击力 +20% \n 攻击速度 +20% \n 射程 +100码"
+		"WT11DES"                                                              "掌握寒冰的力量. \n\n 解锁所有二级水元素. \n 所有(属性-水)元素获得属性提升: \n 攻击力 +20% \n 攻击速度 +20% \n 射程 +100码"
 
 		"WT12"                                                                 "灵魂寒霜"
-		"WT12DES"                                                              "足以冻结灵魂的寒冷. \n\n 强化-霜牙海民-寒霜标记: \n 允许对魔法免疫单位使用寒霜标记."
+		"WT12DES"                                                              "足以冻结灵魂的寒冷. \n\n 强化-霜牙海民-寒霜标记:\n 允许对魔法免疫单位使用寒霜标记."
 
 
 		"WT21"                                                                 "生命源泉"
-		"WT21DES"                                                              "水是生命之源. \n\n 解锁所有三级水元素. \n 所有(属性-水)元素获得属性提升:  \n 攻击力 +40% \n 攻击速度 +40% \n 射程 +200码"
+		"WT21DES"                                                              "水是生命之源. \n\n 解锁所有三级水元素. \n 所有(属性-水)元素获得属性提升: \n 攻击力 +40% \n 攻击速度 +40% \n 射程 +200码"
 
 		"WT31"                                                                 "路西菲尔的祝福"
-		"WT31DES"                                                              "你已获得元素领主路西菲尔的祝福，海洋将会是你坚实的后盾，力量的源泉.\n\n 所有(属性-水)元素获得属性提升:  \n 攻击力 +60% \n 攻击速度 +60% \n 射程 +300码"
+		"WT31DES"                                                              "你已获得元素领主路西菲尔的祝福，海洋将会是你坚实的后盾，力量的源泉.\n\n 所有(属性-水)元素获得属性提升: \n 攻击力 +60% \n 攻击速度 +60% \n 射程 +300码"
 
 
 
@@ -780,43 +1014,43 @@
 		"FT01DES"                                                              "提升与火焰的亲和度. \n\n 解锁所有一级火元素."
 
 		"FT02"                                                                 "元素沟通"
-		"FT02DES"                                                              "与元素世界签下灵魂的契约，获取它们的效劳. \n\n强化-火焰/日火祭司-火焰/日火仪式:  \n使得仪式可以一次性召唤出两个元素生物."
+		"FT02DES"                                                              "与元素世界签下灵魂的契约，获取它们的效劳. \n\n强化-火焰/日火祭司-火焰/日火仪式: \n使得仪式可以一次性召唤出两个元素生物."
 
 		"FT03"                                                                 "核心凝聚-烈焰"
 		"FT03DES"                                                              "将火焰的力量凝聚成实体. \n\n 允许召唤元素核心-烈焰"
 
 
 		"FT11"                                                                 "浴火"
-		"FT11DES"                                                              "只有无畏者，才能掌控烈焰. \n\n 解锁所有二级火元素. \n 所有(属性-火)元素获得属性提升:  \n 攻击力 +20% \n 攻击速度 +20% \n 射程 +100码"
+		"FT11DES"                                                              "只有无畏者，才能掌控烈焰. \n\n 解锁所有二级火元素. \n 所有(属性-火)元素获得属性提升: \n 攻击力 +20% \n 攻击速度 +20% \n 射程 +100码"
 
 		"FT12"                                                                 "狂战士之血"
 		"FT12DES"                                                              "伤痛带来的是无尽的力量. \n\n 强化-神灵武士-沸血之矛 \n 允许 神灵武士 激发体内的 狂战士之血 ."
 
 
 		"FT21"                                                                 "涅槃"
-		"FT21DES"                                                              "破灭之后不是虚无，而是力量. \n\n 解锁所有三级火元素. \n 所有(属性-火)元素获得属性提升:  \n 攻击力 +40% \n 攻击速度 +40% \n 射程 +200码"
+		"FT21DES"                                                              "破灭之后不是虚无，而是力量. \n\n 解锁所有三级火元素. \n 所有(属性-火)元素获得属性提升: \n 攻击力 +40% \n 攻击速度 +40% \n 射程 +200码"
 
 		"FT31"                                                                 "诺瑞哈兹的祝福"
-		"FT31DES"                                                              "你已获得元素领主诺瑞哈兹的祝福，火焰将会是你坚实的后盾，力量的源泉.\n\n 所有(属性-火)元素获得属性提升:  \n 攻击力 +60% \n 攻击速度 +60% \n 射程 +300码"
+		"FT31DES"                                                              "你已获得元素领主诺瑞哈兹的祝福，火焰将会是你坚实的后盾，力量的源泉.\n\n 所有(属性-火)元素获得属性提升: \n 攻击力 +60% \n 攻击速度 +60% \n 射程 +300码"
 
 
 		"AT01"                                                                 "大气亲和"
 		"AT01DES"                                                              "提升与大气的亲和度. \n\n 解锁所有一级气元素."
 
 		"AT02"                                                                 "高压形态"
-		"AT02DES"                                                              "没人能快的过闪电. \n\n 强化-闪电幽魂:  \n 基础攻击间隔由1.0降至0.7"
+		"AT02DES"                                                              "没人能快的过闪电. \n\n 强化-闪电幽魂: \n 基础攻击间隔由1.0降至0.7"
 
 		"AT03"                                                                 "核心凝聚-雷霆"
 		"AT03DES"                                                              "将雷电的力量凝聚成实体. \n\n 允许召唤元素核心-雷霆"
 
 
 		"AT11"                                                                 "风暴使者"
-		"AT11DES"                                                              "与风暴对话，传递自然的意志 \n\n 解锁所有二级气元素. \n 所有(属性-气)元素获得属性提升:  \n 攻击力 +20% \n 攻击速度 +20% \n 射程 +100码"
+		"AT11DES"                                                              "与风暴对话，传递自然的意志 \n\n 解锁所有二级气元素. \n 所有(属性-气)元素获得属性提升: \n 攻击力 +20% \n 攻击速度 +20% \n 射程 +100码"
 
 		"AT21"                                                                 "风暴之眼"
-		"AT21DES"                                                              "风暴的中心，却是平静之处. \n\n 解锁所有三级气元素. \n 所有(属性-气)元素获得属性提升:  \n 攻击力 +40% \n 攻击速度 +40% \n 射程 +200码"
+		"AT21DES"                                                              "风暴的中心，却是平静之处. \n\n 解锁所有三级气元素. \n 所有(属性-气)元素获得属性提升: \n 攻击力 +40% \n 攻击速度 +40% \n 射程 +200码"
 
 		"AT31"                                                                 "涅格诺古的祝福"
-		"AT31DES"                                                              "你已获得元素领主涅格诺古的祝福，风暴将会是你坚实的后盾，力量的源泉.\n\n 所有(属性-气)元素获得属性提升:  \n 攻击力 +60% \n 攻击速度 +60% \n 射程 +300码"
+		"AT31DES"                                                              "你已获得元素领主涅格诺古的祝福，风暴将会是你坚实的后盾，力量的源泉.\n\n 所有(属性-气)元素获得属性提升: \n 攻击力 +60% \n 攻击速度 +60% \n 射程 +300码"
 	}
 }

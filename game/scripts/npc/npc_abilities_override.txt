@@ -66,7 +66,7 @@
 		"AbilityCastRange"                                 "0"
 		"AbilityCastPoint"                                 "0.0"
 		"AbilityCooldown"                                  "0.0"
-		"AbilityDamage"                                    "200 800 2500"
+		"AbilityDamage"                                    "600 1800 3600"
 		"AbilityManaCost"                                  "0"
 		"AbilitySpecial"
 		{
@@ -352,6 +352,7 @@
 			}
 		}
 	}
+
 	"item_octarine_core"                                   "REMOVE"
 	"item_solar_crest"                                     "REMOVE"
 	"item_glimmer_cape"                                    "REMOVE"

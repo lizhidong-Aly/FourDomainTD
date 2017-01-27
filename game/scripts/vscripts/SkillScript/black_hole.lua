@@ -1,6 +1,6 @@
 function BlackHole(keys)
 	local center=keys.target:GetOrigin()
-	local pid=keys.caster:GetMainControllingPlayer()
+	local pid=keys.caster:GetPlayerOwnerID()
 	local dummy=CreateUnitByName("block_hole_dummy",center,false,nil,nil,DOTA_TEAM_GOODGUYS)
 	local abil=dummy:FindAbilityByName("black_hole")
 	dummy:SetThink(function() 
