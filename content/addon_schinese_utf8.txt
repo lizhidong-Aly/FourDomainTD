@@ -57,13 +57,13 @@
 		"rank_help"                                                            "说明:在击杀敌人后将会根据敌人等级获得一定的能量点, 积攒至一定程度后可提升等阶, 大幅增加各项属性"
 
 		"DOTA_Tooltip_modifier_rank_elite_buff"                                           "精锐"
-		"DOTA_Tooltip_modifier_rank_elite_buff_Description"                               "增加%dMODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE%%%的攻击力, %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%点攻击速度, 以及%dMODIFIER_PROPERTY_ATTACK_RANGE_BONUS%码的射程"
+		"DOTA_Tooltip_modifier_rank_elite_buff_Description"                               "增加%dMODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE%%%的攻击力, %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%点攻击速度, %dMODIFIER_PROPERTY_ATTACK_RANGE_BONUS%码的射程, %dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT%点魔法恢复速度, 以及减少%dMODIFIER_PROPERTY_COOLDOWN_PERCENTAGE%%%的技能冷却时间"
 
 		"DOTA_Tooltip_modifier_rank_master_buff"                                          "大师"
-		"DOTA_Tooltip_modifier_rank_master_buff_Description"                              "增加%dMODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE%%%的攻击力, %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%点攻击速度, 以及%dMODIFIER_PROPERTY_ATTACK_RANGE_BONUS%码的射程"
+		"DOTA_Tooltip_modifier_rank_master_buff_Description"                              "增加%dMODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE%%%的攻击力, %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%点攻击速度, %dMODIFIER_PROPERTY_ATTACK_RANGE_BONUS%码的射程, %dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT%点魔法恢复速度, 以及减少%dMODIFIER_PROPERTY_COOLDOWN_PERCENTAGE%%%的技能冷却时间"
 
 		"DOTA_Tooltip_modifier_rank_legend_buff"                                          "传奇"
-		"DOTA_Tooltip_modifier_rank_legend_buff_Description"                              "增加%dMODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE%%%的攻击力, %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%点攻击速度, 以及%dMODIFIER_PROPERTY_ATTACK_RANGE_BONUS%码的射程"
+		"DOTA_Tooltip_modifier_rank_legend_buff_Description"                              "增加%dMODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE%%%的攻击力, %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%点攻击速度, %dMODIFIER_PROPERTY_ATTACK_RANGE_BONUS%码的射程, %dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT%点魔法恢复速度, 以及减少%dMODIFIER_PROPERTY_COOLDOWN_PERCENTAGE%%%的技能冷却时间"
 
 
 		"BUILD_WRONG_POSITION"                                                 "无法在当前位置召唤"
@@ -402,14 +402,14 @@
 		"DOTA_Tooltip_ability_hero_special_fire_lv1_blessing_attspe"                      "攻击速度增加:"
 		"DOTA_Tooltip_ability_hero_special_fire_lv1_blessing_duration"                    "持续时间:"
 		"DOTA_Tooltip_modifier_hero_special_fire_lv1_blessing"                            "烈焰加持"
-		"DOTA_Tooltip_modifier_hero_special_fire_lv1_blessing_Description"                "增加%MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%点攻击速度"
+		"DOTA_Tooltip_modifier_hero_special_fire_lv1_blessing_Description"                "增加%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%点攻击速度"
 
 		"DOTA_Tooltip_ability_hero_special_fire_lv2_blessing"                             "熔岩加持"
 		"DOTA_Tooltip_ability_hero_special_fire_lv2_blessing_Description"                 "增加周围友军的攻击速度"
 		"DOTA_Tooltip_ability_hero_special_fire_lv2_blessing_attspe"                      "攻击速度增加:"
 		"DOTA_Tooltip_ability_hero_special_fire_lv2_blessing_radius"                      "作用范围:"
 		"DOTA_Tooltip_modifier_hero_special_fire_lv2_blessing_buff"                       "熔岩加持"
-		"DOTA_Tooltip_modifier_hero_special_fire_lv2_blessing_buff_Description"           "增加%MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%点攻击速度"
+		"DOTA_Tooltip_modifier_hero_special_fire_lv2_blessing_buff_Description"           "增加%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%点攻击速度"
 
 
 		"DOTA_Tooltip_ability_hero_special_flame_outbrust"                                  "烈焰爆发"
@@ -419,7 +419,7 @@
 		"DOTA_Tooltip_ability_hero_special_flame_outbrust_duration"                         "持续时间:"
 		"DOTA_Tooltip_ability_hero_special_flame_outbrust_radius"                         	"作用范围:"
 		"DOTA_Tooltip_modifier_hero_special_flame_outbrust_buff"                            "燃烧"
-		"DOTA_Tooltip_modifier_hero_special_flame_outbrust_buff_Description"                "增加%MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%点攻击速度"
+		"DOTA_Tooltip_modifier_hero_special_flame_outbrust_buff_Description"                "增加%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%点攻击速度"
 
 
 		"DOTA_Tooltip_ability_hero_special_air_lv1_blessing"                              "大气加持"
@@ -434,7 +434,7 @@
 		"DOTA_Tooltip_ability_hero_special_air_lv2_blessing_range"                        "射程增加:"
 		"DOTA_Tooltip_ability_hero_special_air_lv2_blessing_radius"                       "作用范围:"
 		"DOTA_Tooltip_modifier_hero_special_air_lv2_blessing_buff"                        "风暴加持"
-		"DOTA_Tooltip_modifier_hero_special_air_lv2_blessing_buff_Description"            "增加%MODIFIER_PROPERTY_ATTACK_RANGE_BONUS%点射程"
+		"DOTA_Tooltip_modifier_hero_special_air_lv2_blessing_buff_Description"            "增加%dMODIFIER_PROPERTY_ATTACK_RANGE_BONUS%点射程"
 
 
 		"DOTA_Tooltip_ability_hero_special_tornado_field"                                 "风暴结界"
@@ -548,7 +548,7 @@
 		"DOTA_Tooltip_ability_head_shoot_duration"                             "眩晕时间:"
 
 		"DOTA_Tooltip_ability_dragon_breath"                                   "炎龙之息"
-		"DOTA_Tooltip_ability_dragon_breath_Description"                       "攻击间隔恒定为0.1"
+		"DOTA_Tooltip_ability_dragon_breath_Description"                       "大幅增加攻击速度"
 		"DOTA_Tooltip_ability_dragon_breath_Lore"                              ""
 
 		"DOTA_Tooltip_ability_earth_shot"                                      "大地震击"
