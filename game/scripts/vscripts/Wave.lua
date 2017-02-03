@@ -39,7 +39,7 @@ end
 
 function UnlockAbility()
 	for i,v in pairs(_G.Player) do
-		local hero=v:GetAssignedHero()
+		local hero=v.hero
 		if hero~=nil then
 			local seal=nil
 			for i=1,3 do
@@ -70,12 +70,14 @@ function GiveEndBouns()
 	local lInfo=_G.levelInfo[_G.levelNo]
 	local bounty=_G.levelNo*40--lInfo.baseGoldBounty*_G.EnemyType[lInfo.type].amount
 	for i,v in pairs(_G.Player) do
-		local hero=v:GetAssignedHero()
-		v.TechTree:IncreaseTechPoint(1)
-		AMHC:CreateNumberEffect( hero,1,2,AMHC.MSG_GOLD,"green",0 )
-		hero:ModifyGold(bounty,false,0)
-		hero:EmitSoundParams("General.Sell",200,300,1)
-		AMHC:CreateNumberEffect( hero,bounty,2,AMHC.MSG_GOLD,"yellow",0 )
+		local hero=v.hero
+		if hero~=null then
+			v.TechTree:IncreaseTechPoint(1)
+			AMHC:CreateNumberEffect( hero,1,2,AMHC.MSG_GOLD,"green",0 )
+			hero:ModifyGold(bounty,false,0)
+			hero:EmitSoundParams("General.Sell",200,300,1)
+			AMHC:CreateNumberEffect( hero,bounty,2,AMHC.MSG_GOLD,"yellow",0 )
+		end
 	end
 	local end_msg=_G.end_msg_left.." "..bounty.." ".._G.end_msg_right
 	GameRules:SendCustomMessage(end_msg, 0, 0)
@@ -89,7 +91,7 @@ function ReachEndPoint(trigger)
 		activator:RemoveSelf()
 		AMHC:Damage(fountain,fountain,dmg,DAMAGE_TYPE_PURE,1)
 		if not fountain:IsAlive() then
-			GameRules:MakeTeamLose(DOTA_TEAM_GOODGUYS)
+			GameRules:SetGameWinner(DOTA_TEAM_BADGUYS)
 		end
 		IsEndOfCurrentWave()
 	end

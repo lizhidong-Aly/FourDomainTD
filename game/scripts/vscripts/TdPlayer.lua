@@ -25,6 +25,8 @@ function TdPlayer:InitPlayer(pid)
 	self.pid=pid
 	self:InitHero()
 	self:InitTechTree()
+	self.TowerOwned={}
+	self.all_units={}
 	CustomGameEventManager:RegisterListener( "SendCurrentPortraitUnit", UpdateCurrentPortraitUnit )
   	Timers:CreateTimer({
    		useGameTime = false,
@@ -113,8 +115,8 @@ function TdPlayer:UpdateUI()
 end
 
 function TdPlayer:InitHero()
-	local hero=self:GetAssignedHero()
-	self.hero=hero
+	self.hero=PlayerResource:GetSelectedHeroEntity(self.pid)
+	local hero=self.hero
 	hero:SetOrigin(Vector((self.UnitSpawner.pos[1]/2),(self.UnitSpawner.pos[2]/2),256))
 	PlayerResource:SetCameraTarget(self.pid,hero)
 	Timers:CreateTimer(0.5, function()
@@ -127,6 +129,7 @@ function TdPlayer:InitHero()
 	hero:SetBaseAgility(0)
 	hero:SetBaseIntellect(0)
 	hero:SetBaseMaxHealth(200)
+	hero:AddNewModifier(nil, nil, "modifier_phased", {duration=-1})
 	--hero:SetMana(200)
 	hero:SetBaseMoveSpeed(550)
 	hero:AddItemByName('item_blink')

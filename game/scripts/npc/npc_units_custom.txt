@@ -592,7 +592,7 @@
 	}
 	"CS02L01"
 	{
-		"AttackRange"                           "1200"
+		"AttackRange"                           "1000"
 		"Model"                                 "models/heroes/alchemist/alchemist.vmdl"
 		"SoundSet"                              "Hero_Alchemist"
 		"GameSoundsFile"                        "soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts"
@@ -622,7 +622,7 @@
 	}
 	"CS02L02"
 	{
-		"AttackRange"                           "1200"
+		"AttackRange"                           "1000"
 		"Model"                                 "models/heroes/alchemist/alchemist.vmdl"
 		"SoundSet"                              "Hero_Alchemist"
 		"GameSoundsFile"                        "soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts"
@@ -652,7 +652,7 @@
 	}
 	"CS02L03"
 	{
-		"AttackRange"                           "1200"
+		"AttackRange"                           "1000"
 		"Model"                                 "models/heroes/alchemist/alchemist.vmdl"
 		"SoundSet"                              "Hero_Alchemist"
 		"GameSoundsFile"                        "soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts"
@@ -1190,7 +1190,7 @@
 	}
 	"ET13L01"
 	{
-		"AttackRange"                           "1200"
+		"AttackRange"                           "1000"
 		"Model"                                 "models/heroes/beastmaster/beastmaster.vmdl"
 		"SoundSet"                              "Hero_beastmaster"
 		"GameSoundsFile"                        "soundevents/game_sounds_heroes/game_sounds_beastmaster.vsndevts"
@@ -1218,7 +1218,7 @@
 	}
 	"ET13L02"
 	{
-		"AttackRange"                           "1300"
+		"AttackRange"                           "1100"
 		"Model"                                 "models/heroes/beastmaster/beastmaster.vmdl"
 		"SoundSet"                              "Hero_beastmaster"
 		"GameSoundsFile"                        "soundevents/game_sounds_heroes/game_sounds_beastmaster.vsndevts"
@@ -1246,7 +1246,7 @@
 	}
 	"ET13L03"
 	{
-		"AttackRange"                           "1400"
+		"AttackRange"                           "1200"
 		"Model"                                 "models/heroes/beastmaster/beastmaster.vmdl"
 		"SoundSet"                              "Hero_beastmaster"
 		"GameSoundsFile"                        "soundevents/game_sounds_heroes/game_sounds_beastmaster.vsndevts"
@@ -1274,7 +1274,7 @@
 	}
 	"ET21L01"
 	{
-		"AttackRange"                           "1500"
+		"AttackRange"                           "1000"
 		"Model"                                 "models/heroes/enigma/enigma.vmdl"
 		"SoundSet"                              "Hero_Enigma"
 		"GameSoundsFile"                        "soundevents/game_sounds_heroes/game_sounds_enigma.vsndevts"
@@ -1298,7 +1298,7 @@
 	}
 	"ET21L02"
 	{
-		"AttackRange"                           "1500"
+		"AttackRange"                           "1000"
 		"Model"                                 "models/heroes/enigma/enigma.vmdl"
 		"SoundSet"                              "Hero_Enigma"
 		"GameSoundsFile"                        "soundevents/game_sounds_heroes/game_sounds_enigma.vsndevts"
@@ -1321,7 +1321,7 @@
 	}
 	"ET21L03"
 	{
-		"AttackRange"                           "1500"
+		"AttackRange"                           "1000"
 		"Model"                                 "models/heroes/enigma/enigma.vmdl"
 		"SoundSet"                              "Hero_Enigma"
 		"GameSoundsFile"                        "soundevents/game_sounds_heroes/game_sounds_enigma.vsndevts"

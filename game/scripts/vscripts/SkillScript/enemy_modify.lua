@@ -32,7 +32,7 @@ function OnEliteDied(keys)
 		local energy=CreateItem("item_energy_orb",nil,nil)
 		CreateItemOnPositionSync(GetRandomPositionAround(unit),energy)
 	end
-	if RandomFloat(0,1)<0.3 then 
+	if RandomFloat(0,1)<0.2 then 
 		local essence=CreateItem("item_element_essence",nil,nil)
 		CreateItemOnPositionSync(GetRandomPositionAround(unit),essence)
 	end
@@ -45,7 +45,7 @@ function OnBossDied(keys)
 		local crystal=CreateItem("item_element_crystal",nil,nil)
 		CreateItemOnPositionSync(GetRandomPositionAround(unit),crystal)
 	end
-	for i=1,RandomInt(3,5) do
+	for i=1,RandomInt(1,3) do
 		local energy=CreateItem("item_energy_orb",nil,nil)
 		CreateItemOnPositionSync(GetRandomPositionAround(unit),energy)
 	end

@@ -20,6 +20,28 @@
 		}
 	}
 
+	"hero_freezed"
+	{
+		"AbilityBehavior"                                  		        "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"                                        		        "ability_datadriven"
+		"AbilityTextureName"                               		        "crystal_maiden_freezing_field"
+		"MaxLevel"                                         		        "1"
+		"Modifiers"
+		{
+			"modifier_hero_freezed"
+			{
+				"IsHidden"                                 		        "0"
+				"Passive"                                  		        "1"
+				"EffectName"                               		        "particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
+				"EffectAttachType"                         		        "follow_origin"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"				"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+
 	"enemy_move_speed_constant"
 	{
 		"AbilityBehavior"                                  		        "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -975,7 +997,7 @@
 		"AbilitySpecial"{
 			"01"{
 				"var_type"                                 		        "FIELD_FLOAT"
-				"bouns"                                    		        "3 6 9"
+				"bouns"                                    		        "2 4 6"
 			}
 		}
 	}
@@ -1333,7 +1355,7 @@
 			"02"
 			{
 				"var_type"                                 		        "FIELD_FLOAT"
-				"duration"                                 		        "8"
+				"duration"                                 		        "12"
 			}
 			"03"
 			{
@@ -1564,7 +1586,7 @@
 		"AbilitySpecial"{
 			"01"{
 				"var_type"                                 		        "FIELD_INTEGER"
-				"dmginc"                                   		        "300 600 1200"
+				"dmginc"                                   		        "200 400 800"
 			}
 			"02"{
 				"var_type"                                 		        "FIELD_INTEGER"
@@ -1581,7 +1603,7 @@
 		"AbilityTextureName"                               		        "earth_spirit_geomagnetic_grip"
 		"AbilityCastRange"                                 		        "1200"
 		"AbilityCastPoint"                                 		        "0.3"
-		"AbilityCooldown"                                  		        "45"
+		"AbilityCooldown"                                  		        "40"
 		"MaxLevel"                                         		        "1"
 		"OnSpellStart"
 		{
@@ -1611,15 +1633,15 @@
 		"AbilitySpecial"{
 			"01"{
 				"var_type"                                 		        "FIELD_INTEGER"
-				"dmginc"                                   		        "400"
+				"dmginc"                                   		        "500"
 			}
 			"02"{
 				"var_type"                                 		        "FIELD_FLOAT"
-				"dmgincperc"                                 		    "50"
+				"dmgincperc"                                 		    "100"
 			}
 			"03"{
 				"var_type"                                 		        "FIELD_INTEGER"
-				"duration"                                 		        "8"
+				"duration"                                 		        "20"
 			}
 		}
 	}
@@ -1655,7 +1677,7 @@
 		"AbilitySpecial"{
 			"01"{
 				"var_type"                                 		        "FIELD_INTEGER"
-				"dmginc"                                   		        "30"
+				"dmginc"                                   		        "45"
 			}
 			"02"{
 				"var_type"                                 		        "FIELD_INTEGER"
@@ -1718,11 +1740,11 @@
 		"AbilitySpecial"{
 			"01"{
 				"var_type"                                 		        "FIELD_INTEGER"
-				"dmgincre"                                   		    "200"
+				"dmgincre"                                   		    "300"
 			}		
 			"02"{
 				"var_type"                                 		        "FIELD_INTEGER"
-				"duration"                                 		        "6"
+				"duration"                                 		        "8"
 			}
 			"03"{
 				"var_type"                                 		        "FIELD_FLOAT"
@@ -1740,7 +1762,7 @@
 		"AbilityTextureName"                               		        "furion_sprout"
 		"AbilityCastRange"                                 		        "1200"
 		"AbilityCastPoint"                                 		        "0.3"
-		"AbilityCooldown"                                  		        "40"
+		"AbilityCooldown"                                  		        "18"
 		"MaxLevel"                                         		        "1"
 		"precache"
 		{
@@ -1798,7 +1820,7 @@
 		"AbilityTextureName"                               		        "ancient_apparition_chilling_touch"
 		"AbilityCastRange"                                 		        "1200"
 		"AbilityCastPoint"                                 		        "0.3"
-		"AbilityCooldown"                                  		        "60"
+		"AbilityCooldown"                                  		        "45"
 		"MaxLevel"                                         		        "1"
 		"precache"
 		{
@@ -1832,15 +1854,15 @@
 		"AbilitySpecial"{
 			"01"{
 				"var_type"                                 		        "FIELD_INTEGER"
-				"manaregen"                                   		    "12"
+				"manaregen"                                   		    "8"
 			}
 			"02"{
 				"var_type"                                 		        "FIELD_FLOAT"
-				"cooldown"                                 		   	 	"50"
+				"cooldown"                                 		   	 	"40"
 			}			
 			"03"{
 				"var_type"                                 		        "FIELD_INTEGER"
-				"duration"                                 		        "15"
+				"duration"                                 		        "20"
 			}
 
 		}
@@ -1896,11 +1918,11 @@
 			}
 			"02"{
 				"var_type"                                 		        "FIELD_FLOAT"
-				"cooldown"                                 		   	 	"80"
+				"cooldown"                                 		   	 	"60"
 			}			
 			"03"{
 				"var_type"                                 		        "FIELD_INTEGER"
-				"duration"                                 		        "15"
+				"duration"                                 		        "20"
 			}
 			"04"{
 				"var_type"                                 		        "FIELD_FLOAT"
@@ -1917,7 +1939,7 @@
 		"AbilityTextureName"                               		        "ember_spirit_sleight_of_fist"
 		"AbilityCastRange"                                 		        "1200"
 		"AbilityCastPoint"                                 		        "0.3"
-		"AbilityCooldown"                                  		        "60"
+		"AbilityCooldown"                                  		        "40"
 		"MaxLevel"                                         		        "1"
 		"precache"
 		{
@@ -1956,11 +1978,11 @@
 		"AbilitySpecial"{
 			"01"{
 				"var_type"                                 		        "FIELD_INTEGER"
-				"attspe"                                   		    	"150"
+				"attspe"                                   		    	"200"
 			}
 			"02"{
 				"var_type"                                 		        "FIELD_INTEGER"
-				"duration"                                 		        "10"
+				"duration"                                 		        "12"
 			}
 		}
 	}
@@ -1996,7 +2018,7 @@
 		"AbilitySpecial"{
 			"01"{
 				"var_type"                                 		        "FIELD_INTEGER"
-				"attspe"                                   		        "30"
+				"attspe"                                   		        "45"
 			}
 			"02"{
 				"var_type"                                 		        "FIELD_INTEGER"
@@ -2014,7 +2036,7 @@
 		"AbilityTextureName"                               		        "lone_druid_savage_roar"
 		"AbilityCastRange"                                 		        "1200"
 		"AbilityCastPoint"                                 		        "0.3"
-		"AbilityCooldown"                                  		        "60"
+		"AbilityCooldown"                                  		        "30"
 		"MaxLevel"                                         		        "1"
 		"precache"
 		{
@@ -2051,7 +2073,7 @@
 			}
 			"02"{
 				"var_type"                                 		        "FIELD_INTEGER"
-				"duration"                                 		        "10"
+				"duration"                                 		        "15"
 			}
 		}
 	}
@@ -2154,7 +2176,7 @@
 			}		
 			"02"{
 				"var_type"                                 		        "FIELD_INTEGER"
-				"duration"                                 		        "8"
+				"duration"                                 		        "20"
 			}
 			"03"{
 				"var_type"                                 		        "FIELD_FLOAT"
@@ -2368,7 +2390,7 @@
 			"03"
 			{
 				"var_type"                                 		        "FIELD_FLOAT"
-				"dmginc"                                   		        "200 250 300"
+				"dmginc"                                   		        "100 200 300"
 			}
 		}
 	
@@ -2737,12 +2759,12 @@
 			"02"
 			{
 				"var_type"                                 		        "FIELD_FLOAT"
-				"duration"                                 		        "4 6 8"
+				"duration"                                 		        "3 5 7"
 			}
 			"03"
 			{
 				"var_type"                                 		        "FIELD_FLOAT"
-				"attspe"                                   		        "300 350 400"
+				"attspe"                                   		        "100 200 300"
 			}
 		}
 	
@@ -3470,7 +3492,7 @@
 		"BaseClass"                                        		        "ability_datadriven"
 		"AbilityTextureName"                               		        "abaddon_aphotic_shield"
 		"AbilityCastAnimation"                             		        "ACT_DOTA_CAST_ABILITY_4"
-		"AbilityCooldown"                                  		        "600"
+		"AbilityCooldown"                                  		        "480"
 		"AbilityManaCost"                                  		        "0"
 		"AbilityCastPoint"                                 		        "0.7"
 		"MaxLevel"                                         		        "1"
@@ -3493,7 +3515,7 @@
 			"01"
 			{
 				"var_type"                                 		        "FIELD_FLOAT"
-				"duration"                                 		        "3"
+				"duration"                                 		        "1.5"
 			}
 		}
 	}
@@ -3939,7 +3961,7 @@
 		"AbilitySpecial"{
 			"01"{
 				"var_type"                                 		        "FIELD_FLOAT"
-				"chance"                                   		        "10"
+				"chance"                                   		        "5"
 			}
 	
 		}
@@ -4060,7 +4082,7 @@
 		"AbilityCooldown"                                  		        "0.0"
 		"AbilityManaCost"                                  		        "0"
 		"MaxLevel"                                         		        "1"
-		"HotKeyOverride"                                   		        "Q"
+		"HotKeyOverride"                                   		        "q"
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -4091,7 +4113,8 @@
 		"AbilityCooldown"                                  		        "0.0"
 		"AbilityManaCost"                                  		        "0"
 		"MaxLevel"                                         		        "1"
-		"HotKeyOverride"                                   		        "W"
+		"HotKeyOverride"												"w"
+
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -4159,7 +4182,7 @@
 			"03"
 			{
 				"var_type"                                 		        "FIELD_INTEGER"
-				"rangeinc"                                 		        "150"
+				"rangeinc"                                 		        "100"
 			}
 			"04"
 			{
@@ -4219,18 +4242,18 @@
 			"01"
 			{
 				"var_type"                                 		        "FIELD_INTEGER"
-				"dmginc"                                   		        "120"
+				"dmginc"                                   		        "90"
 			}
 			"02"
 			{
 				"var_type"                                 		        "FIELD_INTEGER"
-				"speinc"                                   		        "120"
+				"speinc"                                   		        "90"
 			}
 	
 			"03"
 			{
 				"var_type"                                 		        "FIELD_INTEGER"
-				"rangeinc"                                 		        "450"
+				"rangeinc"                                 		        "300"
 			}
 			"04"
 			{
@@ -4301,7 +4324,7 @@
 			"03"
 			{
 				"var_type"                                 		        "FIELD_INTEGER"
-				"rangeinc"                                 		        "300"
+				"rangeinc"                                 		        "200"
 			}
 			"04"
 			{
@@ -4320,7 +4343,7 @@
 		"BaseClass"                                        		        "ability_datadriven"
 		"AbilityTextureName"                               		        "omniknight_purification"
 		"AbilityCastAnimation"                             		        "ACT_DOTA_CAST_ABILITY_4"
-		"AbilityCooldown"                                  		        "480"
+		"AbilityCooldown"                                  		        "360"
 		"AbilityManaCost"                                  		        "0"
 		"AbilityCastPoint"                                 		        "0.7"
 		"MaxLevel"                                         		        "1"
@@ -4343,7 +4366,7 @@
 			"01"
 			{
 				"var_type"                                 		        "FIELD_FLOAT"
-				"hpreg"                                    		        "20"
+				"hpreg"                                    		        "30"
 			}
 		}
 	}
@@ -4642,7 +4665,7 @@
 		"AbilityCastPoint"                                 		        "0.1"
 		"AoERadius"                                        		        "80"
 		"MaxLevel"                                         		        "1"
-		"HotKeyOverride"                                   		        "E"
+		"HotKeyOverride"                                   		        "e"
 		"OnAbilityPhaseStart"
 		{
 			"RunScript"

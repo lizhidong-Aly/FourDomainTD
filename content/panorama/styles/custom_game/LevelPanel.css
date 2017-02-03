@@ -37,8 +37,8 @@
 }
 .defultStyle{
     font-size: 18px;
-    letter-spacing: 2px;
-    padding-left: 7px;
+    padding-left: 4px;
+    padding-right: 4px;
     color: grey;
     horizontal-align:center;
     vertical-align: center;

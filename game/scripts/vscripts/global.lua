@@ -20,9 +20,7 @@ end
 function MakeUnitsUnselectable(pid)
 	local player=_G.Player[pid]
 	local hero=player.hero
-	hero:FindAbilityByName("OpenBuildingMenu"):SetHidden(true)
-	hero:FindAbilityByName("OpenTechMenu"):SetHidden(true)
-	hero:FindAbilityByName("SelectPosition"):SetHidden(true)
+	hero:AddAbility("hero_freezed"):SetLevel(1)
 	for i,v in pairs(player.all_units) do
 		if (not v:IsNull()) and v:FindAbilityByName("unit_no_player_can_control")==nil then
 			v:AddAbility("unit_no_player_can_control"):SetLevel(1)
@@ -33,9 +31,8 @@ end
 function MakeUnitsSelectable(pid)
 	local player=_G.Player[pid]
 	local hero=player.hero
-	hero:FindAbilityByName("OpenBuildingMenu"):SetHidden(false)
-	hero:FindAbilityByName("OpenTechMenu"):SetHidden(false)
-	hero:FindAbilityByName("SelectPosition"):SetHidden(false)
+	hero:RemoveAbility("hero_freezed")
+	hero:RemoveModifierByName("modifier_hero_freezed")
 	for i,v in pairs(player.all_units) do
 		if (not v:IsNull()) then
 			v:RemoveAbility("unit_no_player_can_control")

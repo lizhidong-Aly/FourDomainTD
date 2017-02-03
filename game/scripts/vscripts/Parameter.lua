@@ -1,13 +1,14 @@
-PRE_GAME_TIME=30
-INIT_GOLD=99999
-INIT_TECH_POINT=100
-INIT_EH_LIMIT=90
-SPAWN_DELAY=10
-MODE=1
+_G.VERSION="V1.0"
+PRE_GAME_TIME=20
+INIT_GOLD=150
+INIT_TECH_POINT=1
+INIT_EH_LIMIT=15
+SPAWN_DELAY=15
+_G.MODE=2
 _G.DIFFICULTY=1
 _G.REFUND=1
-_G.ENEMY_ELITE_CHANCE=0
-vote={}
+_G.ENEMY_ELITE_CHANCE=0.01
+_G.VOTE={}
 _G.isOnSpawn=false
 _G.levelNo=0
 _G.Player={}
@@ -26,9 +27,9 @@ _G.TowerInfo={}
 	_G.TowerInfo.CS01L02={dmgCoefficient=1.9,attSpe=1.8,attRange=1000,cost=50,attribute="N",eh=1,abil={"head_shoot"},upgradeTo="CS01L03"}
 	_G.TowerInfo.CS01L03={dmgCoefficient=1.3,attSpe=1.8,attRange=1100,cost=200,attribute="N",eh=1,abil={"head_shoot"},upgradeTo=nil}
 	--炼金术师
-	_G.TowerInfo.CS02L01={dmgCoefficient=1.3,attSpe=1.4,attRange=1200,cost=30,attribute="N",eh=1,abil={"booty_gold"},upgradeTo="CS02L02"}
-	_G.TowerInfo.CS02L02={dmgCoefficient=1.1,attSpe=1.4,attRange=1200,cost=100,attribute="N",eh=1,abil={"booty_gold"},upgradeTo="CS02L03"}
-	_G.TowerInfo.CS02L03={dmgCoefficient=1.0,attSpe=1.4,attRange=1200,cost=300,attribute="N",eh=1,abil={"booty_gold"},upgradeTo=nil}
+	_G.TowerInfo.CS02L01={dmgCoefficient=1.4,attSpe=1.5,attRange=1000,cost=50,attribute="N",eh=1,abil={"booty_gold"},upgradeTo="CS02L02"}
+	_G.TowerInfo.CS02L02={dmgCoefficient=1.2,attSpe=1.55,attRange=1000,cost=150,attribute="N",eh=1,abil={"booty_gold"},upgradeTo="CS02L03"}
+	_G.TowerInfo.CS02L03={dmgCoefficient=1.0,attSpe=1.6,attRange=1000,cost=450,attribute="N",eh=2,abil={"booty_gold","luck_gold"},upgradeTo=nil}
 -------------------地-------------------
 	--核心
 	_G.TowerInfo.ES01L01={dmgCoefficient=0,attSpe=0,attRange=0,cost=300,attribute="E",eh=1,abil={"earth_core_aura","earth_core_overload"},upgradeTo="ES01L02"}
@@ -39,9 +40,9 @@ _G.TowerInfo={}
 	_G.TowerInfo.ET01L02={dmgCoefficient=1.2,attSpe=1.8,attRange=1200,cost=400,attribute="E",eh=1,abil={"splash_attack"},upgradeTo="ET01L03"}
 	_G.TowerInfo.ET01L03={dmgCoefficient=0.9,attSpe=1.8,attRange=1400,cost=600,attribute="E",eh=2,abil={"splash_attack"},upgradeTo=nil}
 	--上古泰坦
-	_G.TowerInfo.ET02L01={dmgCoefficient=2,attSpe=2.5,attRange=800,cost=180,attribute="E",eh=1,abil={"stun_hit"},upgradeTo="ET02L02"}
-	_G.TowerInfo.ET02L02={dmgCoefficient=1.7,attSpe=2.5,attRange=800,cost=280,attribute="E",eh=1,abil={"stun_hit"},upgradeTo="ET02L03"}
-	_G.TowerInfo.ET02L03={dmgCoefficient=1.4,attSpe=2.5,attRange=800,cost=800,attribute="E",eh=2,abil={"stun_hit"},upgradeTo=nil}
+	_G.TowerInfo.ET02L01={dmgCoefficient=3,attSpe=2.5,attRange=800,cost=180,attribute="E",eh=1,abil={"stun_hit"},upgradeTo="ET02L02"}
+	_G.TowerInfo.ET02L02={dmgCoefficient=2.7,attSpe=2.5,attRange=800,cost=280,attribute="E",eh=1,abil={"stun_hit"},upgradeTo="ET02L03"}
+	_G.TowerInfo.ET02L03={dmgCoefficient=2.4,attSpe=2.5,attRange=800,cost=800,attribute="E",eh=2,abil={"stun_hit"},upgradeTo=nil}
 	--食人魔法师
 	_G.TowerInfo.ET03L01={dmgCoefficient=1.2,attSpe=1.7,attRange=1000,cost=250,attribute="E",eh=1,abil={"earth_blessing"},upgradeTo="ET03L02"}
 	_G.TowerInfo.ET03L02={dmgCoefficient=1,attSpe=1.7,attRange=1000,cost=400,attribute="E",eh=1,abil={"earth_blessing"},upgradeTo="ET03L03"}
@@ -56,13 +57,13 @@ _G.TowerInfo={}
 	_G.TowerInfo.ET12L03={dmgCoefficient=0.7,attSpe=1.4,attRange=1000,cost=2500,attribute="E",eh=3,abil={"sandstorm"},upgradeTo=nil}
 
 	--兽王
-	_G.TowerInfo.ET13L01={dmgCoefficient=1.5,attSpe=1.6,attRange=1200,cost=1000,attribute="E",eh=3,abil={"battle_cry"},upgradeTo="ET13L02"}
-	_G.TowerInfo.ET13L02={dmgCoefficient=1.2,attSpe=1.6,attRange=1300,cost=1600,attribute="E",eh=3,abil={"battle_cry"},upgradeTo="ET13L03"}
-	_G.TowerInfo.ET13L03={dmgCoefficient=0.9,attSpe=1.6,attRange=1400,cost=2800,attribute="E",eh=4,abil={"battle_cry"},upgradeTo=nil}
+	_G.TowerInfo.ET13L01={dmgCoefficient=1.5,attSpe=1.6,attRange=1000,cost=1000,attribute="E",eh=3,abil={"battle_cry"},upgradeTo="ET13L02"}
+	_G.TowerInfo.ET13L02={dmgCoefficient=1.2,attSpe=1.6,attRange=1100,cost=1600,attribute="E",eh=3,abil={"battle_cry"},upgradeTo="ET13L03"}
+	_G.TowerInfo.ET13L03={dmgCoefficient=0.9,attSpe=1.6,attRange=1200,cost=2800,attribute="E",eh=4,abil={"battle_cry"},upgradeTo=nil}
 	--谜团
-	_G.TowerInfo.ET21L01={dmgCoefficient=2,attSpe=1.8,attRange=1500,cost=4000,attribute="E",eh=4,abil={"griavty_control"},upgradeTo="ET21L02"}
-	_G.TowerInfo.ET21L02={dmgCoefficient=1.5,attSpe=1.8,attRange=1500,cost=8000,attribute="E",eh=5,abil={"griavty_control"},upgradeTo="ET21L03"}
-	_G.TowerInfo.ET21L03={dmgCoefficient=1,attSpe=1.8,attRange=1500,cost=12000,attribute="E",eh=6,abil={"griavty_control"},upgradeTo=nil}
+	_G.TowerInfo.ET21L01={dmgCoefficient=2,attSpe=1.8,attRange=1000,cost=4000,attribute="E",eh=4,abil={"griavty_control"},upgradeTo="ET21L02"}
+	_G.TowerInfo.ET21L02={dmgCoefficient=1.5,attSpe=1.8,attRange=1000,cost=6000,attribute="E",eh=5,abil={"griavty_control"},upgradeTo="ET21L03"}
+	_G.TowerInfo.ET21L03={dmgCoefficient=1,attSpe=1.8,attRange=1000,cost=8000,attribute="E",eh=6,abil={"griavty_control"},upgradeTo=nil}
 -------------------水-------------------
 	--核心
 	_G.TowerInfo.WS01L01={dmgCoefficient=0,attSpe=0,attRange=0,cost=300,attribute="W",eh=1,abil={"water_core_aura","water_core_overload"},upgradeTo="WS01L02"}
@@ -70,8 +71,8 @@ _G.TowerInfo={}
 	_G.TowerInfo.WS01L03={dmgCoefficient=0,attSpe=0,attRange=0,cost=1900,attribute="W",eh=3,abil={"water_core_aura","water_core_overload"},upgradeTo=nil}
 	--变体精灵
 	_G.TowerInfo.WT01L01={dmgCoefficient=0.9,attSpe=1.7,attRange=900,cost=200,attribute="W",eh=1,abil={"water_mark"},upgradeTo="WT01L02"}
-	_G.TowerInfo.WT01L02={dmgCoefficient=0.8,attSpe=1.7,attRange=900,cost=400,attribute="W",eh=1,abil={"water_mark"},upgradeTo="WT01L03"}
-	_G.TowerInfo.WT01L03={dmgCoefficient=0.7,attSpe=1.7,attRange=900,cost=600,attribute="W",eh=1,abil={"water_mark"},upgradeTo=nil}
+	_G.TowerInfo.WT01L02={dmgCoefficient=0.8,attSpe=1.7,attRange=900,cost=300,attribute="W",eh=1,abil={"water_mark"},upgradeTo="WT01L03"}
+	_G.TowerInfo.WT01L03={dmgCoefficient=0.7,attSpe=1.7,attRange=900,cost=400,attribute="W",eh=1,abil={"water_mark"},upgradeTo=nil}
 	--剧毒术士
 	_G.TowerInfo.WT02L01={dmgCoefficient=1.1,attSpe=1.6,attRange=1200,cost=250,attribute="W",eh=2,abil={"erosion"},upgradeTo="WT02L02"}
 	_G.TowerInfo.WT02L02={dmgCoefficient=0.9,attSpe=1.6,attRange=1200,cost=400,attribute="W",eh=2,abil={"erosion"},upgradeTo="WT02L03"}
@@ -193,50 +194,50 @@ _G.TowerInfo={}
 _G.EnemyType={
 	ARMY={amount=40,distance=0.5,lv=1},
 	NORMAL={amount=20,distance=1,lv=2},
-	ELITE={amount=5,distance=6,lv=8},
-	BOSS={amount=1,distance=1,lv=50},
+	ELITE={amount=5,distance=6,lv=6},
+	BOSS={amount=1,distance=1,lv=25},
 }
 _G.levelInfo={
 	{name="level01",hp=100,armor=1,magicRes=0,moveSpeed=350,hpRegen=1,abi={},baseGoldBounty=1,type="NORMAL"},
 	{name="level02",hp=200,armor=3,magicRes=0,moveSpeed=450,hpRegen=2,abi={},baseGoldBounty=1,type="NORMAL"},
 	{name="level03",hp=400,armor=5,magicRes=0,moveSpeed=390,hpRegen=4,abi={},baseGoldBounty=1,type="NORMAL"},
 	{name="level04",hp=700,armor=7,magicRes=0,moveSpeed=340,hpRegen=10,abi={},baseGoldBounty=1,type="NORMAL"},
-	{name="level05",hp=3000,armor=40,magicRes=50,moveSpeed=270,hpRegen=1,abi={},baseGoldBounty=1,type="ELITE"},
+	{name="level05",hp=2500,armor=30,magicRes=50,moveSpeed=270,hpRegen=1,abi={},baseGoldBounty=1,type="ELITE"},
 	{name="level06",hp=1100,armor=12,magicRes=0,moveSpeed=430,hpRegen=8,abi={},baseGoldBounty=1,type="ARMY"},
 	{name="level07",hp=2400,armor=20,magicRes=0,moveSpeed=410,hpRegen=12,abi={},baseGoldBounty=1,type="NORMAL"},
 	{name="level08",hp=2800,armor=32,magicRes=20,moveSpeed=380,hpRegen=10,abi={},baseGoldBounty=1,type="NORMAL"},
-	{name="level09",hp=9000,armor=25,magicRes=40,moveSpeed=350,hpRegen=20,abi={},baseGoldBounty=1,type="ELITE"},
-	{name="level10",hp=15000,armor=80,magicRes=100,moveSpeed=400,hpRegen=25,abi={"enemy_boss","enemy_magic_immune"},baseGoldBounty=1,type="BOSS"},
-	{name="level11",hp=3000,armor=10,magicRes=40,moveSpeed=500,hpRegen=14,abi={},baseGoldBounty=1,type="ARMY"},
-	{name="level12",hp=6000,armor=20,magicRes=0,moveSpeed=400,hpRegen=10,abi={},baseGoldBounty=1,type="NORMAL"},
-	{name="level13",hp=9500,armor=80,magicRes=0,moveSpeed=300,hpRegen=50,abi={},baseGoldBounty=1,type="ELITE"},
-	{name="level14",hp=8000,armor=20,magicRes=75,moveSpeed=300,hpRegen=20,abi={},baseGoldBounty=1,type="NORMAL"},
-	{name="level15",hp=12500,armor=80,magicRes=75,moveSpeed=250,hpRegen=30,abi={},baseGoldBounty=1,type="ELITE"},
+	{name="level09",hp=6000,armor=25,magicRes=40,moveSpeed=350,hpRegen=20,abi={},baseGoldBounty=1,type="ELITE"},
+	{name="level10",hp=12000,armor=50,magicRes=100,moveSpeed=360,hpRegen=10,abi={"enemy_boss","enemy_magic_immune"},baseGoldBounty=1,type="BOSS"},
+	{name="level11",hp=3000,armor=10,magicRes=20,moveSpeed=450,hpRegen=14,abi={},baseGoldBounty=1,type="ARMY"},
+	{name="level12",hp=5000,armor=20,magicRes=0,moveSpeed=400,hpRegen=10,abi={},baseGoldBounty=1,type="NORMAL"},
+	{name="level13",hp=9000,armor=80,magicRes=0,moveSpeed=300,hpRegen=50,abi={},baseGoldBounty=1,type="ELITE"},
+	{name="level14",hp=7000,armor=20,magicRes=75,moveSpeed=300,hpRegen=20,abi={},baseGoldBounty=1,type="NORMAL"},
+	{name="level15",hp=11000,armor=80,magicRes=75,moveSpeed=250,hpRegen=30,abi={},baseGoldBounty=1,type="ELITE"},
 	{name="level16",hp=7000,armor=60,magicRes=100,moveSpeed=420,hpRegen=0,abi={"enemy_magic_immune"},baseGoldBounty=1,type="NORMAL"},
-	{name="level17",hp=8100,armor=0,magicRes=0,moveSpeed=550,hpRegen=10,abi={},baseGoldBounty=1,type="ARMY"},
-	{name="level18",hp=12000,armor=40,magicRes=75,moveSpeed=530,hpRegen=20,abi={},baseGoldBounty=1,type="NORMAL"},
-	{name="level19",hp=24000,armor=100,magicRes=20,moveSpeed=300,hpRegen=50,abi={},baseGoldBounty=1,type="ELITE"},
-	{name="level20",hp=50000,armor=200,magicRes=100,moveSpeed=270,hpRegen=100,abi={"enemy_boss",},baseGoldBounty=1,type="BOSS"},
-	{name="level21",hp=20000,armor=120,magicRes=10,moveSpeed=380,hpRegen=40,abi={},baseGoldBounty=1,type="NORMAL"},
-	{name="level22",hp=35000,armor=30,magicRes=20,moveSpeed=400,hpRegen=2000,abi={},baseGoldBounty=1,type="NORMAL"},
+	{name="level17",hp=8000,armor=15,magicRes=0,moveSpeed=550,hpRegen=10,abi={},baseGoldBounty=1,type="ARMY"},
+	{name="level18",hp=11500,armor=40,magicRes=75,moveSpeed=530,hpRegen=20,abi={},baseGoldBounty=1,type="NORMAL"},
+	{name="level19",hp=22000,armor=100,magicRes=20,moveSpeed=300,hpRegen=50,abi={},baseGoldBounty=1,type="ELITE"},
+	{name="level20",hp=40000,armor=200,magicRes=100,moveSpeed=370,hpRegen=100,abi={"enemy_boss",},baseGoldBounty=1,type="BOSS"},
+	{name="level21",hp=18000,armor=100,magicRes=10,moveSpeed=380,hpRegen=40,abi={},baseGoldBounty=1,type="NORMAL"},
+	{name="level22",hp=30000,armor=20,magicRes=20,moveSpeed=400,hpRegen=1500,abi={},baseGoldBounty=1,type="NORMAL"},
 	{name="level23",hp=27000,armor=90,magicRes=50,moveSpeed=550,hpRegen=0,abi={},baseGoldBounty=1,type="NORMAL"},
 	{name="level24",hp=26000,armor=70,magicRes=100,moveSpeed=340,hpRegen=20,abi={"enemy_magic_immune"},baseGoldBounty=1,type="NORMAL"},
-	{name="level25",hp=75000,armor=150,magicRes=100,moveSpeed=420,hpRegen=100,abi={},baseGoldBounty=1,type="ELITE"},
-	{name="level26",hp=35000,armor=120,magicRes=0,moveSpeed=480,hpRegen=80,abi={},baseGoldBounty=1,type="ARMY"},
-	{name="level27",hp=45000,armor=100,magicRes=0,moveSpeed=300,hpRegen=20,abi={},baseGoldBounty=1,type="NORMAL"},
-	{name="level28",hp=42000,armor=80,magicRes=100,moveSpeed=380,hpRegen=40,abi={},baseGoldBounty=1,type="NORMAL"},
-	{name="level29",hp=59000,armor=220,magicRes=40,moveSpeed=250,hpRegen=400,abi={},baseGoldBounty=1,type="ELITE"},
+	{name="level25",hp=70000,armor=150,magicRes=100,moveSpeed=420,hpRegen=100,abi={},baseGoldBounty=1,type="ELITE"},
+	{name="level26",hp=30000,armor=110,magicRes=0,moveSpeed=440,hpRegen=80,abi={},baseGoldBounty=1,type="ARMY"},
+	{name="level27",hp=50000,armor=100,magicRes=0,moveSpeed=300,hpRegen=20,abi={},baseGoldBounty=1,type="NORMAL"},
+	{name="level28",hp=52000,armor=80,magicRes=100,moveSpeed=380,hpRegen=40,abi={},baseGoldBounty=1,type="NORMAL"},
+	{name="level29",hp=60000,armor=200,magicRes=40,moveSpeed=250,hpRegen=400,abi={},baseGoldBounty=1,type="ELITE"},
 	{name="level30",hp=100000,armor=300,magicRes=100,moveSpeed=300,hpRegen=1,abi={"enemy_boss","enemy_magic_immune"},baseGoldBounty=1,type="BOSS"},
 	{name="level31",hp=66000,armor=120,magicRes=30,moveSpeed=300,hpRegen=500,abi={},baseGoldBounty=1,type="NORMAL"},
 	{name="level32",hp=70000,armor=150,magicRes=0,moveSpeed=520,hpRegen=20,abi={},baseGoldBounty=1,type="NORMAL"},
 	{name="level33",hp=80000,armor=280,magicRes=0,moveSpeed=440,hpRegen=100,abi={},baseGoldBounty=1,type="NORMAL"},
-	{name="level34",hp=82000,armor=700,magicRes=-50,moveSpeed=300,hpRegen=0,abi={},baseGoldBounty=1,type="NORMAL"},
-	{name="level35",hp=100000,armor=500,magicRes=70,moveSpeed=250,hpRegen=1000,abi={},baseGoldBounty=1,type="ELITE"},
+	{name="level34",hp=82000,armor=400,magicRes=-50,moveSpeed=300,hpRegen=0,abi={},baseGoldBounty=1,type="NORMAL"},
+	{name="level35",hp=100000,armor=300,magicRes=70,moveSpeed=250,hpRegen=1000,abi={},baseGoldBounty=1,type="ELITE"},
 	{name="level36",hp=80000,armor=100,magicRes=20,moveSpeed=550,hpRegen=10,abi={},baseGoldBounty=1,type="ARMY"},
 	{name="level37",hp=90000,armor=120,magicRes=0,moveSpeed=550,hpRegen=800,abi={},baseGoldBounty=1,type="NORMAL"},
 	{name="level38",hp=120000,armor=100,magicRes=70,moveSpeed=450,hpRegen=0,abi={"enemy_move_speed_constant"},baseGoldBounty=1,type="ELITE"},
-	{name="level39",hp=140000,armor=500,magicRes=80,moveSpeed=550,hpRegen=1400,abi={},baseGoldBounty=1,type="ELITE"},
-	{name="level40",hp=300000,armor=800,magicRes=80,moveSpeed=233,hpRegen=2000,abi={"enemy_boss","enemy_move_speed_constant"},baseGoldBounty=1,type="BOSS"},
+	{name="level39",hp=140000,armor=300,magicRes=80,moveSpeed=550,hpRegen=1400,abi={},baseGoldBounty=1,type="ELITE"},
+	{name="level40",hp=400000,armor=600,magicRes=50,moveSpeed=233,hpRegen=2000,abi={"enemy_boss","enemy_move_speed_constant"},baseGoldBounty=1,type="BOSS"},
 }
 
 _G.HeroAbility={

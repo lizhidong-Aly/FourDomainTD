@@ -1,6 +1,7 @@
 "use strict";
 
 var info=null;
+var attack_range_indicator=null;
 function UpdateData(data){
 	info=data
 	var panel=$.GetContextPanel().FindChildTraverse("CustomTowerInfoPanel")
@@ -99,6 +100,7 @@ function ShowDetailedInfo(data){
 				}else if(info.rangeChange<0){
 					des=des+"("+MakeTextColor(info.rangeChange,"red")+")"
 				}
+				DrawAttackRangeForUnit();
 			}
 			$.DispatchEvent( "DOTAShowTitleTextTooltip", $("#TowerDmgInfo"), tittle,des);
 		}else{
@@ -125,18 +127,32 @@ function ShowDetailedInfo(data){
 function SetStatusMode(mode){
 	if(mode=="def"){
 		$("#status_label_a").text=$.Localize("#status_armor");
-		$("#status_label_b").text=$.Localize("#status_magic_armor");
+		$("#status_label_b").text=$.Localize("#status_magic_armor_short");
 		$("#status_label_c").text=$.Localize("#status_movespe");
 	}else{
 		$("#status_label_a").text=$.Localize("#status_dmage");
-		$("#status_label_b").text=$.Localize("#status_speed");
-		$("#status_label_c").text=$.Localize("#status_range");
+		$("#status_label_b").text=$.Localize("#status_speed_short");
+		$("#status_label_c").text=$.Localize("#status_range_short");
 	}
 }
 
 function HideToolTips(){
 	//GameEvents.SendCustomGameEventToServer( "ClearAttackRange", {} );
+	RemoveAttackRangeIndicator();
 	$.DispatchEvent( "DOTAHideTitleTextTooltip");
+}
+
+function DrawAttackRangeForUnit(){
+	var unit=Players.GetLocalPlayerPortraitUnit();
+	var range=Entities.GetAttackRange(unit);
+	attack_range_indicator=Particles.CreateParticle("particles/custom_effect/attack_range_circle.vpcf",ParticleAttachment_t.PATTACH_ABSORIGIN_FOLLOW,unit)
+	Particles.SetParticleControl( attack_range_indicator,1,[range,0,0]);
+}
+
+function RemoveAttackRangeIndicator(){
+	Particles.DestroyParticleEffect(attack_range_indicator,true);
+	Particles.ReleaseParticleIndex(attack_range_indicator)	
+	attack_range_indicator=null;
 }
 
 function MakeTextColor(text,color){

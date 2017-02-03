@@ -28,7 +28,7 @@
 						<Label class="defultStyle data" id="cost_data" html="true" text="0"/>
 					</Panel>
 					<Panel class="StatusPanel" id="UpgradeCost" >
-						<Label class="defultStyle" text="#status_up_cost"/>
+						<Label class="defultStyle" text="#status_up_cost_short"/>
 						<Label class="defultStyle data" id="upcost_data" html="true" text="0"/>
 					</Panel>
 					<Panel class="StatusPanel" id="Attribute" >

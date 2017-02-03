@@ -30,7 +30,7 @@ function ShowTechDes(name){
 
 function UndateTechInfo(data){
 	$("#TechName").text =$.Localize( "#"+data.name );
-	$("#TechCost").text=$.Localize( "#studycost")+data.cost;
+	$("#TechCost").text=$.Localize( "#studycost")+data.cost+" "+$.Localize( "#Tower_essence");
 	$("#TechImg").abilityname=data.img;
 	$("#TechReq").text="";
 	$("#TechReqDetail").text="";

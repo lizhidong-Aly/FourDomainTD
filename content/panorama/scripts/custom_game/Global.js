@@ -1,6 +1,6 @@
 var hudRoot;
 var panel;
-var attack_range_indicators=new Array();
+//var attack_range_indicators=new Array();
 for(panel=$.GetContextPanel();panel!=null;panel=panel.GetParent()){
 	hudRoot=panel;
 }
@@ -32,7 +32,7 @@ function SetUIComponentVisibility(name,visiable){
 //Run 30 times per sec, use to keep constant communacation with server and updata ui componment
 function InstructionSendConstantly(){
 	SendCurrentPortraitUnit();
-	DrawAttackRangeOfUnitSelected();
+	//DrawAttackRangeOfUnitSelected();
 	UpdateUIbasedOnUnitType();
 	$.Schedule(1/30,InstructionSendConstantly);
 }
@@ -41,10 +41,8 @@ function DrawAttackRangeOfUnitSelected(){
 	var portrait_unit=Players.GetLocalPlayerPortraitUnit();
 	if(!Entities.IsOwnedByAnyPlayer(portrait_unit)){
 		for(var i in attack_range_indicators){
-			if(attack_range_indicators[i]!=null){
-				Particles.DestroyParticleEffect(attack_range_indicators[i],true);
-				Particles.ReleaseParticleIndex(attack_range_indicators[i])	
-				attack_range_indicators[i]=null;
+			if(attack_range_indicators[i].indicator!=null){
+				RemoveAttackRangeIndicatorForUnit(i)
 			}
 		}
 		return
@@ -52,45 +50,47 @@ function DrawAttackRangeOfUnitSelected(){
 	var current=Players.GetSelectedEntities(Players.GetLocalPlayer());
 	for(var i in current){
 		if(	Entities.IsOwnedByAnyPlayer(current[i]) 
-			&& !Entities.IsHero(current[i])
-			&& attack_range_indicators[current[i]]==null){
-			var range=Entities.GetAttackRange(current[i]);
-			var a=[range,0,0]
-			attack_range_indicators[current[i]]=Particles.CreateParticle("particles/custom_effect/attack_range_circle.vpcf",ParticleAttachment_t.PATTACH_ABSORIGIN_FOLLOW,current[i])
-			Particles.SetParticleControl( attack_range_indicators[current[i]],1,a)
+			&& !Entities.IsHero(current[i]) ) {
+			DrawAttackRangeIndicatorForUnit(current[i])
 		}
 	}
 	for(var i in attack_range_indicators){
-		if(attack_range_indicators!=null){
+		if(attack_range_indicators[i].indicator!=null){
 			var exist=false
 			for(var j in current){
 				if(current[j]==i){
 					exist=true
+					break;
 				}
 			}
 			if(!exist){
-				if(attack_range_indicators[i]!=null){
-					Particles.DestroyParticleEffect(attack_range_indicators[i],true);
-					Particles.ReleaseParticleIndex(attack_range_indicators[i])	
-					attack_range_indicators[i]=null;
-				}
-
+				RemoveAttackRangeIndicatorForUnit(i)
 			}
 		}
 	}
-	//GameEvents.SendCustomGameEventToServer( "DrawAttackRange", {unit:current,range:range});
-	/**
-	var units=null;
-	var range=null;
-	var current=Players.GetLocalPlayerPortraitUnit();
-	if(Entities.IsOwnedByAnyPlayer(current)){
-		units=Players.GetSelectedEntities(Players.GetLocalPlayer());
-		range=new Array();
-		for(var i in units) {
-			range[i]=Entities.GetAttackRange(units[i]);
-		}
+}
+
+function DrawAttackRangeIndicatorForUnit(unit){
+	var range=Entities.GetAttackRange(unit);
+	var a=[range,0,0];
+	if(attack_range_indicators[unit]==null){
+		attack_range_indicators[unit]={};
 	}
-	GameEvents.SendCustomGameEventToServer( "DrawAttackRange", {units:units,range:range});*/
+	if(attack_range_indicators[unit].indicator==null){
+		attack_range_indicators[unit].range=range;
+		attack_range_indicators[unit].indicator=Particles.CreateParticle("particles/custom_effect/attack_range_circle.vpcf",ParticleAttachment_t.PATTACH_ABSORIGIN_FOLLOW,unit)
+		Particles.SetParticleControl( attack_range_indicators[unit].indicator,1,a);
+	}else if(attack_range_indicators[unit].range!=range){
+		RemoveAttackRangeIndicatorForUnit(unit);
+		DrawAttackRangeIndicatorForUnit(unit);
+	}		
+}
+
+function RemoveAttackRangeIndicatorForUnit(unit){
+	Particles.DestroyParticleEffect(attack_range_indicators[unit].indicator,true);
+	Particles.ReleaseParticleIndex(attack_range_indicators[unit].indicator)	
+	attack_range_indicators[unit].indicator=null;
+	attack_range_indicators[unit].range=null;
 }
 
 function SendCurrentPortraitUnit(){

@@ -70,6 +70,7 @@ function Tower:Init()
 	self:SetBaseDamageMax(maxDmg)
 	self:SetBaseDamageMin(minDmg)
 	self:SetBaseAttackTime(tInfo.attSpe)
+	self:SetAcquisitionRange(tInfo.attRange)
 	if self.pid~=nil then
 		local hero=_G.Player[self.pid].hero
 		self:SetControllableByPlayer(self.pid, false )

@@ -7,8 +7,11 @@ require ("timers")
 require ("MergeUI")
 require ("TdPlayer")
 require ("global")
+require("amhc_library/amhc")
+require ("statcollection/init")
+
 if TDGameMode == nil then
-        TDGameMode = class({})
+    TDGameMode = class({})
 end
 
 function Precache( context )
@@ -56,19 +59,20 @@ function Precache( context )
 end
 
 function Activate()
-        TDGameMode:InitGameMode()
+    TDGameMode:InitGameMode()
 end
   
 function TDGameMode:InitGameMode()
 	--modifier_adjust_attack_range = class({})
 	--LinkLuaModifier( "ModifierScript/modifier_adjust_attack_range", LUA_MODIFIER_MOTION_NONE )
     print( "Four Domain TD is loaded." )
-	require("amhc_library/amhc")
 	AMHCInit()
 	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_GOODGUYS, 4 )
 	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_BADGUYS, 0 )
 	GameRules:SetPreGameTime(PRE_GAME_TIME)
 	GameRules:SetHeroSelectionTime(15)
+	GameRules:SetStrategyTime(10)
+	GameRules:SetShowcaseTime(0)
 	CustomGameEventManager:RegisterListener( "SetTowerType", SetTowerType )
 	CustomGameEventManager:RegisterListener( "SetDifficulty", SetDifficulty )
 	CustomGameEventManager:RegisterListener( "RequestTowerInfo", SendTowerInfo )
@@ -76,7 +80,6 @@ function TDGameMode:InitGameMode()
 	CustomGameEventManager:RegisterListener( "UpgradeTech", UpgradeTech )
 	CustomGameEventManager:RegisterListener( "Notifier_LocalizeEndMsg", Notifier_LocalizeEndMsg )
 	CustomGameEventManager:RegisterListener( "ClosedAllUI", ClosedAllUI )
-	CustomGameEventManager:RegisterListener( "DrawAttackRange", DrawAttackRange )
     ListenToGameEvent("game_rules_state_change", Dynamic_Wrap(TDGameMode,"OnGameRulesStateChange"), self)
     ListenToGameEvent('player_disconnect', Dynamic_Wrap(TDGameMode, 'OnDisconnect'), self)
 	ListenToGameEvent("entity_killed", Dynamic_Wrap(TDGameMode, "OnEntityKilled"), self)
@@ -89,28 +92,17 @@ end
 
 function TDGameMode:TestComand_A()
 	print("****************TestComand_A****************")
-	--DeepPrintTable(CDOTAPlayer)
-	MakeUnitsUnselectable(0)
-	--kv=LoadKeyValues("scripts/npc/custom_tower.txt")
+	--DeepPrintTable(CDOTAGamerules)
+	
 	print("******************Test End******************")
 end
 
 function TDGameMode:TestComand_B()
 	print("****************TestComand_B****************")
 	--DeepPrintTable(CDOTAPlayer)
-	MakeUnitsSelectable(0)
+
 	--kv=LoadKeyValues("scripts/npc/custom_tower.txt")
 	print("******************Test End******************")
-end
-
-function DrawAttackRange(index,keys)
-	--DebugDrawClear()
-	if(keys.unit~=nil) then
-		local unit=EntIndexToHScript(keys.unit)
-		if unit~=nil and unit:IsAlive() and unit:IsTower() then
-			--DebugDrawCircle(unit:GetOrigin(), Vector(0,255,0),0, keys.range, true, 0.1)
-		end
-	end
 end
 
 function Notifier_LocalizeEndMsg(index,keys)
@@ -118,20 +110,10 @@ function Notifier_LocalizeEndMsg(index,keys)
 	_G.end_msg_right=keys.right
 end
 
-function RandomHeroSelection()
-	for i=0,3 do
-		local player = PlayerResource:GetPlayer(i)
-		if player~=nil and player:GetAssignedHero()==nil then
-			print(i)
-			player:MakeRandomHeroSelection()
-		end
-	end
-end
-
 function SetDifficulty(index,keys)
-	vote[keys.PlayerID+1]=keys.data
+	_G.VOTE[keys.PlayerID+1]=keys.data
 	local count={0,0,0}
-	for i,v in pairs(vote) do
+	for i,v in pairs(_G.VOTE) do
 		count[v]=count[v]+1
 	end
 	local currdif=1
@@ -160,19 +142,30 @@ end
 function TDGameMode:OnGameRulesStateChange( keys )
     print("OnGameRulesStateChange")
     local newState = GameRules:State_Get()
+    if newState==DOTA_GAMERULES_STATE_STRATEGY_TIME then
+    	RandomHeroSelection()
+    end
     if newState==DOTA_GAMERULES_STATE_PRE_GAME then
     	InitMergeList()
 		InitFountain()
-		RandomHeroSelection()
     end
     if newState==DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
-    	if MODE==0 then
+    	if _G.MODE==0 then
 			TestMode()
+			return
         end
-   		if MODE==1 then
-        	NextWave()
-        end
+        NextWave()
     end
+end
+
+function RandomHeroSelection()
+	for i=0,3 do
+		local player = PlayerResource:GetPlayer(i)
+		if player~=nil and (not PlayerResource:HasSelectedHero(i)) then
+			print("random select hero for player: ",i)
+			player:MakeRandomHeroSelection()
+		end
+	end
 end
 
 function InitFountain()
@@ -239,7 +232,9 @@ function TDGameMode:OnDisconnect( keys )
 				player.TowerOwned={}
 				for i,v in pairs(player.all_units) do
 					if not v:IsNull() then
-						v:RemoveSelf()
+						if v:GetPlayerOwnerID()==player.pid then
+							v:RemoveSelf()
+						end
 					end
 				end
 				Timers:RemoveTimer(player.disconnect_timer)
@@ -264,8 +259,8 @@ end
 function TDGameMode:OnNPCSpawned(keys)
 	local u=EntIndexToHScript(keys.entindex)
 	if(u~=nil and u:IsHero()) then
-		Timers:CreateTimer(0.1, function()
-    		TdPlayer:InitPlayer(u:GetPlayerID())
+		Timers:CreateTimer(0.05, function()
+    		TdPlayer:InitPlayer(u:GetPlayerID(),u)
     	end
   		)
 	end
@@ -286,21 +281,21 @@ function TDGameMode:OnEntityKilled( keys )
 end
 
 function OnNormalEnemyDied(unit)
-	if RandomFloat(0,1)<=0.01 then
+	if RandomFloat(0,1)<=0.003 then
 		local energy=CreateItem("item_energy_orb",nil,nil)
 		CreateItemOnPositionSync(GetRandomPositionAround(unit),energy)
 	end
-	if RandomFloat(0,1)<=0.005 then
+	if RandomFloat(0,1)<=0.003 then
 		local essence=CreateItem("item_element_essence",nil,nil)
 		CreateItemOnPositionSync(GetRandomPositionAround(unit),essence)
 	end
-	if RandomFloat(0,1)<=0.005 then
+	if RandomFloat(0,1)<=0.003 then
 		local crystal=CreateItem("item_element_crystal",nil,nil)
 		CreateItemOnPositionSync(GetRandomPositionAround(unit),crystal)
 	end
-	if RandomFloat(0,1)<=0.001 then
+	if RandomFloat(0,1)<=0.003 then
 		local gold=CreateItem("item_bag_of_gold",nil,nil)
-		gold:SetCurrentCharges(1000)
+		gold:SetCurrentCharges(500)
 		local coin=CreateItemOnPositionSync(GetRandomPositionAround(unit),gold)
 		coin:SetModelScale(1)
 	end

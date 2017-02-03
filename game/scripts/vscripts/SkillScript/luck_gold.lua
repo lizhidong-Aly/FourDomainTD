@@ -1,6 +1,6 @@
 function LuckGold(keys)
 	local playerid = keys.caster:GetPlayerOwnerID()
-	local gold = currentWave
+	local gold = _G.levelNo
 	local modi=keys.caster:FindModifierByName("modifier_extra_gold_count")
 	modi:SetStackCount(modi:GetStackCount()+gold)
 	PlayerResource:ModifyGold(playerid,gold,false,0)

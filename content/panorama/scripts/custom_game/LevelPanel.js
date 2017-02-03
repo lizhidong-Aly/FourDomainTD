@@ -24,7 +24,7 @@ function RankUpdate(data){
 				$("#high_name").text=$.Localize(rankInfo[i-1+2].name);
 				$("#low_name").style.color=rank.color;
 				$("#high_name").style.color="grey";
-				var height=Math.round(((e-(rank.low))/rank.high)*440)/10;
+				var height=Math.round(((e-(rank.low))/(rank.high-rank.low))*440)/10;
 				$("#energy_bar").style.height=height+"%";
 				rank_current=i;
 			}
@@ -43,7 +43,7 @@ function ShowRanKDetail(){
 	}else{
 		des=$.Localize( "#rank_current" )+MakeTextColor($("#low_name").text,rankInfo[rank_current].color);
 		des=des+"<br>"+$.Localize( "#rank_next" )+MakeTextColor($("#high_name").text,rankInfo[rank_current-1+2].color);
-		des=des+"<br>"+$.Localize( "#rank_needed" )+MakeTextColor((e-rankInfo[rank_current].low),"white")+"/"+MakeTextColor(rankInfo[rank_current].high,"white");
+		des=des+"<br>"+$.Localize( "#rank_needed" )+MakeTextColor((e-rankInfo[rank_current].low),"white")+"/"+MakeTextColor(rankInfo[rank_current].high-rankInfo[rank_current].low,"white");
 		des=des+"<br>"+$.Localize( "#rank_help" )
 	}
 	$.DispatchEvent( "DOTAShowTitleTextTooltip", $.GetContextPanel(), title,des);

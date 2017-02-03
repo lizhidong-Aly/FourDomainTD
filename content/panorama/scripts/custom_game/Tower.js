@@ -26,7 +26,7 @@ function SetTowerInfo(data){
 		des=des + $.Localize( "#TowerLocked" );
 	}
 	des=des + $.Localize( "#TowerDesA" ) + DecodeAttribute(data.attri) ;
-	des=des + $.Localize( "#TowerDesB" )+ "<font color='gold'> " + data.cost + " </font>黄金 以及" + "<font color='#b72cff'> " + data.eh + " </font>水晶";
+	des=des + $.Localize( "#TowerDesB" )+ "<font color='gold'> " + data.cost + " </font>"+  $.Localize( "#Tower_gold" )+" & <font color='#b72cff'> " + data.eh + " </font>"+$.Localize( "#Tower_crystal" );
 	$("#GoldCost").text=data.cost;
 	des=des + $.Localize( "#TowerDesC" ) + data.dmg;
 	des=des + $.Localize( "#TowerDesD" ) + Math.round(data.spe*100)/100;

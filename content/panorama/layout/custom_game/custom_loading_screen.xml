@@ -4,6 +4,6 @@
 		<include src="file://{resources}/styles/custom_game/custom_loading_screen.css" />
 	</styles>
 	<Panel>
-		<Image id="ix" class="imageSize" src="file://{resources}/images/custom_game/loadingscreen.jpg"/>
+		<Image id="bg" class="imageSize" src="file://{resources}/images/custom_game/loadingscreen"/>
 	</Panel>
 </root>
