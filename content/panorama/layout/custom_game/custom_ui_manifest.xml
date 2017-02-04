@@ -9,7 +9,7 @@
 		<CustomUIElement type="Hud"					layoutfile="file://{resources}/layout/custom_game/TechUI.xml" />
 		<CustomUIElement type="Hud" 				layoutfile="file://{resources}/layout/custom_game/game_info.xml" />
 		<CustomUIElement type="Hud" 				layoutfile="file://{resources}/layout/custom_game/Notifier.xml" />
-
+ 		<CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/statcollection.xml" />
         <CustomUIElement type="GameSetup"           layoutfile="file://{resources}/layout/custom_game/team_select.xml" />
 		<CustomUIElement type="GameSetup"           layoutfile="file://{resources}/layout/custom_game/difficulty.xml" />
 		</Panel>

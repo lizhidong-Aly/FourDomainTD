@@ -23,13 +23,13 @@ _G.TowerInfo={}
 --eh=element heart 人口占用
 	-------------------通用-------------------
 	--矮人火枪手
-	_G.TowerInfo.CS01L01={dmgCoefficient=2.5,attSpe=1.8,attRange=900,cost=20,attribute="N",eh=1,abil={"head_shoot"},upgradeTo="CS01L02"}
-	_G.TowerInfo.CS01L02={dmgCoefficient=1.9,attSpe=1.8,attRange=1000,cost=50,attribute="N",eh=1,abil={"head_shoot"},upgradeTo="CS01L03"}
-	_G.TowerInfo.CS01L03={dmgCoefficient=1.3,attSpe=1.8,attRange=1100,cost=200,attribute="N",eh=1,abil={"head_shoot"},upgradeTo=nil}
+	_G.TowerInfo.CS01L01={dmgCoefficient=2.2,attSpe=1.6,attRange=900,cost=30,attribute="N",eh=1,abil={"head_shoot"},upgradeTo="CS01L02"}
+	_G.TowerInfo.CS01L02={dmgCoefficient=1.9,attSpe=1.6,attRange=1000,cost=90,attribute="N",eh=1,abil={"head_shoot"},upgradeTo="CS01L03"}
+	_G.TowerInfo.CS01L03={dmgCoefficient=1.7,attSpe=1.6,attRange=1100,cost=180,attribute="N",eh=1,abil={"head_shoot"},upgradeTo=nil}
 	--炼金术师
 	_G.TowerInfo.CS02L01={dmgCoefficient=1.4,attSpe=1.5,attRange=1000,cost=50,attribute="N",eh=1,abil={"booty_gold"},upgradeTo="CS02L02"}
-	_G.TowerInfo.CS02L02={dmgCoefficient=1.2,attSpe=1.55,attRange=1000,cost=150,attribute="N",eh=1,abil={"booty_gold"},upgradeTo="CS02L03"}
-	_G.TowerInfo.CS02L03={dmgCoefficient=1.0,attSpe=1.6,attRange=1000,cost=450,attribute="N",eh=2,abil={"booty_gold","luck_gold"},upgradeTo=nil}
+	_G.TowerInfo.CS02L02={dmgCoefficient=1.3,attSpe=1.45,attRange=1000,cost=150,attribute="N",eh=1,abil={"booty_gold"},upgradeTo="CS02L03"}
+	_G.TowerInfo.CS02L03={dmgCoefficient=1.2,attSpe=1.4,attRange=1000,cost=450,attribute="N",eh=2,abil={"booty_gold","luck_gold"},upgradeTo=nil}
 -------------------地-------------------
 	--核心
 	_G.TowerInfo.ES01L01={dmgCoefficient=0,attSpe=0,attRange=0,cost=300,attribute="E",eh=1,abil={"earth_core_aura","earth_core_overload"},upgradeTo="ES01L02"}
@@ -229,15 +229,15 @@ _G.levelInfo={
 	{name="level29",hp=60000,armor=200,magicRes=40,moveSpeed=250,hpRegen=400,abi={},baseGoldBounty=1,type="ELITE"},
 	{name="level30",hp=100000,armor=300,magicRes=100,moveSpeed=300,hpRegen=1,abi={"enemy_boss","enemy_magic_immune"},baseGoldBounty=1,type="BOSS"},
 	{name="level31",hp=66000,armor=120,magicRes=30,moveSpeed=300,hpRegen=500,abi={},baseGoldBounty=1,type="NORMAL"},
-	{name="level32",hp=70000,armor=150,magicRes=0,moveSpeed=520,hpRegen=20,abi={},baseGoldBounty=1,type="NORMAL"},
-	{name="level33",hp=80000,armor=280,magicRes=0,moveSpeed=440,hpRegen=100,abi={},baseGoldBounty=1,type="NORMAL"},
-	{name="level34",hp=82000,armor=400,magicRes=-50,moveSpeed=300,hpRegen=0,abi={},baseGoldBounty=1,type="NORMAL"},
-	{name="level35",hp=100000,armor=300,magicRes=70,moveSpeed=250,hpRegen=1000,abi={},baseGoldBounty=1,type="ELITE"},
-	{name="level36",hp=80000,armor=100,magicRes=20,moveSpeed=550,hpRegen=10,abi={},baseGoldBounty=1,type="ARMY"},
-	{name="level37",hp=90000,armor=120,magicRes=0,moveSpeed=550,hpRegen=800,abi={},baseGoldBounty=1,type="NORMAL"},
-	{name="level38",hp=120000,armor=100,magicRes=70,moveSpeed=450,hpRegen=0,abi={"enemy_move_speed_constant"},baseGoldBounty=1,type="ELITE"},
-	{name="level39",hp=140000,armor=300,magicRes=80,moveSpeed=550,hpRegen=1400,abi={},baseGoldBounty=1,type="ELITE"},
-	{name="level40",hp=400000,armor=600,magicRes=50,moveSpeed=233,hpRegen=2000,abi={"enemy_boss","enemy_move_speed_constant"},baseGoldBounty=1,type="BOSS"},
+	{name="level32",hp=60000,armor=150,magicRes=0,moveSpeed=520,hpRegen=20,abi={},baseGoldBounty=1,type="NORMAL"},
+	{name="level33",hp=70000,armor=200,magicRes=0,moveSpeed=440,hpRegen=100,abi={},baseGoldBounty=1,type="NORMAL"},
+	{name="level34",hp=75000,armor=250,magicRes=-50,moveSpeed=300,hpRegen=0,abi={},baseGoldBounty=1,type="NORMAL"},
+	{name="level35",hp=100000,armor=300,magicRes=50,moveSpeed=250,hpRegen=1000,abi={},baseGoldBounty=1,type="ELITE"},
+	{name="level36",hp=60000,armor=120,magicRes=20,moveSpeed=550,hpRegen=10,abi={},baseGoldBounty=1,type="ARMY"},
+	{name="level37",hp=80000,armor=150,magicRes=0,moveSpeed=550,hpRegen=800,abi={},baseGoldBounty=1,type="NORMAL"},
+	{name="level38",hp=100000,armor=180,magicRes=70,moveSpeed=400,hpRegen=0,abi={"enemy_move_speed_constant"},baseGoldBounty=1,type="ELITE"},
+	{name="level39",hp=120000,armor=300,magicRes=80,moveSpeed=550,hpRegen=1400,abi={},baseGoldBounty=1,type="ELITE"},
+	{name="level40",hp=300000,armor=500,magicRes=50,moveSpeed=233,hpRegen=1500,abi={"enemy_boss","enemy_move_speed_constant"},baseGoldBounty=1,type="BOSS"},
 }
 
 _G.HeroAbility={
