@@ -41,11 +41,11 @@ end
 function OnBossDied(keys)
 	print("boss died")
 	local unit=keys.caster
-	for i=1,RandomInt(2,4) do
+	for i=1,RandomInt(3,5) do
 		local crystal=CreateItem("item_element_crystal",nil,nil)
 		CreateItemOnPositionSync(GetRandomPositionAround(unit),crystal)
 	end
-	for i=1,RandomInt(1,3) do
+	for i=1,RandomInt(2,5) do
 		local energy=CreateItem("item_energy_orb",nil,nil)
 		CreateItemOnPositionSync(GetRandomPositionAround(unit),energy)
 	end
