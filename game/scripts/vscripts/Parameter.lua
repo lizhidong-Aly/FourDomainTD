@@ -1,8 +1,8 @@
-_G.VERSION="V1.01"
-PRE_GAME_TIME=15
-INIT_GOLD=200
-INIT_TECH_POINT=1
-INIT_EH_LIMIT=15
+_G.VERSION="V1.0"
+PRE_GAME_TIME=2
+INIT_GOLD=20000
+INIT_TECH_POINT=100
+INIT_EH_LIMIT=99
 SPAWN_DELAY=15
 _G.TESTMODE=false
 _G.DIFFICULTY=1
@@ -10,7 +10,7 @@ _G.REFUND=1
 _G.ENEMY_ELITE_CHANCE=0.01
 _G.VOTE={}
 _G.isOnSpawn=false
-_G.levelNo=0
+_G.levelNo=39
 _G.Player={}
 _G.unitRemaining=0
 _G.SpawnPosition={
@@ -23,7 +23,7 @@ _G.TowerInfo={}
 --eh=element heart 人口占用
 	-------------------通用-------------------
 	--矮人火枪手
-	_G.TowerInfo.CS01L01={dmgCoefficient=2.2,attSpe=1.6,attRange=900,cost=30,attribute="N",eh=1,abil={"head_shoot"},upgradeTo="CS01L02"}
+	_G.TowerInfo.CS01L01={dmgCoefficient=2.2,attSpe=1.6,attRange=900,cost=30,attribute="N",eh=1,abil={"head_shoot","lua_test_ability"},upgradeTo="CS01L02"}
 	_G.TowerInfo.CS01L02={dmgCoefficient=1.9,attSpe=1.6,attRange=1000,cost=90,attribute="N",eh=1,abil={"head_shoot"},upgradeTo="CS01L03"}
 	_G.TowerInfo.CS01L03={dmgCoefficient=1.7,attSpe=1.6,attRange=1100,cost=180,attribute="N",eh=1,abil={"head_shoot"},upgradeTo=nil}
 	--炼金术师
@@ -237,7 +237,7 @@ _G.levelInfo={
 	{name="level37",hp=80000,armor=150,magicRes=0,moveSpeed=550,hpRegen=800,abi={},baseGoldBounty=1,type="NORMAL"},
 	{name="level38",hp=100000,armor=180,magicRes=70,moveSpeed=400,hpRegen=0,abi={"enemy_move_speed_constant"},baseGoldBounty=1,type="ELITE"},
 	{name="level39",hp=120000,armor=300,magicRes=80,moveSpeed=550,hpRegen=1400,abi={},baseGoldBounty=1,type="ELITE"},
-	{name="level40",hp=300000,armor=600,magicRes=75,moveSpeed=233,hpRegen=2000,abi={"enemy_boss","enemy_move_speed_constant"},baseGoldBounty=1,type="BOSS"},
+	{name="level40",hp=200000,armor=500,magicRes=50,moveSpeed=233,hpRegen=1000,abi={"enemy_boss","enemy_move_speed_constant"},baseGoldBounty=1,type="BOSS"},
 }
 
 _G.HeroAbility={

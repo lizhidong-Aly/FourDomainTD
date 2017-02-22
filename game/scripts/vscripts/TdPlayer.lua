@@ -156,7 +156,15 @@ end
 
 function TdPlayer:InitTechTree()
 	self.TechTree=TechTree:new(self.pid)
-	self.TechTree:UpdateTechTree()
+	local tech_tree = self.TechTree
+	local tehc_info = _G.TechInfo
+	for i,v in pairs(_G.TechInfo) do
+		v.current_lv=tech_tree:GetTech(i).current_lv
+		v.isLocked=tech_tree:GetTech(i).isLocked
+	end
+	SendEventToPlayer(self.pid,"InitTechUI", tehc_info)
+	--self.TechTree:UpdateTechTree()
+	--self.TechTree:UpdateTechUI()
 end
 
 function TdPlayer:StartSpawn()
