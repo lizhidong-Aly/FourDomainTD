@@ -1,8 +1,34 @@
 require("Tech")
-require("Link")
-require("BuildUI")
+
+function OpenTechMenu(keys)
+	local pid = keys.caster:GetPlayerOwnerID()
+	--InitTechTree()
+	SendEventToPlayer(pid, "OpenTechMenu", {} )
+	SendEventToPlayer(pid, "CloseBUI", {} )
+	SendEventToPlayer(pid, "CloseInfo", {} )
+end
+
+function UpgradeTech(index,keys)
+	local pid=keys.PlayerID
+	local tech_tree=_G.Player[pid].TechTree
+	tech_tree:UpgradeTech(keys.name)
+end
+
+function InitTechUI(index,keys)
+	local pid = keys.PlayerID
+	if _G.Player[pid]~=nil then 
+		local tech_tree = _G.Player[pid].TechTree
+		local tehc_info = _G.TechInfo
+		for i,v in pairs(_G.TechInfo) do
+			v.current_lv=tech_tree:GetTech(i).current_lv
+			v.isLocked=tech_tree:GetTech(i).isLocked
+		end
+		SendEventToPlayer(pid,"InitTechUI", tehc_info)
+	end
+end
+
 TechTree={
-	AllTech={},
+	all_tech={},
 	pid=nil,
 	TP=0
 }
@@ -13,11 +39,49 @@ function TechTree:new(pid)
 	local self={}
 	setmetatable(self,TechTree)
 	self.pid=pid
-	self.AllTech=TechTree:InitContent()
 	self.TP=INIT_TECH_POINT
+	for i,v in pairs(_G.TechInfo) do
+		self.all_tech[i]=Tech:new(i,self)
+	end
 	return self
 end
 
+function TechTree:GetTech(tech_name)
+	return self.all_tech[tech_name]
+end
+
+function TechTree:UpgradeTech(tech_name)
+	local tech=self:GetTech(tech_name)
+	if tech:LevelUp() then
+		self:UpdateTechUI(tech)
+	end
+end
+
+function TechTree:UpdateTechUI(tech)
+	if tech~=nil then
+		SendEventToPlayer(self.pid,"UndateTechInfo", {tech=tech.name,lv=tech:GetCurrentLevel()})
+	end
+	for i,v in pairs(self.all_tech) do
+		if v.isLocked and _G.TechInfo[i].prerequest~=nil then
+			local unlock_flag=true
+			for index,prerequest in pairs(_G.TechInfo[i].prerequest) do
+				if self:GetTech(prerequest.tech_name):GetCurrentLevel()<prerequest.lv_needed then
+					unlock_flag=false
+				end
+			end
+			if unlock_flag then
+				v.isLocked=false
+				SendEventToPlayer(self.pid,"UndateTechInfo", {tech=v.name,lv=v:GetCurrentLevel()})
+			end
+		end
+	end
+end
+
+function TechTree:IncreaseTechPoint(n)
+	self.TP=self.TP+n
+end
+
+--[[
 function TechTree:InitContent()
 	local all={}
 	all[1]=Tech:new("ET01","earth_spirit_boulder_smash",1,3,nil)
@@ -404,4 +468,5 @@ function TechTree:TechListener(keys)
 		end
 	end
 end
+]]--
 

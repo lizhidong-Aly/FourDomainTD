@@ -60,6 +60,7 @@ function GiveEndBouns(){
 	var text_r=$.Localize( "#tpgain" );
 	GameEvents.SendCustomGameEventToServer( "Notifier_LocalizeEndMsg", {left:text_l,right:text_r} );
 }
+
 (function()
 {
 	$.Msg("Notifier.js is loaded");

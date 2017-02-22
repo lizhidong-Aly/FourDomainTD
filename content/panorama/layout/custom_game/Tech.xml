@@ -1,0 +1,18 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/dotastyles.css" />
+		<include src="file://{resources}/styles/custom_game/Tech.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/Tech.js" />
+	</scripts>
+	<Panel class="TechPanel" hittest="false">
+		<Panel id="LevelIndicator">
+		</Panel>
+		<Button id="TechButton" onmouseover="ShowTechDes()" onmouseactivate="UpgradeTech()">
+			<DOTAAbilityImage id="TechImage"/>
+			<Label id="GoldCost" text="0"/>
+			<Label class="disable" id="TechLocker"/>
+		</Button>
+	</Panel>
+</root>

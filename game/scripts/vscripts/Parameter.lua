@@ -1,16 +1,16 @@
 _G.VERSION="V1.0"
-PRE_GAME_TIME=20
-INIT_GOLD=150
-INIT_TECH_POINT=1
-INIT_EH_LIMIT=15
+PRE_GAME_TIME=2
+INIT_GOLD=20000
+INIT_TECH_POINT=100
+INIT_EH_LIMIT=99
 SPAWN_DELAY=15
-_G.MODE=2
+_G.TESTMODE=false
 _G.DIFFICULTY=1
 _G.REFUND=1
 _G.ENEMY_ELITE_CHANCE=0.01
 _G.VOTE={}
 _G.isOnSpawn=false
-_G.levelNo=0
+_G.levelNo=39
 _G.Player={}
 _G.unitRemaining=0
 _G.SpawnPosition={
@@ -23,7 +23,7 @@ _G.TowerInfo={}
 --eh=element heart 人口占用
 	-------------------通用-------------------
 	--矮人火枪手
-	_G.TowerInfo.CS01L01={dmgCoefficient=2.2,attSpe=1.6,attRange=900,cost=30,attribute="N",eh=1,abil={"head_shoot"},upgradeTo="CS01L02"}
+	_G.TowerInfo.CS01L01={dmgCoefficient=2.2,attSpe=1.6,attRange=900,cost=30,attribute="N",eh=1,abil={"head_shoot","lua_test_ability"},upgradeTo="CS01L02"}
 	_G.TowerInfo.CS01L02={dmgCoefficient=1.9,attSpe=1.6,attRange=1000,cost=90,attribute="N",eh=1,abil={"head_shoot"},upgradeTo="CS01L03"}
 	_G.TowerInfo.CS01L03={dmgCoefficient=1.7,attSpe=1.6,attRange=1100,cost=180,attribute="N",eh=1,abil={"head_shoot"},upgradeTo=nil}
 	--炼金术师
@@ -82,17 +82,17 @@ _G.TowerInfo={}
 	_G.TowerInfo.WT03L02={dmgCoefficient=0.9,attSpe=1.65,attRange=850,cost=700,attribute="W",eh=2,abil={"split_shot","split_shot_dummy_hidden"},upgradeTo="WT03L03"}
 	_G.TowerInfo.WT03L03={dmgCoefficient=0.8,attSpe=1.65,attRange=900,cost=900,attribute="W",eh=3,abil={"split_shot","split_shot_dummy_hidden"},upgradeTo=nil}
 	--极寒幽魂
-	_G.TowerInfo.WT11L01={dmgCoefficient=1.2,attSpe=1.6,attRange=1200,cost=600,attribute="W",eh=2,abil={"frost_curse_field"},upgradeTo="WT11L02"}
-	_G.TowerInfo.WT11L02={dmgCoefficient=1.1,attSpe=1.6,attRange=1200,cost=1000,attribute="W",eh=2,abil={"frost_curse_field"},upgradeTo="WT11L03"}
-	_G.TowerInfo.WT11L03={dmgCoefficient=1,attSpe=1.6,attRange=1200,cost=1400,attribute="W",eh=3,abil={"frost_curse_field"},upgradeTo=nil}
+	_G.TowerInfo.WT11L01={dmgCoefficient=1.2,attSpe=1.6,attRange=1200,cost=600,attribute="WI",eh=2,abil={"frost_curse_field"},upgradeTo="WT11L02"}
+	_G.TowerInfo.WT11L02={dmgCoefficient=1.1,attSpe=1.6,attRange=1200,cost=1000,attribute="WI",eh=2,abil={"frost_curse_field"},upgradeTo="WT11L03"}
+	_G.TowerInfo.WT11L03={dmgCoefficient=1,attSpe=1.6,attRange=1200,cost=1400,attribute="WI",eh=3,abil={"frost_curse_field"},upgradeTo=nil}
 	--巨牙海民
-	_G.TowerInfo.WT13L01={dmgCoefficient=1.8,attSpe=1.7,attRange=800,cost=500,attribute="W",eh=2,abil={"ice_mark"},upgradeTo="WT13L02"}
-	_G.TowerInfo.WT13L02={dmgCoefficient=1.4,attSpe=1.7,attRange=800,cost=1000,attribute="W",eh=3,abil={"ice_mark"},upgradeTo="WT13L03"}
-	_G.TowerInfo.WT13L03={dmgCoefficient=1,attSpe=1.7,attRange=800,cost=2000,attribute="W",eh=4,abil={"ice_mark"},upgradeTo=nil}
+	_G.TowerInfo.WT13L01={dmgCoefficient=1.8,attSpe=1.7,attRange=800,cost=500,attribute="WI",eh=2,abil={"ice_mark"},upgradeTo="WT13L02"}
+	_G.TowerInfo.WT13L02={dmgCoefficient=1.4,attSpe=1.7,attRange=800,cost=1000,attribute="WI",eh=3,abil={"ice_mark"},upgradeTo="WT13L03"}
+	_G.TowerInfo.WT13L03={dmgCoefficient=1,attSpe=1.7,attRange=800,cost=2000,attribute="WI",eh=4,abil={"ice_mark"},upgradeTo=nil}
 	--巫妖
-	_G.TowerInfo.WT21L01={dmgCoefficient=2,attSpe=1.8,attRange=1000,cost=3000,attribute="W",eh=3,abil={"frost_nova_attack_passive","life_ritual","ice_nova_hidden"},upgradeTo="WT21L02"}
-	_G.TowerInfo.WT21L02={dmgCoefficient=1.7,attSpe=1.8,attRange=1000,cost=6000,attribute="W",eh=4,abil={"frost_nova_attack_passive","life_ritual","ice_nova_hidden"},upgradeTo="WT21L03"}
-	_G.TowerInfo.WT21L03={dmgCoefficient=1.4,attSpe=1.8,attRange=1000,cost=9000,attribute="W",eh=5,abil={"frost_nova_attack_passive","life_ritual","ice_nova_hidden"},upgradeTo=nil}
+	_G.TowerInfo.WT21L01={dmgCoefficient=2,attSpe=1.8,attRange=1000,cost=3000,attribute="WI",eh=3,abil={"frost_nova_attack_passive","life_ritual","ice_nova_hidden"},upgradeTo="WT21L02"}
+	_G.TowerInfo.WT21L02={dmgCoefficient=1.7,attSpe=1.8,attRange=1000,cost=6000,attribute="WI",eh=4,abil={"frost_nova_attack_passive","life_ritual","ice_nova_hidden"},upgradeTo="WT21L03"}
+	_G.TowerInfo.WT21L03={dmgCoefficient=1.4,attSpe=1.8,attRange=1000,cost=9000,attribute="WI",eh=5,abil={"frost_nova_attack_passive","life_ritual","ice_nova_hidden"},upgradeTo=nil}
 -------------------火-------------------
 	--核心
 	_G.TowerInfo.FS01L01={dmgCoefficient=0,attSpe=0,attRange=0,cost=250,attribute="F",eh=1,abil={"fire_core_aura","fire_core_overload"},upgradeTo="FS01L02"}
@@ -177,7 +177,7 @@ _G.TowerInfo={}
 		cost=2000
 		+_G.TowerInfo.WT03L01.cost+_G.TowerInfo.WT03L02.cost+_G.TowerInfo.WT03L03.cost
 		+_G.TowerInfo.WT11L01.cost+_G.TowerInfo.WT11L02.cost+_G.TowerInfo.WT11L03.cost,
-		attribute="W",eh=7,eh_needed=1,abil={"split_shot","frost_attack","split_shot_dummy_hidden"},upgradeTo=nil}
+		attribute="WI",eh=7,eh_needed=1,abil={"split_shot","frost_attack","split_shot_dummy_hidden"},upgradeTo=nil}
 	_G.TowerInfo.FT03L11={
 		lv=4,dmgCoefficient=1.2,attSpe=1.6,attRange=1100,
 		cost=2000
@@ -200,8 +200,8 @@ _G.EnemyType={
 _G.levelInfo={
 	{name="level01",hp=100,armor=1,magicRes=0,moveSpeed=350,hpRegen=1,abi={},baseGoldBounty=1,type="NORMAL"},
 	{name="level02",hp=200,armor=3,magicRes=0,moveSpeed=450,hpRegen=2,abi={},baseGoldBounty=1,type="NORMAL"},
-	{name="level03",hp=400,armor=5,magicRes=0,moveSpeed=390,hpRegen=4,abi={},baseGoldBounty=1,type="NORMAL"},
-	{name="level04",hp=700,armor=7,magicRes=0,moveSpeed=340,hpRegen=10,abi={},baseGoldBounty=1,type="NORMAL"},
+	{name="level03",hp=400,armor=6,magicRes=0,moveSpeed=390,hpRegen=4,abi={},baseGoldBounty=1,type="NORMAL"},
+	{name="level04",hp=700,armor=10,magicRes=0,moveSpeed=340,hpRegen=10,abi={},baseGoldBounty=1,type="NORMAL"},
 	{name="level05",hp=2500,armor=30,magicRes=50,moveSpeed=270,hpRegen=1,abi={},baseGoldBounty=1,type="ELITE"},
 	{name="level06",hp=1100,armor=12,magicRes=0,moveSpeed=430,hpRegen=8,abi={},baseGoldBounty=1,type="ARMY"},
 	{name="level07",hp=2400,armor=20,magicRes=0,moveSpeed=410,hpRegen=12,abi={},baseGoldBounty=1,type="NORMAL"},
@@ -237,7 +237,7 @@ _G.levelInfo={
 	{name="level37",hp=80000,armor=150,magicRes=0,moveSpeed=550,hpRegen=800,abi={},baseGoldBounty=1,type="NORMAL"},
 	{name="level38",hp=100000,armor=180,magicRes=70,moveSpeed=400,hpRegen=0,abi={"enemy_move_speed_constant"},baseGoldBounty=1,type="ELITE"},
 	{name="level39",hp=120000,armor=300,magicRes=80,moveSpeed=550,hpRegen=1400,abi={},baseGoldBounty=1,type="ELITE"},
-	{name="level40",hp=300000,armor=500,magicRes=50,moveSpeed=233,hpRegen=1500,abi={"enemy_boss","enemy_move_speed_constant"},baseGoldBounty=1,type="BOSS"},
+	{name="level40",hp=200000,armor=500,magicRes=50,moveSpeed=233,hpRegen=1000,abi={"enemy_boss","enemy_move_speed_constant"},baseGoldBounty=1,type="BOSS"},
 }
 
 _G.HeroAbility={
@@ -268,4 +268,13 @@ _G.EnemyEliteAbility={
 	"enemy_sacrifice_charge",
 	"enemy_sacrifice_heal",
 	"enemy_sacrifice_antimagi",
+}
+
+_G.TechInfo={
+	GT01={des="att_damage_enhanced",maxlv=10,upgrade_essence_needed={1,1,1,1,1,1,1,1,1,1},target="all"},
+	GT02={des="att_spe_enhanced",maxlv=10,upgrade_essence_needed={1,1,1,1,1,1,1,1,1,1},target="all"},
+	GT03={des="att_range_enhanced",maxlv=10,upgrade_essence_needed={1,1,1,1,1,1,1,1,1,1},target="all"},
+	ET01={des="earth_basic",maxlv=4,upgrade_essence_needed={3,5,7,9},target="E"},
+	ET02={des="sandking_enhanced",maxlv=1,upgrade_essence_needed={4},prerequest={{tech_name="ET01",lv_needed=2}},target={"ET12"}},
+	ET03={des="engima_enhanced",maxlv=1,upgrade_essence_needed={6},prerequest={{tech_name="ET01",lv_needed=3}},target={"ET21L03"}},
 }

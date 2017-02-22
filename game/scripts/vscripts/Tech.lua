@@ -1,96 +1,106 @@
-
 Tech={
-	name="",
-	img="",
-	lvl=0,
-	maxlvl=10000,
-	cost=0,       --gold require to upgrade
-	des="",
-	canupgrade=false,
-	link={}
+	name=nil,
+	current_lv=0,
+	isLocked=true,
+	tech_tree={},
+	pid=nil,
 }
 
 Tech.__index = Tech
 
-function Tech:new(n,i,l,g,lr)
-	local self={}
-	setmetatable(self,Tech)
-	self.name=n
-	self.img=i
-	self.maxlvl=l
-	self.cost=g
-	self.des=n.."DES"
-	self.link=lr
+function Tech:new(tech_name,tech_tree)
+	self.name=tech_name
+	self.current_lv=0
+	self.tech_tree=tech_tree
+	self.pid=tech_tree.pid
+	self.isLocked=true
+	if _G.TechInfo[tech_name].prerequest==nil then
+		self.isLocked=false
+	end
 	return self
 end
 
-function Tech:GetName()
-	return self.name
+function Tech:GetCurrentLevel()
+	return self.current_lv
 end
 
-function Tech:GetImgName()
-	return self.img
-end
-
-function Tech:GetLevel()
-	return self.lvl
-end
-
-function Tech:GetDes()
-	return self.des
-end
-
-function Tech:GetUpgradeCost()
-	return self.cost
-end
-
-
-function Tech:CanUpgrade()
-	self.canupgrade=true
-	if not (self.link[1]==nil) then
-		for i=1,#self.link do 
-			if not self.link[i]:CanUpgrade() then
-				self.canupgrade=false
-			end
-		end
-	end
-	return self.canupgrade
-end
-
-function Tech:GetRequiredTech()
-	if self.link[1]==nil then
-		return -1
-	end
-	local rtn={}
-	for i=1,#self.link do
-		rtn[i]=self.link[i]:GetLowTechName()
-	end
-	return rtn
-end
-
-
-function Tech:CanLevelUp()
-	if self.lvl <self.maxlvl then
-		return true
-	else
+function Tech:LevelUp()
+	-------------------是否达到等级上限
+	if self:GetCurrentLevel()>=self:GetMaxLevel() then
+		ErrorMsg(self.pid,TECH_REACH_MAX_LEVEL)
 		return false
 	end
+	------------------精化是否足够
+	if self.tech_tree.TP<self:GetUpgradeEssenceNeeded() then
+		ErrorMsg(self.pid,NOT_ENOUGH_TP)
+		return false
+	end
+	------------------通过检定，升级科技
+	self.current_lv=self.current_lv+1
+	self.tech_tree.TP=self.tech_tree.TP-self:GetUpgradeEssenceNeeded()
+	self:Activate()
+	return true
 end
 
-function Tech:GetTechInfo()
-	local info={
-		name=self.name,
-		img=self.img,
-		req=self:GetRequiredTech(),
-		cost=self.cost,
-		des=self.des
-		} 
-	if self.lvl>0 then
-		info.cost=-1
-	end
-	if self:CanUpgrade() then
-		info.req=-1
-	end
-	return info
+function Tech:GetMaxLevel()
+	return _G.TechInfo[self.name].maxlv
 end
 
+function Tech:GetUpgradeEssenceNeeded()
+	return _G.TechInfo[self.name].upgrade_essence_needed[self.current_lv+1]
+end
+
+function Tech:Activate()
+	local targets=self:GetEffectedTatgets()
+	for i,v in pairs(targets) do
+		TechFun[self.name](self,v)
+	end
+end
+
+function Tech:GetEffectedTatgets()
+	local t={}
+	local target_filter=_G.TechInfo[self.name].target
+	if target_filter=="all" then
+		t=_G.Player[self.pid].TowerOwned
+	end
+	return t
+end
+
+
+TechFun={
+GT01=(function(self,tower)
+	TechFunType[ModifyTowerByAbility](tower,"GT01")
+end),
+
+GT02=(function(self,tower)
+	TechFunType[ModifyTowerByAbility](tower,"GT02")
+end),
+
+GT03=(function(self,tower)
+	TechFunType[ModifyTowerByAbility](tower,"GT03")
+end),
+
+ET01=(function(self,tower)
+	TechFunType[ModifyTowerByAbility](tower,"ET01")
+end),
+
+ET02=(function(self,tower)
+	
+end),
+
+ET03=(function(self,tower)
+	
+end),
+}
+
+TechFunType={
+	ModifyTowerByAbility=(function(tower,tech_name)
+		print("Modify tower"..tech_name)
+		--[[
+		local tech_ability=tower:FindAbilityByName(tech_name.."_ability")
+		if tech_ability==nil then
+			tech_ability=tower:AddAbility(tech_name.."_ability")
+		end
+		tech_ability:SetLevel(self:GetTechCurrentLevel(tech_name))]]--
+	end)
+}

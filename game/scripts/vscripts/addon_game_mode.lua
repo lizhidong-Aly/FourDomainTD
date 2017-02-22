@@ -1,7 +1,7 @@
 require ("UnitSpawner")
 require ("BuildUI")
 require ("Parameter")
-require ("TechUI")
+require ("TechTree")
 require ("Wave")
 require ("timers")
 require ("MergeUI")
@@ -67,6 +67,7 @@ function TDGameMode:InitGameMode()
 	--LinkLuaModifier( "ModifierScript/modifier_adjust_attack_range", LUA_MODIFIER_MOTION_NONE )
     print( "Four Domain TD is loaded." )
 	AMHCInit()
+	GameRules:GetGameModeEntity().player=_G.Player
 	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_GOODGUYS, 4 )
 	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_BADGUYS, 0 )
 	GameRules:SetPreGameTime(PRE_GAME_TIME)
@@ -76,7 +77,7 @@ function TDGameMode:InitGameMode()
 	CustomGameEventManager:RegisterListener( "SetTowerType", SetTowerType )
 	CustomGameEventManager:RegisterListener( "SetDifficulty", SetDifficulty )
 	CustomGameEventManager:RegisterListener( "RequestTowerInfo", SendTowerInfo )
-	CustomGameEventManager:RegisterListener( "RequestTechInfoUpdate", UpdateTechInfo )
+	CustomGameEventManager:RegisterListener( "InitTechUI", InitTechUI )
 	CustomGameEventManager:RegisterListener( "UpgradeTech", UpgradeTech )
 	CustomGameEventManager:RegisterListener( "Notifier_LocalizeEndMsg", Notifier_LocalizeEndMsg )
 	CustomGameEventManager:RegisterListener( "ClosedAllUI", ClosedAllUI )
@@ -90,14 +91,17 @@ function TDGameMode:InitGameMode()
 	Convars:RegisterCommand( "TestComand_B", Dynamic_Wrap(TDGameMode, 'TestComand_B'), "Console Comand For Test", FCVAR_CHEAT )
 end
 
-function TDGameMode:TestComand_A()
+function TDGameMode:TestComand_A( arg_a )
 	print("****************TestComand_A****************")
 	--DeepPrintTable(CDOTAGamerules)
-	
+	CustomNetTables:SetTableValue( "merge_list","test_value_a",_G.Player[0]);
+	--_G.AbilityTestValue=arg_a
+	--DeepPrintTable(CDOTA_Ability_Lua)
+	--DeepPrintTable(CDOTA_Ability_Lua)
 	print("******************Test End******************")
 end
 
-function TDGameMode:TestComand_B()
+function TDGameMode:TestComand_B(...)
 	print("****************TestComand_B****************")
 	--DeepPrintTable(CDOTAPlayer)
 
@@ -150,7 +154,7 @@ function TDGameMode:OnGameRulesStateChange( keys )
 		InitFountain()
     end
     if newState==DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
-    	if _G.MODE==0 then
+    	if _G.TESTMODE then
 			TestMode()
 			return
         end
@@ -191,9 +195,9 @@ end
 function InitOutLands()
 	local pos=Vector(-4000,2000,256)
 	for i,v in ipairs(_G.levelInfo) do 
-		print("Create : "..i)
+		--print("Create : "..i)
 		local u=UnitSpawner:CreateUnit(v,pos,nil)
-		print(u:GetUnitName())
+		--print(u:GetUnitName())
 		pos[1]=pos[1]+128
 	end
 end
@@ -289,7 +293,7 @@ function OnNormalEnemyDied(unit)
 		local essence=CreateItem("item_element_essence",nil,nil)
 		CreateItemOnPositionSync(GetRandomPositionAround(unit),essence)
 	end
-	if RandomFloat(0,1)<=0.003 then
+	if RandomFloat(0,1)<=0.006 then
 		local crystal=CreateItem("item_element_crystal",nil,nil)
 		CreateItemOnPositionSync(GetRandomPositionAround(unit),crystal)
 	end

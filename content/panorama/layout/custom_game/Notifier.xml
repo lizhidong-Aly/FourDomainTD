@@ -8,7 +8,7 @@
 	</scripts>
 	
 	<Panel hittest="false">
-		<Panel id="main"	hittest="false">
+		<Panel id="main" hittest="false">
 			<Panel id="ErrTimer" hittest="false">				
 				<Label id="err_msg"	text="" hittest="false"/>
 			</Panel>

@@ -12,7 +12,7 @@
         	<Button  class="ButtonStyle" id="InfoButton" onactivate="ShowInfoPanel()">
 				<Label class="defaultstyle" id="InfoButtonLabel" text="#help"/>
 			</Button>
-        	<Panel id="Main">
+        	<Panel id="Main" onmouseactivate="">
         		<Button class="ButtonStyle" id="InfoMainButton" onactivate="ShowContextPanel('InfoMain')">
 					<Label class="defaultstyle Focus" text="#info_main"/>
 				</Button>

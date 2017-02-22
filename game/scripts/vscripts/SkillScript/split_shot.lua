@@ -23,7 +23,7 @@ function SplitShot(keys)
 			local target_pos=v:GetOrigin()
 			local distance=math.sqrt(math.pow(caster_pos[1]-target_pos[1],2)+math.pow(caster_pos[2]-target_pos[2],2))
 			if distance<caster:GetAttackRange() then
-				caster:PerformAttack(target[i],false,false,true,false,true)
+				caster:PerformAttack(target[i], false,false, true,true, true, false, false)
 				amount=amount+1
 				if amount >=keys.amount then
 					return

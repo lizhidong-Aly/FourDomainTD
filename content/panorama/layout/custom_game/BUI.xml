@@ -10,7 +10,7 @@
 	</scripts>
 	
 		<Panel class="Background" hittest="false">
-			<Panel id="Bmenu"	hittest="false">
+			<Panel id="Bmenu" onmouseactivate="">
 				<Panel	class="content Hidden"	id="content">
 				
 					<Panel id="MainButtonPanel"	hittest="false">

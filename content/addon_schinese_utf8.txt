@@ -8,9 +8,9 @@
 		"addon_game_name"                                                       				"四域TD"
 
 		"diffchoise"                                                            				"难度选择: "
-		"normal"                                                                				"凡人的盛宴"
-		"hard"                                                                  				"精锐的试炼"
-		"vhard"                                                                 				"地狱的狂欢"
+		"normal"                                                                				"普通"
+		"hard"                                                                  				"困难"
+		"vhard"                                                                 				"地狱"
 		"currdiff"                                                              				"当前难度: "
 		"normaldesc"                                                            				"[极小概率出现敌方精英单位]<br>[回收元素返还全额召唤花费]"
 		"harddesc"                                                              				"[小概率出现敌方精英单位]<br>[回收元素返还召唤花费75%]"
@@ -101,6 +101,9 @@
 		"TowerDesE"                                                             				"<br><font color='#ADFF2F'>射程: </font>"
 		"TowerDesF"                                                             				"<br><font color='#ADFF2F'>能力: </font>"
 		"TowerDesG"                                                             				"<br><font color='#ADFF2F'>效果: </font>"
+		"Tower_gold"																			"金币"
+		"Tower_essence"																			"精华"
+		"Tower_crystal"																			"水晶"
 
 		"MergeList"                                                             				"<br>可以与下列单位融合:"
 		"Merge"                                                                 				"融合"
@@ -117,15 +120,19 @@
 
 		"status_dmage"                                                          				"攻击力:"
 		"status_speed"                                                          				"攻击速度:"
+		"status_speed_short"                                                          			"攻击速度:"
 		"status_speed_suffix"                                                   				"秒攻击一次"
 		"status_range"                                                          				"射程:"
+		"status_range_short"                                                          			"射程:"
 		"status_armor"                                                          				"护甲:"
 		"status_resistance_phy"                                                 				"物理伤害减免:"
 		"status_magic_armor"                                                    				"魔法抗性:"
+		"status_magic_armor_short"                                                    			"魔法抗性:"
 		"status_movespe"                                                        				"移动速度:"
 		"status_total_cost"                                                     				"总计花费:"
 		"status_fund_return"                                                    				"回收返还:"
 		"status_up_cost"                                                        				"升级需要:"
+		"status_up_cost_short"                                                        			"升级需要:"
 		"status_attribute"                                                      				"属性:"
 		"status_detail"                                                         				"详细属性:"
 		"status_crystal_used"                                                   				"水晶占用:"
@@ -320,6 +327,9 @@
 		"DOTA_Tooltip_ability_Upgrade"                                          				"升级"
 		"DOTA_Tooltip_ability_Upgrade_Description"                              				"花费一定金钱以升级"
 		"DOTA_Tooltip_ability_Upgrade_Lore"                                     				""
+
+		"DOTA_Tooltip_modifier_hero_freezed"                                              		"离线冻结"
+		"DOTA_Tooltip_modifier_hero_freezed_Description"                                  		"离线的玩家将被冻结"
 
 		"DOTA_Tooltip_ability_BuildTower"                                       				"召唤中..."
 		"DOTA_Tooltip_ability_BuildTower_Description"                           				"使用该技能或者按S键以取消召唤"
@@ -550,6 +560,7 @@
 		"DOTA_Tooltip_ability_dragon_breath"                                    				"炎龙之息"
 		"DOTA_Tooltip_ability_dragon_breath_Description"                        				"大幅增加攻击速度"
 		"DOTA_Tooltip_ability_dragon_breath_Lore"                               				""
+		"DOTA_Tooltip_ability_dragon_breath_speinc"                                      	 	"攻击速度增加:"
 
 		"DOTA_Tooltip_ability_earth_shot"                                       				"大地震击"
 		"DOTA_Tooltip_ability_earth_shot_Description"                           				"普通攻击对目标及目标周围的敌人造成伤害和短暂眩晕"
@@ -710,9 +721,6 @@
 		"DOTA_Tooltip_ability_battle_cry_limit"                                 				"叠加上限:"
 		"DOTA_Tooltip_modifier_battle_cry_buff"                                 				"战吼"
 		"DOTA_Tooltip_modifier_battle_cry_buff_Description"                     				"提升%dMODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE%%%的攻击力"
-
-
-
 
 		"DOTA_Tooltip_ability_griavty_control"                                  				"重力掌控"
 		"DOTA_Tooltip_ability_griavty_control_Description"                      				"谜团自发强化周边的重力，让其成为一股强大的阻力迟缓敌方单位.对谜团周围的敌方单位造成减速.\n"

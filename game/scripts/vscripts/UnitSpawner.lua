@@ -15,10 +15,8 @@ function UnitSpawner:new(pid)
 	return self
 end
 
-
-
 function UnitSpawner:Spawn()
-	if _G.levelNo==40 then
+	if _G.levelNo>40 then
 		return 0
 	end
 	self.timer_spawner=Timers:CreateTimer(DoUniqueString("Timer_Spawner"),
@@ -57,7 +55,7 @@ function UnitSpawner:CreateUnit(unitInfo,pos,targetPos)
 	unit:SetBaseMagicalResistanceValue(unitInfo.magicRes)
 	unit:SetBaseMoveSpeed(unitInfo.moveSpeed)
 	unit:SetBaseHealthRegen(unitInfo.hpRegen)
-	local goldBounty=(_G.levelNo*50)/(_G.EnemyType[unitInfo.type].amount)
+	local goldBounty=(_G.levelNo*40)/(_G.EnemyType[unitInfo.type].amount)
 	unit:SetMinimumGoldBounty(goldBounty*0.7)
 	unit:SetMaximumGoldBounty(goldBounty*1.3)
 	if unitInfo.type~="BOSS" and RandomFloat(0,1)<_G.ENEMY_ELITE_CHANCE then

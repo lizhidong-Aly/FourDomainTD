@@ -1,5 +1,28 @@
 "DOTAAbilities"
 {
+
+	"lua_test_ability"
+	{
+		"BaseClass"						"ability_lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"centaur_stampede"
+		"ScriptFile"					"lua_ability/lua_test_ability"
+		"AbilityDamage"					"2131"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"test_value_a"			"1000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"test_value_b"			"2.0"
+			}
+		}
+	}
+
 	"unit_no_player_can_control"
 	{
 		"AbilityBehavior"                                  		        "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
@@ -56,7 +79,7 @@
 				"Passive"                                  		        "1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE"				"450"
+					"MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE"				"300"
 				}
 			}
 		}
@@ -2498,7 +2521,6 @@
 		"AbilityBehavior"                                  		        "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"                                        		        "ability_datadriven"
 		"AbilityTextureName"                               		        "venomancer_poison_sting"
-		"AbilityUnitTargetFlags"                           		        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"MaxLevel"                                         		        "3"
 		"Modifiers"
 		{
@@ -2506,7 +2528,7 @@
 			{
 				"IsHidden"                                 		        "1"
 				"Passive"                                  		        "1"
-				"OnAttack"
+				"OnAttackLanded"
 				{
 					"ApplyModifier"
 					{
@@ -2532,10 +2554,10 @@
 			{
 				"IsDebuff"                                 		        "1"
 				"IsHidden"                                 		        "1"
-				"Duration"                                 		        "%duration"
+				"Duration"                                 				"%duration"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS		"       "%amordown"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"       "%amordown"
 				}
 	
 			}
@@ -2548,11 +2570,11 @@
 			}
 			"02"{
 				"var_type"                                 		        "FIELD_INTEGER"
-				"amordown"                                 		        "-4 -6 -16"
+				"amordown"                                 		        "-5 -10 -15"
 			}
 			"03"{
 				"var_type"                                 		        "FIELD_INTEGER"
-				"limit"                                    		        "4 8 12"
+				"limit"                                    		        "6 8 10"
 			}
 		}
 	
@@ -2973,12 +2995,12 @@
 			{
 				"IsHidden"                                 		        "1"
 				"Passive"                                  		        "1"
-				"OndealDamage"
+				"OnAttackLanded"
 				{
 					"ApplyModifier"
 					{
 						"ModifierName"                     		        "modifier_frost_attack_debuff"
-						"Target"                           		        "UNIT"
+						"Target"                           		        "TARGET"
 						"Duration"                         		        "%duration"
 					}
 				}
@@ -3430,8 +3452,6 @@
 				}
 			}
 		}
-	
-	
 		"Modifiers"
 		{
 			"modifier_ice_mark_buff"
@@ -3470,9 +3490,8 @@
 			{
 				"IsHidden"                                 		        "1"
 				"Passive"                                  		        "1"
-				"OnDealDamage"
+				"OnAttackLanded"
 				{
-	
 					"RunScript"
 					{
 						"ScriptFile"                       		        "scripts/vscripts/SkillScript/ice_mark.lua"
@@ -5715,13 +5734,13 @@
 			{
 				"IsHidden"                                 		        "1"
 				"Passive"                                  		        "1"
-				"OnDealDamage"
+				"OnAttackLanded"
 				{
 					"RunScript"
 					{
 						"ScriptFile"                       		        "scripts/vscripts/SkillScript/water_mark.lua"
 						"Function"                         		        "WaterMark"
-						"Target"                           		        "UNIT"
+						"Target"                           		        "TARGET"
 						"duration"                         		        "%duration"
 					}
 				}
