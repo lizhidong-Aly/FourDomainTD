@@ -712,18 +712,6 @@
 
 
 
-
-
-		"DOTA_Tooltip_modifier_earth_buff"                                  					"Earth"
-		"DOTA_Tooltip_modifier_earth_buff_Description"                      					"All damage taken reduce by%dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%."
-		"DOTA_Tooltip_modifier_water_buff"                                  					"Water"
-		"DOTA_Tooltip_modifier_water_buff_Description"                      					"Extra %dMODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE%%% of max hp regen per sec."
-		"DOTA_Tooltip_modifier_fire_buff"                                   					"Fire"
-		"DOTA_Tooltip_modifier_fire_buff_Description"                       					"Extra %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% of move speed."
-		"DOTA_Tooltip_modifier_air_buff"                                    					"Air"
-		"DOTA_Tooltip_modifier_air_buff_Description"                        					"%dMODIFIER_PROPERTY_EVASION_CONSTANT%%% chance of evasions."
-
-
 		"techtree"                                                          					"Tech"
 
 		"studycost"                                                         					"Cost: "

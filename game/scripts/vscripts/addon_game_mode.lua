@@ -1,7 +1,7 @@
 require ("UnitSpawner")
 require ("BuildUI")
 require ("Parameter")
-require ("TechUI")
+require ("TechTree")
 require ("Wave")
 require ("timers")
 require ("MergeUI")
@@ -9,6 +9,7 @@ require ("TdPlayer")
 require ("global")
 require("amhc_library/amhc")
 require ("statcollection/init")
+require ("market_system")
 
 if TDGameMode == nil then
     TDGameMode = class({})
@@ -67,16 +68,20 @@ function TDGameMode:InitGameMode()
 	--LinkLuaModifier( "ModifierScript/modifier_adjust_attack_range", LUA_MODIFIER_MOTION_NONE )
     print( "Four Domain TD is loaded." )
 	AMHCInit()
+	InitMarketSystem()
+	GameRules:GetGameModeEntity().player=_G.Player
 	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_GOODGUYS, 4 )
 	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_BADGUYS, 0 )
 	GameRules:SetPreGameTime(PRE_GAME_TIME)
 	GameRules:SetHeroSelectionTime(15)
 	GameRules:SetStrategyTime(10)
 	GameRules:SetShowcaseTime(0)
+	GameRules:GetGameModeEntity():SetModifierGainedFilter( Dynamic_Wrap( TDGameMode, "FilterModifiers" ), self )
+	GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(TDGameMode, "OrderFilter"), self)
 	CustomGameEventManager:RegisterListener( "SetTowerType", SetTowerType )
 	CustomGameEventManager:RegisterListener( "SetDifficulty", SetDifficulty )
 	CustomGameEventManager:RegisterListener( "RequestTowerInfo", SendTowerInfo )
-	CustomGameEventManager:RegisterListener( "RequestTechInfoUpdate", UpdateTechInfo )
+	CustomGameEventManager:RegisterListener( "InitTechUI", InitTechUI )
 	CustomGameEventManager:RegisterListener( "UpgradeTech", UpgradeTech )
 	CustomGameEventManager:RegisterListener( "Notifier_LocalizeEndMsg", Notifier_LocalizeEndMsg )
 	CustomGameEventManager:RegisterListener( "ClosedAllUI", ClosedAllUI )
@@ -90,19 +95,54 @@ function TDGameMode:InitGameMode()
 	Convars:RegisterCommand( "TestComand_B", Dynamic_Wrap(TDGameMode, 'TestComand_B'), "Console Comand For Test", FCVAR_CHEAT )
 end
 
-function TDGameMode:TestComand_A()
+function TDGameMode:TestComand_A( arg_a )
 	print("****************TestComand_A****************")
 	--DeepPrintTable(CDOTAGamerules)
-	
+	CustomNetTables:SetTableValue( "merge_list","test_value_a",_G.Player[0]);
+	--_G.AbilityTestValue=arg_a
+	--DeepPrintTable(CDOTA_Ability_Lua)
+	--DeepPrintTable(CDOTA_Ability_Lua)
 	print("******************Test End******************")
 end
 
-function TDGameMode:TestComand_B()
+function TDGameMode:TestComand_B(...)
 	print("****************TestComand_B****************")
 	--DeepPrintTable(CDOTAPlayer)
 
 	--kv=LoadKeyValues("scripts/npc/custom_tower.txt")
 	print("******************Test End******************")
+end
+
+function TDGameMode:FilterModifiers( filterTable )
+	local parent_index = filterTable.entindex_parent_const
+    local caster_index = filterTable.entindex_caster_const
+	local ability_index = filterTable.entindex_ability_const
+	local modifier_name = filterTable.name_const
+	local duration = filterTable.duration
+    if not parent_index or not caster_index or not ability_index then
+        return true
+    end
+    local parent = EntIndexToHScript( parent_index )
+    local caster = EntIndexToHScript( caster_index )
+	local ability = EntIndexToHScript( ability_index )
+
+	if modifier_name=="modifier_flame_field_aura_passive_buff" then
+		if parent:IsTower() and parent:ToTower():HasAttribute("F")  then
+			parent:FindModifierByName("modifier_flame_field_aura_passive_buff"):SetStackCount(3)
+		end
+	end
+
+	if _G.Fountain~=nil and parent_index==_G.Fountain:entindex() then
+		print(modifier_name)
+	end
+	return true 
+end
+
+function TDGameMode:OrderFilter(filterTable)
+    if filterTable.order_type == DOTA_UNIT_ORDER_GLYPH then
+        return false
+    end
+    return true
 end
 
 function Notifier_LocalizeEndMsg(index,keys)
@@ -150,7 +190,7 @@ function TDGameMode:OnGameRulesStateChange( keys )
 		InitFountain()
     end
     if newState==DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
-    	if _G.MODE==0 then
+    	if _G.TESTMODE then
 			TestMode()
 			return
         end
@@ -191,9 +231,9 @@ end
 function InitOutLands()
 	local pos=Vector(-4000,2000,256)
 	for i,v in ipairs(_G.levelInfo) do 
-		print("Create : "..i)
+		--print("Create : "..i)
 		local u=UnitSpawner:CreateUnit(v,pos,nil)
-		print(u:GetUnitName())
+		--print(u:GetUnitName())
 		pos[1]=pos[1]+128
 	end
 end
@@ -259,8 +299,11 @@ end
 function TDGameMode:OnNPCSpawned(keys)
 	local u=EntIndexToHScript(keys.entindex)
 	if(u~=nil and u:IsHero()) then
+		print(u:GetName())
 		Timers:CreateTimer(0.05, function()
-    		TdPlayer:InitPlayer(u:GetPlayerID(),u)
+			if _G.Player[u:GetPlayerOwnerID()]==nil then
+    			TdPlayer:InitPlayer(u:GetPlayerID(),u)
+    		end
     	end
   		)
 	end
@@ -281,22 +324,26 @@ function TDGameMode:OnEntityKilled( keys )
 end
 
 function OnNormalEnemyDied(unit)
-	if RandomFloat(0,1)<=0.003 then
+	if RandomFloat(0,1)<=0.002 then
 		local energy=CreateItem("item_energy_orb",nil,nil)
 		CreateItemOnPositionSync(GetRandomPositionAround(unit),energy)
+		SendEventToAllPlayer("EmidSound",{sname="Item.DropGemShop"})
 	end
-	if RandomFloat(0,1)<=0.003 then
+	if RandomFloat(0,1)<=0.002 then
 		local essence=CreateItem("item_element_essence",nil,nil)
 		CreateItemOnPositionSync(GetRandomPositionAround(unit),essence)
+		SendEventToAllPlayer("EmidSound",{sname="Item.DropGemShop"})
 	end
-	if RandomFloat(0,1)<=0.003 then
+	if RandomFloat(0,1)<=0.002 then
 		local crystal=CreateItem("item_element_crystal",nil,nil)
 		CreateItemOnPositionSync(GetRandomPositionAround(unit),crystal)
+		SendEventToAllPlayer("EmidSound",{sname="Item.DropGemShop"})
 	end
-	if RandomFloat(0,1)<=0.003 then
+	if RandomFloat(0,1)<=0.002 then
 		local gold=CreateItem("item_bag_of_gold",nil,nil)
 		gold:SetCurrentCharges(500)
 		local coin=CreateItemOnPositionSync(GetRandomPositionAround(unit),gold)
 		coin:SetModelScale(1)
+		SendEventToAllPlayer("EmidSound",{sname="Item.DropGemShop"})
 	end
 end

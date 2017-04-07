@@ -1,0 +1,63 @@
+.TechPanel{
+	width: 80px;
+	height: 82px;
+	margin-top: 3px;
+	flow-children:down;
+}
+
+#TechButton
+{
+	color: #ffffff;
+	width: 64px;
+	height: 64px;
+	horizontal-align:center;
+	border: 1px solid #606060;
+	border-radius:5px;
+}
+#LevelIndicator{
+
+	margin-top:4px;
+	horizontal-align:center;
+	flow-children:right;
+	height: 12px;
+}
+
+.LevelPoint{
+	height: 8px;
+	width: 4px;
+	margin-left:2px;
+	background-color:#505050;
+	z-index: 4;
+	visibility: collapse;
+}
+
+.LevelPoint.show{
+	visibility: visible;
+}
+
+.LevelPoint.active{
+	visibility: visible;
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #E7D291 ), to( #887845 ) );
+}
+
+#TechLocker{
+	background-color: #404040dd;
+	width: 100%;
+	height: 100%;
+	border: 1px solid #707070;
+	border-radius:5px;
+	visibility:visible;
+}
+
+#TechLocker:hover{
+border: 2px solid #ff0000dd;
+border-radius:5px;
+}
+
+#TechLocker.unlocked{
+background-color: none;
+}
+#TechLocker.unlocked:hover{
+border: 2px solid #7cfc00dd;
+border-radius:5px;
+}

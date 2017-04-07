@@ -10,178 +10,31 @@
 	</scripts>
 	
 		<Panel hittest="false">
-			<Panel class="Hidden" id="TechMenu" >
-				<Panel id="Main">
-					<Label id="title"	text="#techtree"/>
-					<Button	class="mainbutton" id="earth" onmouseover="ShowSubMenu('EarthTech')">
-						<DOTAAbilityImage abilityname="earth_spirit_boulder_smash" />
-					</Button>
-								
-					<Button class="mainbutton" id="water" onmouseover="ShowSubMenu('WaterTech')">
-						<DOTAAbilityImage abilityname="invoker_quas" />
-					</Button>
-		
-					<Button class="mainbutton" id="fire" onmouseover="ShowSubMenu('FireTech')">
-						<DOTAAbilityImage abilityname="invoker_exort" />
-					</Button>
-
-					<Button class="mainbutton" id="air" onmouseover="ShowSubMenu('AirTech')">
-						<DOTAAbilityImage abilityname="skywrath_mage_concussive_shot" />
-					</Button>  
+			<Panel class="Hidden" id="TechMenu" onmouseactivate="">
+				<Panel id="TechAttributeIndex">
+					<Label id="title" text="#techtree"/>
+					<DOTAAbilityImage class="TechImage" id="GeneralTech" abilityname="lone_druid_rabid"/>
+					<DOTAAbilityImage class="TechImage" id="EarthTech" abilityname="earth_spirit_boulder_smash"/>
+					<DOTAAbilityImage class="TechImage" id="WaterTech" abilityname="invoker_quas"/>
+					<DOTAAbilityImage class="TechImage" id="FireTech" abilityname="invoker_exort"/>
+					<DOTAAbilityImage class="TechImage" id="AirTech" abilityname="skywrath_mage_concussive_shot"/>
 				</Panel>
-				
-				<Panel class="SubTechMenu" id="EarthTech">
-					<Button	class="techbutton" id="ET01" onactivate="UpgradeTech('ET01')" onmouseover="ShowTechDes('ET01')">
-						<DOTAAbilityImage abilityname="earth_spirit_boulder_smash" />
-						<Label class="buttondisable"/>
-					</Button>
-					<Button	class="techbutton" id="ET11" onactivate="UpgradeTech('ET11')" onmouseover="ShowTechDes('ET11')">
-						<DOTAAbilityImage abilityname="earth_spirit_boulder_smash" />
-						<Label class="buttondisable"/>
-					</Button>
-					
-					<Button	class="techbutton" id="ET21" onactivate="UpgradeTech('ET21')" onmouseover="ShowTechDes('ET21')">
-						<DOTAAbilityImage abilityname="earth_spirit_boulder_smash" />
-						<Label class="buttondisable"/>
-					</Button>
-					<Button	class="techbutton" id="ET31" onactivate="UpgradeTech('ET31')" onmouseover="ShowTechDes('ET31')">
-						<DOTAAbilityImage abilityname="earth_spirit_boulder_smash" />
-						<Label class="buttondisable" hittest="ture"/>
-					</Button>
-					
-					<Label class="Line" id="ET11LINE"/>
-					<Label class="Line" id="ET21LINE"/>
-					<Label class="Line" id="ET31LINE"/>
-					<Button	class="techbutton" id="ET12" onactivate="UpgradeTech('ET12')" onmouseover="ShowTechDes('ET12')">
-						<DOTAAbilityImage abilityname="sandking_sand_storm" />
-						<Label class="buttondisable"/>
-					</Button>
-					<Label class="Line" id="ET12LINE"/>
-					<Button	class="techbutton" id="ET22" onactivate="UpgradeTech('ET22')" onmouseover="ShowTechDes('ET22')">
-						<DOTAAbilityImage abilityname="enigma_black_hole" />
-						<Label class="buttondisable"/>
-					</Button>
-					<Label class="Line" id="ET22LINE"/>
-					<Button	class="techbutton" id="ET02" onactivate="UpgradeTech('ET02')" onmouseover="ShowTechDes('ET02')">
-						<DOTAAbilityImage abilityname="tiny_avalanche" />
-						<Label class="buttondisable"/>
-					</Button>
-					<Label class="Line" id="ET02LINE"/>
-					
+				<Panel id="TechContainer">
+					<Panel class="SubTechContainer" id="GT"/>
+					<Panel class="SubTechContainer" id="ET"/>
+					<Panel class="SubTechContainer" id="WT"/>
+					<Panel class="SubTechContainer" id="FT"/>
+					<Panel class="SubTechContainer" id="AT"/>
 				</Panel>
-
-				<Panel class="SubTechMenu Hidden" id="WaterTech" >
-					<Button	class="techbutton" id="WT01" onactivate="UpgradeTech('WT01')" onmouseover="ShowTechDes('WT01')">>
-						<DOTAAbilityImage abilityname="invoker_quas" />
-						<Label class="buttondisable"/>
-					</Button>
-					<Button	class="techbutton" id="WT11" onactivate="UpgradeTech('WT11')" onmouseover="ShowTechDes('WT11')">
-						<DOTAAbilityImage abilityname="invoker_quas" />
-						<Label class="buttondisable"/>
-					</Button>
-					<Button	class="techbutton" id="WT21" onactivate="UpgradeTech('WT21')" onmouseover="ShowTechDes('WT21')">
-						<DOTAAbilityImage abilityname="invoker_quas" />
-						<Label class="buttondisable"/>
-					</Button>
-					<Button	class="techbutton" id="WT31" onactivate="UpgradeTech('WT31')" onmouseover="ShowTechDes('WT31')">
-						<DOTAAbilityImage abilityname="invoker_quas" />
-						<Label class="buttondisable"/>
-					</Button>
-					<Label class="Line" id="WT11LINE"/>
-					<Label class="Line" id="WT21LINE"/>
-					<Label class="Line" id="WT31LINE"/>
-					<Button	class="techbutton" id="WT02" onactivate="UpgradeTech('WT02')" onmouseover="ShowTechDes('WT02')">
-						<DOTAAbilityImage abilityname="tidehunter_gush" />
-						<Label class="buttondisable"/>
-					</Button>
-					<Label class="Line" id="WT02LINE"/>
-					<Button	class="techbutton" id="WT12" onactivate="UpgradeTech('WT12')" onmouseover="ShowTechDes('WT12')">
-						<DOTAAbilityImage abilityname="tusk_frozen_sigil" />
-						<Label class="buttondisable"/>
-					</Button>
-					<Label class="Line" id="WT12LINE"/>
-					<Button	class="techbutton" id="WT03" onactivate="UpgradeTech('WT03')" onmouseover="ShowTechDes('WT03')">
-						<DOTAAbilityImage abilityname="lich_chain_frost" />
-						<Label class="buttondisable"/>
-					</Button>
-					<Label class="Line" id="WT03LINE"/>
-				</Panel>
-				
-				<Panel class="SubTechMenu Hidden" id="FireTech" >
-					<Button	class="techbutton" id="FT01" onactivate="UpgradeTech('FT01')" onmouseover="ShowTechDes('FT01')">
-						<DOTAAbilityImage abilityname="invoker_exort" />
-						<Label class="buttondisable"/>
-					</Button>
-					<Button	class="techbutton" id="FT11" onactivate="UpgradeTech('FT11')" onmouseover="ShowTechDes('FT11')">
-						<DOTAAbilityImage abilityname="invoker_exort" />
-						<Label class="buttondisable"/>
-					</Button>
-					<Button	class="techbutton" id="FT21" onactivate="UpgradeTech('FT21')" onmouseover="ShowTechDes('FT21')">
-						<DOTAAbilityImage abilityname="invoker_exort" />
-						<Label class="buttondisable"/>
-					</Button>
-					<Button	class="techbutton" id="FT31" onactivate="UpgradeTech('FT31')" onmouseover="ShowTechDes('FT31')">
-						<DOTAAbilityImage abilityname="invoker_exort" />
-						<Label class="buttondisable"/>
-					</Button>
-					<Label class="Line" id="FT11LINE"/>
-					<Label class="Line" id="FT21LINE"/>
-					<Label class="Line" id="FT31LINE"/>
-					<Button	class="techbutton" id="FT02" onactivate="UpgradeTech('FT02')" onmouseover="ShowTechDes('FT02')">
-						<DOTAAbilityImage abilityname="shadow_demon_disruption" />
-						<Label class="buttondisable"/>
-					</Button>
-					<Label class="Line" id="FT02LINE"/>
-					<Button	class="techbutton" id="FT12" onactivate="UpgradeTech('FT12')" onmouseover="ShowTechDes('FT12')">
-						<DOTAAbilityImage abilityname="huskar_berserkers_blood" />
-						<Label class="buttondisable"/>
-					</Button>
-					<Label class="Line" id="FT12LINE"/>
-					<Button	class="techbutton" id="FT03" onactivate="UpgradeTech('FT03')" onmouseover="ShowTechDes('FT03')">
-						<DOTAAbilityImage abilityname="phoenix_supernova" />
-						<Label class="buttondisable"/>
-					</Button>
-					<Label class="Line" id="FT03LINE"/>
-				</Panel>
-				
-				<Panel class="SubTechMenu Hidden" id="AirTech" >
-					<Button	class="techbutton" id="AT01" onactivate="UpgradeTech('AT01')" onmouseover="ShowTechDes('AT01')">
-						<DOTAAbilityImage abilityname="skywrath_mage_concussive_shot" />
-						<Label class="buttondisable"/>
-					</Button>
-					<Button	class="techbutton" id="AT11" onactivate="UpgradeTech('AT11')" onmouseover="ShowTechDes('AT11')">
-						<DOTAAbilityImage abilityname="skywrath_mage_concussive_shot" />
-						<Label class="buttondisable"/>
-					</Button>
-					<Button	class="techbutton" id="AT21" onactivate="UpgradeTech('AT21')" onmouseover="ShowTechDes('AT21')">
-						<DOTAAbilityImage abilityname="skywrath_mage_concussive_shot" />
-						<Label class="buttondisable"/>
-					</Button>
-					<Button	class="techbutton" id="AT31" onactivate="UpgradeTech('AT31')" onmouseover="ShowTechDes('AT31')">
-						<DOTAAbilityImage abilityname="skywrath_mage_concussive_shot" />
-						<Label class="buttondisable"/>
-					</Button>
-					<Label class="Line" id="AT11LINE"/>
-					<Label class="Line" id="AT21LINE"/>
-					<Label class="Line" id="AT31LINE"/>
-					<Button	class="techbutton" id="AT02" onactivate="UpgradeTech('AT02')" onmouseover="ShowTechDes('AT02')">
-						<DOTAAbilityImage abilityname="razor_unstable_current" />
-						<Label class="buttondisable"/>
-					</Button>
-					<Label class="Line" id="AT02LINE"/>
-					<Button	class="techbutton" id="AT03" onactivate="UpgradeTech('AT03')" onmouseover="ShowTechDes('AT03')">
-						<DOTAAbilityImage abilityname="disruptor_thunder_strike" />
-						<Label class="buttondisable"/>
-					</Button>
-					<Label class="Line" id="AT03LINE"/>
-				</Panel>
-
-				<Panel class="SubTechMenu" id="TechDesPanel" >
-					<Label id="TechName" text=""/>
+				<Panel class="SubTechMenu" id="TechDesPanel">
+					<Panel id="TechDetailPanel">
+						<Label id="TechName" text=""/>
+						<Label id="TechReq" text=""/>
+						<Label id="TechReqDetail" text=""/>
+						<Label id="TechLevel" text=""/>
+						<Label id="TechCost" text=""/>
+					</Panel>
 					<DOTAAbilityImage id="TechImg" />
-					<Label id="TechReq" text=""/>
-					<Label id="TechReqDetail" text=""/>
-					<Label id="TechCost" text=""/>
 					<Label id="TechDes" text=""/>
 				</Panel>
 			</Panel>

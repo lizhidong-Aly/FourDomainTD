@@ -12,7 +12,7 @@
         	<Button  class="ButtonStyle" id="InfoButton" onactivate="ShowInfoPanel()">
 				<Label class="defaultstyle" id="InfoButtonLabel" text="#help"/>
 			</Button>
-        	<Panel id="Main">
+        	<Panel id="Main" onmouseactivate="">
         		<Button class="ButtonStyle" id="InfoMainButton" onactivate="ShowContextPanel('InfoMain')">
 					<Label class="defaultstyle Focus" text="#info_main"/>
 				</Button>
@@ -49,7 +49,7 @@
 						<DOTAHeroImage heroname="npc_dota_hero_warlock" heroimagestyle="landscape" />
 						<Label class="disable enable" />
 					</Button>
-					<Button	class="subbutton" id="AT12L11" onmouseover="ShowToolTip('AT12L11')"	onmouseout="HideTowerDes()">
+					<Button	class="subbutton" id="AT21L11" onmouseover="ShowToolTip('AT21L11')"	onmouseout="HideTowerDes()">
 						<DOTAHeroImage heroname="npc_dota_hero_storm_spirit" heroimagestyle="landscape" />
 						<Label class="disable enable" />
 					</Button>

@@ -3,14 +3,131 @@
 	"Language"                                                                  				"SChinese"
 	"Tokens"
 	{
+//测试
+		"DOTA_Tooltip_ability_lua_test_ability"                                           "测试用技能"
+		"DOTA_Tooltip_ability_lua_test_ability_Description"                               "测试用技能说明"
+		"DOTA_Tooltip_ability_lua_test_ability_test_value_a"                              "测试值A:"
+		"DOTA_Tooltip_ability_lua_test_ability_test_value_b"                              "测试值B:"
+
+//不显示说明
+
+		// ******************** HEROES ********************
+
+		// ******************** UNITS ********************
+		"block_hole_dummy"                                                                "Block Hole Dummy"
+		"TestOnly"                                                                        "TestOnly"
+		"tower_base"                                                                      "Tower Base"
+
+		// ******************** ABILITY MODIFIERS ********************
+		"DOTA_Tooltip_modifier_unit_no_player_can_control"                                "Unit No Player Can Control"
+		"DOTA_Tooltip_modifier_unit_no_player_can_control_Description"                    ""
+
+
+		// ******************** ITEM MODIFIERS ********************
+
+		// ******************** ABILITIES ********************
+		"DOTA_Tooltip_ability_unit_no_player_can_control"                                 "Unit No Player Can Control"
+		"DOTA_Tooltip_ability_unit_no_player_can_control_Description"                     ""
+
+		"DOTA_Tooltip_ability_hero_freezed"                                               "Hero Freezed"
+		"DOTA_Tooltip_ability_hero_freezed_Description"                                   ""
+
+		"DOTA_Tooltip_ability_enemy_boss"                                                 "Enemy Boss"
+		"DOTA_Tooltip_ability_enemy_boss_Description"                                     ""
+
+		"DOTA_Tooltip_ability_attribute_bouns_A"                                          "Attribute Bouns A"
+		"DOTA_Tooltip_ability_attribute_bouns_A_Description"                              ""
+		"DOTA_Tooltip_ability_attribute_bouns_A_dmginc"                                   "DMGINC:"
+		"DOTA_Tooltip_ability_attribute_bouns_A_speinc"                                   "SPEINC:"
+		"DOTA_Tooltip_ability_attribute_bouns_A_rangeinc"                                 "RANGEINC:"
+
+		"DOTA_Tooltip_ability_attribute_bouns_E"                                          "Attribute Bouns E"
+		"DOTA_Tooltip_ability_attribute_bouns_E_Description"                              ""
+		"DOTA_Tooltip_ability_attribute_bouns_E_dmginc"                                   "DMGINC:"
+		"DOTA_Tooltip_ability_attribute_bouns_E_speinc"                                   "SPEINC:"
+		"DOTA_Tooltip_ability_attribute_bouns_E_rangeinc"                                 "RANGEINC:"
+
+		"DOTA_Tooltip_ability_attribute_bouns_F"                                          "Attribute Bouns F"
+		"DOTA_Tooltip_ability_attribute_bouns_F_Description"                              ""
+		"DOTA_Tooltip_ability_attribute_bouns_F_dmginc"                                   "DMGINC:"
+		"DOTA_Tooltip_ability_attribute_bouns_F_speinc"                                   "SPEINC:"
+		"DOTA_Tooltip_ability_attribute_bouns_F_rangeinc"                                 "RANGEINC:"
+
+		"DOTA_Tooltip_ability_attribute_bouns_W"                                          "Attribute Bouns W"
+		"DOTA_Tooltip_ability_attribute_bouns_W_Description"                              ""
+		"DOTA_Tooltip_ability_attribute_bouns_W_dmginc"                                   "DMGINC:"
+		"DOTA_Tooltip_ability_attribute_bouns_W_speinc"                                   "SPEINC:"
+		"DOTA_Tooltip_ability_attribute_bouns_W_rangeinc"                                 "RANGEINC:"
+
+		"DOTA_Tooltip_ability_base_passive"                                               "Base Passive"
+		"DOTA_Tooltip_ability_base_passive_Description"                                   ""
+
+		"DOTA_Tooltip_ability_burning_soul_dmg"                                           "DMG:"
+
+		"DOTA_Tooltip_ability_burning_soul_e_dmg"                                         "DMG:"
+
+		"DOTA_Tooltip_ability_dummy_buff"                                                 "Dummy Buff"
+		"DOTA_Tooltip_ability_dummy_buff_Description"                                     ""
+
+		"DOTA_Tooltip_ability_hero_special_air_lv1_blessing_range"                        "RANGE:"
+
+		"DOTA_Tooltip_ability_hero_special_tornado_field_range"                           "RANGE:"
+
+		"DOTA_Tooltip_ability_ice_mark_passive"                                           "Ice Mark Passive"
+		"DOTA_Tooltip_ability_ice_mark_passive_Description"                               ""
+
+		"DOTA_Tooltip_ability_lightning_core_aura_chance"                                 "CHANCE:"
+
+		"DOTA_Tooltip_ability_lightning_core_overload_amount"                             "AMOUNT:"
+
+		"DOTA_Tooltip_ability_no_health_bar"                                              "No Health Bar"
+		"DOTA_Tooltip_ability_no_health_bar_Description"                                  ""
+
+		"DOTA_Tooltip_ability_rank_elite_buff"                                            "Rank Elite Buff"
+		"DOTA_Tooltip_ability_rank_elite_buff_Description"                                ""
+		"DOTA_Tooltip_ability_rank_elite_buff_dmginc"                                     "DMGINC:"
+		"DOTA_Tooltip_ability_rank_elite_buff_speinc"                                     "SPEINC:"
+		"DOTA_Tooltip_ability_rank_elite_buff_rangeinc"                                   "RANGEINC:"
+		"DOTA_Tooltip_ability_rank_elite_buff_manareg"                                    "MANAREG:"
+		"DOTA_Tooltip_ability_rank_elite_buff_cooldown"                                   "COOLDOWN:"
+
+		"DOTA_Tooltip_ability_rank_legend_buff"                                           "Rank Legend Buff"
+		"DOTA_Tooltip_ability_rank_legend_buff_Description"                               ""
+		"DOTA_Tooltip_ability_rank_legend_buff_dmginc"                                    "DMGINC:"
+		"DOTA_Tooltip_ability_rank_legend_buff_speinc"                                    "SPEINC:"
+		"DOTA_Tooltip_ability_rank_legend_buff_rangeinc"                                  "RANGEINC:"
+		"DOTA_Tooltip_ability_rank_legend_buff_manareg"                                   "MANAREG:"
+		"DOTA_Tooltip_ability_rank_legend_buff_cooldown"                                  "COOLDOWN:"
+
+		"DOTA_Tooltip_ability_rank_master_buff"                                           "Rank Master Buff"
+		"DOTA_Tooltip_ability_rank_master_buff_Description"                               ""
+		"DOTA_Tooltip_ability_rank_master_buff_dmginc"                                    "DMGINC:"
+		"DOTA_Tooltip_ability_rank_master_buff_speinc"                                    "SPEINC:"
+		"DOTA_Tooltip_ability_rank_master_buff_rangeinc"                                  "RANGEINC:"
+		"DOTA_Tooltip_ability_rank_master_buff_manareg"                                   "MANAREG:"
+		"DOTA_Tooltip_ability_rank_master_buff_cooldown"                                  "COOLDOWN:"
+
+		"DOTA_Tooltip_ability_split_shot_dummy_hidden"                                    "Split Shot Dummy Hidden"
+		"DOTA_Tooltip_ability_split_shot_dummy_hidden_Description"                        ""
+		"DOTA_Tooltip_ability_split_shot_dummy_hidden_amount"                             "AMOUNT:"
+
+		"DOTA_Tooltip_ability_sunfire_dmg"                                                "DMG:"
+
+		"DOTA_Tooltip_ability_sunfire_e_dmg"                                              "DMG:"
+
+		"DOTA_Tooltip_ability_water_mark_passive"                                         "Water Mark Passive"
+		"DOTA_Tooltip_ability_water_mark_passive_Description"                             ""
+		"DOTA_Tooltip_ability_water_mark_passive_duration"                                "DURATION:"
+
+//////////////////////////
 
 		//UI文本
 		"addon_game_name"                                                       				"四域TD"
 
 		"diffchoise"                                                            				"难度选择: "
-		"normal"                                                                				"凡人的盛宴"
-		"hard"                                                                  				"精锐的试炼"
-		"vhard"                                                                 				"地狱的狂欢"
+		"normal"                                                                				"普通"
+		"hard"                                                                  				"困难"
+		"vhard"                                                                 				"地狱"
 		"currdiff"                                                              				"当前难度: "
 		"normaldesc"                                                            				"[极小概率出现敌方精英单位]<br>[回收元素返还全额召唤花费]"
 		"harddesc"                                                              				"[小概率出现敌方精英单位]<br>[回收元素返还召唤花费75%]"
@@ -76,6 +193,7 @@
 		"NOT_ENOUGH_CRYSTAL"                                                    				"没有足够的元素水晶"
 		"NOT_OWN_TARGET"                                                        				"只可与我方元素融合"
 		"OTHER_ABILITY_ON_COOLDOWN"                                             				"其他技能冷却期间不可回收"
+		"SAME_TYPE_EXIST"																		"已存在同种元素"
 
 		"goldgain"                                                              				"本级结束，进入下一级，你获得了<font color='#FFD700'>"
 		"tpgain"                                                                				"金币</font> 和 <font color='#ADFF2F'> 1 元素精华</font>"
@@ -101,6 +219,14 @@
 		"TowerDesE"                                                             				"<br><font color='#ADFF2F'>射程: </font>"
 		"TowerDesF"                                                             				"<br><font color='#ADFF2F'>能力: </font>"
 		"TowerDesG"                                                             				"<br><font color='#ADFF2F'>效果: </font>"
+		"Tower_gold"																			"金币"
+		"Tower_essence"																			"精华"
+		"Tower_crystal"																			"水晶"
+
+		"Market"																				"元素市场"
+		"Market_sell"																			"出售"
+		"Market_get"																			"获得"
+		"Market_spend"																			"花费"
 
 		"MergeList"                                                             				"<br>可以与下列单位融合:"
 		"Merge"                                                                 				"融合"
@@ -117,15 +243,19 @@
 
 		"status_dmage"                                                          				"攻击力:"
 		"status_speed"                                                          				"攻击速度:"
+		"status_speed_short"                                                          			"攻击速度:"
 		"status_speed_suffix"                                                   				"秒攻击一次"
 		"status_range"                                                          				"射程:"
+		"status_range_short"                                                          			"射程:"
 		"status_armor"                                                          				"护甲:"
 		"status_resistance_phy"                                                 				"物理伤害减免:"
 		"status_magic_armor"                                                    				"魔法抗性:"
+		"status_magic_armor_short"                                                    			"魔法抗性:"
 		"status_movespe"                                                        				"移动速度:"
 		"status_total_cost"                                                     				"总计花费:"
 		"status_fund_return"                                                    				"回收返还:"
 		"status_up_cost"                                                        				"升级需要:"
+		"status_up_cost_short"                                                        			"升级需要:"
 		"status_attribute"                                                      				"属性:"
 		"status_detail"                                                         				"详细属性:"
 		"status_crystal_used"                                                   				"水晶占用:"
@@ -215,6 +345,7 @@
 		"FT11L01"                                                               				"燃血法师 Lv1"
 		"FT11L02"                                                               				"燃血法师 Lv2"
 		"FT11L03"                                                               				"燃血法师 LvMax"
+		"FT11L04"                                                               				"炽炎魔导师"
 		"FT12L01"                                                               				"神灵武士 Lv1"
 		"FT12L02"                                                               				"神灵武士 Lv2"
 		"FT12L03"                                                               				"神灵武士 LvMax"
@@ -235,13 +366,17 @@
 		"AT11L01"                                                               				"风行者 Lv1"
 		"AT11L02"                                                               				"风行者 Lv2"
 		"AT11L03"                                                               				"风行者 LvMax"
-		"AT12L01"                                                               				"风暴之灵 Lv1"
-		"AT12L02"                                                               				"风暴之灵 Lv2"
-		"AT12L03"                                                               				"风暴之灵 LvMax"
-		"AT12L11"                                                               				"雷霆之苑"
+		"AT12L01"                                                               				"森之魔女 Lv1"
+		"AT12L02"                                                               				"森之魔女 Lv2"
+		"AT12L03"                                                               				"森之魔女 LvMax"
 		"AT13L01"                                                               				"宙斯 Lv1"
 		"AT13L02"                                                               				"宙斯 Lv2"
 		"AT13L03"                                                               				"宙斯 LvMax"
+		"AT21L01"                                                               				"风暴之灵 Lv1"
+		"AT21L02"                                                               				"风暴之灵 Lv2"
+		"AT21L03"                                                               				"风暴之灵 LvMax"
+		"AT21L11"                                                               				"雷霆之苑"
+
 
 		//敌人名称
 
@@ -320,6 +455,9 @@
 		"DOTA_Tooltip_ability_Upgrade"                                          				"升级"
 		"DOTA_Tooltip_ability_Upgrade_Description"                              				"花费一定金钱以升级"
 		"DOTA_Tooltip_ability_Upgrade_Lore"                                     				""
+
+		"DOTA_Tooltip_modifier_hero_freezed"                                              		"离线冻结"
+		"DOTA_Tooltip_modifier_hero_freezed_Description"                                  		"离线的玩家将被冻结"
 
 		"DOTA_Tooltip_ability_BuildTower"                                       				"召唤中..."
 		"DOTA_Tooltip_ability_BuildTower_Description"                           				"使用该技能或者按S键以取消召唤"
@@ -550,6 +688,7 @@
 		"DOTA_Tooltip_ability_dragon_breath"                                    				"炎龙之息"
 		"DOTA_Tooltip_ability_dragon_breath_Description"                        				"大幅增加攻击速度"
 		"DOTA_Tooltip_ability_dragon_breath_Lore"                               				""
+		"DOTA_Tooltip_ability_dragon_breath_speinc"                                      	 	"攻击速度增加:"
 
 		"DOTA_Tooltip_ability_earth_shot"                                       				"大地震击"
 		"DOTA_Tooltip_ability_earth_shot_Description"                           				"普通攻击对目标及目标周围的敌人造成伤害和短暂眩晕"
@@ -710,9 +849,6 @@
 		"DOTA_Tooltip_ability_battle_cry_limit"                                 				"叠加上限:"
 		"DOTA_Tooltip_modifier_battle_cry_buff"                                 				"战吼"
 		"DOTA_Tooltip_modifier_battle_cry_buff_Description"                     				"提升%dMODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE%%%的攻击力"
-
-
-
 
 		"DOTA_Tooltip_ability_griavty_control"                                  				"重力掌控"
 		"DOTA_Tooltip_ability_griavty_control_Description"                      				"谜团自发强化周边的重力，让其成为一股强大的阻力迟缓敌方单位.对谜团周围的敌方单位造成减速.\n"
@@ -881,8 +1017,22 @@
 		"DOTA_Tooltip_modifier_thousand_faces_katana_buff"                      				"千面赤龙之力"
 		"DOTA_Tooltip_modifier_thousand_faces_katana_buff_Description"          				"攻击力增加%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%点"
 
+		"DOTA_Tooltip_ability_flame_field"                                                "炎阳领域"
+		"DOTA_Tooltip_ability_flame_field_Description"                                    "所有的元素获得攻击速度加成, 火属性元素获得三倍加成"
+		"DOTA_Tooltip_ability_flame_field_attspcinc"                                      "攻击速度加成: "
+		"DOTA_Tooltip_modifier_flame_field_aura_passive_buff"                             "炎阳领域"
+		"DOTA_Tooltip_modifier_flame_field_aura_passive_buff_Description"                 "提升%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%点攻击速度"
 
+		"DOTA_Tooltip_ability_fiery_soul_ability"                                         "魔导师炽魂"
+		"DOTA_Tooltip_ability_fiery_soul_ability_Description"                             "每存在一个火属性元素便增加一定的攻击力"
+		"DOTA_Tooltip_ability_fiery_soul_ability_dmginc"                                  "攻击力增加:"
+		"DOTA_Tooltip_modifier_fiery_soul_ability"                                        "魔导师炽魂"
+		"DOTA_Tooltip_modifier_fiery_soul_ability_Description"                            "增加%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%点攻击力"
 
+		"DOTA_Tooltip_ability_laguna_blade"                                               "神灭斩"
+		"DOTA_Tooltip_ability_laguna_blade_Description"                                   "对目标敌人造成大量纯粹伤害, 每存在一个火属性元素还会造成一次额外伤害"
+		"DOTA_Tooltip_ability_laguna_blade_dmg_a"                                         "伤害: "
+		"DOTA_Tooltip_ability_laguna_blade_dmg_b"                                         "额外伤害: "
 
 		"DOTA_Tooltip_ability_moon_glaive"                                      				"风刃"
 		"DOTA_Tooltip_ability_moon_glaive_Description"                          				"弹射攻击目标周围的敌人，每次弹射都会使得伤害递减."
@@ -913,6 +1063,11 @@
 
 		"DOTA_Tooltip_modifier_wind_bleesing_passive_buff"                      				"风之祝福"
 		"DOTA_Tooltip_modifier_wind_bleesing_passive_buff_Description"          				"提高%dMODIFIER_PROPERTY_ATTACK_RANGE_BONUS%码的射程."
+
+		"DOTA_Tooltip_ability_impetus"                                                    "推进"
+		"DOTA_Tooltip_ability_impetus_Description"                                        "对目标造成[相对距离 x 伤害系数]的伤害"
+		"DOTA_Tooltip_ability_impetus_arg_a"                                              "伤害系数:"
+		"DOTA_Tooltip_ability_impetus_arg_b"                                              "伤害上限:"
 
 		"DOTA_Tooltip_ability_storm_form"                                       				"风暴形态"
 		"DOTA_Tooltip_ability_storm_form_Description"                           				"化身风暴.移动至目标地点."
@@ -957,100 +1112,134 @@
 
 		"studycost"                                                             				"学习花费: "
 		"studyreq"                                                              				"前置要求: "
-		"techlv"                                                                				"已学习"
+		"reach_max_lv"                                                                			"已达最大等级"
+		"tech_level"																			"当前等级: "
+		"next_level_unlock"																		"-下一等级解锁: "
+//通用科技
+		"DOTA_Tooltip_ability_GT01"                                                       "强击"
+		"DOTA_Tooltip_ability_GT01_Description"                                           "提升所有元素的攻击力, 每级提升5%的攻击力"
+		"DOTA_Tooltip_ability_GT01_dmginc"                                                "攻击力提升:"
+		"DOTA_Tooltip_modifier_GTO1"                                                      "强击"
+		"DOTA_Tooltip_modifier_GTO1_Description"                                          "提升%dMODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE%%%的攻击力"
+
+		"DOTA_Tooltip_ability_GT02"                                                       "神速"
+		"DOTA_Tooltip_ability_GT02_Description"                                           "提升所有元素的攻击速度, 每级提升5点的攻击速度"
+		"DOTA_Tooltip_ability_GT02_speinc"                                                "攻击速度提升:"
+		"DOTA_Tooltip_modifier_GTO2"                                                      "神速"
+		"DOTA_Tooltip_modifier_GTO2_Description"                                          "提升%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%点的攻击速度"
+
+		"DOTA_Tooltip_ability_GT03"                                                       "无距"
+		"DOTA_Tooltip_ability_GT03_Description"                                           "提升所有元素的射程, 每级提升50点射程"
+		"DOTA_Tooltip_ability_GT03_rnginc"                                                "射程提升:"
+		"DOTA_Tooltip_modifier_GTO3"                                                      "长距"
+		"DOTA_Tooltip_modifier_GTO3_Description"                                          "提升%dMODIFIER_PROPERTY_ATTACK_RANGE_BONUS%点的射程"
+
+		"DOTA_Tooltip_ability_GT04"                                                       "搜刮"
+		"DOTA_Tooltip_ability_GT04_Description"                                           "击杀敌人将获得额外的金钱奖励, 每级获得额外的5%的奖励"
+		"DOTA_Tooltip_ability_GT04_arg"                                                   "ARG:"
+
+		"DOTA_Tooltip_ability_GT05"                                                       "萃取"
+		"DOTA_Tooltip_ability_GT05_Description"                                           "击杀敌人将有额外的几率掉落元素精华, 每级提高0.5%的掉落率"
+		"DOTA_Tooltip_ability_GT05_arg"                                                   "ARG:"
+
+		"DOTA_Tooltip_ability_GT06"                                                       "凝聚"
+		"DOTA_Tooltip_ability_GT06_Description"                                           "击杀敌人将有额外的几率掉落元素水晶, 每级提高0.25%的掉落率"
+		"DOTA_Tooltip_ability_GT06_arg"                                                   "ARG:"
+
+		"DOTA_Tooltip_ability_GT07"                                                       "守护"
+		"DOTA_Tooltip_ability_GT07_Description"                                           "提升中央圣坛的生命值, 每级提升圣坛5点生命值"
+		"DOTA_Tooltip_ability_GT07_arg"                                                   "ARG:"
+
+//地属性科技
+
+		"DOTA_Tooltip_ability_ET01"                                                       "大地之力"
+		"DOTA_Tooltip_ability_ET01_Description"                                           "基础科技, 每级提升地属性元素的各项属性, 同时解锁部分地属性元素"
+		"DOTA_Tooltip_ability_ET01_dmginc"                                                "DMGINC:"
+		"DOTA_Tooltip_ability_ET01_speinc"                                                "SPEINC:"
+		"DOTA_Tooltip_ability_ET01_rnginc"                                                "RNGINC:"
+		"DOTA_Tooltip_modifier_ET01"                                                      "大地之力"
+		"DOTA_Tooltip_modifier_ET01_Description"                                          "提升%dMODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE%%%的攻击力,%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%的攻击速度以及%dMODIFIER_PROPERTY_ATTACK_RANGE_BONUS%的射程"
+
+		"DOTA_Tooltip_ability_ET11"                                                       "山岩核心"
+		"DOTA_Tooltip_ability_ET11_Description"                                           "精研山岩的力量, 解锁山岩核心"
+
+		"DOTA_Tooltip_ability_ET21"                                                       "闪烁沙漠"
+		"DOTA_Tooltip_ability_ET21_Description"                                           "强化沙王, 使其的减速效果无视魔免同时可以叠加"
+
+		"DOTA_Tooltip_ability_ET31"                                                       "星核坍缩"
+		"DOTA_Tooltip_ability_ET31_Description"                                           "强化谜团 LvMax, 使其可以释放黑洞"
+
+//水属性科技
+
+		"DOTA_Tooltip_ability_WT01"                                                       "海洋之力"
+		"DOTA_Tooltip_ability_WT01_Description"                                           "基础科技, 每级提升水属性元素的各项属性, 同时解锁部分水属性元素"
+		"DOTA_Tooltip_ability_WT01_dmginc"                                                "DMGINC:"
+		"DOTA_Tooltip_ability_WT01_speinc"                                                "SPEINC:"
+		"DOTA_Tooltip_ability_WT01_rnginc"                                                "RNGINC:"
+		"DOTA_Tooltip_modifier_WT01"                                                      "海洋之力"
+		"DOTA_Tooltip_modifier_WT01_Description"                                          "提升%dMODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE%%%的攻击力,%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%的攻击速度以及%dMODIFIER_PROPERTY_ATTACK_RANGE_BONUS%的射程"
+
+		"DOTA_Tooltip_ability_WT11"                                                       "寒冰核心"
+		"DOTA_Tooltip_ability_WT11_Description"                                           "精研寒冰的力量, 解锁寒冰核心"
+
+		"DOTA_Tooltip_ability_WT12"                                                       "无尽海"
+		"DOTA_Tooltip_ability_WT12_Description"                                           "强化变体精灵, 使其的技能可以对魔免单位释放"
+
+		"DOTA_Tooltip_ability_WT21"                                                       "灵魂寒霜"
+		"DOTA_Tooltip_ability_WT21_Description"                                           "强化巨牙海民, 使其的技能可以对魔免单位释放"
 
 
-		"ET01"                                                                  				"大地亲和"
-		"ET01DES"                                                               				"提升与大地的亲和度. \n\n 解锁所有一级土元素. "
+//火属性科技
 
-		"ET02"                                                                  				"核心凝聚-山岩"
-		"ET02DES"                                                               				"将大地的力量凝聚成实体. \n\n 允许召唤元素核心-山岩"
+		"DOTA_Tooltip_ability_FT01"                                                       "烈焰之力"
+		"DOTA_Tooltip_ability_FT01_Description"                                           "基础科技, 每级提升火属性元素的各项属性, 同时解锁部分火属性元素"
+		"DOTA_Tooltip_ability_FT01_dmginc"                                                "DMGINC:"
+		"DOTA_Tooltip_ability_FT01_speinc"                                                "SPEINC:"
+		"DOTA_Tooltip_ability_FT01_rnginc"                                                "RNGINC:"
+		"DOTA_Tooltip_modifier_FT01"                                                      "烈焰之力"
+		"DOTA_Tooltip_modifier_FT01_Description"                                          "提升%dMODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE%%%的攻击力,%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%的攻击速度以及%dMODIFIER_PROPERTY_ATTACK_RANGE_BONUS%的射程"
 
+		"DOTA_Tooltip_ability_FT11"                                                       "烈焰核心"
+		"DOTA_Tooltip_ability_FT11_Description"                                           "精研烈焰的力量, 解锁烈焰核心"
 
-		"ET11"                                                                  				"石肤铭文"
-		"ET11DES"                                                               				"用玄武岩研磨出来的石粉，在身上刻印下石肤铭文，作为回报，你将获得大地的青睐. \n\n 解锁所有二级土元素. \n 所有(属性-地)元素获得属性提升: \n 攻击力 +20% \n 攻击速度 +20% \n 射程 +100码"
+		"DOTA_Tooltip_ability_FT12"                                                       "元素沟通"
+		"DOTA_Tooltip_ability_FT12_Description"                                           "强化火焰祭司, 提升召唤单位的数量, 每级提升1个"
 
-		"ET12"                                                                  				"闪烁沙漠的意志"
-		"ET12DES"                                                               				"被闪烁沙漠盯上的人，注定无法幸存. \n\n 强化-沙王-沙暴:\n伤害类型转为纯粹.\n 允许 沙暴 的减速效果可以叠加."
+		"DOTA_Tooltip_ability_FT21"                                                       "狂战士"
+		"DOTA_Tooltip_ability_FT21_Description"                                           "强化神灵武士, 使其能够释放狂战士之血"
 
-		"ET21"                                                                  				"星核之力"
-		"ET21DES"                                                               				"从星球核心处而来的不竭之力. \n\n 解锁所有三级土元素. \n 所有(属性-地)元素获得属性提升: \n 攻击力 +40% \n 攻击速度 +40% \n 射程 +200码"
+		"DOTA_Tooltip_ability_FT41"                                                       "魔导师炽魂"
+		"DOTA_Tooltip_ability_FT41_Description"                                           "强化燃血法师 LvMax, 使其能够觉醒体内的魔导师炽魂, 成为火之魔导师. 火之魔导师具有唯一性, 同一局仅能存在一个, 且不可出售"
 
-		"ET22"                                                                  				"星核坍缩"
-		"ET22DES"                                                               				"从星球尸体中诞生的这个宇宙中最极端的力量-黑洞. \n\n 强化-谜团 LvMax-重力掌控:\n 允许 谜团 LvMax 释放 黑洞 ."
-
-
-		"ET31"                                                                  				"西莱纳的祝福"
-		"ET31DES"                                                               				"你已获得元素领主西莱纳的祝福，大地将会是你坚实的后盾，力量的源泉.\n\n 所有(属性-地)元素获得属性提升: \n 攻击力 +60% \n 攻击速度 +60% \n 射程 +300码"
-
-
-
-		"WT01"                                                                  				"海洋亲和"
-		"WT01DES"                                                               				"提升与海洋的亲和度. \n\n 解锁所有一级水元素."
-
-		"WT02"                                                                  				"无尽海"
-		"WT02DES"                                                               				"无尽海底的水压，没有生灵能够存活. \n\n 强化-变体精灵-深海标记:\n 允许对魔法免疫单位使用深海标记."
-
-		"WT03"                                                                  				"核心凝聚-寒冰"
-		"WT03DES"                                                               				"将寒霜的力量凝聚成实体. \n\n 允许召唤元素核心-寒冰"
-
-
-		"WT11"                                                                  				"寒冰专精"
-		"WT11DES"                                                               				"掌握寒冰的力量. \n\n 解锁所有二级水元素. \n 所有(属性-水)元素获得属性提升: \n 攻击力 +20% \n 攻击速度 +20% \n 射程 +100码"
-
-		"WT12"                                                                  				"灵魂寒霜"
-		"WT12DES"                                                               				"足以冻结灵魂的寒冷. \n\n 强化-霜牙海民-寒霜标记:\n 允许对魔法免疫单位使用寒霜标记."
-
-
-		"WT21"                                                                  				"生命源泉"
-		"WT21DES"                                                               				"水是生命之源. \n\n 解锁所有三级水元素. \n 所有(属性-水)元素获得属性提升: \n 攻击力 +40% \n 攻击速度 +40% \n 射程 +200码"
-
-		"WT31"                                                                  				"路西菲尔的祝福"
-		"WT31DES"                                                               				"你已获得元素领主路西菲尔的祝福，海洋将会是你坚实的后盾，力量的源泉.\n\n 所有(属性-水)元素获得属性提升: \n 攻击力 +60% \n 攻击速度 +60% \n 射程 +300码"
+		"DOTA_Tooltip_ability_fiery_soul"                                                 "觉醒! 魔导师炽魂"
+		"DOTA_Tooltip_ability_fiery_soul_Description"                                     "花费额外的20000金币和8水晶, 觉醒体内的魔导师炽魂, 成为火之魔导师, 火之魔导师具有唯一性, 同一局仅能存在一个, 且不可出售"
 
 
 
-		"FT01"                                                                  				"火焰亲和"
-		"FT01DES"                                                               				"提升与火焰的亲和度. \n\n 解锁所有一级火元素."
+//气属性科技
 
-		"FT02"                                                                  				"元素沟通"
-		"FT02DES"                                                               				"与元素世界签下灵魂的契约，获取它们的效劳. \n\n强化-火焰/日火祭司-火焰/日火仪式: \n使得仪式可以一次性召唤出两个元素生物."
+		"DOTA_Tooltip_ability_AT01"                                                       "风暴之力"
+		"DOTA_Tooltip_ability_AT01_Description"                                           "基础科技, 每级提升气属性元素的各项属性, 同时解锁部分气属性元素"
+		"DOTA_Tooltip_ability_AT01_dmginc"                                                "DMGINC:"
+		"DOTA_Tooltip_ability_AT01_speinc"                                                "SPEINC:"
+		"DOTA_Tooltip_ability_AT01_rnginc"                                                "RNGINC:"
+		"DOTA_Tooltip_modifier_AT01"                                                      "风暴之力"
+		"DOTA_Tooltip_modifier_AT01_Description"                                          "提升%dMODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE%%%的攻击力,%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%的攻击速度以及%dMODIFIER_PROPERTY_ATTACK_RANGE_BONUS%的射程"
 
-		"FT03"                                                                  				"核心凝聚-烈焰"
-		"FT03DES"                                                               				"将火焰的力量凝聚成实体. \n\n 允许召唤元素核心-烈焰"
+		"DOTA_Tooltip_ability_AT11"                                                       "雷霆核心"
+		"DOTA_Tooltip_ability_AT11_Description"                                           "精研雷霆的力量, 解锁雷霆核心"
 
+		"DOTA_Tooltip_ability_AT12"                                                       "高压闪电"
+		"DOTA_Tooltip_ability_AT12_Description"                                           "强化闪电幽魂, 降低其的基础攻击间隔"
 
-		"FT11"                                                                  				"浴火"
-		"FT11DES"                                                               				"只有无畏者，才能掌控烈焰. \n\n 解锁所有二级火元素. \n 所有(属性-火)元素获得属性提升: \n 攻击力 +20% \n 攻击速度 +20% \n 射程 +100码"
-
-		"FT12"                                                                  				"狂战士之血"
-		"FT12DES"                                                               				"伤痛带来的是无尽的力量. \n\n 强化-神灵武士-沸血之矛 \n 允许 神灵武士 激发体内的 狂战士之血 ."
-
-
-		"FT21"                                                                  				"涅槃"
-		"FT21DES"                                                               				"破灭之后不是虚无，而是力量. \n\n 解锁所有三级火元素. \n 所有(属性-火)元素获得属性提升: \n 攻击力 +40% \n 攻击速度 +40% \n 射程 +200码"
-
-		"FT31"                                                                  				"诺瑞哈兹的祝福"
-		"FT31DES"                                                               				"你已获得元素领主诺瑞哈兹的祝福，火焰将会是你坚实的后盾，力量的源泉.\n\n 所有(属性-火)元素获得属性提升: \n 攻击力 +60% \n 攻击速度 +60% \n 射程 +300码"
-
-
-		"AT01"                                                                  				"大气亲和"
-		"AT01DES"                                                               				"提升与大气的亲和度. \n\n 解锁所有一级气元素."
-
-		"AT02"                                                                  				"高压形态"
-		"AT02DES"                                                               				"没人能快的过闪电. \n\n 强化-闪电幽魂: \n 基础攻击间隔由1.0降至0.7"
-
-		"AT03"                                                                  				"核心凝聚-雷霆"
-		"AT03DES"                                                               				"将雷电的力量凝聚成实体. \n\n 允许召唤元素核心-雷霆"
+		"DOTA_Tooltip_ability_AT13"                                                       "穿刺"
+		"DOTA_Tooltip_ability_AT13_Description"                                           "强化森林魔女, 提升其的攻击射程及魔法回复速度"
+		"DOTA_Tooltip_ability_AT13_manaregen"                                             "MANAREGEN:"
+		"DOTA_Tooltip_ability_AT13_rnginc"                                                "RNGINC:"
+		"DOTA_Tooltip_modifier_AT13"                                                      "穿刺"
+		"DOTA_Tooltip_modifier_AT13_Description"                                          "提升%dMODIFIER_PROPERTY_ATTACK_RANGE_BONUS%点射程及%dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT%点魔法回复速度"
 
 
-		"AT11"                                                                  				"风暴使者"
-		"AT11DES"                                                               				"与风暴对话，传递自然的意志 \n\n 解锁所有二级气元素. \n 所有(属性-气)元素获得属性提升: \n 攻击力 +20% \n 攻击速度 +20% \n 射程 +100码"
-
-		"AT21"                                                                  				"风暴之眼"
-		"AT21DES"                                                               				"风暴的中心，却是平静之处. \n\n 解锁所有三级气元素. \n 所有(属性-气)元素获得属性提升: \n 攻击力 +40% \n 攻击速度 +40% \n 射程 +200码"
-
-		"AT31"                                                                  				"涅格诺古的祝福"
-		"AT31DES"                                                               				"你已获得元素领主涅格诺古的祝福，风暴将会是你坚实的后盾，力量的源泉.\n\n 所有(属性-气)元素获得属性提升: \n 攻击力 +60% \n 攻击速度 +60% \n 射程 +300码"
 	}
 }
+ 

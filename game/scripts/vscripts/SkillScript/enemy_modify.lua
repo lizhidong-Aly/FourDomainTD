@@ -27,14 +27,17 @@ function OnEliteDied(keys)
 	if RandomFloat(0,1)<0.5 then 
 		local energy=CreateItem("item_energy_orb",nil,nil)
 		CreateItemOnPositionSync(GetRandomPositionAround(unit),energy)
+		SendEventToAllPlayer("EmidSound",{sname="Item.DropGemShop"})
 	end
 	if RandomFloat(0,1)<0.5 then 
 		local energy=CreateItem("item_energy_orb",nil,nil)
 		CreateItemOnPositionSync(GetRandomPositionAround(unit),energy)
+		SendEventToAllPlayer("EmidSound",{sname="Item.DropGemShop"})
 	end
 	if RandomFloat(0,1)<0.2 then 
 		local essence=CreateItem("item_element_essence",nil,nil)
 		CreateItemOnPositionSync(GetRandomPositionAround(unit),essence)
+		SendEventToAllPlayer("EmidSound",{sname="Item.DropGemShop"})
 	end
 end
 
@@ -44,10 +47,12 @@ function OnBossDied(keys)
 	for i=1,RandomInt(2,4) do
 		local crystal=CreateItem("item_element_crystal",nil,nil)
 		CreateItemOnPositionSync(GetRandomPositionAround(unit),crystal)
+		SendEventToAllPlayer("EmidSound",{sname="Item.DropGemShop"})
 	end
 	for i=1,RandomInt(1,3) do
 		local energy=CreateItem("item_energy_orb",nil,nil)
 		CreateItemOnPositionSync(GetRandomPositionAround(unit),energy)
+		SendEventToAllPlayer("EmidSound",{sname="Item.DropGemShop"})
 	end
 end
 

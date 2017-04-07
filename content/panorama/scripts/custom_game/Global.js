@@ -153,7 +153,6 @@ function ModifyTooltipWidth(){
 	}else{
 		$.Schedule(1/30,ModifyTooltipWidth);
 	}
-
 }
 
 function InitUIComponment(){
@@ -176,7 +175,7 @@ function InitUIComponment(){
 //-------------------------------------------------------------------------------
 (function()
 {
-	$.Msg("custom_status_panel.js is loaded")
+	$.Msg("global.js is loaded")
 	// Turn off some default UI
 	//GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_HERO_SELECTION_TEAMS, false );
 	//GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_HERO_SELECTION_GAME_NAME, false );
@@ -206,7 +205,6 @@ function InitUIComponment(){
 	GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_PROTECT, false );
 	GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_GOLD, false );
 	*/
-
 	GameUI.SetMouseCallback( function( eventName, arg ) {
 		var CONSUME_EVENT = true;
 		var CONTINUE_PROCESSING_EVENT = false;
