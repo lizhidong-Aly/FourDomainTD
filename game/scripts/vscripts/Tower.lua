@@ -51,7 +51,6 @@ end
 
 
 function Tower:Init()
-	print("Init Tower")
 	_G.Player[self.pid].TowerOwned[self:entindex()]=self
 	local tInfo=_G.TowerInfo[self.name]
 	local lv=tInfo.lv
@@ -83,7 +82,9 @@ function Tower:Init()
 end
 
 function Tower:AbilityInit()
-	self:AddAbility("SellTower"):SetLevel(1)
+	if not _G.TowerInfo[self.name].can_not_sell then
+		self:AddAbility("SellTower"):SetLevel(1)
+	end
 	if(_G.TowerInfo[self.name].upgradeTo~=nil) then
 		self:AddAbility("Upgrade"):SetLevel(1)
 	end
@@ -101,11 +102,10 @@ function Tower:AbilityInit()
 		end
 	end
 ---------------------水之印记/冰之印记 被动技能添加
-	local label=_G.TowerInfo[self.name].attribute
-	if string.find(label,"W")~=nil then
+	if string.find(self.attribute,"W")~=nil then
 		self:AddAbility("water_mark_passive"):SetLevel(1)
 	end
-	if string.find(label,"I")~=nil then
+	if string.find(self.attribute,"I")~=nil then
 		self:AddAbility("ice_mark_passive"):SetLevel(1)
 	end
 ---------------------------------------------------------------
@@ -225,7 +225,6 @@ function Tower:UpgradeTest()
 end
 
 function Tower:Upgrade()
-	print("Upgrade Tower")
 	local totalCost=self.totalCost+_G.TowerInfo[self.nl].cost
 	local new = Tower:new(_G.TowerInfo[self.name].upgradeTo,self:GetOrigin(),self.pid,totalCost)
 	new:ModifyEnergy(self.energy,false)
@@ -263,7 +262,6 @@ function Tower:ModifyEnergy(e,crystalFlag)
 end 
 
 function Tower:Advance()
-	print('Advance Tower')
 	self.rank=self.rank+1
 	if self.rank==RANK_ELITE then
 		self:AddAbility("rank_elite_buff"):SetLevel(1)
@@ -281,7 +279,6 @@ function Tower:Advance()
 end
 
 function Tower:Sell()
-	print("Sell Tower")
 	for i=1,8 do
 		local a=self:GetAbilityByIndex(i)
 		if a~=nil then
@@ -300,10 +297,14 @@ function Tower:Sell()
 end
 
 function Tower:Remove(removeImmediate)
-	print("Remove Tower")
 	self:ForceKill(false)
 	_G.Player[self.pid].TowerOwned[self:entindex()]=nil
 	if removeImmediate then 
 		self:RemoveSelf()
 	end
+end
+
+
+function Tower:HasAttribute(attribute)
+	return string.find(self.attribute,attribute)~=nil
 end

@@ -1,0 +1,87 @@
+.ResourceMarket
+{	
+	width: 320px;
+	height: 120px;
+	horizontal-align:right;
+	vertical-align: bottom;
+	background-image: url("s2r://panorama/images/hud/reborn/courier_gold_bg_262_psd.vtex");
+	background-size: 100%;
+	tooltip-position:top;
+    tooltip-body-position:50% 50%;
+}
+
+#ExchangeButtonPanel
+{
+	
+	width: 90%;
+	height: 90%;
+	margin-left: 10%;
+	margin-top: 6%;
+	flow-children:right;
+}
+
+.SubPanel
+{
+	height: 100%;
+	width:50%;
+	flow-children:down;
+}
+
+.ExchangeButton
+{
+	margin-top: 7%;
+	margin-right: 8%;
+	width:100%;
+	height: 40%;
+	border: 1px solid #606060;
+	border-radius:1px;
+}
+.ExchangeButton:hover
+{
+	border: 2px solid #808080;
+	border-radius:2px;
+}
+
+.ButtonPanel
+{
+	horizontal-align:middle;
+	vertical-align: center;
+	flow-children:right;
+}
+
+.Image
+{
+	horizontal-align:middle;
+	vertical-align: center;
+	margin-right: 2px;
+	margin-left: 2px;
+	width: 28px;
+	height:28px;
+}
+
+.ArrowPanel{
+	width:45px;
+	height: 100%;
+
+}
+
+.ArrowImage
+{
+	width:100%;
+	height:40%;
+	background-image: url("file://{resources}/images/custom_game/arrow.psd");
+	background-size: 100% 100%;
+	margin-top: 60%;
+	//transform: rotateY(180deg);
+	//background-color: yellow;
+}
+
+.Number
+{
+	text-align: center;
+	font-size:16px;
+	width:100%;
+	height:70%;
+	color: gold;
+	//background-color: red;
+}

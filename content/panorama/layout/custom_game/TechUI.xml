@@ -11,16 +11,30 @@
 	
 		<Panel hittest="false">
 			<Panel class="Hidden" id="TechMenu" onmouseactivate="">
-				<Panel id="Main">
+				<Panel id="TechAttributeIndex">
 					<Label id="title" text="#techtree"/>
-					
+					<DOTAAbilityImage class="TechImage" id="GeneralTech" abilityname="lone_druid_rabid"/>
+					<DOTAAbilityImage class="TechImage" id="EarthTech" abilityname="earth_spirit_boulder_smash"/>
+					<DOTAAbilityImage class="TechImage" id="WaterTech" abilityname="invoker_quas"/>
+					<DOTAAbilityImage class="TechImage" id="FireTech" abilityname="invoker_exort"/>
+					<DOTAAbilityImage class="TechImage" id="AirTech" abilityname="skywrath_mage_concussive_shot"/>
+				</Panel>
+				<Panel id="TechContainer">
+					<Panel class="SubTechContainer" id="GT"/>
+					<Panel class="SubTechContainer" id="ET"/>
+					<Panel class="SubTechContainer" id="WT"/>
+					<Panel class="SubTechContainer" id="FT"/>
+					<Panel class="SubTechContainer" id="AT"/>
 				</Panel>
 				<Panel class="SubTechMenu" id="TechDesPanel">
-					<Label id="TechName" text=""/>
+					<Panel id="TechDetailPanel">
+						<Label id="TechName" text=""/>
+						<Label id="TechReq" text=""/>
+						<Label id="TechReqDetail" text=""/>
+						<Label id="TechLevel" text=""/>
+						<Label id="TechCost" text=""/>
+					</Panel>
 					<DOTAAbilityImage id="TechImg" />
-					<Label id="TechReq" text=""/>
-					<Label id="TechReqDetail" text=""/>
-					<Label id="TechCost" text=""/>
 					<Label id="TechDes" text=""/>
 				</Panel>
 			</Panel>

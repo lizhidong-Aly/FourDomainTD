@@ -18,9 +18,6 @@ function StormForm(keys)
 	if	unitaround~=nil and not unitaround:IsAlive() then
 			unitaround=nil;
 	end
-	if((point[2]<3840 and point[2]>3200) or (point[1]<3840 and point[1]>3072) or (point[2]>-3840 and point[2]<-3200)) then
-			unitaround=1
-	end
 	if	unitaround~=nil then
 		ErrorMsg(playerid,SPELL_CAN_NO_CAST_ON_POSITION)
 		caster:Stop()

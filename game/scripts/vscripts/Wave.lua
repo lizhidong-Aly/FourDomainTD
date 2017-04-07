@@ -68,7 +68,7 @@ end
 
 function GiveEndBouns()
 	local lInfo=_G.levelInfo[_G.levelNo]
-	local bounty=_G.levelNo*60--lInfo.baseGoldBounty*_G.EnemyType[lInfo.type].amount
+	local bounty=_G.levelNo*40--lInfo.baseGoldBounty*_G.EnemyType[lInfo.type].amount
 	for i,v in pairs(_G.Player) do
 		local hero=v.hero
 		if hero~=null then

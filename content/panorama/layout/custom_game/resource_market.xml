@@ -1,0 +1,57 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/dotastyles.css" />
+		<include src="file://{resources}/styles/custom_game/resource_market.css"	/>
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/resource_market.js" />
+	</scripts>
+		<Panel class="ResourceMarket" html="false">
+			<Panel id="ExchangeButtonPanel"  html="true">
+				<Panel class="SubPanel">
+					<Button class="ExchangeButton" id="BuyEssenceButton" onactivate="RequestExchange(1)" onmouseover="ShowMarketTip(1)" onmouseout="HideMarketTip(1)">
+						<Panel class="ButtonPanel">
+							<Image class="Image" src="file://{resources}/images/custom_game/essence.psd"/>
+							<Panel class="ArrowPanel">
+								<Label class="Number" id="EssenceCost" text="100"/>
+								<Image class="ArrowImage" />
+							</Panel>
+							<Image class="Image" src="s2r://panorama/images/hud/reborn/gold_small_psd.vtex"/>
+						</Panel>
+					</Button>
+					<Button class="ExchangeButton" id="SellEssencelButton" onactivate="RequestExchange(2)" onmouseover="ShowMarketTip(2)" onmouseout="HideMarketTip(2)">
+						<Panel class="ButtonPanel">
+							<Image class="Image" src="s2r://panorama/images/hud/reborn/gold_small_psd.vtex"/>
+							<Panel class="ArrowPanel">
+								<Label class="Number" id="EssencePrice" text="150"/>
+								<Image class="ArrowImage" />
+							</Panel>
+							<Image class="Image" src="file://{resources}/images/custom_game/essence.psd"/>
+						</Panel>
+					</Button>
+				</Panel>
+				<Panel class="SubPanel">
+					<Button class="ExchangeButton" id="BuyCrystalButton" onactivate="RequestExchange(3)" onmouseover="ShowMarketTip(3)" onmouseout="HideMarketTip(3)">
+						<Panel class="ButtonPanel">
+							<Image class="Image" src="file://{resources}/images/custom_game/crystal.psd"/>
+							<Panel class="ArrowPanel">
+								<Label class="Number" id="CrystalCost" text="300"/>
+								<Image class="ArrowImage" />
+							</Panel>
+							<Image class="Image" src="s2r://panorama/images/hud/reborn/gold_small_psd.vtex"/>
+						</Panel>
+					</Button>
+					<Button class="ExchangeButton" id="SellCrystalButton" onactivate="RequestExchange(4)" onmouseover="ShowMarketTip(4)" onmouseout="HideMarketTip(4)">
+						<Panel class="ButtonPanel">
+							<Image class="Image" src="s2r://panorama/images/hud/reborn/gold_small_psd.vtex"/>
+							<Panel class="ArrowPanel">
+								<Label class="Number" id="CrystalPrice" text="400"/>
+								<Image class="ArrowImage" />
+							</Panel>
+							<Image class="Image" src="file://{resources}/images/custom_game/crystal.psd"/>
+						</Panel>
+					</Button>
+				</Panel>
+			</Panel>
+		</Panel>
+</root>

@@ -1,46 +1,63 @@
-.TowerPanel{
+.TechPanel{
 	width: 80px;
-	height: 45px;
-	margin-left:10px;
-	margin-top:15px;
-	border: 0px;
-	border-radius:0px;
-
+	height: 82px;
+	margin-top: 3px;
+	flow-children:down;
 }
 
-#TowerButton
+#TechButton
 {
 	color: #ffffff;
-	width: 80px;
-	height: 45px;
-	border: 1px solid #707070;
+	width: 64px;
+	height: 64px;
+	horizontal-align:center;
+	border: 1px solid #606060;
 	border-radius:5px;
 }
+#LevelIndicator{
 
-#GoldCost{
-	margin-top: 20px;
-	margin-left:3px;
-	height: 23px;
-	color: gold;
-	background-color: gradient( linear, 100% 0%, 100% 100%, from( #111111 ), color-stop( 0.01, #202327 ), color-stop( 0.2, #141619ff ), to( #000000dd ) );
+	margin-top:4px;
+	horizontal-align:center;
+	flow-children:right;
+	height: 12px;
 }
 
-.disable{
-background-color: #404040dd;
-width: 80px;
-height: 45px;
-border: 1px solid #707070;
-border-radius:5px;
-visibility:visible;
+.LevelPoint{
+	height: 8px;
+	width: 4px;
+	margin-left:2px;
+	background-color:#505050;
+	z-index: 4;
+	visibility: collapse;
 }
-.disable:hover{
+
+.LevelPoint.show{
+	visibility: visible;
+}
+
+.LevelPoint.active{
+	visibility: visible;
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #E7D291 ), to( #887845 ) );
+}
+
+#TechLocker{
+	background-color: #404040dd;
+	width: 100%;
+	height: 100%;
+	border: 1px solid #707070;
+	border-radius:5px;
+	visibility:visible;
+}
+
+#TechLocker:hover{
 border: 2px solid #ff0000dd;
 border-radius:5px;
 }
-.enable{
+
+#TechLocker.unlocked{
 background-color: none;
 }
-.enable:hover{
+#TechLocker.unlocked:hover{
 border: 2px solid #7cfc00dd;
 border-radius:5px;
 }

@@ -351,13 +351,13 @@
 	"AT12L01"
 	{
 		"AttackRange"                           "1200"
-		"Model"                                 "models/heroes/storm_spirit/storm_spirit.vmdl"
-		"SoundSet"                              "Hero_StormSpirit"
-		"GameSoundsFile"                        "soundevents/game_sounds_heroes/game_sounds_stormspirit.vsndevts"
-		"ModelScale"                            "1.2"
+		"Model"                                 "models/heroes/enchantress/enchantress.vmdl"
+		"SoundSet"                              "Hero_Enchantress"
+		"GameSoundsFile"                        "soundevents/game_sounds_heroes/game_sounds_enchantress.vsndevts"
+		"ModelScale"                            "0.9"
 		"AttackAnimationPoint"                  "0.4"
 		"AttackAcquisitionRange"                "1000"
-		"ProjectileModel"                       "particles/units/heroes/hero_stormspirit/stormspirit_base_attack.vpcf"
+		"ProjectileModel"                       "particles/units/heroes/hero_enchantress/enchantress_base_attack.vpcf"
 		"ProjectileSpeed"                       "1800"
 		"StatusMana"                            "100"
 		"AttackCapabilities"                    "DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -367,22 +367,24 @@
 		{
 			"AttachWearables"
 			{
-				"Wearable1"                     { "ItemDef" "308" }
-				"Wearable1"                     { "ItemDef" "309" }
-				"Wearable1"                     { "ItemDef" "310" }
+				"Wearable1"                     { "ItemDef" "286" }
+				"Wearable1"                     { "ItemDef" "287" }
+				"Wearable1"                     { "ItemDef" "288" }
+				"Wearable1"                     { "ItemDef" "289" }
+				"Wearable1"                     { "ItemDef" "290" }
 			}
 		}
 	}
 	"AT12L02"
 	{
 		"AttackRange"                           "1200"
-		"Model"                                 "models/heroes/storm_spirit/storm_spirit.vmdl"
-		"SoundSet"                              "Hero_StormSpirit"
-		"GameSoundsFile"                        "soundevents/game_sounds_heroes/game_sounds_stormspirit.vsndevts"
-		"ModelScale"                            "1.2"
+		"Model"                                 "models/heroes/enchantress/enchantress.vmdl"
+		"SoundSet"                              "Hero_Enchantress"
+		"GameSoundsFile"                        "soundevents/game_sounds_heroes/game_sounds_enchantress.vsndevts"
+		"ModelScale"                            "0.9"
 		"AttackAnimationPoint"                  "0.4"
-		"AttackAcquisitionRange"                "1000"
-		"ProjectileModel"                       "particles/units/heroes/hero_stormspirit/stormspirit_base_attack.vpcf"
+		"AttackAcquisitionRange"                "4000"
+		"ProjectileModel"                       "particles/units/heroes/hero_enchantress/enchantress_base_attack.vpcf"
 		"ProjectileSpeed"                       "1800"
 		"StatusMana"                            "100"
 		"AttackCapabilities"                    "DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -392,22 +394,24 @@
 		{
 			"AttachWearables"
 			{
-				"Wearable1"                     { "ItemDef" "308" }
-				"Wearable1"                     { "ItemDef" "309" }
-				"Wearable1"                     { "ItemDef" "310" }
+				"Wearable1"                     { "ItemDef" "286" }
+				"Wearable1"                     { "ItemDef" "287" }
+				"Wearable1"                     { "ItemDef" "288" }
+				"Wearable1"                     { "ItemDef" "289" }
+				"Wearable1"                     { "ItemDef" "290" }
 			}
 		}
 	}
 	"AT12L03"
 	{
 		"AttackRange"                           "1200"
-		"Model"                                 "models/heroes/storm_spirit/storm_spirit.vmdl"
-		"SoundSet"                              "Hero_StormSpirit"
-		"GameSoundsFile"                        "soundevents/game_sounds_heroes/game_sounds_stormspirit.vsndevts"
-		"ModelScale"                            "1.2"
+		"Model"                                 "models/heroes/enchantress/enchantress.vmdl"
+		"SoundSet"                              "Hero_Enchantress"
+		"GameSoundsFile"                        "soundevents/game_sounds_heroes/game_sounds_enchantress.vsndevts"
+		"ModelScale"                            "0.9"
 		"AttackAnimationPoint"                  "0.4"
-		"AttackAcquisitionRange"                "1000"
-		"ProjectileModel"                       "particles/units/heroes/hero_stormspirit/stormspirit_base_attack.vpcf"
+		"AttackAcquisitionRange"                "4000"
+		"ProjectileModel"                       "particles/units/heroes/hero_enchantress/enchantress_base_attack.vpcf"
 		"ProjectileSpeed"                       "1800"
 		"StatusMana"                            "100"
 		"AttackCapabilities"                    "DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -417,37 +421,15 @@
 		{
 			"AttachWearables"
 			{
-				"Wearable1"                     { "ItemDef" "308" }
-				"Wearable1"                     { "ItemDef" "309" }
-				"Wearable1"                     { "ItemDef" "310" }
+				"Wearable1"                     { "ItemDef" "286" }
+				"Wearable1"                     { "ItemDef" "287" }
+				"Wearable1"                     { "ItemDef" "288" }
+				"Wearable1"                     { "ItemDef" "289" }
+				"Wearable1"                     { "ItemDef" "290" }
 			}
 		}
 	}
-	"AT12L11"
-	{
-		"AttackRange"                           "1400"
-		"Model"                                 "models/heroes/storm_spirit/storm_spirit.vmdl"
-		"SoundSet"                              "Hero_StormSpirit"
-		"GameSoundsFile"                        "soundevents/game_sounds_heroes/game_sounds_stormspirit.vsndevts"
-		"ModelScale"                            "1.3"
-		"AttackAnimationPoint"                  "0.4"
-		"AttackAcquisitionRange"                "1000"
-		"ProjectileModel"                       "particles/units/heroes/hero_stormspirit/stormspirit_base_attack.vpcf"
-		"ProjectileSpeed"                       "1800"
-		"StatusMana"                            "100"
-		"AttackCapabilities"                    "DOTA_UNIT_CAP_RANGED_ATTACK"
-		"MovementCapabilities"                  "DOTA_UNIT_CAP_MOVE_GROUND"
-		"BaseClass"                             "npc_dota_creature"
-		"Creature"
-		{
-			"AttachWearables"
-			{
-				"Wearable1"                     { "ItemDef" "6431 "}
-				"Wearable1"                     { "ItemDef" "309" }
-				"Wearable1"                     { "ItemDef" "310" }
-			}
-		}
-	}
+
 	"AT13L01"
 	{
 		"AttackRange"                           "900"
@@ -496,6 +478,110 @@
 		"MovementCapabilities"                  "DOTA_UNIT_CAP_MOVE_GROUND"
 		"BaseClass"                             "npc_dota_creature"
 	}
+
+	"AT21L01"
+	{
+		"AttackRange"                           "800"
+		"Model"                                 "models/heroes/storm_spirit/storm_spirit.vmdl"
+		"SoundSet"                              "Hero_StormSpirit"
+		"GameSoundsFile"                        "soundevents/game_sounds_heroes/game_sounds_stormspirit.vsndevts"
+		"ModelScale"                            "1.2"
+		"AttackAnimationPoint"                  "0.4"
+		"AttackAcquisitionRange"                "1000"
+		"ProjectileModel"                       "particles/units/heroes/hero_stormspirit/stormspirit_base_attack.vpcf"
+		"ProjectileSpeed"                       "1800"
+		"StatusMana"                            "100"
+		"AttackCapabilities"                    "DOTA_UNIT_CAP_RANGED_ATTACK"
+		"MovementCapabilities"                  "DOTA_UNIT_CAP_MOVE_GROUND"
+		"BaseClass"                             "npc_dota_creature"
+		"Creature"
+		{
+			"AttachWearables"
+			{
+				"Wearable1"                     { "ItemDef" "308" }
+				"Wearable1"                     { "ItemDef" "309" }
+				"Wearable1"                     { "ItemDef" "310" }
+			}
+		}
+	}
+	"AT21L02"
+	{
+		"AttackRange"                           "800"
+		"Model"                                 "models/heroes/storm_spirit/storm_spirit.vmdl"
+		"SoundSet"                              "Hero_StormSpirit"
+		"GameSoundsFile"                        "soundevents/game_sounds_heroes/game_sounds_stormspirit.vsndevts"
+		"ModelScale"                            "1.2"
+		"AttackAnimationPoint"                  "0.4"
+		"AttackAcquisitionRange"                "1000"
+		"ProjectileModel"                       "particles/units/heroes/hero_stormspirit/stormspirit_base_attack.vpcf"
+		"ProjectileSpeed"                       "1800"
+		"StatusMana"                            "100"
+		"AttackCapabilities"                    "DOTA_UNIT_CAP_RANGED_ATTACK"
+		"MovementCapabilities"                  "DOTA_UNIT_CAP_MOVE_GROUND"
+		"BaseClass"                             "npc_dota_creature"
+		"Creature"
+		{
+			"AttachWearables"
+			{
+				"Wearable1"                     { "ItemDef" "308" }
+				"Wearable1"                     { "ItemDef" "309" }
+				"Wearable1"                     { "ItemDef" "310" }
+			}
+		}
+	}
+	"AT21L03"
+	{
+		"AttackRange"                           "800"
+		"Model"                                 "models/heroes/storm_spirit/storm_spirit.vmdl"
+		"SoundSet"                              "Hero_StormSpirit"
+		"GameSoundsFile"                        "soundevents/game_sounds_heroes/game_sounds_stormspirit.vsndevts"
+		"ModelScale"                            "1.2"
+		"AttackAnimationPoint"                  "0.4"
+		"AttackAcquisitionRange"                "1000"
+		"ProjectileModel"                       "particles/units/heroes/hero_stormspirit/stormspirit_base_attack.vpcf"
+		"ProjectileSpeed"                       "1800"
+		"StatusMana"                            "100"
+		"AttackCapabilities"                    "DOTA_UNIT_CAP_RANGED_ATTACK"
+		"MovementCapabilities"                  "DOTA_UNIT_CAP_MOVE_GROUND"
+		"BaseClass"                             "npc_dota_creature"
+		"Creature"
+		{
+			"AttachWearables"
+			{
+				"Wearable1"                     { "ItemDef" "308" }
+				"Wearable1"                     { "ItemDef" "309" }
+				"Wearable1"                     { "ItemDef" "310" }
+			}
+		}
+	}
+	"AT21L11"
+	{
+		"AttackRange"                           "900"
+		"Model"                                 "models/heroes/storm_spirit/storm_spirit.vmdl"
+		"SoundSet"                              "Hero_StormSpirit"
+		"GameSoundsFile"                        "soundevents/game_sounds_heroes/game_sounds_stormspirit.vsndevts"
+		"ModelScale"                            "1.3"
+		"AttackAnimationPoint"                  "0.4"
+		"AttackAcquisitionRange"                "1000"
+		"ProjectileModel"                       "particles/units/heroes/hero_stormspirit/stormspirit_base_attack.vpcf"
+		"ProjectileSpeed"                       "1800"
+		"StatusMana"                            "100"
+		"AttackCapabilities"                    "DOTA_UNIT_CAP_RANGED_ATTACK"
+		"MovementCapabilities"                  "DOTA_UNIT_CAP_MOVE_GROUND"
+		"BaseClass"                             "npc_dota_creature"
+		"Creature"
+		{
+			"AttachWearables"
+			{
+				"Wearable1"                     { "ItemDef" "6431 "}
+				"Wearable1"                     { "ItemDef" "309" }
+				"Wearable1"                     { "ItemDef" "310" }
+			}
+		}
+	}
+
+
+
 	"block_hole_dummy"
 	{
 		"Model"                                 "models/development/invisiblebox.vmdl"
@@ -1810,6 +1896,37 @@
 			}
 		}
 	}
+
+	"FT11L04"
+	{
+		"AttackRange"                           "1000"
+		"Model"                                 "models/heroes/lina/lina.vmdl"
+		"SoundSet"                              "Hero_Lina"
+		"GameSoundsFile"                        "soundevents/game_sounds_heroes/game_sounds_Lina.vsndevts"
+		"ModelScale"                            "1.1"
+		"AttackAnimationPoint"                  "0.6"
+		"AttackAcquisitionRange"                "1200"
+		"ProjectileModel"                       "particles/econ/items/shadow_fiend/sf_desolation/sf_base_attack_desolation_fire_arcana.vpcf"
+		"ProjectileSpeed"                       "1200"
+		"StatusMana"                            "100"
+		"AttackCapabilities"                    "DOTA_UNIT_CAP_RANGED_ATTACK"
+		"MovementCapabilities"                  "DOTA_UNIT_CAP_MOVE_GROUND"
+		"BaseClass"                             "npc_dota_creature"
+		"vscripts"                              "Buff_Autocast_AI"
+		"Creature"
+		{
+			"AttachWearables"
+			{
+				"Wearable1"                     { "ItemDef" "7716 "}
+				"Wearable1"                     { "ItemDef" "7717 "}
+				"Wearable1"                     { "ItemDef" "8003 "}
+				"Wearable1"                     { "ItemDef" "4794 "}
+				"Wearable1"                     { "ItemDef" "504" }
+				"Wearable1"                     { "ItemDef" "541" }
+			}
+		}
+	}
+
 	"FT12L01"
 	{
 		"AttackRange"                           "800"

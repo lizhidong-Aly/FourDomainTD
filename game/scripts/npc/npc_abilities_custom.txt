@@ -1,5 +1,695 @@
 "DOTAAbilities"
 {
+	"GT01"
+	{
+		"AbilityBehavior"                                  		        "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"                                        		        "ability_datadriven"
+		"AbilityTextureName"                               		        "juggernaut_blade_dance"
+		"MaxLevel"                                         		        "10"
+		"Modifiers"
+		{
+			"modifier_GTO1"
+			{
+				"IsHidden"                                 		        "0"
+				"Passive"                                  		        "1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"				"%dmginc"
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"dmginc"				"5 10 15 20 25 30 35 40 45 50"
+			}
+		}
+	}
+
+	"GT02"
+	{
+		"AbilityBehavior"                                  		        "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"                                        		        "ability_datadriven"
+		"AbilityTextureName"                               		        "phantom_assassin_stifling_dagger"
+		"MaxLevel"                                         		        "10"
+		"Modifiers"
+		{
+			"modifier_GTO2"
+			{
+				"IsHidden"                                 		        "0"
+				"Passive"                                  		        "1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"				"%speinc"
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"speinc"				"5 10 15 20 25 30 35 40 45 50"
+			}
+		}
+	}
+
+	"GT03"
+	{
+		"AbilityBehavior"                                  		        "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"                                        		        "ability_datadriven"
+		"AbilityTextureName"                               		        "windrunner_powershot"
+		"MaxLevel"                                         		        "10"
+		"Modifiers"
+		{
+			"modifier_GTO3"
+			{
+				"IsHidden"                                 		        "0"
+				"Passive"                                  		        "1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"				"%rnginc"
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"rnginc"				"50 100 150 200 250 300 350 400 450 500"
+			}
+		}
+	}
+
+	"GT04"
+	{
+		"AbilityBehavior"                                  		        "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"                                        		        "ability_datadriven"
+		"AbilityTextureName"                               		        "alchemist_goblins_greed"
+		"MaxLevel"                                         		        "10"
+		"Modifiers"
+		{
+			"modifier_GTO4"
+			{
+				"IsHidden"                                 		        "1"
+				"Passive"                                  		        "1"
+				"OnKill"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/TechScript/GT04Script.lua"
+						"Function"		"GT04_Function"
+						"arg"			"%arg"
+					}
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"arg"				"5"
+			}
+		}
+	}
+	"GT05"
+	{
+		"AbilityBehavior"                                  		        "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"                                        		        "ability_datadriven"
+		"AbilityTextureName"                               		        "wisp_spirits"
+		"MaxLevel"                                         		        "10"
+		"Modifiers"
+		{
+			"modifier_GTO5"
+			{
+				"IsHidden"                                 		        "1"
+				"Passive"                                  		        "1"
+				"OnKill"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/TechScript/GT05Script.lua"
+						"Function"		"GT05_Function"
+						"arg"			"%arg"
+					}
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"arg"				"0.5"
+			}
+		}
+	}
+
+	"GT06"
+	{
+		"AbilityBehavior"                                  		        "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"                                        		        "ability_datadriven"
+		"AbilityTextureName"                               		        "wisp_spirits"
+		"MaxLevel"                                         		        "10"
+		"Modifiers"
+		{
+			"modifier_GTO6"
+			{
+				"IsHidden"                                 		        "1"
+				"Passive"                                  		        "1"
+				"OnKill"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/TechScript/GT06Script.lua"
+						"Function"		"GT06_Function"
+						"arg"			"%arg"
+					}
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"arg"				"0.25"
+			}
+		}
+	}
+
+	"ET01"
+	{
+		"AbilityBehavior"                                  		        "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"                                        		        "ability_datadriven"
+		"AbilityTextureName"                               		        "earth_spirit_boulder_smash"
+		"MaxLevel"                                         		        "4"
+		"Modifiers"
+		{
+			"modifier_ET01"
+			{
+				"IsHidden"                                 		        "0"
+				"Passive"                                  		        "1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"  		"%dmginc"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" 		"%speinc"
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" 		        "%rnginc"
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"dmginc"				"10 20 40 80"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"speinc"				"5 10 15 20"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"rnginc"				"25 50 75 100"
+			}
+		}
+	}
+
+	"ET21"
+	{
+		"AbilityBehavior"                                  		        "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"                                        		        "ability_datadriven"
+		"AbilityTextureName"                               		        "wisp_spirits"
+		"MaxLevel"                                         		        "1"
+		"OnCreated"
+		{
+			"RunScript"
+				{
+					"ScriptFile"	"scripts/vscripts/TechScript/ET21Script.lua"
+					"Function"		"ET21_Function"
+				}
+		}
+	}
+
+	"ET31"
+	{
+		"AbilityBehavior"                                  		        "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"                                        		        "ability_datadriven"
+		"AbilityTextureName"                               		        "enigma_black_hole"
+		"MaxLevel"                                         		        "1"
+		"OnCreated"
+		{
+			"RunScript"
+				{
+					"ScriptFile"	"scripts/vscripts/TechScript/ET31Script.lua"
+					"Function"		"ET31_Function"
+				}
+		}
+	}
+
+	"WT01"
+	{
+		"AbilityBehavior"                                  		        "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"                                        		        "ability_datadriven"
+		"AbilityTextureName"                               		        "invoker_quas"
+		"MaxLevel"                                         		        "4"
+		"Modifiers"
+		{
+			"modifier_WT01"
+			{
+				"IsHidden"                                 		        "0"
+				"Passive"                                  		        "1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"  		"%dmginc"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" 		"%speinc"
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" 		        "%rnginc"
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"dmginc"				"10 20 30 40"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"speinc"				"10 20 30 40"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"rnginc"				"50 100 150 300"
+			}
+		}
+	}
+
+	"WT12"
+	{
+		"AbilityBehavior"                                  		        "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"                                        		        "ability_datadriven"
+		"AbilityTextureName"                               		        "tidehunter_gush"
+		"MaxLevel"                                         		        "1"
+		"OnCreated"
+		{
+			"RunScript"
+				{
+					"ScriptFile"	"scripts/vscripts/TechScript/WT12Script.lua"
+					"Function"		"WT12_Function"
+				}
+		}
+	}
+
+	"WT21"
+	{
+		"AbilityBehavior"                                  		        "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"                                        		        "ability_datadriven"
+		"AbilityTextureName"                               		        "tusk_frozen_sigil"
+		"MaxLevel"                                         		        "1"
+		"OnCreated"
+		{
+			"RunScript"
+				{
+					"ScriptFile"	"scripts/vscripts/TechScript/WT21Script.lua"
+					"Function"		"WT21_Function"
+				}
+		}
+	}
+
+	"FT01"
+	{
+		"AbilityBehavior"                                  		        "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"                                        		        "ability_datadriven"
+		"AbilityTextureName"                               		        "invoker_exort"
+		"MaxLevel"                                         		        "4"
+		"Modifiers"
+		{
+			"modifier_FT01"
+			{
+				"IsHidden"                                 		        "0"
+				"Passive"                                  		        "1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"  		"%dmginc"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" 		"%speinc"
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" 		        "%rnginc"
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"dmginc"				"10 20 30 60"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"speinc"				"10 20 40 80"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"rnginc"				"25 50 75 100"
+			}
+		}
+	}
+
+	"FT21"
+	{
+		"AbilityBehavior"                                  		        "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"                                        		        "ability_datadriven"
+		"AbilityTextureName"                               		        "huskar_berserkers_blood"
+		"MaxLevel"                                         		        "1"
+		"OnCreated"
+		{
+			"RunScript"
+				{
+					"ScriptFile"	"scripts/vscripts/TechScript/FT21Script.lua"
+					"Function"		"FT21_Function"
+				}
+		}
+	}
+
+	"FT41"
+	{
+		"AbilityBehavior"                                  		        "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"                                        		        "ability_datadriven"
+		"AbilityTextureName"                               		        "lina_fiery_soul"
+		"MaxLevel"                                         		        "1"
+		"OnCreated"
+		{
+			"RunScript"
+				{
+					"ScriptFile"	"scripts/vscripts/TechScript/FT41Script.lua"
+					"Function"		"FT41_Function"
+				}
+		}
+	}
+
+	"fiery_soul"
+	{
+		"AbilityBehavior"                                  		        "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"BaseClass"                                        		        "ability_datadriven"
+		"AbilityTextureName"                               		        "lina_fiery_soul_alt1"
+		"AbilityCooldown"                                  		        "0"
+		"AbilityManaCost"                                  		        "0"
+		"AbilityCastPoint"                                 		        "0.1"
+		"AbilityChannelTime"											"3"
+		"MaxLevel"                                         		        "1"
+		"OnChannelSucceeded"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/TechScript/FT41Script.lua"
+				"Function"		"FierySoul"
+			}
+		}
+	}
+
+	"flame_field"
+	{
+		"AbilityBehavior"                                  		        "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+		"BaseClass"                                        		        "ability_datadriven"
+		"AbilityTextureName"                               		        "jakiro_macropyre"
+		"MaxLevel"                                         		        "1"
+	
+		"precache"
+		{
+			"particle"  "particles/units/heroes/hero_ember_spirit/ember_spirit_flameguard.vpcf"
+		}
+
+		"Modifiers"
+		{
+			"modifier_flame_field_aura_passive"
+			{
+				"Passive"                                  		        "1"
+				"IsHidden"                                 		        "1"
+				"ThinkInterval"                            		        "1"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"                       		        "particles\custom_effect\dimian_fuwen_fire.vpcf"
+						"EffectAttachType"                 		        "follow_origin"
+						"Target"                           		        "CASTER"
+					}
+					"AttachEffect"
+					{
+						"EffectName"                       		        "particles/econ/courier/courier_wyvern_hatchling/courier_wyvern_hatchling_fire.vpcf"
+						"EffectAttachType"                 		        "follow_origin"
+						"Target"                           		        "CASTER"
+					}
+					"AttachEffect"
+					{
+						"EffectName"                       		        "particles/units/heroes/hero_ember_spirit/ember_spirit_flameguard.vpcf"
+						"EffectAttachType"                 		        "follow_origin"
+						"Target"                           		        "CASTER"
+					}
+				}
+				"OnIntervalThink"
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_flame_field_aura_passive_buff"
+						"Target"
+						{
+							"Center"  	"CASTER"
+							"Radius" 	"10000"
+							"Teams" 	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+							"Types" 	"DOTA_UNIT_TARGET_BASIC"
+						}
+					}
+				}
+			}
+			"modifier_flame_field_aura_passive_buff"
+			{
+				"IsHidden"												"0"
+				"Passive"												"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		        "%attspcinc"
+				}
+			}
+		}
+		"AbilitySpecial"{
+			"01"{
+				"var_type"                                 		        "FIELD_INTEGER"
+				"radius"                                   		        "20000"
+			}
+			"02"{
+				"var_type"                                 		        "FIELD_INTEGER"
+				"attspcinc"                                		        "40"
+			}
+		}
+	}
+
+	"fiery_soul_ability"
+	{
+		"AbilityBehavior"                                  		        "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"                                        		        "ability_datadriven"
+		"AbilityTextureName"                               		        "lina_fiery_soul_alt1"
+		"MaxLevel"                                         		        "1"
+	
+		"Modifiers"
+		{
+			"modifier_fiery_soul_ability"
+			{
+				"IsHidden"												"0"
+				"Passive"												"1"
+				"ThinkInterval"  										"1.0"
+				"OnintervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/SkillScript/fiery_soul_ability.lua"
+						"Function"		"FierySoul"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		        "%dmginc"
+				}
+			}
+		}
+		"AbilitySpecial"{
+			"01"{
+				"var_type"                                 		        "FIELD_INTEGER"
+				"dmginc"                                		        "1000"
+			}
+		}
+	}
+
+	"laguna_blade"
+	{
+		"AbilityBehavior"                                  		        "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"                            		        "DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"                            		        "DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"										"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"SpellImmunityType"												"SPELL_IMMUNITY_ENEMIES_YES"
+		"BaseClass"                                        		        "ability_datadriven"
+		"AbilityTextureName"                               		        "lina_laguna_blade"
+		"AbilityCastAnimation"											"ACT_DOTA_CAST_ABILITY_4+ti6"
+		"AbilityCastRange"                                 		        "900"
+		"AbilityCastPoint"                                 		        "0.3"
+		"AbilityCooldown"                                  		        "100"
+		"AbilityManaCost"												"100"
+		"MaxLevel"                                         		        "1"
+		"precache"
+		{
+			"particle"  "particles/econ/items/lina/lina_ti6/lina_ti6_laguna_blade.vpcf"
+			"soundfile" "soundevents/game_sounds_heroes/game_sounds_lina.vsndevts"
+		}
+		"OnSpellStart"
+		{
+			"AttachEffect"
+			{
+				"EffectName"                       		        "particles/econ/items/lina/lina_ti6/lina_ti6_laguna_blade.vpcf"
+				"EffectAttachType"                 		        "attach_hitloc"
+				"Target"
+				{
+					"Center"  	"TARGET"
+					"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Types" 	"DOTA_UNIT_TARGET_BASIC"
+					"Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				}
+				"ControlPointEntities"
+				{
+					"CASTER"                       		        "attach_hitloc"
+					"TARGET"                       		        "attach_hitloc"
+				}
+			}
+			"FireSound"
+			{
+				"EffectName"	"Ability.LagunaBlade"
+				"Target"
+				{
+					"Center"  	"TARGET"
+					"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Types" 	"DOTA_UNIT_TARGET_BASIC"
+					"Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				}
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/SkillScript/laguna_blade.lua"
+				"Function"		"LagunaBlade"
+				"dmg_a"			"%dmg_a"
+				"dmg_b"			"%dmg_b"
+			}
+		}
+		"AbilitySpecial"{
+			"01"{
+				"var_type"                                 		        "FIELD_INTEGER"
+				"dmg_a"                                		        	"40000"
+			}
+			"01"{
+				"var_type"                                 		        "FIELD_INTEGER"
+				"dmg_b"                                		        	"4000"
+			}
+		}
+	}
+
+	"AT01"
+	{
+		"AbilityBehavior"                                  		        "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"                                        		        "ability_datadriven"
+		"AbilityTextureName"                               		        "skywrath_mage_concussive_shot"
+		"MaxLevel"                                         		        "4"
+		"Modifiers"
+		{
+			"modifier_AT01"
+			{
+				"IsHidden"                                 		        "0"
+				"Passive"                                  		        "1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"  		"%dmginc"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" 		"%speinc"
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" 		        "%rnginc"
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"dmginc"				"5 10 20 40"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"speinc"				"5 10 20 40"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"rnginc"				"100 200 300 600"
+			}
+		}
+	}
+
+	"AT12"
+	{
+		"AbilityBehavior"                                  		        "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"                                        		        "ability_datadriven"
+		"AbilityTextureName"                               		        "razor_unstable_current"
+		"MaxLevel"                                         		        "1"
+		"OnCreated"
+		{
+			"RunScript"
+				{
+					"ScriptFile"	"scripts/vscripts/TechScript/AT12Script.lua"
+					"Function"		"AT12_Function"
+				}
+		}
+	}
+
+	"AT13"
+	{
+		"AbilityBehavior"                                  		        "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"                                        		        "ability_datadriven"
+		"AbilityTextureName"                               		        "drow_ranger_marksmanship"
+		"MaxLevel"                                         		        "3"
+		"Modifiers"
+		{
+			"modifier_AT13"
+			{
+				"IsHidden"                                 		        "0"
+				"Passive"                                  		        "1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"  		"%manaregen"
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" 		        "%rnginc"
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"manaregen"				"2 4 6"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"rnginc"				"100 200 300"
+			}
+		}
+	}
 
 	"lua_test_ability"
 	{
@@ -667,176 +1357,7 @@
 		}
 	
 	}
-	"attribute_bouns_A"
-	{
-		"AbilityBehavior"                                  		        "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"BaseClass"                                        		        "ability_datadriven"
-		"AbilityTextureName"                               		        "skywrath_mage_concussive_shot"
-		"MaxLevel"                                         		        "4"
-		"Modifiers"
-		{
-			"modifier_attribute_bouns_a"
-			{
-				"IsHidden"                                 		        "0"
-				"Passive"                                  		        "1"
 	
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"  "%dmginc"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%speinc"
-					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" 		        "%rangeinc"
-				}
-			}
-		}
-	
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"                                 		        "FIELD_INTEGER"
-				"dmginc"                                   		        "0 20 40 60"
-			}
-			"02"
-			{
-				"var_type"                                 		        "FIELD_INTEGER"
-				"speinc"                                   		        "0 20 40 60"
-			}
-	
-			"03"
-			{
-				"var_type"                                 		        "FIELD_INTEGER"
-				"rangeinc"                                 		        "0 100 200 300"
-			}
-		}
-	}
-	"attribute_bouns_E"
-	{
-		"AbilityBehavior"                                  		        "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"BaseClass"                                        		        "ability_datadriven"
-		"AbilityTextureName"                               		        "earth_spirit_boulder_smash"
-		"MaxLevel"                                         		        "4"
-	
-		"Modifiers"
-		{
-			"modifier_attribute_bouns_e"
-			{
-				"IsHidden"                                 		        "0"
-				"Passive"                                  		        "1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"  "%dmginc"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%speinc"
-					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" 		        "%rangeinc"
-				}
-			}
-		}
-	
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"                                 		        "FIELD_INTEGER"
-				"dmginc"                                   		        "0 20 40 60"
-			}
-			"02"
-			{
-				"var_type"                                 		        "FIELD_INTEGER"
-				"speinc"                                   		        "0 20 40 60"
-			}
-	
-			"03"
-			{
-				"var_type"                                 		        "FIELD_INTEGER"
-				"rangeinc"                                 		        "0 100 200 300"
-			}
-		}
-	}
-	"attribute_bouns_F"
-	{
-		"AbilityBehavior"                                  		        "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"BaseClass"                                        		        "ability_datadriven"
-		"AbilityTextureName"                               		        "invoker_exort"
-		"MaxLevel"                                         		        "4"
-	
-		"Modifiers"
-		{
-			"modifier_attribute_bouns_f"
-			{
-				"IsHidden"                                 		        "0"
-				"Passive"                                  		        "1"
-	
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"  "%dmginc"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%speinc"
-					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" 		        "%rangeinc"
-				}
-			}
-		}
-	
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"                                 		        "FIELD_INTEGER"
-				"dmginc"                                   		        "0 20 40 60"
-			}
-			"02"
-			{
-				"var_type"                                 		        "FIELD_INTEGER"
-				"speinc"                                   		        "0 20 40 60"
-			}
-	
-			"03"
-			{
-				"var_type"                                 		        "FIELD_INTEGER"
-				"rangeinc"                                 		        "0 100 200 300"
-			}
-		}
-	}
-	"attribute_bouns_W"
-	{
-		"AbilityBehavior"                                  		        "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"BaseClass"                                        		        "ability_datadriven"
-		"AbilityTextureName"                               		        "invoker_quas"
-		"MaxLevel"                                         		        "4"
-	
-		"Modifiers"
-		{
-			"modifier_attribute_bouns_w"
-			{
-				"IsHidden"                                 		        "0"
-				"Passive"                                  		        "1"
-	
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"  "%dmginc"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%speinc"
-					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" 		        "%rangeinc"
-				}
-			}
-		}
-	
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"                                 		        "FIELD_INTEGER"
-				"dmginc"                                   		        "0 20 40 60"
-			}
-			"02"
-			{
-				"var_type"                                 		        "FIELD_INTEGER"
-				"speinc"                                   		        "0 20 40 60"
-			}
-	
-			"03"
-			{
-				"var_type"                                 		        "FIELD_INTEGER"
-				"rangeinc"                                 		        "0 100 200 300"
-			}
-		}
-	}
 	"base_passive"
 	{
 		"BaseClass"                                        		        "ability_datadriven"
@@ -1062,21 +1583,7 @@
 				"Aura_Types"                               		        "DOTA_UNIT_TARGET_BASIC"
 				"Aura_Teams"                               		        "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 				"Aura_Flags"                               		        "DOTA_UNIT_TARGET_FLAG_NONE"
-				"OnCreated"
-				{
-					"RemoveModifier"
-					{
-						"ModifierName"                     		        "modifier_brilliance_aura_passive_buff"    
-						"Target"
-						{
-							"Types"                        		        "DOTA_UNIT_TARGET_BASIC"
-							"teams"                        		        "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-							"flags"                        		        "DOTA_UNIT_TARGET_FLAG_NONE"
-							"Center"                       		        "CASTER"
-							"radius"                       		        "%radius"
-						}        
-					}
-				}
+				
 			}
 	
 			"modifier_brilliance_aura_passive_buff"
@@ -1089,11 +1596,11 @@
 		}
 		"AbilitySpecial"{
 			"01"{
-				"var_type"                                 		        "FIELD_FLOAT"
-				"manaregen"                                		        "3.0 6.0 12.0"
+				"var_type"                                 		        "FIELD_INTEGER"
+				"manaregen"                                		        "2 4 6"
 			}
 			"02"{
-				"var_type"                                 		        "FIELD_FLOAT"
+				"var_type"                                 		        "FIELD_INTEGER"
 				"radius"                                   		        "300 400 500"
 			}
 		}
@@ -1780,7 +2287,7 @@
 		"AbilityBehavior"                                  		        "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityUnitTargetTeam"                            		        "DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"                            		        "DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetFlag"											"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitTargetFlags"											"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"BaseClass"                                        		        "ability_datadriven"
 		"AbilityTextureName"                               		        "furion_sprout"
 		"AbilityCastRange"                                 		        "1200"
@@ -4138,7 +4645,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"                               		        "scripts/vscripts/TechUI.lua"
+				"ScriptFile"                               		        "scripts/vscripts/TechTree.lua"
 				"Function"                                 		        "OpenTechMenu"
 				"Target"                                   		        "CASTER"
 			}
@@ -4206,12 +4713,12 @@
 			"04"
 			{
 				"var_type"                                 		        "FIELD_INTEGER"
-				"manareg"                                 		        "3"
+				"manareg"                                 		        "1"
 			}
 			"05"
 			{
 				"var_type"                                 		        "FIELD_INTEGER"
-				"cooldown"                                 		        "20"
+				"cooldown"                                 		        "10"
 			}
 		}
 	}
@@ -4277,12 +4784,12 @@
 			"04"
 			{
 				"var_type"                                 		        "FIELD_INTEGER"
-				"manareg"                                 		        "7"
+				"manareg"                                 		        "4"
 			}
 			"05"
 			{
 				"var_type"                                 		        "FIELD_INTEGER"
-				"cooldown"                                 		        "60"
+				"cooldown"                                 		        "30"
 			}
 		}
 	}
@@ -4348,12 +4855,12 @@
 			"04"
 			{
 				"var_type"                                 		        "FIELD_INTEGER"
-				"manareg"                                 		        "5"
+				"manareg"                                 		        "2"
 			}
 			"05"
 			{
 				"var_type"                                 		        "FIELD_INTEGER"
-				"cooldown"                                 		        "40"
+				"cooldown"                                 		        "20"
 			}		}
 	}
 	"hero_special_holy_light"
@@ -4441,7 +4948,7 @@
 		"AbilityBehavior"                                  		        "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"                                        		        "ability_datadriven"
 		"AbilityTextureName"                               		        "sandking_epicenter"
-		"AbilityUnitTargetFlag"                            		        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitTargetFlags"                            		        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityUnitDamageType"                            		        "DAMAGE_TYPE_PHYSICAL"
 		"MaxLevel"                                         		        "4"
 	
@@ -4559,7 +5066,7 @@
 		"AbilityBehavior"                                  		        "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"                                        		        "ability_datadriven"
 		"AbilityTextureName"                               		        "sandking_sand_storm"
-		"AbilityUnitTargetFlag"                            		        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitTargetFlags"                            		        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityUnitDamageType"                            		        "DAMAGE_TYPE_PURE"
 		"MaxLevel"                                         		        "4"
 		"precache" 
@@ -4843,9 +5350,9 @@
 		"AbilityBehavior"                                  		        "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"BaseClass"                                        		        "ability_datadriven"
 		"AbilityTextureName"                               		        "storm_spirit_ball_lightning"
-		"AbilityCooldown"                                  		        "15 10 5"
-		"AbilityManaCost"                                  		        "0"
-		"AbilityCastRange"                                 		        "0"
+		"AbilityCooldown"                                  		        "10 5 1"
+		"AbilityManaCost"                                  		        "30 20 10"
+		"AbilityCastRange"                                 		        "1000 2000 3000"
 		"AbilityCastPoint"                                 		        "0"
 		"MaxLevel"                                         		        "3"
 		"OnSpellStart"
@@ -5275,7 +5782,7 @@
 		"AbilitySpecial"{
 			"01"{
 				"var_type"                                 		        "FIELD_FLOAT"
-				"dmginc"                                   		        "200"
+				"dmginc"                                   		        "50"
 			}
 			"02"{
 				"var_type"                                 		        "FIELD_FLOAT"
@@ -5283,7 +5790,7 @@
 			}
 			"03"{
 				"var_type"                                 		        "FIELD_FLOAT"
-				"limit"                                    		        "15 30 45"
+				"limit"                                    		        "40 80 120"
 			}
 		}
 	}
@@ -5292,7 +5799,7 @@
 		"AbilityBehavior"                                  		        "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"                                        		        "ability_datadriven"
 		"AbilityTextureName"                               		        "razor_static_link"
-		"AbilityUnitTargetFlag"                            		        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitTargetFlags"                            		        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityUnitDamageType"                            		        "DAMAGE_TYPE_PURE"
 		"MaxLevel"                                         		        "3"
 		"precache" 
@@ -5819,11 +6326,79 @@
 		"AbilitySpecial"{
 			"01"{
 				"var_type"                                 		        "FIELD_INTEGER"
-				"rangeadded"                               		        "400 600 800"
+				"rangeadded"                               		        "200 400 600"
 			}
 			"02"{
 				"var_type"                                 		        "FIELD_INTEGER"
-				"radius"                                   		        "300 350 400"
+				"radius"                                   		        "400 450 500"
+			}
+		}
+	}
+
+	"impetus"
+	{
+		"AbilityBehavior"                                  		       	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
+		"AbilityUnitTargetTeam"                            		        "DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"                            		        "DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"											"DAMAGE_TYPE_PURE"
+		"BaseClass"                                        		        "ability_datadriven"
+		"AbilityTextureName"                               		        "enchantress_impetus"
+		"AbilityCastRange"												"9999"
+		"AbilityManaCost"                                  		        "20"
+		"MaxLevel"                                         		        "3"
+		"precache"
+		{
+			"particle"  "particles/units/heroes/hero_enchantress/enchantress_impetus.vpcf"
+			"soundfile" "soundevents/game_sounds_heroes/game_sounds_enchantress.vsndevts"
+		}
+		"Modifiers"
+		{
+			"modifier_impetus_orb"
+			{
+				"Passive"												"1"
+				"IsHidden"                                 		        "1"
+				
+				"Orb"
+				{
+					"Priority"			"DOTA_ORB_PRIORITY_ABILITY"
+					"ProjectileName"    "particles/units/heroes/hero_enchantress/enchantress_impetus.vpcf"
+					"CastAttack"		"1"
+				}
+				
+				"OnOrbFire"
+				{
+					"SpendMana"
+					{
+						"Mana"		"%AbilityManaCost"
+					}
+					"FireSound"
+					{
+						"EffectName"	"Hero_Enchantress.Impetus"
+						"Target" 		"TARGET"
+					}
+				}
+				
+				"OnOrbImpact"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/SkillScript/impetus.lua"
+						"Function"		"Impetus"
+						"arg_a"			"%arg_a"
+						"arg_b"			"%arg_b"
+					}
+				}
+			}
+		}
+	
+		"AbilitySpecial"{
+			"01"{
+				"var_type"                                 		        "FIELD_FLOAT"
+				"arg_a"                                      		        "0.5 1 2"
+			}
+			"02"{
+				"var_type"                                 		        "FIELD_INTEGER"
+				"arg_b"                                      		        "2000 4000 8000"
 			}
 		}
 	}

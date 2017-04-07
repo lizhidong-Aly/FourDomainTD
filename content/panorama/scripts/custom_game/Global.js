@@ -153,7 +153,6 @@ function ModifyTooltipWidth(){
 	}else{
 		$.Schedule(1/30,ModifyTooltipWidth);
 	}
-
 }
 
 function InitUIComponment(){

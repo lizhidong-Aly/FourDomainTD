@@ -15,7 +15,7 @@ function InitTowerList(){
 		"ET12L01": ["npc_dota_hero_sand_king",false,"3"],
 		"ET13L01": ["npc_dota_hero_beastmaster",false,"3"],
 		"ET21L01": ["npc_dota_hero_enigma",false,"3"],
-		"ES01L01": ["tiny_avalanche",false,"3"],
+		"ES01L01": ["npc_dota_hero_wisp",false,"3"],
 
 		"WT01L01": ["npc_dota_hero_morphling",false,"3"],
 		"WT02L01": ["npc_dota_hero_venomancer",false,"3"],
@@ -23,7 +23,7 @@ function InitTowerList(){
 		"WT11L01": ["npc_dota_hero_ancient_apparition",false,"3"],
 		"WT13L01": ["npc_dota_hero_tusk",false,"3"],
 		"WT21L01": ["npc_dota_hero_lich",false,"3"],
-		"WS01L01": ["lich_chain_frost",false,"3"],
+		"WS01L01": ["npc_dota_hero_wisp",false,"3"],
 
 		"FT01L01": ["npc_dota_hero_ember_spirit",false,"3"],
 		"FT02L01": ["npc_dota_hero_phoenix",false,"3"],
@@ -31,15 +31,16 @@ function InitTowerList(){
 		"FT11L01": ["npc_dota_hero_lina",false,"3"],
 		"FT12L01": ["npc_dota_hero_huskar",false,"3"],
 		"FT13L01": ["npc_dota_hero_juggernaut",false,"3"],
-		"FS01L01": ["phoenix_supernova",false,"3"],
+		"FS01L01": ["npc_dota_hero_wisp",false,"3"],
 
 		"AT01L01": ["npc_dota_hero_skywrath_mage",false,"3"],
 		"AT02L01": ["npc_dota_hero_queenofpain",false,"3"],
 		"AT03L01": ["npc_dota_hero_razor",false,"3"],
 		"AT11L01": ["npc_dota_hero_windrunner",false,"3"],
-		"AT12L01": ["npc_dota_hero_storm_spirit",false,"3"],
+		"AT12L01": ["npc_dota_hero_enchantress",false,"3"],
 		"AT13L01": ["npc_dota_hero_zuus",false,"3"],
-		"AS01L01": ["disruptor_thunder_strike",false,"3"],
+		"AT21L01": ["npc_dota_hero_storm_spirit",false,"3"],
+		"AS01L01": ["npc_dota_hero_wisp",false,"3"],
 	};
 	var l=["ES0","FS0","WS0","AS0"]
 	for(var name in towerInfo){
@@ -55,7 +56,6 @@ function InitTowerList(){
 			tower.SetTower(towerInfo[name][0],towerInfo[name][1]);
 		}
 	}
-	
 }
 
 function MenuSwtich(){
@@ -78,7 +78,7 @@ function UnLockTower(name){
 }
 
 function UnlockTowerLevel(data){
-	for(var i=1;i<=4;i++){
+	for(var i=1;i<=10;i++){
 		if(data[i]!=null){
 			UnLockTower(data[i]);
 		}

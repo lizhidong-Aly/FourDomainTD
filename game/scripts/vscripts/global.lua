@@ -5,8 +5,8 @@ end
 
 function GetRandomPositionAround(unit)
 	local pos=unit:GetOrigin()
-	pos[1]=pos[1]+RandomInt(-30,30)
-	pos[2]=pos[2]+RandomInt(-30,30)
+	pos[1]=pos[1]+RandomInt(-64,64)
+	pos[2]=pos[2]+RandomInt(-64,64)
 	return pos
 end
 
@@ -14,6 +14,12 @@ function SendEventToPlayer(pid,event,args)
 	local conn_state=PlayerResource:GetConnectionState(pid)
 	if conn_state==2 then
 		CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(pid), event, args )		
+	end
+end
+
+function SendEventToAllPlayer(event,args)
+	for i,v in pairs(_G.Player) do
+		SendEventToPlayer(v.pid,event,args)
 	end
 end
 

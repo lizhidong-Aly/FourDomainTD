@@ -7,12 +7,21 @@
 		<include src="file://{resources}/scripts/custom_game/Tech.js" />
 	</scripts>
 	<Panel class="TechPanel" hittest="false">
-		<Panel id="LevelIndicator">
-		</Panel>
 		<Button id="TechButton" onmouseover="ShowTechDes()" onmouseactivate="UpgradeTech()">
 			<DOTAAbilityImage id="TechImage"/>
-			<Label id="GoldCost" text="0"/>
-			<Label class="disable" id="TechLocker"/>
+			<Label id="TechLocker"/>
 		</Button>
+		<Panel id="LevelIndicator">
+			<Panel class="LevelPoint show" id="LevelPoint_1"/>
+			<Panel class="LevelPoint" id="LevelPoint_2"/>
+			<Panel class="LevelPoint" id="LevelPoint_3"/>
+			<Panel class="LevelPoint" id="LevelPoint_4"/>
+			<Panel class="LevelPoint" id="LevelPoint_5"/>
+			<Panel class="LevelPoint" id="LevelPoint_6"/>
+			<Panel class="LevelPoint" id="LevelPoint_7"/>
+			<Panel class="LevelPoint" id="LevelPoint_8"/>
+			<Panel class="LevelPoint" id="LevelPoint_9"/>
+			<Panel class="LevelPoint" id="LevelPoint_10"/>
+		</Panel>
 	</Panel>
 </root>
