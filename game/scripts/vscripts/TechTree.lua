@@ -40,6 +40,7 @@ function TechTree:new(pid)
 	setmetatable(self,TechTree)
 	self.pid=pid
 	self.TP=INIT_TECH_POINT
+	self.all_tech={}
 	self.listener=ListenToGameEvent("tower_built", Dynamic_Wrap(TechTree, "TechListener"), self)
 	for i,v in pairs(_G.TechInfo) do
 		self.all_tech[i]=Tech:new(i,self)
