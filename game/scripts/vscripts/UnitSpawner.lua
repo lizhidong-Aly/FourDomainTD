@@ -43,6 +43,7 @@ function UnitSpawner:OnSpawn()
 		_G.isOnSpawn=false
 		self.count_spawner=0
 		Timers:RemoveTimer(self.timer_spawner)
+		WaveEnd()
 	end
 end
 

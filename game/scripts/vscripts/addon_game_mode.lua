@@ -97,11 +97,7 @@ end
 
 function TDGameMode:TestComand_A( arg_a )
 	print("****************TestComand_A****************")
-	--DeepPrintTable(CDOTAGamerules)
-	CustomNetTables:SetTableValue( "merge_list","test_value_a",_G.Player[0]);
-	--_G.AbilityTestValue=arg_a
-	--DeepPrintTable(CDOTA_Ability_Lua)
-	--DeepPrintTable(CDOTA_Ability_Lua)
+	UnlockAbility()
 	print("******************Test End******************")
 end
 
