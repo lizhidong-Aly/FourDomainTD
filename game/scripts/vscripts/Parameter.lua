@@ -1,19 +1,18 @@
 _G.VERSION="1.1"
-PRE_GAME_TIME=1
+PRE_GAME_TIME=15
 INIT_GOLD=400
 INIT_TECH_POINT=1
 INIT_EH_LIMIT=10
-SPAWN_DELAY=20
+SPAWN_DELAY=10
 _G.TESTMODE=false
 _G.DIFFICULTY=1
 _G.REFUND=1
 _G.ENEMY_ELITE_CHANCE=0.015
 _G.VOTE={}
 _G.isOnSpawn=false
-_G.levelNo=0	
+_G.levelNo=0
 _G.Player={}
 _G.unitRemaining=0
-_G.IsFountainInvulnerable=false
 _G.SpawnPosition={
 	Vector(-4800,4096,128),
 	Vector(4096,4800,128),
@@ -167,7 +166,7 @@ _G.TowerInfo={}
 		attribute="E",eh=4,eh_needed=1,abil={"earth_shot"},upgradeTo=nil
 		}
 	_G.TowerInfo.CS11L01={
-		dmgCoefficient=0.3,attSpe=1,attRange=500,
+		dmgCoefficient=0.1,attSpe=1,attRange=500,
 		cost=400
 		+_G.TowerInfo.CS01L01.cost+_G.TowerInfo.CS01L02.cost+_G.TowerInfo.CS01L03.cost
 		+_G.TowerInfo.FT01L01.cost+_G.TowerInfo.FT01L02.cost+_G.TowerInfo.FT01L03.cost,
@@ -183,7 +182,7 @@ _G.TowerInfo={}
 		cost=2000
 		+_G.TowerInfo.WT03L01.cost+_G.TowerInfo.WT03L02.cost+_G.TowerInfo.WT03L03.cost
 		+_G.TowerInfo.WT11L01.cost+_G.TowerInfo.WT11L02.cost+_G.TowerInfo.WT11L03.cost,
-		attribute="WI",eh=7,eh_needed=1,abil={"split_shot","frost_attack","split_shot_dummy_hidden"},upgradeTo=nil}
+		attribute="I",eh=7,eh_needed=1,abil={"split_shot","frost_attack","split_shot_dummy_hidden"},upgradeTo=nil}
 	_G.TowerInfo.FT03L11={
 		lv=4,dmgCoefficient=1.2,attSpe=1.6,attRange=1100,
 		cost=2000
@@ -198,9 +197,9 @@ _G.TowerInfo={}
 		attribute="A",eh=8,eh_needed=1,abil={"storm_form_e","storm_form_dummy_hidden"},upgradeTo=nil}
 
 _G.EnemyType={
-	ARMY={amount=40,distance=1,lv=1},
-	NORMAL={amount=20,distance=2,lv=2},
-	ELITE={amount=5,distance=8,lv=6},
+	ARMY={amount=40,distance=0.5,lv=1},
+	NORMAL={amount=20,distance=1,lv=2},
+	ELITE={amount=5,distance=6,lv=6},
 	BOSS={amount=1,distance=1,lv=25},
 }
 _G.levelInfo={
