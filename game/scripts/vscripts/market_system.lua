@@ -50,7 +50,7 @@ OrderFunc={
 			PlayerResource:ModifyGold(player.pid,_G.MARKET_VALUE_CRYSTAL,true,0)
 			CustomGameEventManager:Send_ServerToPlayer(player,"EmidSound",{sname="General.Sell"})
 			if _G.MARKET_VALUE_CRYSTAL > 200 then
-				_G.MARKET_VALUE_CRYSTAL = _G.MARKET_VALUE_CRYSTAL - 75
+				_G.MARKET_VALUE_CRYSTAL = _G.MARKET_VALUE_CRYSTAL - 50
 			end
 		else
 			ErrorMsg(player.pid,NOT_ENOUGH_CRYSTAL)
@@ -58,10 +58,10 @@ OrderFunc={
 	end),
 	(function(player)
 		--Buy Crystal
-		if PlayerResource:GetGold(player.pid)>=_G.MARKET_VALUE_CRYSTAL+100 then
+		if PlayerResource:GetGold(player.pid)>=_G.MARKET_VALUE_CRYSTAL+75 then
 			player.eh_limit = player.eh_limit + 1
-			PlayerResource:SpendGold(player.pid,_G.MARKET_VALUE_CRYSTAL+100,0)
-			_G.MARKET_VALUE_CRYSTAL = _G.MARKET_VALUE_CRYSTAL + 75
+			PlayerResource:SpendGold(player.pid,_G.MARKET_VALUE_CRYSTAL+75,0)
+			_G.MARKET_VALUE_CRYSTAL = _G.MARKET_VALUE_CRYSTAL + 50
 			CustomGameEventManager:Send_ServerToPlayer(player,"EmidSound",{sname="General.Buy"})
 		else
 			ErrorMsg(player.pid,NOT_ENOUGH_GOLD)

@@ -25,8 +25,13 @@ function UnitSpawner:Spawn()
 		callback = 
 		function()
 			_G.isOnSpawn=true
-			self:OnSpawn()
-     		return _G.EnemyType[_G.levelInfo[_G.levelNo].type].distance
+			if self:OnSpawn() then
+     			return _G.EnemyType[_G.levelInfo[_G.levelNo].type].distance
+     		else
+				print("End Of This Level")
+				_G.isOnSpawn=false
+				self.count_spawner=0
+     		end
     	end
 	} )
 end
@@ -38,13 +43,7 @@ function UnitSpawner:OnSpawn()
 	self:CreateUnit(_G.levelInfo[_G.levelNo],self.pos,Vector(0,0,0))
 	_G.unitRemaining=_G.unitRemaining+1
 	self.count_spawner=self.count_spawner+1
-	if self.count_spawner==_G.EnemyType[_G.levelInfo[_G.levelNo].type].amount then
-		print("End Of This Level")
-		_G.isOnSpawn=false
-		self.count_spawner=0
-		Timers:RemoveTimer(self.timer_spawner)
-		WaveEnd()
-	end
+	return self.count_spawner<_G.EnemyType[_G.levelInfo[_G.levelNo].type].amount
 end
 
 function UnitSpawner:CreateUnit(unitInfo,pos,targetPos)

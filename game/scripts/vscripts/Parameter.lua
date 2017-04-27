@@ -81,17 +81,17 @@ _G.TowerInfo={}
 	_G.TowerInfo.WT03L02={dmgCoefficient=0.9,attSpe=1.65,attRange=850,cost=700,attribute="W",eh=2,abil={"split_shot","split_shot_dummy_hidden"},upgradeTo="WT03L03"}
 	_G.TowerInfo.WT03L03={dmgCoefficient=0.8,attSpe=1.65,attRange=900,cost=900,attribute="W",eh=3,abil={"split_shot","split_shot_dummy_hidden"},upgradeTo=nil}
 	--极寒幽魂
-	_G.TowerInfo.WT11L01={dmgCoefficient=1.2,attSpe=1.6,attRange=1200,cost=600,attribute="I",eh=2,abil={"frost_curse_field"},upgradeTo="WT11L02"}
-	_G.TowerInfo.WT11L02={dmgCoefficient=1.1,attSpe=1.6,attRange=1200,cost=1000,attribute="I",eh=2,abil={"frost_curse_field"},upgradeTo="WT11L03"}
-	_G.TowerInfo.WT11L03={dmgCoefficient=1,attSpe=1.6,attRange=1200,cost=1400,attribute="I",eh=3,abil={"frost_curse_field"},upgradeTo=nil}
+	_G.TowerInfo.WT11L01={dmgCoefficient=1.2,attSpe=1.6,attRange=1200,cost=600,attribute="WI",eh=2,abil={"frost_curse_field"},upgradeTo="WT11L02"}
+	_G.TowerInfo.WT11L02={dmgCoefficient=1.1,attSpe=1.6,attRange=1200,cost=1000,attribute="WI",eh=2,abil={"frost_curse_field"},upgradeTo="WT11L03"}
+	_G.TowerInfo.WT11L03={dmgCoefficient=1,attSpe=1.6,attRange=1200,cost=1400,attribute="WI",eh=3,abil={"frost_curse_field"},upgradeTo=nil}
 	--巨牙海民
-	_G.TowerInfo.WT13L01={dmgCoefficient=1.8,attSpe=1.7,attRange=800,cost=500,attribute="I",eh=2,abil={"ice_mark"},upgradeTo="WT13L02"}
-	_G.TowerInfo.WT13L02={dmgCoefficient=1.4,attSpe=1.7,attRange=800,cost=1000,attribute="I",eh=3,abil={"ice_mark"},upgradeTo="WT13L03"}
-	_G.TowerInfo.WT13L03={dmgCoefficient=1,attSpe=1.7,attRange=800,cost=2000,attribute="I",eh=4,abil={"ice_mark"},upgradeTo=nil}
+	_G.TowerInfo.WT13L01={dmgCoefficient=1.8,attSpe=1.7,attRange=800,cost=500,attribute="WI",eh=2,abil={"ice_mark"},upgradeTo="WT13L02"}
+	_G.TowerInfo.WT13L02={dmgCoefficient=1.4,attSpe=1.7,attRange=800,cost=1000,attribute="WI",eh=3,abil={"ice_mark"},upgradeTo="WT13L03"}
+	_G.TowerInfo.WT13L03={dmgCoefficient=1,attSpe=1.7,attRange=800,cost=2000,attribute="WI",eh=4,abil={"ice_mark"},upgradeTo=nil}
 	--巫妖
-	_G.TowerInfo.WT21L01={dmgCoefficient=2,attSpe=1.8,attRange=1000,cost=2500,attribute="I",eh=3,abil={"frost_nova_attack_passive","life_ritual","ice_nova_hidden"},upgradeTo="WT21L02"}
-	_G.TowerInfo.WT21L02={dmgCoefficient=1.7,attSpe=1.8,attRange=1000,cost=5000,attribute="I",eh=4,abil={"frost_nova_attack_passive","life_ritual","ice_nova_hidden"},upgradeTo="WT21L03"}
-	_G.TowerInfo.WT21L03={dmgCoefficient=1.4,attSpe=1.8,attRange=1000,cost=7500,attribute="I",eh=5,abil={"frost_nova_attack_passive","life_ritual","ice_nova_hidden"},upgradeTo=nil}
+	_G.TowerInfo.WT21L01={dmgCoefficient=2,attSpe=1.8,attRange=1000,cost=2500,attribute="WI",eh=3,abil={"frost_nova_attack_passive","life_ritual","ice_nova_hidden"},upgradeTo="WT21L02"}
+	_G.TowerInfo.WT21L02={dmgCoefficient=1.7,attSpe=1.8,attRange=1000,cost=5000,attribute="WI",eh=4,abil={"frost_nova_attack_passive","life_ritual","ice_nova_hidden"},upgradeTo="WT21L03"}
+	_G.TowerInfo.WT21L03={dmgCoefficient=1.4,attSpe=1.8,attRange=1000,cost=7500,attribute="WI",eh=5,abil={"frost_nova_attack_passive","life_ritual","ice_nova_hidden"},upgradeTo=nil}
 -------------------火-------------------
 	--核心
 	_G.TowerInfo.FS01L01={dmgCoefficient=0,attSpe=0,attRange=0,cost=250,attribute="F",eh=1,abil={"fire_core_aura","fire_core_overload"},upgradeTo="FS01L02"}
@@ -166,7 +166,7 @@ _G.TowerInfo={}
 		attribute="E",eh=4,eh_needed=1,abil={"earth_shot"},upgradeTo=nil
 		}
 	_G.TowerInfo.CS11L01={
-		dmgCoefficient=0.1,attSpe=1,attRange=500,
+		dmgCoefficient=0.3,attSpe=1,attRange=500,
 		cost=400
 		+_G.TowerInfo.CS01L01.cost+_G.TowerInfo.CS01L02.cost+_G.TowerInfo.CS01L03.cost
 		+_G.TowerInfo.FT01L01.cost+_G.TowerInfo.FT01L02.cost+_G.TowerInfo.FT01L03.cost,
@@ -182,7 +182,7 @@ _G.TowerInfo={}
 		cost=2000
 		+_G.TowerInfo.WT03L01.cost+_G.TowerInfo.WT03L02.cost+_G.TowerInfo.WT03L03.cost
 		+_G.TowerInfo.WT11L01.cost+_G.TowerInfo.WT11L02.cost+_G.TowerInfo.WT11L03.cost,
-		attribute="I",eh=7,eh_needed=1,abil={"split_shot","frost_attack","split_shot_dummy_hidden"},upgradeTo=nil}
+		attribute="WI",eh=7,eh_needed=1,abil={"split_shot","frost_attack","split_shot_dummy_hidden"},upgradeTo=nil}
 	_G.TowerInfo.FT03L11={
 		lv=4,dmgCoefficient=1.2,attSpe=1.6,attRange=1100,
 		cost=2000

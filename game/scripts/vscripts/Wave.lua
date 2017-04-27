@@ -18,15 +18,15 @@ end
 
 function IsEndOfCurrentWave()
 	_G.unitRemaining=_G.unitRemaining-1
-	if not _G.isOnSpawn and _G.unitRemaining==0 and _G.levelNo==40 then
-		print("Game End, Congrts, You Win")
-		GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
+	if not _G.isOnSpawn and _G.unitRemaining==0 then
+		WaveEnd()
 	end
 end
 
 function WaveEnd()
 	if _G.levelNo==40 then
 		print("Game End, Congrts, You Win")
+		GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
 	else
 		print("End Of This Wave, Prepare for Next Wave")
 		if _G.levelNo%10==0 then
