@@ -4,7 +4,7 @@ function FireRitual(keys)
 	if target:IsAlive()==false then
 		local lvl=keys.caster:GetLevel()
 		local lv=_G.Player[pid].TechTree:GetTech("FT12"):GetCurrentLevel()
-		if lv==-1 then
+		if lv=-1 then
 			lv=0
 		end
 		for i=0,lv do

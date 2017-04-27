@@ -18,15 +18,15 @@ end
 
 function IsEndOfCurrentWave()
 	_G.unitRemaining=_G.unitRemaining-1
-	if not _G.isOnSpawn and _G.unitRemaining==0 and _G.levelNo==40 then
-		print("Game End, Congrts, You Win")
-		GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
+	if not _G.isOnSpawn and _G.unitRemaining==0 then
+		WaveEnd()
 	end
 end
 
 function WaveEnd()
 	if _G.levelNo==40 then
 		print("Game End, Congrts, You Win")
+		GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
 	else
 		print("End Of This Wave, Prepare for Next Wave")
 		if _G.levelNo%10==0 then
@@ -89,9 +89,7 @@ function ReachEndPoint(trigger)
 	if activator:GetTeamNumber()==DOTA_TEAM_BADGUYS  then
 		local dmg=activator:GetLevel()
 		activator:RemoveSelf()
-		if not _G.IsFountainInvulnerable then
-			AMHC:Damage(fountain,fountain,dmg,DAMAGE_TYPE_PURE,1)
-		end
+		AMHC:Damage(fountain,fountain,dmg,DAMAGE_TYPE_PURE,1)
 		if not fountain:IsAlive() then
 			GameRules:SetGameWinner(DOTA_TEAM_BADGUYS)
 		end
