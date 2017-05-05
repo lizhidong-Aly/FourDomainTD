@@ -1,0 +1,8 @@
+fdtd
+{
+	material materials/overviews/fdtd.vmat
+	pos_x -4800
+	pos_y 4800
+	scale 9.375
+}
+

@@ -36,16 +36,31 @@ function Tower:new(tname,pos,pid,totalCost)
 	return self
 end
 
+function Tower:InitUnit(unit,cost)
+	local self=unit
+	self:AddNewModifier(nil, nil, "modifier_phased", {duration=-1})
+	setmetatable(self,Tower)
+	self.name=unit:GetUnitName()
+	self.pid=unit:GetPlayerOwnerID()
+	self.totalCost=cost
+	self.nl=_G.TowerInfo[self.name].upgradeTo
+	if self.nl~=nil then
+		self.upcost=_G.TowerInfo[self.nl].cost
+	end
+	self.eh=_G.TowerInfo[self.name].eh
+	self.attribute=_G.TowerInfo[self.name].attribute
+	self:Init()
+	return self
+end
+
 function CDOTA_BaseNPC_Creature:IsTower()
-	return _G.TowerInfo[self:GetUnitName()]~=nil and self:FindAbilityByName("base_passive")==nil
+	return self:ToTower()~=nil
 end
 
 function CDOTA_BaseNPC_Creature:ToTower()
-	if self:IsTower() then
-		local player=_G.Player[self:GetPlayerOwnerID()]
-		if player~=nil then
-			return player.TowerOwned[self:entindex()]
-		end
+	local player=_G.Player[self:GetPlayerOwnerID()]
+	if player~=nil then
+		return player.TowerOwned[self:entindex()]
 	end
 end
 
@@ -170,15 +185,16 @@ function Tower:Merge(target)
 	local energy_a=self.energy
 	local energy_b=target.energy
 	local player=_G.Player[pid]
-	local t=Tower:new(mName,pos,pid,totalCost)
-	if(self.rank<RANK_LEGEND and target.rank<RANK_LEGEND and t.rank==RANK_LEGEND) then
+	local new = BuildingHelper:UpgradeBuilding(self, mName)
+	Tower:InitUnit(new,totalCost)
+	if(self.rank<RANK_LEGEND and target.rank<RANK_LEGEND and new.rank==RANK_LEGEND) then
 		player.eh_limit=player.eh_limit+12
 	end
-	if(self.rank<RANK_MASTER and target.rank<RANK_MASTER and t.rank==RANK_MASTER) then
+	if(self.rank<RANK_MASTER and target.rank<RANK_MASTER and new.rank==RANK_MASTER) then
 		player.eh_limit=player.eh_limit+3
 	end
-	t:ModifyEnergy(energy_a+energy_b,false)
-	SendEventToPlayer(pid,"SelectNewTower", {old=self:entindex(),new=t:entindex()} )
+	new:ModifyEnergy(energy_a+energy_b,false)
+	SendEventToPlayer(pid,"SelectNewTower", {old=self:entindex(),new=new:entindex()} )
 	self:Remove(true)
 	target:Remove(true)
 end
@@ -226,7 +242,8 @@ end
 
 function Tower:Upgrade()
 	local totalCost=self.totalCost+_G.TowerInfo[self.nl].cost
-	local new = Tower:new(_G.TowerInfo[self.name].upgradeTo,self:GetOrigin(),self.pid,totalCost)
+	local new = BuildingHelper:UpgradeBuilding(self, self.nl)
+	Tower:InitUnit(new,totalCost)
 	new:ModifyEnergy(self.energy,false)
 	SendEventToPlayer(self.pid,"SelectNewTower", {old=self:entindex(),new=new:entindex()} )
 	self:Remove(true)

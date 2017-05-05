@@ -3,13 +3,13 @@ require ("BuildUI")
 require ("Parameter")
 require ("TechTree")
 require ("Wave")
-require ("timers")
 require ("MergeUI")
 require ("TdPlayer")
 require ("global")
 require("amhc_library/amhc")
 require ("statcollection/init")
 require ("market_system")
+require("libraries/buildinghelper")
 
 if TDGameMode == nil then
     TDGameMode = class({})
@@ -57,6 +57,7 @@ function Precache( context )
 			PrecacheResource( "particle_folder", "particles/folder", context )
 	]]
 	PrecacheResource( "model", "models/props_structures/structure_fountain_radiant_basic.vmdl", context )
+	PrecacheResource("particle_folder", "particles/buildinghelper", context)
 end
 
 function Activate()
@@ -123,14 +124,18 @@ function TDGameMode:FilterModifiers( filterTable )
 	local ability = EntIndexToHScript( ability_index )
 
 	if modifier_name=="modifier_flame_field_aura_passive_buff" then
-		if parent:IsTower() and parent:ToTower():HasAttribute("F")  then
-			parent:FindModifierByName("modifier_flame_field_aura_passive_buff"):SetStackCount(3)
+		if parent then
+			if parent:IsTower() then
+				if parent:ToTower():HasAttribute("F")  then
+					parent:FindModifierByName("modifier_flame_field_aura_passive_buff"):SetStackCount(3)
+				end
+			else
+				return false
+			end
 		end
+
 	end
 
-	if _G.Fountain~=nil and parent_index==_G.Fountain:entindex() then
-		print(modifier_name)
-	end
 	return true 
 end
 
@@ -297,8 +302,9 @@ function TDGameMode:OnNPCSpawned(keys)
 	if(u~=nil and u:IsHero()) then
 		print(u:GetName())
 		Timers:CreateTimer(0.05, function()
-			if _G.Player[u:GetPlayerOwnerID()]==nil then
-    			TdPlayer:InitPlayer(u:GetPlayerID(),u)
+			local pid = u:GetPlayerOwnerID()
+			if pid >=0 and pid <=3 and _G.Player[pid]==nil then
+    			TdPlayer:InitPlayer(pid,u)
     		end
     	end
   		)

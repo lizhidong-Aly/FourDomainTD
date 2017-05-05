@@ -205,21 +205,7 @@ function InitUIComponment(){
 	GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_PROTECT, false );
 	GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_GOLD, false );
 	*/
-	GameUI.SetMouseCallback( function( eventName, arg ) {
-		var CONSUME_EVENT = true;
-		var CONTINUE_PROCESSING_EVENT = false;
 
-		if ( GameUI.GetClickBehaviors() !== CLICK_BEHAVIORS.DOTA_CLICK_BEHAVIOR_NONE ){
-			return CONTINUE_PROCESSING_EVENT;
-		}
-		if ( eventName == "pressed" ){
-			// Left-click is move to position
-			if ( arg === 0 ){
-				GameEvents.SendCustomGameEventToServer( "ClosedAllUI",{});
-			}
-		}
-		return CONTINUE_PROCESSING_EVENT;
-	});
 	for(panel=$.GetContextPanel();panel!=null;panel=panel.GetParent()){
 		hudRoot=panel;
 	}

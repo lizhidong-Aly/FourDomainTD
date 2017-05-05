@@ -3,5 +3,9 @@
 	custom_net_tables =
 	[
 		"merge_list",
+		"builders",
+        "selection",
+        "construction_size",
+        "building_settings",
 	]
 }

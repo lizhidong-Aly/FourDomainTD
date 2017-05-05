@@ -1605,70 +1605,20 @@
 			}
 		}
 	}
-	"BuildTower"
+	"CancelBuilding"
 	{
-		"AbilityBehavior"                                  		        "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityBehavior"                                  		        "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"BaseClass"                                        		        "ability_datadriven"
 		"AbilityTextureName"                               		        "custom/BTNArcaniteArchitecture"
-		"AbilityCooldown"                                  		        "0.0"
-		"AbilityManaCost"                                  		        "0"
-		"AbilityCastPoint"                                 		        "0.01"
-		"AbilityChannelTime"                               		        "5.0"
 		"MaxLevel"                                         		        "1"
-	
-		"precache" 
-		{
-			"particle"                                     		        "particles/custom_effect/tower_build_effect.vpcf"
-		}
-	
-		"OnChannelInterrupted"
+		"OnSpellStart"
 		{
 			"RunScript"
 			{
-				"ScriptFile"                               		        "scripts/vscripts/BuildUI.lua"
-				"Function"                                 		        "RefundBuildCost"
-				"Target"                                   		        "CASTER"
-			}
-	
-		}
-		"OnChannelSucceeded"
-		{
-			"RunScript"
-			{
-				"ScriptFile"                               		        "scripts/vscripts/BuildUI.lua"
-				"Function"                                 		        "Build"
-				"Target"                                   		        "CASTER"
+				"ScriptFile"                               		        "scripts/vscripts/builder.lua"
+				"Function"                                 		        "CancelBuilding"
 			}
 		}
-	
-		"Modifiers"
-		{
-			"modifier_build_visul_effect"
-			{
-				"IsHidden"                                 		        "1"
-				"Passive"                                  		        "1"
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"EffectName"                       		        "particles/custom_effect/tower_build_effect.vpcf"
-						"EffectAttachType"                 		        "follow_origin"
-						"Dutation"                         		        "8"
-						"Target"                           		        "CASTER"
-						"ControlPointEntities"
-						{
-							"CASTER"                       		        "follow_origin"
-							"CASTER"                       		        "follow_origin"
-							"CASTER"                       		        "follow_origin"
-							"CASTER"                       		        "follow_origin"
-							"CASTER"                       		        "follow_origin"
-							"CASTER"                       		        "follow_origin"
-						}
-					}
-				}
-			}
-		}
-	
 	}
 	"burning_soul"
 	{
@@ -4598,8 +4548,27 @@
 				}
 			}
 		}
-	
 	}
+
+	"no_damage_incoming"
+	{
+		"AbilityBehavior"                                  		        "DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"                                        		        "ability_datadriven"
+	
+		"Modifiers"
+		{
+			"modifier_no_damage_incoming"
+			{   
+				"Passive"                                  		        "1"
+				"IsHidden"                                 		        "1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"		"-100"
+				}
+			}
+		}
+	}
+
 	"OpenBuildingMenu"
 	{
 		"AbilityBehavior"                                  		        "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
@@ -5182,32 +5151,21 @@
 	}
 	"SelectPosition"
 	{
-		"AbilityBehavior"                                  		        "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityBehavior"                                  		        "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"BaseClass"                                        		        "ability_datadriven"
 		"AbilityTextureName"                               		        "custom/BTNArcaniteArchitecture"
-		"AbilityCooldown"                                  		        "0.0"
-		"AbilityManaCost"                                  		        "0"
-		"AbilityCastRange"                                 		        "200"
-		"AbilityCastPoint"                                 		        "0.1"
-		"AoERadius"                                        		        "80"
 		"MaxLevel"                                         		        "1"
-		"HotKeyOverride"                                   		        "e"
-		"OnAbilityPhaseStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"                               		        "scripts/vscripts/BuildUI.lua"
-				"Function"                                 		        "BuildTest"
-				"Target"                                   		        "POINT"
-			}
-		}
+		"Building"														"1"
+		"AbilityCastRange"												"400"
+		"BuildTime"														"5"
+		"PlayerCanControl"												"1"
+		"Scale"															"1"
 		"OnSpellStart"
 		{
 			"RunScript"
 			{
-				"ScriptFile"                               		        "scripts/vscripts/BuildUI.lua"
-				"Function"                                 		        "CreateBase"
-				"Target"                                   		        "POINT"
+				"ScriptFile"                               		        "scripts/vscripts/builder.lua"
+				"Function"                                 		        "Build"
 			}
 		}
 	
